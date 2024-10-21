@@ -13,14 +13,14 @@ namespace kxf::Utility
 
 	template<class T, class... Args>
 	requires(std::is_constructible_v<T, Args...>)
-	T* ConstructAt(void* buffer, Args&&... arg) noexcept(std::is_nothrow_constructible_v<T, Args...>)
+	constexpr T* ConstructAt(void* buffer, Args&&... arg) noexcept(std::is_nothrow_constructible_v<T, Args...>)
 	{
 		return std::construct_at<T>(reinterpret_cast<T*>(buffer), std::forward<Args>(arg)...);
 	}
 
 	template<class T, class... Args>
 	requires(std::is_constructible_v<T, Args...>)
-	T* AlignAndConstructAt(void* buffer, size_t size, size_t alignment, Args&&... arg) noexcept(std::is_nothrow_constructible_v<T, Args...>)
+	constexpr T* AlignAndConstructAt(void* buffer, size_t size, size_t alignment, Args&&... arg) noexcept(std::is_nothrow_constructible_v<T, Args...>)
 	{
 		void* ptr = buffer;
 		size_t space = size;
@@ -33,15 +33,21 @@ namespace kxf::Utility
 
 	template<class T, class... Args>
 	requires(std::is_constructible_v<T, Args...>)
-	T* AlignAndConstructAt(void* buffer, size_t size, Args&&... arg) noexcept(std::is_nothrow_constructible_v<T, Args...>)
+	constexpr T* AlignAndConstructAt(void* buffer, size_t size, Args&&... arg) noexcept(std::is_nothrow_constructible_v<T, Args...>)
 	{
 		return AlignAndConstructAt<T>(buffer, size, alignof(T), std::forward<Args>(arg)...);
 	}
 
 	template<class T>
-	void DestroyAt(void* buffer) noexcept(std::is_nothrow_destructible_v<T>)
+	constexpr void DestroyAt(void* buffer) noexcept
 	{
 		std::destroy_at(static_cast<T*>(buffer));
+	}
+
+	template<class T>
+	constexpr void DestroyAt(T* ptr) noexcept
+	{
+		std::destroy_at(ptr);
 	}
 
 	template<class TFunc>
