@@ -13,6 +13,8 @@ namespace
 			{
 				ptr->SetValue(value);
 				std::invoke(func, *ptr);
+				std::destroy_at(ptr);
+
 				return true;
 			}
 		}

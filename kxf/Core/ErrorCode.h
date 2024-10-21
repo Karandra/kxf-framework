@@ -16,17 +16,13 @@ namespace kxf
 			{
 			}
 
-			template<class T>
-			requires(std::is_base_of_v<IErrorCode, T>)
+			template<std::derived_from<IErrorCode> T>
 			ErrorCode(const T& errorCode) noexcept
 				:m_IID(RTTI::GetInterfaceID<T>()), m_Value(errorCode.GetValue())
 			{
 			}
 
-			ErrorCode(ErrorCode&& other) noexcept
-			{
-				*this = std::move(other);
-			}
+			ErrorCode(ErrorCode&&) noexcept = default;
 			ErrorCode(const ErrorCode&) = delete;
 
 		public:
