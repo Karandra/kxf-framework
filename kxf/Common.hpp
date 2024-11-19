@@ -46,7 +46,6 @@
 #include "kxf/Core/StdID.h"
 #include "kxf/Core/FlagSet.h"
 #include "kxf/System/UndefWindows.h"
-#include "kxf/wxWidgets/Setup.h"
 
 // Forward declarations for some core classes
 namespace kxf
