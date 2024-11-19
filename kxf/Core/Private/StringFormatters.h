@@ -28,41 +28,7 @@ namespace std
 		}
 	};
 
-	// Converting const char[N]/wchar_t[N]
-	template<size_t N>
-	struct formatter<char[N], wchar_t>: std::formatter<std::wstring_view, wchar_t>
-	{
-		template<class T, class TFormatContext>
-		auto format(const T& value, TFormatContext& formatContext) const
-		{
-			auto converted = kxf::String::FromUTF8(value, N != 0 ? N - 1 : 0);
-			return std::formatter<std::wstring_view, wchar_t>::format(converted.xc_view(), formatContext);
-		}
-	};
-
-	template<size_t N>
-	struct formatter<wchar_t[N], char>: std::formatter<std::string_view, char>
-	{
-		template<class T, class TFormatContext>
-		auto format(const T& value, TFormatContext& formatContext) const
-		{
-			auto utf8 = kxf::String(value, N != 0 ? N - 1 : 0).ToUTF8();
-			return std::formatter<std::string_view, char>::format(utf8, formatContext);
-		}
-	};
-
-	// Converting const char*/wchar_t*
-	template<>
-	struct formatter<const char*, wchar_t>: std::formatter<std::wstring_view, wchar_t>
-	{
-		template<class TFormatContext>
-		auto format(const char* value, TFormatContext& formatContext) const
-		{
-			auto converted = kxf::String::FromUTF8(value);
-			return std::formatter<std::wstring_view, wchar_t>::format(converted.xc_view(), formatContext);
-		}
-	};
-
+	// Converting 'const char*/wchar_t*'
 	template<>
 	struct formatter<const wchar_t*, char>: std::formatter<std::string_view, char>
 	{
@@ -74,7 +40,19 @@ namespace std
 		}
 	};
 
-	// Converting const std::[w]string_view
+	// Converting 'const char[N]/wchar_t[N]'
+	template<size_t N>
+	struct formatter<wchar_t[N], char>: std::formatter<std::string_view, char>
+	{
+		template<class T, class TFormatContext>
+		auto format(const T& value, TFormatContext& formatContext) const
+		{
+			auto utf8 = kxf::String(value, N != 0 ? N - 1 : 0).ToUTF8();
+			return std::formatter<std::string_view, char>::format(utf8, formatContext);
+		}
+	};
+
+	// Converting const 'std::[w]string_view'
 	template<>
 	struct formatter<std::string_view, wchar_t>: std::formatter<std::wstring_view, wchar_t>
 	{
@@ -97,7 +75,7 @@ namespace std
 		}
 	};
 
-	// Converting const std::[w]string
+	// Converting 'const std::[w]string'
 	template<>
 	struct formatter<std::string, wchar_t>: formatter<std::string_view, wchar_t>
 	{

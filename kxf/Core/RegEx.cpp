@@ -1,5 +1,6 @@
 #include "KxfPCH.h"
 #include "RegEx.h"
+#include "kxf/wxWidgets/String.h"
 #include <wx/regex.h>
 
 namespace
@@ -143,10 +144,10 @@ namespace kxf
 		}
 
 		wxString temp;
-		Private::MoveWxString(temp, std::move(text.impl_str()));
+		wxWidgets::MoveWxString(temp, std::move(text.impl_str()));
 
 		auto result = std::clamp(m_RegEx->Replace(&temp, replacement, maxMatches), 0, std::numeric_limits<int>::max());
-		Private::MoveWxString(text.impl_str(), std::move(temp));
+		wxWidgets::MoveWxString(text.impl_str(), std::move(temp));
 
 		return result;
 	}

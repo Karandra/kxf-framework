@@ -31,24 +31,22 @@ namespace kxf
 namespace kxf
 {
 	std::basic_string_view<XChar> StringViewOf(const String& string) noexcept;
-	#ifdef __WXWINDOWS__
 	std::basic_string_view<XChar> StringViewOf(const wxString& string) noexcept;
-	#endif
 
 	template<class T>
-	std::basic_string_view<T> StringViewOf(const std::basic_string<T>& string) noexcept
+	constexpr std::basic_string_view<T> StringViewOf(const std::basic_string<T>& string) noexcept
 	{
 		return {string.data(), string.length()};
 	}
 
 	template<class T>
-	std::basic_string_view<T> StringViewOf(std::basic_string_view<T> view) noexcept
+	constexpr std::basic_string_view<T> StringViewOf(std::basic_string_view<T> view) noexcept
 	{
 		return view;
 	}
 
 	template<class T> requires(std::is_same_v<T, char> || std::is_same_v<T, wchar_t>)
-	std::basic_string_view<T> StringViewOf(const T* ptr) noexcept
+	constexpr std::basic_string_view<T> StringViewOf(const T* ptr) noexcept
 	{
 		if (ptr)
 		{
@@ -58,10 +56,12 @@ namespace kxf
 	}
 
 	template<class T> requires(std::is_bounded_array_v<T>)
-	auto StringViewOf(const T& buffer) noexcept
+	constexpr auto StringViewOf(const T& buffer) noexcept
 	{
 		using Tx = std::remove_pointer_t<std::decay_t<T>>;
-		return std::basic_string_view<Tx>(std::data(buffer), std::size(buffer) - 1);
+
+		auto size = std::size(buffer);
+		return std::basic_string_view<Tx>(std::data(buffer), size != 0 ? size - 1 : size);
 	}
 
 	constexpr inline UniChar UniCharOf(char c) noexcept
@@ -75,11 +75,6 @@ namespace kxf
 	constexpr inline UniChar UniCharOf(UniChar c) noexcept
 	{
 		return c;
-	}
-
-	namespace Private
-	{
-		void LogFormatterException(const std::format_error& e);
 	}
 }
 
@@ -298,10 +293,8 @@ namespace kxf
 			}
 			String(String&&) noexcept = default;
 
-			#ifdef __WXWINDOWS__
 			String(const wxString& other) noexcept;
 			String(wxString&& other) noexcept;
-			#endif
 
 			// Char/wchar_t pointers
 			String(const char* data, size_t length = npos);
@@ -451,33 +444,10 @@ namespace kxf
 			}
 
 			template<class OutputIt, class... Args>
-			OutputIt FormatTo(OutputIt outputIt, std::string_view format, Args&&... arg)
-			{
-				try
-				{
-					auto formatStr = String::FromUTF8(format);
-					return std::vformat_to(outputIt, formatStr.wc_view(), std::make_wformat_args(arg...));
-				}
-				catch (const std::format_error& e)
-				{
-					Private::LogFormatterException(e);
-				}
-				return outputIt;
-			}
+			OutputIt FormatTo(OutputIt outputIt, std::string_view format, Args&&... arg);
 
 			template<class OutputIt, class... Args>
-			OutputIt FormatTo(OutputIt outputIt, std::wstring_view format, Args&&... arg)
-			{
-				try
-				{
-					return std::vformat_to(outputIt, format, std::make_wformat_args(arg...));
-				}
-				catch (const std::format_error& e)
-				{
-					Private::LogFormatterException(e);
-				}
-				return outputIt;
-			}
+			OutputIt FormatTo(OutputIt outputIt, std::wstring_view format, Args&&... arg);
 
 		public:
 			template<class T> requires(IsAnyStringType<T>())
@@ -499,20 +469,10 @@ namespace kxf
 			}
 
 			template<class TFormat, class... Args>
-			String& Format(const TFormat& format, Args&&... arg)
-			{
-				FormatTo(std::back_inserter(m_String), StringViewOf(format), std::forward<Args>(arg)...);
-				return *this;
-			}
+			String& Format(const TFormat& format, Args&&... arg);
 
 			template<class TFormat, class... Args>
-			String& FormatAt(size_t position, const TFormat& format, Args&&... arg)
-			{
-				position = std::clamp(position, 0, m_String.size());
-				FormatTo(std::inserter(m_String, m_String.begin() + position), StringViewOf(format), std::forward<Args>(arg)...);
-
-				return *this;
-			}
+			String& FormatAt(size_t position, const TFormat& format, Args&&... arg);
 
 		private:
 			String& DoPrepend(std::string_view other);
@@ -1113,18 +1073,14 @@ namespace kxf
 			{
 				return std::move(m_String);
 			}
-			#ifdef __WXWINDOWS__
 			operator wxString() const;
-			#endif
 
 			// Comparison
 			std::strong_ordering operator<=>(const String& other) const noexcept
 			{
 				return xc_view() <=> other.xc_view();
 			}
-			#ifdef __WXWINDOWS__
 			std::strong_ordering operator<=>(const wxString& other) const noexcept;
-			#endif
 			std::strong_ordering operator<=>(const char* other) const
 			{
 				return CompareTo(other);
@@ -1146,12 +1102,10 @@ namespace kxf
 			{
 				return *this <=> other == 0;
 			}
-			#ifdef __WXWINDOWS__
 			bool operator==(const wxString& other) const noexcept
 			{
 				return *this <=> other == 0;
 			}
-			#endif
 			bool operator==(const char* other) const
 			{
 				return *this <=> other == 0;
@@ -1248,100 +1202,6 @@ namespace kxf
 	{
 		return {ptr, length};
 	}
-
-	namespace Private
-	{
-		#ifdef __WXWINDOWS__
-		KX_API const String::string_type& GetWxStringImpl(const wxString& string) noexcept;
-		KX_API String::string_type& GetWxStringImpl(wxString& string) noexcept;
-
-		KX_API void MoveWxString(wxString& destination, wxString&& source) noexcept;
-		KX_API void MoveWxString(wxString& destination, String::string_type&& source) noexcept;
-		KX_API void MoveWxString(String::string_type& destination, wxString&& source) noexcept;
-		#endif
-
-		template<class... Args>
-		String DoFormat(std::wstring_view format, Args&&... arg)
-		{
-			try
-			{
-				return std::vformat(format, std::make_wformat_args(arg...));
-			}
-			catch (const std::format_error& e)
-			{
-				LogFormatterException(e);
-			}
-			return String(format);
-		}
-
-		template<class... Args>
-		String DoFormat(std::string_view format, Args&&... arg)
-		{
-			auto formatStr = String::FromUTF8(format);
-			return DoFormat(formatStr.wc_view(), std::forward<Args>(arg)...);
-		}
-
-		template<class OutputIt, class... Args>
-		OutputIt DoFormatTo(OutputIt outputIt, std::wstring_view format, Args&&... arg)
-		{
-			try
-			{
-				return std::vformat_to(outputIt, format, std::make_wformat_args(arg...));
-			}
-			catch (const std::format_error& e)
-			{
-				LogFormatterException(e);
-			}
-			return outputIt;
-		}
-
-		template<class OutputIt, class... Args>
-		OutputIt DoFormatTo(OutputIt outputIt, std::string_view format, Args&&... arg)
-		{
-			auto formatStr = String::FromUTF8(format);
-			return DoFormatTo(outputIt, formatStr.wc_view(), std::forward<Args>(arg)...);
-		}
-
-		template<class... Args>
-		size_t DoFormattedSize(std::wstring_view format, Args&&... arg)
-		{
-			try
-			{
-				return std::formatted_size(format, std::forward<Args>(arg)...);
-			}
-			catch (const std::format_error& e)
-			{
-				LogFormatterException(e);
-			}
-			return 0;
-		}
-
-		template<class... Args>
-		size_t DoFormattedSize(std::string_view format, Args&&... arg)
-		{
-			auto formatStr = String::FromUTF8(format);
-			return DoFormattedSize(formatStr.wc_view(), std::forward<Args>(arg)...);
-		}
-	}
-
-	// Formatting
-	template<class TFormat, class... Args>
-	String Format(const TFormat& format, Args&&... arg)
-	{
-		return Private::DoFormat(StringViewOf(format), std::forward<Args>(arg)...);
-	}
-
-	template<class OutputIt, class TFormat, class... Args>
-	OutputIt FormatTo(OutputIt outputIt, const TFormat& format, Args&&... arg)
-	{
-		return Private::DoFormatTo(outputIt, StringViewOf(format), std::forward<Args>(arg)...);
-	}
-
-	template<class TFormat, class... Args>
-	size_t FormattedSize(const TFormat& format, Args&&... arg)
-	{
-		return Private::DoFormattedSize(StringViewOf(format), std::forward<Args>(arg)...);
-	}
 }
 
 namespace std
@@ -1366,4 +1226,5 @@ namespace kxf
 	};
 }
 
+#include "Private/Format.h"
 #include "Private/StringFormatters.h"

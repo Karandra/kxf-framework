@@ -2493,6 +2493,12 @@
     <ClInclude Include="kxf\Core\Private\Mapping.h">
       <Filter>kxf\Core\Private</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\wxWidgets\String.h">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Private\Format.h">
+      <Filter>kxf\Core\Private</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">
@@ -3779,6 +3785,9 @@
     </ClCompile>
     <ClCompile Include="kxf\Drawing\ImageDefines.cpp">
       <Filter>kxf\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Core\Private\Format.cpp">
+      <Filter>kxf\Core\Private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

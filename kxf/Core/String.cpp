@@ -3,10 +3,10 @@
 #include "RegEx.h"
 #include "IEncodingConverter.h"
 #include "kxf/IO/IStream.h"
-#include "kxf/Log/ScopedLogger.h"
 #include "kxf/Utility/Common.h"
 #include <wx/string.h>
 #include <kxf/System/UndefWindows.h>
+#include <kxf/wxWidgets/String.h>
 #include <cctype>
 
 namespace
@@ -324,12 +324,6 @@ namespace kxf
 	{
 		return {string.wx_str(), string.length()};
 	}
-
-	template<class T>
-	std::basic_string_view<T> StringViewOf(const wxScopedCharTypeBuffer<T>& buffer) noexcept
-	{
-		return {buffer.data(), buffer.length()};
-	}
 }
 
 namespace kxf
@@ -483,7 +477,7 @@ namespace kxf
 	}
 	String::String(wxString&& other) noexcept
 	{
-		Private::MoveWxString(m_String, std::move(other));
+		wxWidgets::MoveWxString(m_String, std::move(other));
 	}
 	#endif
 
@@ -985,67 +979,15 @@ namespace kxf
 	}
 
 	// Conversion
-	#ifdef __WXWINDOWS__
 	String::operator wxString() const
 	{
 		return wxString(xc_str(), length());
 	}
-	#endif
 
 	// Comparison
-	#ifdef __WXWINDOWS__
 	std::strong_ordering String::operator<=>(const wxString& other) const noexcept
 	{
 		return xc_view() <=> StringViewOf(other);
-	}
-	#endif
-}
-
-namespace kxf::Private
-{
-	#ifdef __WXWINDOWS__
-	const String::string_type& GetWxStringImpl(const wxString& string) noexcept
-	{
-		return string.ToStdWstring();
-	}
-	String::string_type& GetWxStringImpl(wxString& string) noexcept
-	{
-		return const_cast<wxStringImpl&>(string.ToStdWstring());
-	}
-
-	void MoveWxString(wxString& destination, wxString&& source) noexcept
-	{
-		if (&source != &destination)
-		{
-			// Also see a comment in the next overload
-			GetWxStringImpl(destination) = std::move(GetWxStringImpl(source));
-		}
-	}
-	void MoveWxString(wxString& destination, String::string_type&& source) noexcept
-	{
-		// wxString contains an extra buffer (m_convertedTo[W]Char) to hold converted string
-		// returned by 'wxString::AsCharBuf' but it seems it can be left untouched since wxString
-		// always rewrites its content when requested to make conversion and only changes its size
-		// when needed.
-
-		if (&source != &GetWxStringImpl(destination))
-		{
-			GetWxStringImpl(destination) = std::move(source);
-		}
-	}
-	void MoveWxString(String::string_type& destination, wxString&& source) noexcept
-	{
-		if (&GetWxStringImpl(source) != &destination)
-		{
-			// Also see a comment in the next overload
-			destination = std::move(GetWxStringImpl(source));
-		}
-	}
-	#endif
-
-	void LogFormatterException(const std::format_error& e)
-	{
-		Log::Error("std::format_error: {}", e.what());
 	}
 }
 

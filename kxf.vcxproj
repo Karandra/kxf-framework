@@ -179,6 +179,7 @@
     <ClInclude Include="kxf\Core\EncodingConverter\NativeEncodingConverter.h" />
     <ClInclude Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.h" />
     <ClInclude Include="kxf\Core\Private\ErrorCode.h" />
+    <ClInclude Include="kxf\Core\Private\Format.h" />
     <ClInclude Include="kxf\Core\Private\FormatQtStyle.h" />
     <ClInclude Include="kxf\Core\Private\Mapping.h" />
     <ClInclude Include="kxf\Core\Private\StringFormatters.h" />
@@ -717,6 +718,7 @@
     <ClInclude Include="kxf\wxWidgets\IWithEvent.h" />
     <ClInclude Include="kxf\wxWidgets\RTTI.h" />
     <ClInclude Include="kxf\wxWidgets\StreamWrapper.h" />
+    <ClInclude Include="kxf\wxWidgets\String.h" />
     <ClInclude Include="kxf\wxWidgets\StringFormatters.h" />
     <ClInclude Include="kxf\wxWidgets\SystemOptions.h" />
     <ClInclude Include="KxfPCH.h" />
@@ -894,6 +896,7 @@
     <ClCompile Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\IEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\Private\ErrorCode.cpp" />
+    <ClCompile Include="kxf\Core\Private\Format.cpp" />
     <ClCompile Include="kxf\Core\Private\Mapping.cpp" />
     <ClCompile Include="kxf\Core\StandardAllocator.cpp" />
     <ClCompile Include="kxf\Core\UniChar.cpp" />
