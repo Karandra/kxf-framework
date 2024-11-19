@@ -1,9 +1,8 @@
 #pragma once
-#include "kxf/Async/Common.h"
+#include "../Common.h"
 #include "kxf/EventSystem/GenericTimer.h"
 #include "kxf/EventSystem/IndirectInvocationEvent.h"
 #include "YieldInstruction.h"
-#include <wx/timer.h>
 #include <utility>
 #include <optional>
 #include <type_traits>

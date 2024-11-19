@@ -1,5 +1,5 @@
 #pragma once
-#include "kxf/Async/Common.h"
+#include "../Common.h"
 #include "CoroutineImpl.h"
 
 namespace kxf

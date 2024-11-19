@@ -13,12 +13,6 @@
     <Filter Include="kxf\Utility">
       <UniqueIdentifier>{52fc7bb7-70b1-4c6a-bf5f-529badf3d413}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\Async">
-      <UniqueIdentifier>{fc09224a-8afc-4d5f-8e30-38510a31f4ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Async\Coroutine">
-      <UniqueIdentifier>{5af1a9f7-b496-4a12-82b1-164394d2a34c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="kxf\RTTI">
       <UniqueIdentifier>{9f4d2d8d-8aa1-4b1f-a11f-51ca03f6bba8}</UniqueIdentifier>
     </Filter>
@@ -329,6 +323,12 @@
     <Filter Include="kxf\System\&lt;Shell&gt;">
       <UniqueIdentifier>{0916f0ce-ffd9-4a13-a034-7ae7fab6b19d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="kxf\Core\Async">
+      <UniqueIdentifier>{d149664c-803b-4509-8cc5-4d7e0accca89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\Core\Async\Coroutine">
+      <UniqueIdentifier>{5af1a9f7-b496-4a12-82b1-164394d2a34c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kxf\Threading\Common.h">
@@ -351,21 +351,6 @@
     </ClInclude>
     <ClInclude Include="kxf\Utility\TypeTraits.h">
       <Filter>kxf\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Async\Common.h">
-      <Filter>kxf\Async</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Async\Coroutine\Coroutine.h">
-      <Filter>kxf\Async\Coroutine</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Async\Coroutine\CoroutineImpl.h">
-      <Filter>kxf\Async\Coroutine</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Async\Coroutine.h">
-      <Filter>kxf\Async</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Async\DelayedCall.h">
-      <Filter>kxf\Async</Filter>
     </ClInclude>
     <ClInclude Include="kxf\RTTI\Common.h">
       <Filter>kxf\RTTI</Filter>
@@ -471,9 +456,6 @@
     </ClInclude>
     <ClInclude Include="kxf\Core\NativeUUID.h">
       <Filter>kxf\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Async\Coroutine\YieldInstruction.h">
-      <Filter>kxf\Async\Coroutine</Filter>
     </ClInclude>
     <ClInclude Include="kxf\FileSystem\FileOperations.h">
       <Filter>kxf\FileSystem</Filter>
@@ -639,9 +621,6 @@
     </ClInclude>
     <ClInclude Include="kxf\Core\StdID.h">
       <Filter>kxf\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Async.hpp">
-      <Filter>kxf/Modules</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Compression.hpp">
       <Filter>kxf/Modules</Filter>
@@ -2493,6 +2472,27 @@
     <ClInclude Include="kxf\Core\Private\Mapping.h">
       <Filter>kxf\Core\Private</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\Core\Async\Coroutine.h">
+      <Filter>kxf\Core\Async</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Async\DelayedCall.h">
+      <Filter>kxf\Core\Async</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Async\Coroutine\Coroutine.h">
+      <Filter>kxf\Core\Async\Coroutine</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Async\Coroutine\CoroutineImpl.h">
+      <Filter>kxf\Core\Async\Coroutine</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Async\Coroutine\YieldInstruction.h">
+      <Filter>kxf\Core\Async\Coroutine</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Async\Common.h">
+      <Filter>kxf\Core\Async</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Async.h">
+      <Filter>kxf\Core</Filter>
+    </ClInclude>
     <ClInclude Include="kxf\wxWidgets\String.h">
       <Filter>kxf\wxWidgets</Filter>
     </ClInclude>
@@ -2503,9 +2503,6 @@
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">
       <Filter>kxf\EventSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Async\Coroutine\CoroutineImpl.cpp">
-      <Filter>kxf\Async\Coroutine</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Sciter\Node.cpp">
       <Filter>kxf\Sciter</Filter>
@@ -3785,6 +3782,9 @@
     </ClCompile>
     <ClCompile Include="kxf\Drawing\ImageDefines.cpp">
       <Filter>kxf\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Core\Async\Coroutine\CoroutineImpl.cpp">
+      <Filter>kxf\Core\Async\Coroutine</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Core\Private\Format.cpp">
       <Filter>kxf\Core\Private</Filter>

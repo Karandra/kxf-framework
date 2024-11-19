@@ -5,6 +5,7 @@
 namespace kxf::Async
 {
 	template<class TCallable>
+	requires(std::is_invocable_r_v<void, TCallable>)
 	static void DelayedCall(TCallable&& func, TimeSpan delay)
 	{
 		enum class State

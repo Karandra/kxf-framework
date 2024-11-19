@@ -175,6 +175,13 @@
     <ClInclude Include="kxf\Compression\SevenZip\Private\PasswordHandler.h" />
     <ClInclude Include="kxf\Compression\SevenZip\Private\Utility.h" />
     <ClInclude Include="kxf\Compression\SevenZip\Private\WithEvtHandler.h" />
+    <ClInclude Include="kxf\Core\Async.h" />
+    <ClInclude Include="kxf\Core\Async\Common.h" />
+    <ClInclude Include="kxf\Core\Async\Coroutine.h" />
+    <ClInclude Include="kxf\Core\Async\Coroutine\Coroutine.h" />
+    <ClInclude Include="kxf\Core\Async\Coroutine\CoroutineImpl.h" />
+    <ClInclude Include="kxf\Core\Async\Coroutine\YieldInstruction.h" />
+    <ClInclude Include="kxf\Core\Async\DelayedCall.h" />
     <ClInclude Include="kxf\Core\CallbackFunction.h" />
     <ClInclude Include="kxf\Core\EncodingConverter\NativeEncodingConverter.h" />
     <ClInclude Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.h" />
@@ -722,13 +729,6 @@
     <ClInclude Include="kxf\wxWidgets\StringFormatters.h" />
     <ClInclude Include="kxf\wxWidgets\SystemOptions.h" />
     <ClInclude Include="KxfPCH.h" />
-    <ClInclude Include="kxf\Async.hpp" />
-    <ClInclude Include="kxf\Async\Common.h" />
-    <ClInclude Include="kxf\Async\Coroutine.h" />
-    <ClInclude Include="kxf\Async\Coroutine\Coroutine.h" />
-    <ClInclude Include="kxf\Async\Coroutine\CoroutineImpl.h" />
-    <ClInclude Include="kxf\Async\Coroutine\YieldInstruction.h" />
-    <ClInclude Include="kxf\Async\DelayedCall.h" />
     <ClInclude Include="kxf\Common.hpp" />
     <ClInclude Include="kxf\Compression.hpp" />
     <ClInclude Include="kxf\Compression\ArchiveEvent.h" />
@@ -892,6 +892,7 @@
     <ClCompile Include="kxf\Compression\SevenZip\Private\OutStreamWrapper.cpp" />
     <ClCompile Include="kxf\Compression\SevenZip\Private\PasswordHandler.cpp" />
     <ClCompile Include="kxf\Compression\SevenZip\Private\Utility.cpp" />
+    <ClCompile Include="kxf\Core\Async\Coroutine\CoroutineImpl.cpp" />
     <ClCompile Include="kxf\Core\EncodingConverter\NativeEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\IEncodingConverter.cpp" />
@@ -1236,7 +1237,6 @@
     <ClCompile Include="KxfPCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="kxf\Async\Coroutine\CoroutineImpl.cpp" />
     <ClCompile Include="kxf\Compression\LZ4Stream.cpp" />
     <ClCompile Include="kxf\Compression\ZLibStream.cpp" />
     <ClCompile Include="kxf\Crypto\Common.cpp" />
