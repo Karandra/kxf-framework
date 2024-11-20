@@ -7,6 +7,7 @@ namespace kxf
 	void DefaultAsyncTaskExecutor::OnQueue(DefaultAsyncTask& task)
 	{
 		task.m_QueueTime = TimeSpan::Now();
+		task.m_TaskExecutor = QueryInterface<IAsyncTaskExecutor>();
 	}
 	void DefaultAsyncTaskExecutor::OnStartup(DefaultAsyncTask& task)
 	{

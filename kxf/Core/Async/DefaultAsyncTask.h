@@ -13,6 +13,7 @@ namespace kxf
 		friend class DefaultAsyncTaskExecutor;
 
 		private:
+			std::shared_ptr<IAsyncTaskExecutor> m_TaskExecutor;
 			AsyncTaskInfo m_TaskInfo;
 			Any m_TaskResult;
 			std::atomic<bool> m_IsCompleted = false;
@@ -37,6 +38,11 @@ namespace kxf
 
 		public:
 			// IAsyncTask
+			std::shared_ptr<IAsyncTaskExecutor> GetTaskExecutor() const override
+			{
+				return m_TaskExecutor;
+			}
+
 			void Terminate()
 			{
 				m_ShouldTerminate = true;
