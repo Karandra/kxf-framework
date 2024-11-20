@@ -58,6 +58,11 @@ namespace kxf
 
 			void WaitCompletion() override
 			{
+				if (m_IsCompleted || m_IsTerminated || m_ExecutingThread.IsCurrent())
+				{
+					return;
+				}
+
 				if (std::unique_lock lock(m_WaitLock); true)
 				{
 					m_ShouldWait = true;
