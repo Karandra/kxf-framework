@@ -1,6 +1,6 @@
 #pragma once
 #include "kxf/Core/OptionalPtr.h"
-#include "kxf/Threading/IThreadPool.h"
+#include "kxf/Core/IAsyncTaskExecutor.h"
 #include "kxf/EventSystem/EvtHandler.h"
 #include "kxf/EventSystem/EvtHandlerAccessor.h"
 #include "kxf/Network/WebRequest/IWebSession.h"
@@ -22,14 +22,14 @@ namespace kxf::Private
 
 		protected:
 			EvtHandler m_EvtHandler;
-			optional_ptr<IThreadPool> m_ThreadPool;
+			std::shared_ptr<IAsyncTaskExecutor> m_TaskExecutor;
 
 		protected:
 			EventSystem::EvtHandlerAccessor AccessEvtHandler() noexcept
 			{
 				return m_EvtHandler;
 			}
-			void DoInitialize(optional_ptr<IThreadPool> threadPool = nullptr);
+			void DoInitialize(std::shared_ptr<IAsyncTaskExecutor> taskExecutor = {});
 
 		protected:
 			// IEvtHandler

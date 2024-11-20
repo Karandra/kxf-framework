@@ -181,10 +181,14 @@
     <ClInclude Include="kxf\Core\Async\Coroutine\Coroutine.h" />
     <ClInclude Include="kxf\Core\Async\Coroutine\CoroutineImpl.h" />
     <ClInclude Include="kxf\Core\Async\Coroutine\YieldInstruction.h" />
+    <ClInclude Include="kxf\Core\Async\DefaultAsyncTask.h" />
     <ClInclude Include="kxf\Core\Async\DelayedCall.h" />
+    <ClInclude Include="kxf\Core\Async\DefaultAsyncTaskExecutor.h" />
     <ClInclude Include="kxf\Core\CallbackFunction.h" />
     <ClInclude Include="kxf\Core\EncodingConverter\NativeEncodingConverter.h" />
     <ClInclude Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.h" />
+    <ClInclude Include="kxf\Core\IAsyncTask.h" />
+    <ClInclude Include="kxf\Core\IAsyncTaskExecutor.h" />
     <ClInclude Include="kxf\Core\Private\ErrorCode.h" />
     <ClInclude Include="kxf\Core\Private\Format.h" />
     <ClInclude Include="kxf\Core\Private\FormatQtStyle.h" />
@@ -469,7 +473,6 @@
     <ClInclude Include="kxf\Threading\ThreadEvent.h" />
     <ClInclude Include="kxf\Threading\LockGuard.h" />
     <ClInclude Include="kxf\Threading\ThreadLocalSlot.h" />
-    <ClInclude Include="kxf\Threading\ThreadPool.h" />
     <ClInclude Include="kxf\UI\Controls\AUI.h" />
     <ClInclude Include="kxf\UI\Controls\AUI\AuiNotebook.h" />
     <ClInclude Include="kxf\UI\Controls\AUI\AuiToolBar.h" />
@@ -893,6 +896,7 @@
     <ClCompile Include="kxf\Compression\SevenZip\Private\PasswordHandler.cpp" />
     <ClCompile Include="kxf\Compression\SevenZip\Private\Utility.cpp" />
     <ClCompile Include="kxf\Core\Async\Coroutine\CoroutineImpl.cpp" />
+    <ClCompile Include="kxf\Core\Async\DefaultAsyncTaskExecutor.cpp" />
     <ClCompile Include="kxf\Core\EncodingConverter\NativeEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\IEncodingConverter.cpp" />
@@ -1058,7 +1062,6 @@
     <ClCompile Include="kxf\Threading\ReadWriteLock.cpp" />
     <ClCompile Include="kxf\Threading\SynchronizedCondition.cpp" />
     <ClCompile Include="kxf\Threading\ThreadLocalSlot.cpp" />
-    <ClCompile Include="kxf\Threading\ThreadPool.cpp" />
     <ClCompile Include="kxf\UI\Controls\AUI\AuiNotebook.cpp" />
     <ClCompile Include="kxf\UI\Controls\AUI\AuiToolBar.cpp" />
     <ClCompile Include="kxf\UI\Controls\AUI\AuiToolBarEvent.cpp" />

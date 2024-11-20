@@ -5,7 +5,7 @@
 
 namespace kxf::Network
 {
-	std::unique_ptr<IWebSession> CreateWebSession(const URI& uri, optional_ptr<IThreadPool> threadPool)
+	std::unique_ptr<IWebSession> CreateWebSession(const URI& uri, std::shared_ptr<IAsyncTaskExecutor> taskExecutor)
 	{
 		if (uri)
 		{
@@ -14,11 +14,11 @@ namespace kxf::Network
 			const auto scheme = uri.GetScheme();
 			if (scheme.IsSameAs("ws", StringActionFlag::IgnoreCase) || scheme.IsSameAs("wss", StringActionFlag::IgnoreCase))
 			{
-				session = std::make_unique<WSPPWebSession>(std::move(threadPool));
+				session = std::make_unique<WSPPWebSession>(std::move(taskExecutor));
 			}
 			else
 			{
-				session = std::make_unique<CURLWebSession>(std::move(threadPool));
+				session = std::make_unique<CURLWebSession>(std::move(taskExecutor));
 			}
 
 			if (session)

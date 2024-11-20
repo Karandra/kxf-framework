@@ -1707,9 +1707,6 @@
     <ClInclude Include="kxf\IO\NullStream.h">
       <Filter>kxf\IO</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Threading\ThreadPool.h">
-      <Filter>kxf\Threading</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Threading\IThreadPool.h">
       <Filter>kxf\Threading</Filter>
     </ClInclude>
@@ -2498,6 +2495,18 @@
     </ClInclude>
     <ClInclude Include="kxf\Core\Private\Format.h">
       <Filter>kxf\Core\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\IAsyncTask.h">
+      <Filter>kxf\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\IAsyncTaskExecutor.h">
+      <Filter>kxf\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Async\DefaultAsyncTaskExecutor.h">
+      <Filter>kxf\Core\Async</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\Async\DefaultAsyncTask.h">
+      <Filter>kxf\Core\Async</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -3288,9 +3297,6 @@
     <ClCompile Include="kxf\IO\NullStream.cpp">
       <Filter>kxf\IO</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Threading\ThreadPool.cpp">
-      <Filter>kxf\Threading</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Network\CURLWebSession\CURLWebRequest.cpp">
       <Filter>kxf\Network\CURLWebSession</Filter>
     </ClCompile>
@@ -3788,6 +3794,9 @@
     </ClCompile>
     <ClCompile Include="kxf\Core\Private\Format.cpp">
       <Filter>kxf\Core\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Core\Async\DefaultAsyncTaskExecutor.cpp">
+      <Filter>kxf\Core\Async</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

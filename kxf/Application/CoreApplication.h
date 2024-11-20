@@ -2,8 +2,8 @@
 #include "Common.h"
 #include "ICoreApplication.h"
 #include "CommandLineParser.h"
+#include "kxf/Core/Async/DefaultAsyncTaskExecutor.h"
 #include "kxf/Threading/LockGuard.h"
-#include "kxf/Threading/ThreadPool.h"
 #include "kxf/Threading/RecursiveRWLock.h"
 #include "kxf/EventSystem/EvtHandler.h"
 #include "kxf/EventSystem/EvtHandlerAccessor.h"
@@ -62,7 +62,7 @@ namespace kxf
 			mutable RecursiveRWLock m_EventFiltersLock;
 			std::list<std::shared_ptr<IEventFilter>> m_EventFilters;
 
-			ThreadPool m_ThreadPool;
+			DefaultAsyncTaskExecutor m_TaskExecutor;
 
 			std::optional<int> m_ExitCode;
 			bool m_NativeAppInitialized = false;
@@ -177,9 +177,9 @@ namespace kxf
 			{
 				return m_EvtHandler;
 			}
-			IThreadPool& GetThreadPool() override
+			IAsyncTaskExecutor& GetTaskExecutor() override
 			{
-				return m_ThreadPool;
+				return m_TaskExecutor;
 			}
 
 			// IEvtHandler

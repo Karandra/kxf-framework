@@ -1,7 +1,6 @@
 #include "KxfPCH.h"
 #include "BasicWebSession.h"
 #include "BasicWebRequest.h"
-#include "kxf/Threading/ThreadPool.h"
 #include "kxf/Application/ICoreApplication.h"
 #include "kxf/Utility/Container.h"
 
@@ -61,27 +60,27 @@ namespace kxf::Private
 		return false;
 	}
 
-	void BasicWebSession::DoInitialize(optional_ptr<IThreadPool> threadPool)
+	void BasicWebSession::DoInitialize(std::shared_ptr<IAsyncTaskExecutor> taskExecutor)
 	{
-		if (threadPool)
+		if (taskExecutor)
 		{
-			m_ThreadPool = std::move(threadPool);
+			m_TaskExecutor = std::move(taskExecutor);
 		}
 		else
 		{
-			m_ThreadPool = ICoreApplication::GetInstance()->GetThreadPool();
+			m_TaskExecutor = RTTI::assume_non_owned(ICoreApplication::GetInstance()->GetTaskExecutor());
 		}
 	}
 
 	bool BasicWebSession::IsNull() const noexcept
 	{
-		return m_ThreadPool.is_null();
+		return m_TaskExecutor == nullptr;
 	}
 	bool BasicWebSession::StartRequest(BasicWebRequest& request)
 	{
 		if (auto locked = request.LockRef())
 		{
-			m_ThreadPool->QueueTask([request = std::move(locked)]()
+			m_TaskExecutor->QueueTask([request = std::move(locked)]()
 			{
 				request->PerformRequest();
 			});

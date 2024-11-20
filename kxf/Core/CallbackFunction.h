@@ -62,11 +62,88 @@ namespace kxf
 
 namespace kxf
 {
+	template<class Rx_, class... Args_>
+	class BasicCallbackFunction
+	{
+		protected:
+			std::move_only_function<Rx_(Args_...)> m_Callable;
+
+		protected:
+			template<class TFunc>
+			requires(std::is_invocable_v<TFunc, Args_...>)
+			void SetCallable(TFunc&& func)
+			{
+				using R = std::invoke_result_t<TFunc, Args_...>;
+
+				if constexpr(std::is_same_v<R, Rx_>)
+				{
+					m_Callable = std::move(func);
+				}
+				else if constexpr(std::is_void_v<Rx_> && !std::is_void_v<R>)
+				{
+					m_Callable = [callable = std::move(func)](Args_&&... arg) mutable
+					{
+						static_cast<void>(std::invoke(callable, std::forward<Args_>(arg)...));
+					};
+				}
+				else if constexpr(!std::is_void_v<Rx_> && std::is_void_v<R> && std::is_default_constructible_v<Rx_>)
+				{
+					m_Callable = [callable = std::move(func)](Args_&&... arg) mutable -> Rx_
+					{
+						std::invoke(callable, std::forward<Args_>(arg)...);
+						return {};
+					};
+				}
+				else
+				{
+					static_assert(false, "BasicCallbackFunction: invalid function signature");
+				}
+			}
+
+		public:
+			BasicCallbackFunction() noexcept = default;
+
+			template<class TFunc>
+			requires(std::is_invocable_v<TFunc, Args_...>)
+			BasicCallbackFunction(TFunc&& func)
+			{
+				SetCallable(std::forward<TFunc>(func));
+			}
+
+			BasicCallbackFunction(BasicCallbackFunction&&) noexcept = default;
+			BasicCallbackFunction(const BasicCallbackFunction&) = delete;
+
+		public:
+			bool IsNull() const noexcept
+			{
+				return !static_cast<bool>(m_Callable);
+			}
+			Rx_ Invoke(Args_... arg)
+			{
+				return std::invoke(m_Callable, std::forward<Args_>(arg)...);
+			}
+
+		public:
+			explicit operator bool() const noexcept
+			{
+				return !IsNull();
+			}
+			bool operator!() const noexcept
+			{
+				return IsNull();
+			}
+
+			BasicCallbackFunction& operator=(BasicCallbackFunction&&) noexcept = default;
+			BasicCallbackFunction& operator=(const BasicCallbackFunction&) = delete;
+	};
+};
+
+namespace kxf
+{
 	template<class... Args_>
-	class CallbackFunction final
+	class CallbackFunction final: public BasicCallbackFunction<CallbackCommand, Args_...>
 	{
 		private:
-			std::move_only_function<CallbackCommand(Args_...)> m_Callable;
 			CallbackResult m_Result;
 
 		public:
@@ -75,29 +152,22 @@ namespace kxf
 			template<class TFunc>
 			requires(std::is_same_v<std::invoke_result_t<TFunc, Args_...>, CallbackCommand>)
 			CallbackFunction(TFunc&& func)
-				:m_Callable(std::move(func))
 			{
+				this->m_Callable = std::move(func);
 			}
 
 			template<class TFunc>
 			requires(std::is_same_v<std::invoke_result_t<TFunc, Args_...>, void>)
 			CallbackFunction(TFunc&& func)
 			{
-				m_Callable = [callable = std::move(func)](Args_&&... arg)
+				this->m_Callable = [callable = std::move(func)](Args_&&... arg) mutable
 				{
 					std::invoke(callable, std::forward<Args_>(arg)...);
 					return CallbackCommand::Continue;
 				};
 			}
 
-			CallbackFunction(CallbackFunction&&) noexcept = default;
-			CallbackFunction(const CallbackFunction&) = delete;
-
 		public:
-			bool IsNull() const noexcept
-			{
-				return !static_cast<bool>(m_Callable);
-			}
 			void Reset() noexcept
 			{
 				m_Result = {};
@@ -109,9 +179,9 @@ namespace kxf
 
 			CallbackFunction& Invoke(Args_... arg)
 			{
-				if (m_Callable)
+				if (this->m_Callable)
 				{
-					CallbackCommand command = std::invoke(m_Callable, std::forward<Args_>(arg)...);
+					CallbackCommand command = std::invoke(this->m_Callable, std::forward<Args_>(arg)...);
 					m_Result.UpdateWith(command);
 				}
 				else
@@ -128,18 +198,5 @@ namespace kxf
 			{
 				return m_Result;
 			}
-
-		public:
-			explicit operator bool() const noexcept
-			{
-				return !IsNull();
-			}
-			bool operator!() const noexcept
-			{
-				return IsNull();
-			}
-
-			CallbackFunction& operator=(CallbackFunction&&) noexcept = default;
-			CallbackFunction& operator=(const CallbackFunction&) = delete;
 	};
 };

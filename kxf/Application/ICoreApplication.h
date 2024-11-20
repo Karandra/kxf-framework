@@ -12,7 +12,7 @@ namespace kxf
 	class IEventFilter;
 	class IEventExecutor;
 
-	class IThreadPool;
+	class IAsyncTaskExecutor;
 	class CommandLineParser;
 }
 
@@ -210,7 +210,7 @@ namespace kxf
 			virtual IEventFilter::Result FilterEvent(IEvent& event) = 0;
 
 			virtual IEvtHandler& GetEvtHandler() = 0;
-			virtual IThreadPool& GetThreadPool() = 0;
+			virtual IAsyncTaskExecutor& GetTaskExecutor() = 0;
 			virtual const ILocalizationPackage& GetLocalizationPackage() const = 0;
 	};
 }

@@ -12,9 +12,9 @@ namespace
 
 namespace kxf
 {
-	WSPPWebSession::WSPPWebSession(optional_ptr<IThreadPool> threadPool)
+	WSPPWebSession::WSPPWebSession(std::shared_ptr<IAsyncTaskExecutor> taskExecutor)
 	{
-		BasicWebSession::DoInitialize(std::move(threadPool));
+		BasicWebSession::DoInitialize(std::move(taskExecutor));
 	}
 
 	// IWebSession

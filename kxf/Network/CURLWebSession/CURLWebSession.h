@@ -21,7 +21,7 @@ namespace kxf
 			}
 
 		public:
-			CURLWebSession(optional_ptr<IThreadPool> threadPool = nullptr);
+			CURLWebSession(std::shared_ptr<IAsyncTaskExecutor> taskExecutor = {});
 
 		public:
 			// IWebSession

@@ -21,7 +21,7 @@ namespace kxf
 			}
 
 		public:
-			WSPPWebSession(optional_ptr<IThreadPool> threadPool = nullptr);
+			WSPPWebSession(std::shared_ptr<IAsyncTaskExecutor> taskExecutor = {});
 
 		public:
 			// IWebSession

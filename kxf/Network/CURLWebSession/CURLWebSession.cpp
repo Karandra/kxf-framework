@@ -22,11 +22,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 namespace kxf
 {
-	CURLWebSession::CURLWebSession(optional_ptr<IThreadPool> threadPool)
+	CURLWebSession::CURLWebSession(std::shared_ptr<IAsyncTaskExecutor> taskExecutor)
 	{
 		if (CURL::Private::Initialize())
 		{
-			BasicWebSession::DoInitialize(std::move(threadPool));
+			BasicWebSession::DoInitialize(std::move(taskExecutor));
 		}
 	}
 
