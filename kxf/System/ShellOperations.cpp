@@ -208,7 +208,7 @@ namespace kxf::Shell
 			{
 				std::wstring stringZZ;
 				stringZZ.reserve(s.length() + 2);
-				stringZZ.append(s.wc_str(), s.length());
+				stringZZ.append(s.view());
 				stringZZ.append(2, L'\0');
 
 				return stringZZ;

@@ -1,6 +1,7 @@
 #include "KxfPCH.h"
 #include "XMLDocument.h"
 #include "Private/Utility.h"
+#include "kxf/Core/IEncodingConverter.h"
 
 namespace kxf
 {
@@ -24,7 +25,7 @@ namespace kxf
 				// Extract index from name and remove it from path, zero-based
 				// point/x -> 0, point/x::1 -> 1, point/y::0 -> 0, point/z::-7 -> 0
 				auto [elementName, index] = XNode::ExtractIndexFromName(name, StringViewOf(GetDocument().m_XPathIndexSeparator));
-				auto elementNameUTF8 = String::ToUTF8(name);
+				auto elementNameUTF8 = EncodingConverter_UTF8.ToMultiByte(name);
 
 				// Get level 0
 				currentNode = previousNode->FirstChildElement(elementNameUTF8.data());

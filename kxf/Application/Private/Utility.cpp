@@ -20,7 +20,9 @@ namespace kxf::Application::Private
 		{
 			what = "unknown exception";
 		}
-		wxMessageOutputBest().Printf("Unhandled %s; terminating %s.\n", what.wc_str(), wxIsMainThread() ? "the application" : "the thread in which it happened");
+
+		auto message = Format("Unhandled {}; terminating {}.\n", what, wxIsMainThread() ? "the application" : "the thread in which it happened");
+		wxMessageOutputBest().Printf("%s", message.data());
 	}
 	void OnFatalException()
 	{

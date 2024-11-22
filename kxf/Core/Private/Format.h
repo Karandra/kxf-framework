@@ -86,6 +86,28 @@ namespace kxf
 			}
 		};
 
+		template<>
+		struct FormatAdapter<std::string> final: std::true_type
+		{
+			using T = String;
+
+			static T Convert(const std::string& arg)
+			{
+				return StringViewOf(arg);
+			}
+		};
+
+		template<>
+		struct FormatAdapter<std::string_view> final: std::true_type
+		{
+			using T = String;
+
+			static T Convert(std::string_view arg)
+			{
+				return arg;
+			}
+		};
+
 		template<class T_>
 		using FormatAdapter_ = FormatAdapter<std::remove_const_t<std::remove_reference_t<T_>>>;
 
@@ -148,8 +170,8 @@ namespace kxf
 		template<class... Args>
 		String DoFormat(std::string_view format, Args&&... arg)
 		{
-			auto formatStr = String::FromUTF8(format);
-			return DoFormat(formatStr.wc_view(), std::forward<Args>(arg)...);
+			auto converted = String::FromUnknownEncoding(format);
+			return DoFormat(converted.view(), std::forward<Args>(arg)...);
 		}
 
 		template<class OutputIt, class... Args>
@@ -170,8 +192,8 @@ namespace kxf
 		template<class OutputIt, class... Args>
 		OutputIt DoFormatTo(OutputIt outputIt, std::string_view format, Args&&... arg)
 		{
-			auto formatStr = String::FromUTF8(format);
-			return DoFormatTo(outputIt, formatStr.wc_view(), std::forward<Args>(arg)...);
+			auto converted = String::FromUnknownEncoding(format);
+			return DoFormatTo(outputIt, converted.view(), std::forward<Args>(arg)...);
 		}
 
 		template<class... Args>
@@ -192,8 +214,8 @@ namespace kxf
 		template<class... Args>
 		size_t DoFormattedSize(std::string_view format, Args&&... arg)
 		{
-			auto formatStr = String::FromUTF8(format);
-			return DoFormattedSize(formatStr.wc_view(), std::forward<Args>(arg)...);
+			auto converted = String::FromUnknownEncoding(format);
+			return DoFormattedSize(converted.view(), std::forward<Args>(arg)...);
 		}
 	}
 

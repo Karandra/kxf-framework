@@ -15,7 +15,10 @@ namespace
 	{
 		if (ignoreCase)
 		{
-			return kxf::String(left).MakeLower().CompareTo(kxf::String(right).MakeLower());
+			auto a = kxf::String::FromUnknownEncoding(left);
+			auto b = kxf::String::FromUnknownEncoding(right);
+
+			return a.MakeLower().CompareTo(b.MakeLower());
 		}
 		else
 		{
@@ -45,7 +48,7 @@ namespace
 				}
 			};
 
-			// We shouldn't be here, but in case we did compare with case
+			// We shouldn't get here, but in case we did, compare with case
 			return left <=> right;
 		}
 		else
@@ -305,11 +308,6 @@ namespace
 		}
 		return false;
 	}
-
-	kxf::String FromUnknownEncoding(std::string_view source)
-	{
-		return kxf::EncodingConverter_WhateverWorks.ToWideChar(source);
-	}
 }
 
 namespace kxf
@@ -318,7 +316,7 @@ namespace kxf
 
 	std::basic_string_view<XChar> StringViewOf(const String& string) noexcept
 	{
-		return {string.xc_str(), string.length()};
+		return {string.data(), string.length()};
 	}
 	std::basic_string_view<XChar> StringViewOf(const wxString& string) noexcept
 	{
@@ -359,42 +357,32 @@ namespace kxf
 	}
 
 	// Conversions
-	UniChar String::FromUTF8(char c)
+	UniChar String::FromUTF8(char8_t c)
 	{
-		const char data[2] = {c, '\0'};
-		String result = FromUTF8(data, 1);
+		const char8_t data[2] = {c, '\0'};
+		String result = FromUTF8({data, 1});
 		if (!result.IsEmpty())
 		{
 			return result.front();
 		}
 		return {};
 	}
-	String String::FromUTF8(const char* utf8, size_t length)
+	String String::FromUTF8(CStrViewAdapter utf8)
 	{
-		return EncodingConverter_UTF8.ToWideChar(utf8, length);
+		return EncodingConverter_UTF8.ToWideChar(utf8.GetView());
 	}
-	std::string String::ToUTF8(std::wstring_view utf16)
+	String String::FromASCII(CStrViewAdapter ascii)
 	{
-		return EncodingConverter_UTF8.ToMultiByte(utf16);
+		return EncodingConverter_ASCII.ToWideChar(ascii.GetView());
 	}
-
-	String String::FromASCII(const char* ascii, size_t length)
+	String String::FromLocalEncoding(CStrViewAdapter local)
 	{
-		return EncodingConverter_ASCII.ToWideChar(ascii, length);
+		return EncodingConverter_Local.ToWideChar(local.GetView());
 	}
-	String String::FromASCII(std::string_view ascii)
+	String String::FromUnknownEncoding(CStrViewAdapter unknown)
 	{
-		return EncodingConverter_ASCII.ToWideChar(ascii);
+		return EncodingConverter_WhateverWorks.ToWideChar(unknown.GetView());
 	}
-	String String::FromLocalEncoding(std::string_view ascii)
-	{
-		return EncodingConverter_Local.ToWideChar(ascii);
-	}
-	String String::FromEncoding(std::string_view source, IEncodingConverter& encodingConverter)
-	{
-		return encodingConverter.ToWideChar(source);
-	}
-
 	String String::FromFloatingPoint(double value, int precision)
 	{
 		return wxString::FromCDouble(value, precision);
@@ -470,7 +458,6 @@ namespace kxf
 	}
 
 	// Construction
-	#ifdef __WXWINDOWS__
 	String::String(const wxString& other) noexcept
 		:m_String(StringViewOf(other))
 	{
@@ -479,22 +466,12 @@ namespace kxf
 	{
 		wxWidgets::MoveWxString(m_String, std::move(other));
 	}
-	#endif
-
-	String::String(const char* data, size_t length)
-		:String(EncodingConverter_WhateverWorks.ToWideChar(data, length))
-	{
-	}
-	String::String(const std::string& other)
-		:String(EncodingConverter_WhateverWorks.ToWideChar(other))
-	{
-	}
-	String::String(std::string_view other)
-		:String(EncodingConverter_WhateverWorks.ToWideChar(other))
-	{
-	}
 
 	// Conversions
+	std::string String::ToUTF8() const
+	{
+		return EncodingConverter_UTF8.ToMultiByte(m_String);
+	}
 	std::string String::ToASCII(char replaceWith) const
 	{
 		std::string ascii;
@@ -519,21 +496,21 @@ namespace kxf
 	String& String::DoAppend(std::string_view other)
 	{
 		auto converted = FromUnknownEncoding(other);
-		m_String.append(converted.wc_view());
+		m_String.append(converted.view());
 
 		return *this;
 	}
 	String& String::DoPrepend(std::string_view other)
 	{
 		auto converted = FromUnknownEncoding(other);
-		m_String.insert(0, converted.wc_view());
+		m_String.insert(0, converted.view());
 
 		return *this;
 	}
 	String& String::DoInsert(size_t pos, std::string_view other)
 	{
 		auto converted = FromUnknownEncoding(other);
-		m_String.insert(pos, converted.wc_view());
+		m_String.insert(pos, converted.view());
 
 		return *this;
 	}
@@ -642,11 +619,11 @@ namespace kxf
 
 				if (reverse)
 				{
-					return sourceL.m_String.rfind(patternL.wc_view(), offset);
+					return sourceL.m_String.rfind(patternL.view(), offset);
 				}
 				else
 				{
-					return sourceL.m_String.find(patternL.wc_view(), offset);
+					return sourceL.m_String.find(patternL.view(), offset);
 				}
 			}
 			else
@@ -712,12 +689,12 @@ namespace kxf
 	size_t String::DoReplace(std::string_view pattern, std::wstring_view replacement, size_t offset, FlagSet<StringActionFlag> flags, bool reverse)
 	{
 		auto patternConverted = FromUnknownEncoding(pattern);
-		return DoReplace(patternConverted.wc_view(), replacement, offset, flags, reverse);
+		return DoReplace(patternConverted.view(), replacement, offset, flags, reverse);
 	}
 	size_t String::DoReplace(std::wstring_view pattern, std::string_view replacement, size_t offset, FlagSet<StringActionFlag> flags, bool reverse)
 	{
 		auto replacementConverted = FromUnknownEncoding(replacement);
-		return DoReplace(pattern, replacementConverted.wc_view(), offset, flags, reverse);
+		return DoReplace(pattern, replacementConverted.view(), offset, flags, reverse);
 	}
 	size_t String::DoReplace(std::wstring_view pattern, std::wstring_view replacement, size_t offset, FlagSet<StringActionFlag> flags, bool reverse)
 	{
@@ -741,11 +718,11 @@ namespace kxf
 
 			if (reverse)
 			{
-				pos = sourceL.m_String.rfind(patternL.wc_view(), offset);
+				pos = sourceL.m_String.rfind(patternL.view(), offset);
 			}
 			else
 			{
-				pos = sourceL.m_String.find(patternL.wc_view(), offset);
+				pos = sourceL.m_String.find(patternL.view(), offset);
 			}
 		}
 		else
@@ -774,11 +751,11 @@ namespace kxf
 			{
 				if (reverse)
 				{
-					pos = sourceL.m_String.rfind(patternL.wc_view(), pos + replacementLength);
+					pos = sourceL.m_String.rfind(patternL.view(), pos + replacementLength);
 				}
 				else
 				{
-					pos = sourceL.m_String.find(patternL.wc_view(), pos + replacementLength);
+					pos = sourceL.m_String.find(patternL.view(), pos + replacementLength);
 				}
 			}
 			else
@@ -841,14 +818,14 @@ namespace kxf
 	String& String::ReplaceRange(size_t offset, size_t length, std::string_view replacement)
 	{
 		auto converted = FromUnknownEncoding(replacement);
-		m_String.replace(offset, length, converted.wc_view());
+		m_String.replace(offset, length, converted.view());
 
 		return *this;
 	}
 	String& String::ReplaceRange(iterator first, iterator last, std::string_view replacement)
 	{
 		auto converted = FromUnknownEncoding(replacement);
-		m_String.replace(first, last, converted.wc_view());
+		m_String.replace(first, last, converted.view());
 
 		return *this;
 	}
@@ -887,11 +864,11 @@ namespace kxf
 	}
 	bool String::DoToSignedInteger(int64_t& value, int base) const noexcept
 	{
-		return ConvertToInteger(value, base, wc_view(), std::wcstoll);
+		return ConvertToInteger(value, base, view(), std::wcstoll);
 	}
 	bool String::DoToUnsignedInteger(uint64_t& value, int base) const noexcept
 	{
-		return ConvertToInteger(value, base, wc_view(), std::wcstoull);
+		return ConvertToInteger(value, base, view(), std::wcstoull);
 	}
 
 	// Miscellaneous
@@ -981,13 +958,14 @@ namespace kxf
 	// Conversion
 	String::operator wxString() const
 	{
-		return wxString(xc_str(), length());
+		auto buffer = wc_str();
+		return wxString(buffer.data(), buffer.length());
 	}
 
 	// Comparison
 	std::strong_ordering String::operator<=>(const wxString& other) const noexcept
 	{
-		return xc_view() <=> StringViewOf(other);
+		return view() <=> StringViewOf(other);
 	}
 }
 

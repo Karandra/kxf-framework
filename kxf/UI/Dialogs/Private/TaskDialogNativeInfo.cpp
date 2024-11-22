@@ -410,7 +410,7 @@ namespace kxf::UI::Private
 	}
 	bool TaskDialogNativeInfo::UpdateTextElement(int id, const String& value)
 	{
-		return ::SendMessageW(reinterpret_cast<HWND>(m_TaskDialog.m_Handle), TDM_SET_ELEMENT_TEXT, id, reinterpret_cast<LPARAM>(value.wc_str())) == 0;
+		return ::SendMessageW(reinterpret_cast<HWND>(m_TaskDialog.m_Handle), TDM_SET_ELEMENT_TEXT, id, value.wc_str().unsafe_intptr()) == 0;
 	}
 
 	wxWindowID TaskDialogNativeInfo::ShowDialog(bool isModal)

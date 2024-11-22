@@ -14,8 +14,8 @@ namespace kxf
 			CREDENTIALW credentialInfo = {0};
 			credentialInfo.Type = CRED_TYPE_GENERIC;
 			credentialInfo.Persist = CRED_PERSIST_LOCAL_MACHINE;
-			credentialInfo.TargetName = const_cast<wchar_t*>(m_ServiceName.wc_str());
-			credentialInfo.UserName = const_cast<wchar_t*>(userName.wc_str());
+			credentialInfo.TargetName = m_ServiceName.wc_str().unsafe_data();
+			credentialInfo.UserName = userName.wc_str().unsafe_data();
 			credentialInfo.CredentialBlob = static_cast<uint8_t*>(const_cast<void*>(secret.GetData()));
 			credentialInfo.CredentialBlobSize = secret.GetSize();
 

@@ -24,7 +24,7 @@ namespace
 
 	_bstr_t ToBSTR(const String& value)
 	{
-		return value.wc_str();
+		return value.wc_str().data();
 	}
 	String FromBSTR(const _bstr_t& bstr)
 	{

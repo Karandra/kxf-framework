@@ -47,7 +47,7 @@ namespace kxf::WXUI::Private
 	void WxTextCtrlWrapper::SetHint(const String& hint)
 	{
 		m_TextCtrl->SetHint(hint);
-		::SendMessageW(m_TextCtrl->GetHandle(), EM_SETCUEBANNER, TRUE, reinterpret_cast<WPARAM>(hint.wc_str()));
+		::SendMessageW(m_TextCtrl->GetHandle(), EM_SETCUEBANNER, TRUE, hint.wc_str().unsafe_intptr());
 	}
 
 	// WxTextCtrlWrapper

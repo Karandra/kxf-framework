@@ -1,5 +1,6 @@
 #pragma once
 #include "../Common.h"
+#include "../IEncodingConverter.h"
 #include <format>
 #include <string>
 #include <string_view>
@@ -24,7 +25,7 @@ namespace std
 		template<class TFormatContext>
 		auto format(const kxf::String& value, TFormatContext& formatContext) const
 		{
-			return std::formatter<std::wstring_view, wchar_t>::format(value.xc_view(), formatContext);
+			return std::formatter<std::wstring_view, wchar_t>::format(value.view(), formatContext);
 		}
 	};
 
@@ -35,7 +36,7 @@ namespace std
 		template<class TFormatContext>
 		auto format(const wchar_t* value, TFormatContext& formatContext) const
 		{
-			auto utf8 = kxf::String(value).ToUTF8();
+			auto utf8 = kxf::EncodingConverter_UTF8.ToMultiByte(value);
 			return std::formatter<std::string_view, char>::format(utf8, formatContext);
 		}
 	};
@@ -45,59 +46,40 @@ namespace std
 	struct formatter<wchar_t[N], char>: std::formatter<std::string_view, char>
 	{
 		template<class T, class TFormatContext>
-		auto format(const T& value, TFormatContext& formatContext) const
+		auto format(const T (&value)[N], TFormatContext& formatContext) const
 		{
-			auto utf8 = kxf::String(value, N != 0 ? N - 1 : 0).ToUTF8();
+			auto utf8 = kxf::EncodingConverter_UTF8.ToMultiByte(kxf::StringViewOf(value));
 			return std::formatter<std::string_view, char>::format(utf8, formatContext);
 		}
 	};
 
 	// Converting const 'std::[w]string_view'
 	template<>
-	struct formatter<std::string_view, wchar_t>: std::formatter<std::wstring_view, wchar_t>
-	{
-		template<class TFormatContext>
-		auto format(std::string_view value, TFormatContext& formatContext) const
-		{
-			auto converted = kxf::String::FromUTF8(value);
-			return std::formatter<std::wstring_view, wchar_t>::format(converted.xc_view(), formatContext);
-		}
-	};
-
-	template<>
 	struct formatter<std::wstring_view, char>: std::formatter<std::string_view, char>
 	{
 		template<class TFormatContext>
 		auto format(std::wstring_view value, TFormatContext& formatContext) const
 		{
-			auto utf8 = kxf::String::FromView(value).ToUTF8();
+			auto utf8 = kxf::EncodingConverter_UTF8.ToMultiByte(value);
 			return std::formatter<std::string_view, char>::format(utf8, formatContext);
 		}
 	};
 
 	// Converting 'const std::[w]string'
 	template<>
-	struct formatter<std::string, wchar_t>: formatter<std::string_view, wchar_t>
-	{
-		template<class TFormatContext>
-		auto format(const std::string& value, TFormatContext& formatContext) const
-		{
-			return formatter<std::string_view, wchar_t>::format(value, formatContext);
-		}
-	};
-
-	template<>
-	struct formatter<std::wstring, char>: formatter<std::wstring_view, char>
+	struct formatter<std::wstring, char>: formatter<std::string_view, char>
 	{
 		template<class TFormatContext>
 		auto format(const std::wstring& value, TFormatContext& formatContext) const
 		{
-			return formatter<std::wstring_view, char>::format(value, formatContext);
+			auto utf8 = kxf::EncodingConverter_UTF8.ToMultiByte(value);
+			return formatter<std::string_view, char>::format(utf8, formatContext);
 		}
 	};
 
 	// Enumerations
-	template<class TEnum, class TChar> requires(std::is_enum_v<TEnum>)
+	template<class TEnum, class TChar>
+	requires(std::is_enum_v<TEnum>)
 	struct formatter<TEnum, TChar>: formatter<std::underlying_type_t<TEnum>, TChar>
 	{
 		template<class TFormatContext>

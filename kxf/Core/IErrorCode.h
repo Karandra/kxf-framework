@@ -70,7 +70,7 @@ namespace std
 		auto format(const T& error, TFormatContext& formatContext) const
 		{
 			auto formatted = kxf::Private::FormatErrorCode(error);
-			return std::formatter<std::string_view, char>::format(formatted.utf8_view(), formatContext);
+			return std::formatter<std::string_view, char>::format(formatted.utf8_str(), formatContext);
 		}
 	};
 
@@ -81,7 +81,7 @@ namespace std
 		auto format(const T& error, TFormatContext& formatContext) const
 		{
 			auto formatted = kxf::Private::FormatErrorCode(error);
-			return std::formatter<std::wstring_view, wchar_t>::format(formatted.wc_view(), formatContext);
+			return std::formatter<std::wstring_view, wchar_t>::format(formatted.view(), formatContext);
 		}
 	};
 }

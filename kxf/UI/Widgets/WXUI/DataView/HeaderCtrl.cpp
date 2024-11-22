@@ -219,7 +219,7 @@ namespace kxf::WXUI::DataView
 		item.lParam = reinterpret_cast<LPARAM>(&column);
 
 		// Title text
-		item.pszText = const_cast<wchar_t*>(column.m_Title.wc_str());
+		item.pszText = column.m_Title.wc_str().unsafe_data();
 		item.cchTextMax = column.m_Title.length();
 
 		// Bitmap

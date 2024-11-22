@@ -33,7 +33,8 @@ namespace
 
 		if constexpr(std::is_same_v<T, char>)
 		{
-			return kxf::String::FromEncoding(std::basic_string_view<T>(ptr, length), encondigConverter ? *encondigConverter : kxf::EncodingConverter_WhateverWorks);
+			auto& converter = encondigConverter ? *encondigConverter : kxf::EncodingConverter_WhateverWorks;
+			return converter.ToWideChar(std::basic_string_view<T>(ptr, length));
 		}
 		else if constexpr(std::is_same_v<T, wchar_t>)
 		{

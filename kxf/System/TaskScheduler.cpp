@@ -19,7 +19,7 @@ namespace
 {
 	_variant_t VariantFromString(const kxf::String& value)
 	{
-		return value.wc_str();
+		return value.wc_str().data();
 	}
 	_variant_t VariantFromString_Null(const kxf::String& value)
 	{
@@ -28,7 +28,7 @@ namespace
 
 	_bstr_t BstrFromString(const kxf::String& value)
 	{
-		return value.wc_str();
+		return value.wc_str().data();
 	}
 	_bstr_t BstrFromString_Null(const kxf::String& value)
 	{

@@ -3,6 +3,7 @@
 #include "UniChar.h"
 #include "kxf/System/UndefWindows.h"
 #include "kxf/Serialization/BinarySerializer.h"
+#include "Private/String.h"
 #include <format>
 #include <string>
 #include <string_view>
@@ -116,20 +117,6 @@ namespace kxf
 				return !IsAnyCharType<T>();
 			}
 
-			template<class TChar>
-			static size_t CalcStringLength(const TChar* data, size_t length) noexcept
-			{
-				if (data)
-				{
-					if (length == npos)
-					{
-						return std::char_traits<TChar>::length(data);
-					}
-					return length;
-				}
-				return 0;
-			}
-
 		private:
 			// Comparison
 			static std::strong_ordering DoCompare(std::string_view left, std::string_view right, FlagSet<StringActionFlag> flags = {}) noexcept;
@@ -162,38 +149,18 @@ namespace kxf
 			}
 
 			// Conversions
-			static UniChar FromUTF8(char c);
-			static UniChar FromUTF8(char8_t c)
-			{
-				return FromUTF8(static_cast<char>(c));
-			}
-			static String FromUTF8(const char* utf8, size_t length = npos);
-			static String FromUTF8(const char8_t* utf8, size_t length = npos)
-			{
-				return FromUTF8(reinterpret_cast<const char*>(utf8), length);
-			}
-			static String FromUTF8(const std::string& utf8)
-			{
-				return FromUTF8(utf8.data(), utf8.length());
-			}
-			static String FromUTF8(std::string_view utf8)
-			{
-				return FromUTF8(utf8.data(), utf8.length());
-			}
-			static std::string ToUTF8(std::wstring_view utf16);
-
-			static String FromASCII(const char* ascii, size_t length = npos);
-			static String FromASCII(std::string_view ascii);
-			static String FromLocalEncoding(std::string_view ascii);
-			static String FromEncoding(std::string_view source, IEncodingConverter& encodingConverter);
-
+			static UniChar FromUTF8(char8_t c);
+			static String FromUTF8(CStrViewAdapter utf8);
+			static String FromASCII(CStrViewAdapter ascii);
+			static String FromLocalEncoding(CStrViewAdapter local);
+			static String FromUnknownEncoding(CStrViewAdapter unknown);
 			static String FromFloatingPoint(double value, int precision = -1);
 
 			// Substring extraction
 			template<class TFunc>
 			static size_t SplitBySeparator(const String& string, const String& sep, TFunc&& func, FlagSet<StringActionFlag> flags = {})
 			{
-				const StringView view = string.xc_view();
+				const auto view = string.view();
 
 				if (sep.empty() && !string.empty())
 				{
@@ -241,7 +208,7 @@ namespace kxf
 			{
 				if (length != 0)
 				{
-					const StringView view = string.xc_view();
+					const StringView view = string.view();
 
 					size_t count = 0;
 					for (size_t i = 0; i < view.length(); i += length)
@@ -260,7 +227,7 @@ namespace kxf
 				}
 				else
 				{
-					std::invoke(func, string.xc_view());
+					std::invoke(func, string.view());
 					return 1;
 				}
 				return 0;
@@ -283,32 +250,34 @@ namespace kxf
 
 		private:
 			string_type m_String;
-			mutable std::unique_ptr<std::string> m_Converted;
 
 		public:
 			String() = default;
-			String(const String& other)
-				:m_String(other.m_String)
-			{
-			}
+			String(const String&) = default;
 			String(String&&) noexcept = default;
 
 			String(const wxString& other) noexcept;
 			String(wxString&& other) noexcept;
 
-			// Char/wchar_t pointers
-			String(const char* data, size_t length = npos);
-			String(const char8_t* data, size_t length = npos)
-				:String(FromUTF8(data, CalcStringLength(data, length)))
+			// Any char pointers
+			String(const char* ptr, size_t length = npos)
+				:m_String(FromUnknownEncoding({ptr, length}))
 			{
 			}
-			String(const wchar_t* data, size_t length = npos)
-				:m_String(data, CalcStringLength(data, length))
+			String(const char8_t* ptr, size_t length = npos)
+				:String(FromUTF8({ptr, length}))
+			{
+			}
+			String(const wchar_t* ptr, size_t length = npos)
+				:m_String(ptr, Private::CalcStringLength(ptr, length))
 			{
 			}
 			
 			// std::[w]string[_view]
-			String(const std::string& other);
+			String(const std::string& other)
+				:m_String(FromUnknownEncoding(other))
+			{
+			}
 			String(const std::wstring& other)
 				:m_String(other)
 			{
@@ -318,13 +287,16 @@ namespace kxf
 			{
 			}
 
-			String(std::string_view other);
+			String(std::string_view other)
+				:m_String(FromUnknownEncoding(other))
+			{
+			}
 			String(std::wstring_view other)
 				:m_String(other.data(), other.length())
 			{
 			}
 
-			// Single char
+			// Single character
 			String(char c, size_t count = 1)
 				:m_String(count, static_cast<XChar>(c))
 			{
@@ -334,7 +306,7 @@ namespace kxf
 			{
 			}
 			String(UniChar c, size_t count = 1)
-				:m_String(count, static_cast<XChar>(*c))
+				:m_String(count, c.GetAs<XChar>())
 			{
 			}
 			
@@ -357,6 +329,15 @@ namespace kxf
 			}
 
 			// Character access
+			XChar* GetData() noexcept
+			{
+				return m_String.data();
+			}
+			const XChar* GetData() const noexcept
+			{
+				return m_String.data();
+			}
+
 			const string_type& impl_str() const noexcept
 			{
 				return m_String;
@@ -366,49 +347,30 @@ namespace kxf
 				return m_String;
 			}
 
-			wchar_t* data() noexcept
+			ConvertedCStrBuffer nc_str() const
 			{
-				return m_String.data();
+				return ToLocalEncoding();
 			}
-			const wchar_t* data() const noexcept
+			ConvertedCStrBuffer utf8_str() const
 			{
-				return m_String.data();
+				return ToUTF8();
 			}
-
-			std::basic_string_view<char> nc_view() const
-			{
-				m_Converted = std::make_unique<std::string>(ToLocalEncoding());
-				return *m_Converted;
-			}
-			std::basic_string_view<char> utf8_view() const
-			{
-				m_Converted = std::make_unique<std::string>(ToUTF8());
-				return *m_Converted;
-			}
-			std::basic_string_view<wchar_t> wc_view() const noexcept(std::is_same_v<XChar, wchar_t>)
+			UnownedWStrBuffer wc_str() const
 			{
 				return StringViewOf(m_String);
 			}
-			std::basic_string_view<XChar> xc_view() const noexcept(std::is_same_v<XChar, wchar_t>)
+			UnownedWStrBuffer xc_str() const
 			{
 				return StringViewOf(m_String);
 			}
 
-			const char* nc_str() const
+			std::basic_string<XChar> str() const noexcept
 			{
-				return nc_view().data();
+				return m_String;
 			}
-			const char* utf8_str() const
+			std::basic_string_view<XChar> view() const noexcept
 			{
-				return utf8_view().data();
-			}
-			const wchar_t* wc_str() const noexcept(std::is_same_v<XChar, wchar_t>)
-			{
-				return m_String.c_str();
-			}
-			const XChar* xc_str() const noexcept(std::is_same_v<XChar, wchar_t>)
-			{
-				return m_String.c_str();
+				return StringViewOf(m_String);
 			}
 
 			XChar& operator[](size_t i) noexcept
@@ -421,10 +383,7 @@ namespace kxf
 			}
 
 			// Conversions
-			std::string ToUTF8() const
-			{
-				return ToUTF8(StringViewOf(m_String));
-			}
+			std::string ToUTF8() const;
 			std::string ToASCII(char replaceWith = '_') const;
 			std::string ToLocalEncoding() const;
 			std::string ToEncoding(IEncodingConverter& encodingConverter) const;
@@ -534,12 +493,12 @@ namespace kxf
 			}
 			std::strong_ordering DoCompareTo(std::wstring_view other, FlagSet<StringActionFlag> flags = {}) const noexcept(std::is_same_v<XChar, wchar_t>)
 			{
-				return Compare(wc_view(), other, flags);
+				return Compare(view(), other, flags);
 			}
 			std::strong_ordering DoCompareTo(UniChar other, FlagSet<StringActionFlag> flags = {}) const noexcept
 			{
 				const XChar c[2] = {other.GetAs<XChar>(), 0};
-				return Compare(wc_view(), StringViewOf(c), flags);
+				return Compare(view(), StringViewOf(c), flags);
 			}
 
 		public:
@@ -612,16 +571,16 @@ namespace kxf
 			bool DoMatchesWildcards(std::string_view expression, FlagSet<StringActionFlag> flags = {}) const noexcept
 			{
 				auto converted = FromUTF8(expression);
-				return DoMatchesWildcards(wc_view(), StringViewOf(converted), flags);
+				return DoMatchesWildcards(view(), StringViewOf(converted), flags);
 			}
 			bool DoMatchesWildcards(std::wstring_view expression, FlagSet<StringActionFlag> flags = {}) const noexcept
 			{
-				return DoMatchesWildcards(wc_view(), expression, flags);
+				return DoMatchesWildcards(view(), expression, flags);
 			}
 			bool DoMatchesWildcards(UniChar c, FlagSet<StringActionFlag> flags = {}) const noexcept
 			{
 				const XChar expression[2] = {c.GetAs<XChar>(), 0};
-				return DoMatchesWildcards(wc_view(), StringViewOf(expression), flags);
+				return DoMatchesWildcards(view(), StringViewOf(expression), flags);
 			}
 
 		public:
@@ -685,7 +644,7 @@ namespace kxf
 			template<class TFunc>
 			size_t SplitByLength(size_t length, TFunc&& func) const
 			{
-				return SplitByLength(wc_view(), length, std::forward<TFunc>(func));
+				return SplitByLength(*this, length, std::forward<TFunc>(func));
 			}
 
 			// Case conversion
@@ -693,11 +652,11 @@ namespace kxf
 			String& MakeUpper() noexcept;
 			String ToLower() const
 			{
-				return Clone().MakeLower();
+				return String(*this).MakeLower();
 			}
 			String ToUpper() const
 			{
-				return Clone().MakeUpper();
+				return String(*this).MakeUpper();
 			}
 
 			String& MakeCapitalized() noexcept
@@ -710,7 +669,7 @@ namespace kxf
 			}
 			String Capitalize() const
 			{
-				return Clone().MakeCapitalized();
+				return String(*this).MakeCapitalized();
 			}
 
 			// Searching and replacing
@@ -787,7 +746,7 @@ namespace kxf
 
 			String& ReplaceRange(size_t offset, size_t length, const String& replacement)
 			{
-				m_String.replace(offset, length, replacement.wc_view());
+				m_String.replace(offset, length, replacement.view());
 				return *this;
 			}
 			String& ReplaceRange(size_t offset, size_t length, std::string_view replacement);
@@ -799,7 +758,7 @@ namespace kxf
 
 			String& ReplaceRange(iterator first, iterator last, const String& replacement)
 			{
-				m_String.replace(first, last, replacement.wc_view());
+				m_String.replace(first, last, replacement.view());
 				return *this;
 			}
 			String& ReplaceRange(iterator first, iterator last, std::string_view replacement);
@@ -933,11 +892,6 @@ namespace kxf
 			String& TrimRight(const String& chars = {}, FlagSet<StringActionFlag> flags = {});
 			String& TrimBoth(const String& chars = {}, FlagSet<StringActionFlag> flags = {});
 
-			String Clone() const
-			{
-				return m_String;
-			}
-
 			// Iterator interface
 			iterator begin() noexcept
 			{
@@ -1024,11 +978,20 @@ namespace kxf
 			}
 			void assign(const XChar* data, size_t length = npos)
 			{
-				m_String.assign(data, CalcStringLength(data, length));
+				m_String.assign(data, Private::CalcStringLength(data, length));
 			}
 			void shrink_to_fit()
 			{
 				m_String.shrink_to_fit();
+			}
+
+			XChar* data() noexcept
+			{
+				return m_String.data();
+			}
+			const XChar* data() const noexcept
+			{
+				return m_String.data();
 			}
 
 			const XChar& at(size_t i) const
@@ -1059,13 +1022,7 @@ namespace kxf
 			}
 
 		public:
-			String& operator=(const String& other)
-			{
-				m_String = other.m_String;
-				m_Converted = nullptr;
-
-				return *this;
-			}
+			String& operator=(const String&) = default;
 			String& operator=(String&&) noexcept = default;
 
 			// Conversion
@@ -1078,7 +1035,7 @@ namespace kxf
 			// Comparison
 			std::strong_ordering operator<=>(const String& other) const noexcept
 			{
-				return xc_view() <=> other.xc_view();
+				return view() <=> other.view();
 			}
 			std::strong_ordering operator<=>(const wxString& other) const noexcept;
 			std::strong_ordering operator<=>(const char* other) const
@@ -1143,13 +1100,19 @@ namespace kxf
 	// Concatenation
 	inline String operator+(const String& left, const String& right)
 	{
-		return left.Clone().Append(right);
+		String temp = left;
+		temp.Append(right);
+
+		return temp;
 	}
 
 	template<class T> requires(std::is_constructible_v<String, T>)
 	String operator+(const String& left, T&& right)
 	{
-		return left.Clone().Append(std::forward<T>(right));
+		String temp = left;
+		temp.Append(std::forward<T>(right));
+
+		return temp;
 	}
 
 	// Conversion
@@ -1166,7 +1129,7 @@ namespace kxf
 		}
 		else
 		{
-			static_assert(sizeof(T*) == 0, "Unsupported char type");
+			static_assert(false, "Unsupported char type");
 		}
 	}
 
@@ -1179,11 +1142,11 @@ namespace kxf
 	// String literal operators
 	inline String operator"" _s(const char* ptr, size_t length)
 	{
-		return String::FromUTF8(ptr, length);
+		return String(ptr, length);
 	}
 	inline String operator"" _s(const char8_t* ptr, size_t length)
 	{
-		return String::FromUTF8(ptr, length);
+		return String(ptr, length);
 	}
 	inline String operator"" _s(const wchar_t* ptr, size_t length)
 	{
@@ -1211,7 +1174,7 @@ namespace std
 	{
 		size_t operator()(const kxf::String& string) const noexcept
 		{
-			return std::hash<kxf::StringView>()(string.xc_view());
+			return std::hash<kxf::StringView>()(string.view());
 		}
 	};
 }

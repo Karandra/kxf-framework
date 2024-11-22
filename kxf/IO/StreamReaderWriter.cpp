@@ -11,7 +11,7 @@ namespace kxf
 		if (ReadVector(buffer, size))
 		{
 			DoRemoveTrailingNulls(buffer);
-			value = String::FromASCII(buffer.data(), buffer.size());
+			value = String::FromASCII({buffer.data(), buffer.size()});
 			return true;
 		}
 		else
@@ -26,7 +26,7 @@ namespace kxf
 		if (ReadVector(buffer, size))
 		{
 			DoRemoveTrailingNulls(buffer);
-			value = String::FromUTF8(buffer.data(), buffer.size());
+			value = String::FromUTF8({buffer.data(), buffer.size()});
 			return true;
 		}
 		else

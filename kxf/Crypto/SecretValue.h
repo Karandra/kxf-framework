@@ -8,30 +8,26 @@ namespace kxf
 {
 	class KX_API SecretValue final
 	{
-		public:
-			static SecretValue FromString(const String& string)
-			{
-				auto utf8 = string.ToUTF8();
-				return SecretValue(utf8.data(), utf8.length());
-			}
-			static SecretValue FromString(const char* data, size_t length = String::npos)
-			{
-				return FromString(String::FromUTF8(data, length));
-			}
-			static SecretValue FromString(const wchar_t* data, size_t length = String::npos)
-			{
-				return FromString(String(data, length));
-			}
-
 		private:
 			std::vector<std::byte> m_Storage;
 
-		public:
-			SecretValue() noexcept = default;
-			SecretValue(void* data, size_t size)
+		private:
+			void AssignBytes(void* ptr, size_t size)
 			{
 				m_Storage.resize(size);
-				std::memcpy(m_Storage.data(), data, size);
+				std::memcpy(m_Storage.data(), ptr, size);
+			}
+
+		public:
+			SecretValue() noexcept = default;
+			SecretValue(void* ptr, size_t size)
+			{
+				AssignBytes(ptr, size);
+			}
+			SecretValue(const String& string)
+			{
+				auto utf8 = string.ToUTF8();
+				AssignBytes(utf8.data(), utf8.size());
 			}
 			SecretValue(const SecretValue&) = delete;
 			SecretValue(SecretValue&& other) noexcept

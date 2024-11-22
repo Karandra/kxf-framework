@@ -312,7 +312,7 @@ namespace kxf
 					formatted = FormatRecord(logLevel, timestamp, message, category);
 				}
 
-				logTarget->Write(logLevel, formatted.xc_view());
+				logTarget->Write(logLevel, formatted.view());
 			}
 		}
 	}
@@ -341,7 +341,7 @@ namespace kxf
 		{
 			m_ScopeTLS.OnScopeLeave(*this);
 
-			auto funcName = m_Function.xc_view();
+			auto funcName = m_Function.view();
 			if (auto pos = funcName.find('('); pos != funcName.npos)
 			{
 				funcName.remove_suffix(funcName.length() - pos);

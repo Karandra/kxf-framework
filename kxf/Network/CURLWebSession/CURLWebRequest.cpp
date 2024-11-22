@@ -24,7 +24,7 @@ namespace
 		{
 			if (const char* colon = CharTraits::find(source, length, ':'))
 			{
-				auto value = kxf::String::FromUTF8(source, colon - source);
+				auto value = kxf::String::FromUTF8({source, static_cast<size_t>(colon - source)});
 				NormalizeValue(value);
 
 				return value;
@@ -41,7 +41,7 @@ namespace
 				// Skip colon itself and a single space after it
 				constexpr size_t offset = 2;
 
-				auto value = kxf::String::FromUTF8(colon + offset, length - (colon - source) - offset);
+				auto value = kxf::String::FromUTF8({colon + offset, length - (colon - source) - offset});
 				NormalizeValue(value);
 
 				return value;

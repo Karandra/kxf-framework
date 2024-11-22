@@ -180,7 +180,7 @@ namespace
 	{
 		using namespace kxf;
 
-		*reinterpret_cast<String*>(context) = String::FromUTF8(value, length);
+		*reinterpret_cast<String*>(context) = String(value, length);
 	}
 	void SC_CALLBACK ExtractKxfString(const BYTE* value, UINT length, void* context)
 	{

@@ -2508,6 +2508,9 @@
     <ClInclude Include="kxf\Core\Async\DefaultAsyncTask.h">
       <Filter>kxf\Core\Async</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\Core\Private\String.h">
+      <Filter>kxf\Core\Private</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">

@@ -356,7 +356,7 @@ namespace kxf
 	}
 	String URI::Unescape(const String& source, LineBreakFormat lineBreakFormat, FlagSet<URIFlag> flags)
 	{
-		std::wstring buffer(source.wc_view());
+		auto buffer = source.str();
 		if (const wchar_t* outputTerminator = ::uriUnescapeInPlaceExW(buffer.data(), flags.Contains(URIFlag::SpacePlus), MapLineBreakFormat(lineBreakFormat)))
 		{
 			buffer.resize(outputTerminator - buffer.data());

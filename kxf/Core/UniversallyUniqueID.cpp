@@ -46,7 +46,7 @@ namespace
 
 		// Try system native parsing functions first. They're probably faster and more correct.
 		NativeUUID uuid;
-		if (::UuidFromStringW(reinterpret_cast<RPC_WSTR>(const_cast<wchar_t*>(value.wc_str())), AsUUID(uuid)) == RPC_S_OK)
+		if (::UuidFromStringW(reinterpret_cast<RPC_WSTR>(value.wc_str().unsafe_intptr()), AsUUID(uuid)) == RPC_S_OK)
 		{
 			return uuid;
 		}

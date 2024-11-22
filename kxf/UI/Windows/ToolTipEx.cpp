@@ -28,7 +28,7 @@ namespace
 		TTTOOLINFOW info = {};
 		info.cbSize = sizeof(info);
 		info.hwnd = tooltip.GetParent()->GetHandle();
-		info.lpszText = const_cast<wchar_t*>(message.wc_str());
+		info.lpszText = message.wc_str().unsafe_data();
 		info.uFlags = TTF_TRACK|TTF_ABSOLUTE;
 
 		return info;
@@ -106,7 +106,7 @@ namespace kxf::UI
 		{
 			if (const GDIIcon* icon = std::get_if<GDIIcon>(&m_Icon); icon && *icon)
 			{
-				::SendMessageW(hwnd, TTM_SETTITLE, reinterpret_cast<WPARAM>(icon->GetHandle()), reinterpret_cast<LPARAM>(m_Caption.wc_str()));
+				::SendMessageW(hwnd, TTM_SETTITLE, reinterpret_cast<WPARAM>(icon->GetHandle()), m_Caption.wc_str().unsafe_intptr());
 				return true;
 			}
 			else if (const StdIcon* iconType = std::get_if<StdIcon>(&m_Icon))
@@ -126,13 +126,13 @@ namespace kxf::UI
 
 					if (m_QuestionIcon)
 					{
-						::SendMessageW(hwnd, TTM_SETTITLE, reinterpret_cast<WPARAM>(m_QuestionIcon.GetHandle()), reinterpret_cast<LPARAM>(m_Caption.wc_str()));
+						::SendMessageW(hwnd, TTM_SETTITLE, reinterpret_cast<WPARAM>(m_QuestionIcon.GetHandle()), m_Caption.wc_str().unsafe_intptr());
 						return true;
 					}
 				}
 				else
 				{
-					::SendMessageW(hwnd, TTM_SETTITLE, static_cast<WPARAM>(ConvertIconID(*iconType)), reinterpret_cast<LPARAM>(m_Caption.wc_str()));
+					::SendMessageW(hwnd, TTM_SETTITLE, static_cast<WPARAM>(ConvertIconID(*iconType)), m_Caption.wc_str().unsafe_intptr());
 					return true;
 				}
 			}
@@ -141,7 +141,7 @@ namespace kxf::UI
 		if (!DoUpdateCaption())
 		{
 			// Set just the text caption, without icon
-			::SendMessageW(hwnd, TTM_SETTITLE, 0, reinterpret_cast<LPARAM>(m_Caption.wc_str()));
+			::SendMessageW(hwnd, TTM_SETTITLE, 0, m_Caption.wc_str().unsafe_intptr());
 		}
 	}
 	void ToolTipEx::UpdateStyle()
@@ -229,7 +229,7 @@ namespace kxf::UI
 				NMTTDISPINFOW* displayInfo = reinterpret_cast<NMTTDISPINFOW*>(lParam);
 				if (displayInfo)
 				{
-					displayInfo->lpszText = const_cast<wchar_t*>(m_Message.wc_str());
+					displayInfo->lpszText = m_Message.wc_str().unsafe_data();
 					return true;
 				}
 				return false;

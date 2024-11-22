@@ -101,7 +101,7 @@ namespace kxf
 		else
 		{
 			DWORD_PTR result = FALSE;
-			::SendMessageTimeoutW(ToHWND(m_Handle), WM_SETTEXT, 0, reinterpret_cast<LPARAM>(label.wc_str()), SMTO_ABORTIFHUNG, TimeSpan::Seconds(5).GetMilliseconds(), &result);
+			::SendMessageTimeoutW(ToHWND(m_Handle), WM_SETTEXT, 0, label.wc_str().unsafe_intptr(), SMTO_ABORTIFHUNG, TimeSpan::Seconds(5).GetMilliseconds(), &result);
 
 			return result;
 		}

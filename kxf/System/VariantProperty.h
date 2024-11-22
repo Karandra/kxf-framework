@@ -156,7 +156,7 @@ namespace kxf
 			VariantProperty(const String& value)
 				:VariantProperty()
 			{
-				AssignString(value.xc_str());
+				AssignString(value.view());
 			}
 			VariantProperty(const DateTime& value)
 				:VariantProperty()

@@ -27,7 +27,7 @@ namespace kxf::Localization::Private
 				{
 					usedLocale = Localization::Private::LocaleFromFileName(name);
 				}
-				if (DoLoadXML(String::FromUTF8(reinterpret_cast<const char*>(buffer.data()), buffer.size_bytes()), loadingScheme))
+				if (DoLoadXML(String::FromUnknownEncoding({reinterpret_cast<const char*>(buffer.data()), buffer.size_bytes()}), loadingScheme))
 				{
 					DoSetLocale(usedLocale);
 					return true;

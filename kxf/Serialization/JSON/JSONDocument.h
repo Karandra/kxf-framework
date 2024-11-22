@@ -68,7 +68,7 @@ namespace nlohmann
 			else
 			{
 				const json::string_t& string = jsonDocument.get_ref<const json::string_t&>();
-				value = kxf::String::FromUTF8(string.data(), string.length());
+				value = kxf::String::FromUTF8({string.data(), string.length()});
 			}
 		}
 	};

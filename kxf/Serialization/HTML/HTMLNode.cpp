@@ -39,7 +39,7 @@ namespace kxf::HTML::Private
 				if (stringPiece.data && stringPiece.length != 0)
 				{
 					gumbo_tag_from_original_text(&stringPiece);
-					return String::FromUTF8(stringPiece.data, stringPiece.length).MakeLower();
+					return String::FromUTF8({stringPiece.data, stringPiece.length}).MakeLower();
 				}
 				return GetTagName(node->v.element.tag);
 			}

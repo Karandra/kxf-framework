@@ -193,6 +193,7 @@
     <ClInclude Include="kxf\Core\Private\Format.h" />
     <ClInclude Include="kxf\Core\Private\FormatQtStyle.h" />
     <ClInclude Include="kxf\Core\Private\Mapping.h" />
+    <ClInclude Include="kxf\Core\Private\String.h" />
     <ClInclude Include="kxf\Core\Private\StringFormatters.h" />
     <ClInclude Include="kxf\Core\StandardAllocator.h" />
     <ClInclude Include="kxf\Crypto\UserCredentials.h" />

@@ -207,7 +207,7 @@ namespace kxf
 
 			void DoLog(const String& str)
 			{
-				DoLog(str.xc_view());
+				DoLog(str.view());
 			}
 			void DoLog(const char* str)
 			{
@@ -270,13 +270,13 @@ namespace kxf
 			}
 			StringView ToString() const noexcept
 			{
-				return m_Message.xc_str();
+				return m_Message.view();
 			}
 
 			void Write();
 			void Write(ScopedLoggerTLS& tls)
 			{
-				tls.Write(m_LogLevel, m_TimeStamp, m_Message.xc_view(), m_Category.xc_view());
+				tls.Write(m_LogLevel, m_TimeStamp, m_Message.view(), m_Category.view());
 			}
 
 			void Finalize()

@@ -83,7 +83,7 @@ namespace kxf::XML::Private
 {
 	inline String ToString(const char* value, size_t length = String::npos)
 	{
-		return String::FromUTF8(value, length);
+		return String::FromUTF8({value, length});
 	}
 	inline String CleanText(const tinyxml2::XMLNode& node, StringView separator = {})
 	{

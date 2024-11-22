@@ -121,22 +121,22 @@ namespace kxf::Sciter
 			}
 			ScriptValue& operator=(std::string_view value)
 			{
-				SetString(String::FromUTF8(value.data(), value.length()));
+				SetString(value);
 				return *this;
 			}
 			ScriptValue& operator=(std::wstring_view value)
 			{
-				AssingString(value, StringType::None);
+				SetString(value);
 				return *this;
 			}
 			ScriptValue& operator=(const char* value)
 			{
-				*this = std::string_view(value ? value : "");
+				SetString(value);
 				return *this;
 			}
 			ScriptValue& operator=(const wchar_t* value)
 			{
-				*this = std::wstring_view(value ? value : L"");
+				SetString(value);
 				return *this;
 			}
 			ScriptValue& operator=(const DateTime& value);
