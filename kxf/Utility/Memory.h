@@ -2,8 +2,6 @@
 #include "kxf/Common.hpp"
 #include <cstdint>
 #include <cstring>
-#include <memory>
-#include <new>
 #include "kxf/System/UndefWindows.h"
 
 namespace kxf::Utility
