@@ -9,22 +9,6 @@
 
 namespace kxf::Utility
 {
-	template<class T, class TNull> requires(std::is_move_assignable_v<T> && std::is_move_assignable_v<TNull>)
-	constexpr void ExchangeAndReset(T& left, T& right, TNull&& nullValue) noexcept
-	{
-		left = std::move(right);
-		right = std::move(nullValue);
-	}
-	
-	template<class T, class TNull> requires(std::is_default_constructible_v<T>)
-	constexpr T ExchangeResetAndReturn(T& right, TNull&& nullValue) noexcept
-	{
-		T left = std::move(right);
-		right = std::move(nullValue);
-
-		return left;
-	}
-
 	template<class TFunc, class... Args>
 	constexpr void ForEachParameterPackItem(TFunc&& func, Args&&... arg) noexcept
 	{

@@ -1,7 +1,6 @@
 #pragma once
 #include "kxf/EventSystem/IEventLoop.h"
 #include "kxf/RTTI/RTTI.h"
-#include "kxf/Utility/Common.h"
 #include "kxf/Core/OptionalPtr.h"
 #include <wx/evtloop.h>
 
@@ -150,7 +149,7 @@ namespace kxf::wxWidgets
 		public:
 			EventLoopWrapper& operator=(EventLoopWrapper&& other) noexcept
 			{
-				m_ManualLoop = Utility::ExchangeResetAndReturn(other.m_ManualLoop, nullptr);
+				m_ManualLoop = std::exchange(other.m_ManualLoop, nullptr);
 				m_EventLoop = std::move(other.m_EventLoop);
 
 				return *this;

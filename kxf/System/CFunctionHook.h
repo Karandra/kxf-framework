@@ -82,9 +82,9 @@ namespace kxf
 			CFunctionHook& operator=(CFunctionHook&& other) noexcept
 			{
 				m_Name = std::move(other.m_Name);
-				m_TargetAddress = Utility::ExchangeResetAndReturn(other.m_TargetAddress, nullptr);
-				m_HookAddress = Utility::ExchangeResetAndReturn(other.m_HookAddress, nullptr);
-				m_Attached = Utility::ExchangeResetAndReturn(other.m_Attached, false);
+				m_TargetAddress = std::exchange(other.m_TargetAddress, nullptr);
+				m_HookAddress = std::exchange(other.m_HookAddress, nullptr);
+				m_Attached = std::exchange(other.m_Attached, false);
 
 				return *this;
 			}

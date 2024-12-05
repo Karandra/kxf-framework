@@ -1,6 +1,5 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Utility/Common.h"
 
 namespace kxf
 {
@@ -51,7 +50,7 @@ namespace kxf
 
 			size_t StopPropagation() noexcept override
 			{
-				return Utility::ExchangeResetAndReturn(m_PropagationLevel, PropagationLevel::None);
+				return std::exchange(m_PropagationLevel, PropagationLevel::None);
 			}
 			void ResumePropagation(size_t level) noexcept override
 			{
@@ -69,8 +68,8 @@ namespace kxf
 				static_cast<BasicEvent&>(*this) = std::move(other);
 
 				m_Widget = std::move(other.m_Widget);
-				m_WidgetID = Utility::ExchangeResetAndReturn(other.m_WidgetID, StdID::None);
-				m_PropagationLevel = Utility::ExchangeResetAndReturn(other.m_PropagationLevel, PropagationLevel::Max);
+				m_WidgetID = std::exchange(other.m_WidgetID, StdID::None);
+				m_PropagationLevel = std::exchange(other.m_PropagationLevel, PropagationLevel::Max);
 
 				return *this;
 			}

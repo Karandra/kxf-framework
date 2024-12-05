@@ -3,7 +3,6 @@
 #include "kxf/Core/Private/Mapping.h"
 #include "kxf/Drawing/GDIRenderer/GDIFont.h"
 #include "kxf/System/NativeAPI.h"
-#include "kxf/Utility/Common.h"
 #include "kxf/Utility/Enumerator.h"
 #include "kxf/Utility/String.h"
 #include <wx/window.h>
@@ -97,7 +96,7 @@ namespace kxf::Private
 	}
 	void BasicWxWidgetBase::Uninitialize()
 	{
-		if (wxWindow* window = Utility::ExchangeResetAndReturn(m_Window, nullptr))
+		if (wxWindow* window = std::exchange(m_Window, nullptr))
 		{
 			window->Unbind(wxEVT_CREATE, &BasicWxWidgetBase::OnWindowCreate, this);
 			window->Unbind(wxEVT_DESTROY, &BasicWxWidgetBase::OnWindowDestroy, this);

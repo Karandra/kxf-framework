@@ -3,7 +3,6 @@
 #include "GDIContext.h"
 #include "../Color.h"
 #include "kxf/System/COM.h"
-#include "kxf/Utility/Common.h"
 
 #include <Shlobj.h>
 #include <commoncontrols.h>
@@ -225,9 +224,9 @@ namespace kxf
 			m_hImageList = nullptr;
 		}
 
-		m_hImageList = Utility::ExchangeResetAndReturn(other.m_hImageList, nullptr);
-		m_size = Utility::ExchangeResetAndReturn(other.m_size, Size::UnspecifiedSize());
-		m_Flags = Utility::ExchangeResetAndReturn(other.m_Flags, 0);
+		m_hImageList = std::exchange(other.m_hImageList, nullptr);
+		m_size = std::exchange(other.m_size, Size::UnspecifiedSize());
+		m_Flags = std::exchange(other.m_Flags, 0);
 
 		return *this;
 	}

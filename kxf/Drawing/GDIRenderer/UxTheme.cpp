@@ -8,7 +8,6 @@
 #include "kxf/Core/String.h"
 #include "kxf/System/HResult.h"
 #include "kxf/System/SystemInformation.h"
-#include "kxf/Utility/Common.h"
 #include "kxf/Utility/Drawing.h"
 
 #include <wx/fontutil.h>
@@ -460,8 +459,8 @@ namespace kxf
 	{
 		Close();
 
-		m_Handle = Utility::ExchangeResetAndReturn(other.m_Handle, nullptr);
-		m_Window = Utility::ExchangeResetAndReturn(other.m_Window, nullptr);
+		m_Handle = std::exchange(other.m_Handle, nullptr);
+		m_Window = std::exchange(other.m_Window, nullptr);
 		return *this;
 	}
 }

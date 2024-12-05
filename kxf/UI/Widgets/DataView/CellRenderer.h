@@ -257,10 +257,10 @@ namespace kxf::DataView
 				m_CellRenderer = std::move(other.m_CellRenderer);
 
 				m_Parameters = std::move(other.m_Parameters);
-				m_GraphicsContext = Utility::ExchangeResetAndReturn(other.m_GraphicsContext, nullptr);
+				m_GraphicsContext = std::exchange(other.m_GraphicsContext, nullptr);
 				m_Alignment = other.m_Alignment;
-				m_Node = Utility::ExchangeResetAndReturn(other.m_Node, nullptr);
-				m_Column = Utility::ExchangeResetAndReturn(other.m_Column, nullptr);
+				m_Node = std::exchange(other.m_Node, nullptr);
+				m_Column = std::exchange(other.m_Column, nullptr);
 				m_IsViewEnabled = other.m_IsViewEnabled;
 				m_IsViewFocused = other.m_IsViewFocused;
 

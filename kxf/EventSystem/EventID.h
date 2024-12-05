@@ -3,7 +3,6 @@
 #include "kxf/Core/String.h"
 #include "kxf/Core/UniversallyUniqueID.h"
 #include "kxf/Serialization/BinarySerializer.h"
-#include "kxf/Utility/Common.h"
 #include "kxf/Utility/Memory.h"
 #include <type_traits>
 #include <variant>
@@ -160,7 +159,7 @@ namespace kxf
 			EventID& operator=(EventID&& other) noexcept
 			{
 				m_ID = std::move(other.m_ID);
-				m_TypeInfo = Utility::ExchangeResetAndReturn(other.m_TypeInfo, nullptr);
+				m_TypeInfo = std::exchange(other.m_TypeInfo, nullptr);
 
 				return *this;
 			}

@@ -4,8 +4,6 @@
 #include "kxf/Core/Version.h"
 #include "kxf/RTTI/RTTI.h"
 #include "kxf/IO/IStream.h"
-#include "kxf/Utility/Common.h"
-#include <map>
 
 namespace kxf
 {
@@ -131,11 +129,11 @@ namespace kxf
 			INIDocumentSection& operator=(const INIDocumentSection&) = default;
 			INIDocumentSection& operator=(INIDocumentSection&& other) noexcept
 			{
-				Utility::ExchangeAndReset(m_Ref, other.m_Ref, nullptr);
-				Utility::ExchangeAndReset(m_AsCDATA, other.m_AsCDATA, AsCDATA::Auto);
+				m_Ref = std::exchange(other.m_Ref, nullptr);
+				m_AsCDATA = std::exchange(other.m_AsCDATA, AsCDATA::Auto);
 				m_SectionName = std::move(other.m_SectionName);
 				m_Comment = std::move(other.m_Comment);
-				m_Index = Utility::ExchangeResetAndReturn(other.m_Index, npos);
+				m_Index = std::exchange(other.m_Index, npos);
 
 				return *this;
 			}

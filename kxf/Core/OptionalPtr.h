@@ -1,6 +1,5 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Utility/Common.h"
 
 namespace kxf
 {
@@ -121,7 +120,7 @@ namespace kxf
 			TValue* release() noexcept
 			{
 				m_IsOwned = false;
-				return Utility::ExchangeResetAndReturn(m_Value, nullptr);
+				return std::exchange(m_Value, nullptr);
 			}
 			void reset(std::nullptr_t = nullptr) noexcept
 			{

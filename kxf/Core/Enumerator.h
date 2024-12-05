@@ -350,11 +350,11 @@ namespace kxf
 				m_MoveNext = std::move(other.m_MoveNext);
 				m_CurrentValue.MoveFrom(std::move(other.m_CurrentValue));
 
-				m_CurrentInstruction = Utility::ExchangeResetAndReturn(other.m_CurrentInstruction, EnumeratorInstruction::Terminate);
-				m_NextInstruction = Utility::ExchangeResetAndReturn(other.m_NextInstruction, EnumeratorInstruction::Continue);
+				m_CurrentInstruction = std::exchange(other.m_CurrentInstruction, EnumeratorInstruction::Terminate);
+				m_NextInstruction = std::exchange(other.m_NextInstruction, EnumeratorInstruction::Continue);
 
-				m_Index = Utility::ExchangeResetAndReturn(other.m_Index, 0);
-				m_TotalCount = Utility::ExchangeResetAndReturn(other.m_TotalCount, npos);
+				m_Index = std::exchange(other.m_Index, 0);
+				m_TotalCount = std::exchange(other.m_TotalCount, npos);
 
 				return *this;
 			}

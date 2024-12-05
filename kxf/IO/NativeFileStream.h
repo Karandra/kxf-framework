@@ -4,7 +4,6 @@
 #include "kxf/IO/INativeStream.h"
 #include "kxf/IO/IStreamOnFileSystem.h"
 #include "kxf/System/Win32Error.h"
-#include "kxf/Utility/Common.h"
 
 namespace kxf
 {
@@ -153,16 +152,16 @@ namespace kxf
 			{
 				DoClose();
 
-				m_Handle = Utility::ExchangeResetAndReturn(other.m_Handle, nullptr);
+				m_Handle = std::exchange(other.m_Handle, nullptr);
 				m_LastError = std::move(other.m_LastError);
-				m_LastRead = Utility::ExchangeResetAndReturn(other.m_LastRead, DataSize());
-				m_LastWrite = Utility::ExchangeResetAndReturn(other.m_LastWrite, DataSize());
+				m_LastRead = std::exchange(other.m_LastRead, DataSize());
+				m_LastWrite = std::exchange(other.m_LastWrite, DataSize());
 
-				m_StreamOffset = Utility::ExchangeResetAndReturn(other.m_StreamOffset, DataSize());
-				m_AccessMode = Utility::ExchangeResetAndReturn(other.m_AccessMode, FlagSet<IOStreamAccess>());
-				m_ShareMode = Utility::ExchangeResetAndReturn(other.m_ShareMode, FlagSet<IOStreamShare>());
-				m_Flags = Utility::ExchangeResetAndReturn(other.m_Flags, FlagSet<IOStreamFlag>());
-				m_Disposition = Utility::ExchangeResetAndReturn(other.m_Disposition, IOStreamDisposition::OpenExisting);
+				m_StreamOffset = std::exchange(other.m_StreamOffset, DataSize());
+				m_AccessMode = std::exchange(other.m_AccessMode, FlagSet<IOStreamAccess>());
+				m_ShareMode = std::exchange(other.m_ShareMode, FlagSet<IOStreamShare>());
+				m_Flags = std::exchange(other.m_Flags, FlagSet<IOStreamFlag>());
+				m_Disposition = std::exchange(other.m_Disposition, IOStreamDisposition::OpenExisting);
 
 				return *this;
 			}

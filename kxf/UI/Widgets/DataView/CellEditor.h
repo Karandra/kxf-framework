@@ -2,7 +2,6 @@
 #include "Common.h"
 #include "kxf/Core/Any.h"
 #include "kxf/EventSystem/EvtHandler.h"
-#include "kxf/Utility/Common.h"
 
 namespace kxf
 {
@@ -193,8 +192,8 @@ namespace kxf::DataView
 				m_Widget = std::move(other.m_Widget);
 				m_WidgetEvtHandler = std::move(other.m_WidgetEvtHandler);
 
-				m_Node = Utility::ExchangeResetAndReturn(other.m_Node, nullptr);
-				m_Column = Utility::ExchangeResetAndReturn(other.m_Column, nullptr);
+				m_Node = std::exchange(other.m_Node, nullptr);
+				m_Column = std::exchange(other.m_Column, nullptr);
 				m_IsEditCanceled = other.m_IsEditCanceled;
 				m_IsEditFinished = other.m_IsEditFinished;
 

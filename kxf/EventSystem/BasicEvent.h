@@ -3,7 +3,6 @@
 #include "IEvent.h"
 #include "Private/EventWaitInfo.h"
 #include "kxf/Core/DateTime.h"
-#include "kxf/Utility/Common.h"
 
 namespace kxf::EventSystem
 {
@@ -216,8 +215,8 @@ namespace kxf
 				m_UniqueID = std::move(other.m_UniqueID);
 				m_Timestamp = std::move(other.m_Timestamp);
 
-				m_PublicState = Utility::ExchangeResetAndReturn(other.m_PublicState, EventPublicState::None);
-				m_PrivateState = Utility::ExchangeResetAndReturn(other.m_PrivateState, EventPrivateState::None);
+				m_PublicState = std::exchange(other.m_PublicState, EventPublicState::None);
+				m_PrivateState = std::exchange(other.m_PrivateState, EventPrivateState::None);
 				m_WaitInfo = std::move(other.m_WaitInfo);
 
 				return *this;

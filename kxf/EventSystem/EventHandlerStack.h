@@ -1,6 +1,5 @@
 #pragma once
 #include "IEvtHandler.h"
-#include "kxf/Utility/Common.h"
 
 namespace kxf
 {
@@ -53,8 +52,8 @@ namespace kxf
 		public:
 			EvtHandlerStack& operator=(EvtHandlerStack&& other) noexcept
 			{
-				m_Base = Utility::ExchangeResetAndReturn(other.m_Base, nullptr);
-				m_Top = Utility::ExchangeResetAndReturn(other.m_Top, nullptr);
+				m_Base = std::exchange(other.m_Base, nullptr);
+				m_Top = std::exchange(other.m_Top, nullptr);
 
 				return *this;
 			}

@@ -61,7 +61,7 @@ namespace kxf::Utility
 
 		private:
 			ScopeGuard<TCallable> m_Guard;
-			const int m_UncaughtExceptions = std::uncaught_exceptions();
+			int m_UncaughtExceptions = std::uncaught_exceptions();
 
 		public:
 			ExceptionScopeGuard(TCallable&& callable) noexcept
@@ -75,7 +75,7 @@ namespace kxf::Utility
 			ExceptionScopeGuard(const ExceptionScopeGuard&) = delete;
 			~ExceptionScopeGuard() noexcept
 			{
-				if (m_UncaughtExceptions != std::uncaught_exceptions())
+				if (m_UncaughtExceptions != std::uncaught_exceptions() && m_UncaughtExceptions != std::numeric_limits<int>::max())
 				{
 					m_Guard.Invoke();
 				}
@@ -103,9 +103,7 @@ namespace kxf::Utility
 			ExceptionScopeGuard& operator=(ExceptionScopeGuard&& other) noexcept
 			{
 				m_Guard = std::move(other.m_Guard);
-
-				m_UncaughtExceptions = other.m_UncaughtExceptions;
-				other.m_UncaughtExceptions = std::numeric_limits<int>::max();
+				m_UncaughtExceptions = std::exchange(other.m_UncaughtExceptions, std::numeric_limits<int>::max());
 
 				return *this;
 			}

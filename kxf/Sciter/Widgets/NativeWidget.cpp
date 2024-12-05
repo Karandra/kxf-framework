@@ -1,7 +1,6 @@
 #include "KxfPCH.h"
 #include "NativeWidget.h"
 #include "../Host.h"
-#include "kxf/Utility/Common.h"
 
 namespace kxf::Sciter
 {
@@ -49,7 +48,7 @@ namespace kxf::Sciter
 	}
 	void NativeWidget::OnDetached()
 	{
-		if (wxWindow* nativeWindow = Utility::ExchangeResetAndReturn(m_NativeWindow, nullptr))
+		if (wxWindow* nativeWindow = std::exchange(m_NativeWindow, nullptr))
 		{
 			nativeWindow->Destroy();
 		}
