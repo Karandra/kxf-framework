@@ -42,7 +42,7 @@ namespace kxf
 			template<class TFunc>
 			requires(std::is_member_function_pointer_v<TFunc>)
 			EventID(TFunc func) noexcept
-				:m_ID(Utility::StoreMemberFunction(func).ToUniversallyUniqueID())
+				:m_ID(UniversallyUniqueID::CreateFromInt128(Utility::StoreMemberFunction(func)))
 			{
 			}
 			

@@ -1,6 +1,5 @@
 #pragma once
 #include "kxf/Common.hpp"
-#include "kxf/Core/NativeUUID.h"
 #include <cstdint>
 #include <cstring>
 #include <memory>
@@ -52,13 +51,12 @@ namespace kxf::Utility
 
 	template<class TFunc>
 	requires(std::is_member_function_pointer_v<TFunc>)
-	NativeUUID StoreMemberFunction(TFunc func) noexcept
+	auto StoreMemberFunction(TFunc func) noexcept
 	{
-		static_assert(sizeof(func) <= sizeof(NativeUUID), "Member function size must be less or equal to the size of 'NativeUUID' type");
+		std::array<uint8_t, sizeof(func)> buffer;
+		std::memcpy(buffer.data(), &func, sizeof(func));
 
-		NativeUUID uuid;
-		std::memcpy(&uuid, &func, sizeof(func));
-		return uuid;
+		return buffer;
 	}
 }
 
