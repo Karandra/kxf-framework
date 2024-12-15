@@ -53,9 +53,13 @@ namespace kxf
 				}
 				return 0;
 			}
-			size_t GetTotalInvokeCount(CallbackCommand command) const noexcept
+			size_t GetTotalInvokeCount() const noexcept
 			{
 				return std::accumulate(m_Counters.begin(), m_Counters.end(), static_cast<size_t>(0));
+			}
+			size_t GetSuccessInvokeCount() const noexcept
+			{
+				return GetInvokeCount(CallbackCommand::Continue);
 			}
 	};
 }
@@ -197,6 +201,10 @@ namespace kxf
 			CallbackResult GetResult() const
 			{
 				return m_Result;
+			}
+			size_t GetCount() const noexcept
+			{
+				return m_Result.GetSuccessInvokeCount();
 			}
 	};
 };
