@@ -90,7 +90,7 @@ namespace kxf::Widgets
 
 				if (item)
 				{
-					static_cast<MenuWidgetItem&>(*item).GetWxItem()->SetId(*WXUI::Menu::WinIDToWx(itemInfo.wID));
+					static_cast<MenuWidgetItem&>(*item).GetWxItem()->SetId(WXUI::Menu::WinIDToWx(itemInfo.wID).ToInt());
 					if (!isInserted)
 					{
 						menu.InsertItem(*item);

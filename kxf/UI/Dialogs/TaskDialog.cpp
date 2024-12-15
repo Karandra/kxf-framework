@@ -375,7 +375,7 @@ namespace kxf::UI
 	{
 		auto it = std::find_if(m_Buttons.begin(), m_Buttons.end(), [&](const ButtonItem& item)
 		{
-			return item.ID == *id;
+			return item.ID == id.ToInt();
 		});
 		if (it != m_Buttons.end())
 		{

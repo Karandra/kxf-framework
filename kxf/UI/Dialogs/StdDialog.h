@@ -37,7 +37,7 @@ namespace kxf::UI
 			StdDialogControl(WidgetID id = {})
 				:m_Type(Type::ID)
 			{
-				m_Data.ID = *id;
+				m_Data.ID = id.ToInt();
 			}
 			StdDialogControl(wxWindowID id)
 				:m_Type(Type::ID)

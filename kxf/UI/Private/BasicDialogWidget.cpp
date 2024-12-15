@@ -17,7 +17,7 @@ namespace kxf::Private
 	}
 	void BasicDialogWidgetBase::EndModal(WidgetID retCode)
 	{
-		GetWxWindow()->EndModal(*retCode);
+		GetWxWindow()->EndModal(retCode.ToInt());
 	}
 	WidgetID BasicDialogWidgetBase::ShowModal()
 	{
@@ -34,7 +34,7 @@ namespace kxf::Private
 	}
 	void BasicDialogWidgetBase::SetAffirmativeID(WidgetID id)
 	{
-		GetWxWindow()->SetAffirmativeId(*id);
+		GetWxWindow()->SetAffirmativeId(id.ToInt());
 	}
 
 	WidgetID BasicDialogWidgetBase::GetEscapeID() const
@@ -43,6 +43,6 @@ namespace kxf::Private
 	}
 	void BasicDialogWidgetBase::SetEscapeID(WidgetID id)
 	{
-		GetWxWindow()->SetEscapeId(*id);
+		GetWxWindow()->SetEscapeId(id.ToInt());
 	}
 }

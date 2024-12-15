@@ -298,7 +298,7 @@ namespace kxf::UI
 		{
 			if (id != wxID_NONE)
 			{
-				wxCommandEvent buttonEvent(EvtButton->AsInt(), *id);
+				wxCommandEvent buttonEvent(EvtButton->AsInt(), id.ToInt());
 				OnStdButtonClick(buttonEvent);
 				event.Skip(false);
 			}
@@ -611,7 +611,7 @@ namespace kxf::UI
 		for (wxSizerItem* item: m_ButtonsSizer->GetChildren())
 		{
 			wxWindow* window = item->GetWindow();
-			if (window && window->GetId() == *id && window->GetId() != wxID_NONE)
+			if (window && window->GetId() == id.ToInt() && window->GetId() != wxID_NONE)
 			{
 				if (Button* button = dynamic_cast<Button*>(window))
 				{

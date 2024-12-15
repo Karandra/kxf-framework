@@ -37,7 +37,7 @@ namespace kxf::UI
 	{
 		if (buttons & singleButton)
 		{
-			Button* button = new Button(dialog, *id);
+			Button* button = new Button(dialog, id.ToInt());
 			button->SetAllowDrawFocus(true);
 			if (addToList)
 			{

@@ -54,7 +54,7 @@ namespace kxf::UI::DataView
 
 		public:
 			ItemEvent(const EventID& eventID = {}, WidgetID id = wxID_NONE)
-				:wxNotifyEvent(eventID.AsInt(), *id)
+				:wxNotifyEvent(eventID.AsInt(), id.ToInt())
 			{
 			}
 

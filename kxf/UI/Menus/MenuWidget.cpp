@@ -151,7 +151,7 @@ namespace kxf::Widgets
 				const auto handle = reinterpret_cast<HMENU>(lParam);
 
 				wxMenu* menuWX = m_Menu.get();
-				wxMenuItem* itemWX = flags.Contains(MF_POPUP) ? m_Menu->FindItemByPosition(indexOrID) : m_Menu->FindItem(*WXUI::Menu::WinIDToWx(indexOrID), &menuWX);
+				wxMenuItem* itemWX = flags.Contains(MF_POPUP) ? m_Menu->FindItemByPosition(indexOrID) : m_Menu->FindItem(WXUI::Menu::WinIDToWx(indexOrID).ToInt(), &menuWX);
 
 				if (itemWX && (flags.Contains(MF_HILITE) || flags.Contains(MF_MOUSESELECT)))
 				{
@@ -194,7 +194,7 @@ namespace kxf::Widgets
 					const auto id = LOWORD(wParam);
 					const auto cmd = HIWORD(wParam);
 
-					itemWX = m_Menu->FindItem(*WXUI::Menu::WinIDToWx(id));
+					itemWX = m_Menu->FindItem(WXUI::Menu::WinIDToWx(id).ToInt());
 				}
 				else
 				{
@@ -545,7 +545,7 @@ namespace kxf::Widgets
 			auto id = ::GetMenuDefaultItem(m_Menu->GetHMenu(), FALSE, GMDI_GOINTOPOPUPS|GMDI_USEDISABLED);
 			if (id != std::numeric_limits<decltype(id)>::max())
 			{
-				if (auto item = m_Menu->FindItem(*WXUI::Menu::WinIDToWx(id)))
+				if (auto item = m_Menu->FindItem(WXUI::Menu::WinIDToWx(id).ToInt()))
 				{
 					return FindByWXMenuItem(*item);
 				}

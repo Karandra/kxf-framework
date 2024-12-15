@@ -215,11 +215,11 @@ namespace kxf::UI
 			}
 			void SetDefaultButton(WidgetID id) override
 			{
-				m_DefaultButton = *id;
+				m_DefaultButton = id.ToInt();
 			}
 			void SetDefaultRadioButton(WidgetID id)
 			{
-				m_DefaultRadioButton = *id;
+				m_DefaultRadioButton = id.ToInt();
 			}
 
 			StdDialogControl GetButton(WidgetID id) const override;

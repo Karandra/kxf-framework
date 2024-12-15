@@ -444,7 +444,7 @@ namespace kxf::Private
 
 	std::shared_ptr<IWidget> BasicWxWidgetBase::FindChildWidgetByID(WidgetID id) const
 	{
-		if (auto window = m_Window->FindWindow(*id))
+		if (auto window = m_Window->FindWindow(id.ToInt()))
 		{
 			return FindByWXObject(*window);
 		}
@@ -688,7 +688,7 @@ namespace kxf::Private
 	}
 	void BasicWxWidgetBase::SetWidgetID(WidgetID id)
 	{
-		m_Window->SetId(*id);
+		m_Window->SetId(id.ToInt());
 	}
 
 	String BasicWxWidgetBase::GetWidgetName() const

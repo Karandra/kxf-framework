@@ -30,6 +30,11 @@ namespace kxf
 			}
 
 		public:
+			constexpr StdID GetValue() const noexcept
+			{
+				return m_ID;
+			}
+
 			constexpr bool IsAny() const noexcept
 			{
 				return m_ID == StdID::Any;
@@ -42,7 +47,6 @@ namespace kxf
 			{
 				return m_ID == StdID::Separator;
 			}
-
 			constexpr bool IsAutomatic() const noexcept
 			{
 				return Utility::TestRange(CastToInt(m_ID), CastToInt(StdID::WX_AUTO_LOWEST), CastToInt(StdID::WX_AUTO_HIGHEST));
@@ -70,9 +74,9 @@ namespace kxf
 			constexpr auto operator<=>(const WidgetID&) const noexcept = default;
 			constexpr bool operator==(const WidgetID&) const noexcept = default;
 
-			constexpr TInt operator*() const noexcept
+			constexpr StdID operator*() const noexcept
 			{
-				return CastToInt(m_ID);
+				return m_ID;
 			}
 	};
 }
