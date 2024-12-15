@@ -15,7 +15,6 @@ namespace kxf
 		private Localization::Private::XMLPackageHelper
 	{
 		private:
-			Localization::Private::ItemsPackageHelper m_ItemsHelper;
 			std::unordered_map<ResourceID, LocalizationItem> m_Items;
 			Locale m_Locale;
 
@@ -27,10 +26,7 @@ namespace kxf
 			}
 
 		public:
-			WindowsLocalizationPackage()
-				:m_ItemsHelper(m_Items)
-			{
-			}
+			WindowsLocalizationPackage() = default;
 			WindowsLocalizationPackage(const WindowsLocalizationPackage&) = delete;
 			WindowsLocalizationPackage(WindowsLocalizationPackage&&) noexcept = default;
 
@@ -47,15 +43,18 @@ namespace kxf
 
 			const LocalizationItem& GetItem(const ResourceID& id) const override
 			{
-				if (const LocalizationItem* item = m_ItemsHelper.GetItem(id))
+				Localization::Private::ItemsPackageHelper helper(m_Items);
+
+				if (const LocalizationItem* item = helper.GetItem(id))
 				{
 					return *item;
 				}
 				return NullLocalizationItem;
 			}
-			Enumerator<ItemRef> EnumItems() const override
+			size_t EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const override
 			{
-				return m_ItemsHelper.EnumItems();
+				Localization::Private::ItemsPackageHelper helper(m_Items);
+				return helper.EnumItems(std::move(func));
 			}
 
 			bool Load(IInputStream& stream, const Locale& locale, FlagSet<LoadingScheme> loadingScheme = LoadingScheme::Replace) override
@@ -66,7 +65,7 @@ namespace kxf
 			{
 				return XMLPackageHelper::Load(library, name, locale, loadingScheme);
 			}
-			Enumerator<String> EnumFileExtensions() const override;
+			std::vector<String> GetFileExtensions() const override;
 
 		public:
 			WindowsLocalizationPackage& operator=(const WindowsLocalizationPackage&) = delete;

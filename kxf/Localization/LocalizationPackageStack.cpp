@@ -8,71 +8,75 @@ namespace kxf
 	size_t LocalizationPackageStack::GetItemCount() const
 	{
 		size_t count = 0;
-		for (const ILocalizationPackage& package: EnumLocalizationPackages())
+		EnumLocalizationPackages([&](const ILocalizationPackage& package)
 		{
 			count += package.GetItemCount();
-		}
+		});
+
 		return count;
+	}
+	size_t LocalizationPackageStack::EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const
+	{
+		if (!m_Packages.empty())
+		{
+			func.Reset();
+			for (auto& package: m_Packages)
+			{
+				package->EnumItems([&](const auto& id, const auto& item)
+				{
+					return func.Invoke(id, item).GetLastCommand();
+				});
+
+				if (func.ShouldTerminate())
+				{
+					break;
+				}
+			}
+
+			return func.GetCount();
+		}
+		return 0;
 	}
 	const LocalizationItem& LocalizationPackageStack::GetItem(const ResourceID& id) const
 	{
-		for (const ILocalizationPackage& package: EnumLocalizationPackages())
+		const LocalizationItem* ptr = nullptr;
+		EnumLocalizationPackages([&](const ILocalizationPackage& package)
 		{
 			if (const LocalizationItem& item = package.GetItem(id))
 			{
-				return item;
+				ptr = &item;
+				return CallbackCommand::Terminate;
+			}
+			return CallbackCommand::Continue;
+		});
+
+		return ptr ? *ptr : NullLocalizationItem;
+	}
+
+	size_t LocalizationPackageStack::EnumLocalizationPackages(CallbackFunction<ILocalizationPackage&> func)
+	{
+		func.Reset();
+		for (auto& package: m_Packages)
+		{
+			if (func.Invoke(*package).ShouldTerminate())
+			{
+				break;
 			}
 		}
-		return NullLocalizationItem;
-	}
-	Enumerator<ILocalizationPackage::ItemRef> LocalizationPackageStack::EnumItems() const
-	{
-		using TEnum = Enumerator<ILocalizationPackage::ItemRef>;
 
-		return [this, packageIt = m_Packages.rbegin(), packageEnumerator = TEnum(), enumeratorIt = TEnum::iterator()]() mutable -> TEnum::TValueContainer
+		return func.GetCount();
+	}
+	size_t LocalizationPackageStack::EnumLocalizationPackages(CallbackFunction<const ILocalizationPackage&> func) const
+	{
+		func.Reset();
+		for (auto& package: m_Packages)
 		{
-			if (packageIt != m_Packages.rend())
+			if (func.Invoke(*package).ShouldTerminate())
 			{
-				// Init items for the current package
-				if (!packageEnumerator)
-				{
-					packageEnumerator = (*packageIt)->EnumItems();
-				}
-
-				if (packageEnumerator)
-				{
-					// Init iterator for current items set
-					if (enumeratorIt == packageEnumerator.end())
-					{
-						enumeratorIt = packageEnumerator.begin();
-					}
-
-					// Get the item
-					decltype(auto) item = *enumeratorIt;
-
-					// If we have reached the end, reset the enumerator and advance to the next package
-					if (++enumeratorIt == packageEnumerator.end())
-					{
-						packageEnumerator = {};
-						++packageIt;
-					}
-					return item;
-				}
+				break;
 			}
-			return {};
-		};
-	}
+		}
 
-	Enumerator<const ILocalizationPackage&> LocalizationPackageStack::EnumLocalizationPackages() const noexcept
-	{
-		return Utility::EnumerateIterableContainerReverse<const ILocalizationPackage&, Utility::ReferenceOf>(m_Packages);
-	}
-	Enumerator<ILocalizationPackage&> LocalizationPackageStack::EnumLocalizationPackages() noexcept
-	{
-		return Utility::EnumerateIterableContainerReverse<ILocalizationPackage&, Utility::ReferenceOf>(m_Packages);
-	}
-	Enumerator<String> LocalizationPackageStack::EnumFileExtensions() const
-	{
-		return {};
+		return func.GetCount();
 	}
 }

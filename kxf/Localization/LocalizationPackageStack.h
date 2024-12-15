@@ -2,14 +2,13 @@
 #include "Common.h"
 #include "ILocalizationPackage.h"
 #include "kxf/Utility/Container.h"
-#include "kxf/Core/OptionalPtr.h"
 
 namespace kxf
 {
 	class KX_API LocalizationPackageStack: public RTTI::Implementation<LocalizationPackageStack, ILocalizationPackage>
 	{
 		private:
-			std::vector<optional_ptr<ILocalizationPackage>> m_Packages;
+			std::vector<std::shared_ptr<ILocalizationPackage>> m_Packages;
 
 		private:
 			Locale DoGetLocale() const
@@ -23,11 +22,7 @@ namespace kxf
 
 		public:
 			LocalizationPackageStack() = default;
-			LocalizationPackageStack(ILocalizationPackage& localizationPackage)
-			{
-				Add(localizationPackage);
-			}
-			LocalizationPackageStack(std::unique_ptr<ILocalizationPackage> localizationPackage)
+			LocalizationPackageStack(std::shared_ptr<ILocalizationPackage> localizationPackage)
 			{
 				Add(std::move(localizationPackage));
 			}
@@ -41,8 +36,8 @@ namespace kxf
 				return DoGetLocale();
 			}
 			size_t GetItemCount() const override;
+			size_t EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const override;
 			const LocalizationItem& GetItem(const ResourceID& id) const override;
-			Enumerator<ItemRef> EnumItems() const override;
 
 			bool Load(IInputStream& stream, const Locale& locale, FlagSet<LoadingScheme> loadingScheme = LoadingScheme::Replace) override
 			{
@@ -52,13 +47,13 @@ namespace kxf
 			{
 				return false;
 			}
+			std::vector<String> GetFileExtensions() const override
+			{
+				return {};
+			}
 
 			// LocalizationPackageStack
-			ILocalizationPackage& Add(ILocalizationPackage& localizationPackage)
-			{
-				return *m_Packages.emplace_back(localizationPackage);
-			}
-			ILocalizationPackage& Add(std::unique_ptr<ILocalizationPackage> localizationPackage)
+			ILocalizationPackage& Add(std::shared_ptr<ILocalizationPackage> localizationPackage)
 			{
 				return *m_Packages.emplace_back(std::move(localizationPackage));
 			}
@@ -69,12 +64,13 @@ namespace kxf
 					return item.get() == &localizationPackage;
 				}) == m_Packages.end();
 			}
-			optional_ptr<ILocalizationPackage> Detach(const ILocalizationPackage& localizationPackage)
+			std::shared_ptr<ILocalizationPackage> Detach(const ILocalizationPackage& localizationPackage)
 			{
 				auto it = Utility::Container::FindIf(m_Packages, [&](const auto& item)
 				{
 					return item.get() == &localizationPackage;
 				});
+
 				if (it != m_Packages.end())
 				{
 					auto item = std::move(*it);
@@ -84,9 +80,8 @@ namespace kxf
 				return {};
 			}
 
-			Enumerator<const ILocalizationPackage&> EnumLocalizationPackages() const noexcept;
-			Enumerator<ILocalizationPackage&> EnumLocalizationPackages() noexcept;
-			Enumerator<String> EnumFileExtensions() const override;
+			size_t EnumLocalizationPackages(CallbackFunction<const ILocalizationPackage&> func) const;
+			size_t EnumLocalizationPackages(CallbackFunction<ILocalizationPackage&> func);
 
 		public:
 			explicit operator bool() const

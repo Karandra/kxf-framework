@@ -6,12 +6,12 @@
 #include "kxf/Core/Enumerator.h"
 #include "kxf/System/DynamicLibrary.h"
 #include "kxf/wxWidgets/StandardLocalization.h"
+#include "kxf/Utility/String.h"
 #include "Private/LocalizationResources.h"
 
 namespace
 {
-	template<class TFunc>
-	kxf::CallbackCommand OnSearchPackage(TFunc&& func, kxf::FileItem item)
+	kxf::CallbackCommand OnSearchPackage(kxf::CallbackFunction<kxf::Locale, kxf::FileItem>& func, kxf::FileItem item)
 	{
 		using namespace kxf;
 
@@ -21,7 +21,7 @@ namespace
 			String name = item.GetName().BeforeLast('.');
 			if (!name.IsEmpty())
 			{
-				return std::invoke(func, std::move(locale), std::move(item));
+				return func.Invoke(std::move(locale), std::move(item)).GetLastCommand();
 			}
 		}
 		return CallbackCommand::Continue;
@@ -39,55 +39,54 @@ namespace kxf::Localization
 		return wxWidgets::LocalizeLabelString(id.GetValue());
 	}
 
-	size_t SearchPackages(const IFileSystem& fileSystem, const FSPath& directory, std::function<CallbackCommand(Locale, FileItem)> func)
+	size_t SearchPackages(const IFileSystem& fileSystem, const FSPath& directory, CallbackFunction<Locale, FileItem> func)
 	{
-		std::unordered_set<String> extensions;
+		Utility::UnorderedSetNoCase<String> extensions;
 		for (auto&& classInfo: RTTI::GetClassInfo<ILocalizationPackage>().EnumDerivedClasses())
 		{
 			if (auto instance = classInfo.CreateObjectInstance<ILocalizationPackage>())
 			{
-				for (auto&& ext: instance->EnumFileExtensions())
+				for (auto ext: instance->GetFileExtensions())
 				{
-					extensions.insert(ext.ToLower());
+					extensions.insert(ext);
 				}
 			}
 		}
 
-		size_t count = 0;
+		func.Reset();
 		for (FileItem item: fileSystem.EnumItems(directory, {}, FSActionFlag::LimitToFiles))
 		{
-			if (extensions.find(item.GetFileExtension().MakeLower()) != extensions.end())
+			if (extensions.find(item.GetFileExtension()) != extensions.end())
 			{
-				count++;
 				if (OnSearchPackage(func, std::move(item)) == CallbackCommand::Terminate)
 				{
 					break;
 				}
 			}
 		}
-		return count;
+		return func.GetCount();
 	}
-	size_t SearchPackages(const DynamicLibrary& library, std::function<CallbackCommand(Locale, FileItem)> func)
+	size_t SearchPackages(const DynamicLibrary& library, CallbackFunction<Locale, FileItem> func)
 	{
 		if (library)
 		{
 			using namespace Localization::Private;
 
-			size_t count = 0;
-			count += library.EnumResourceNames(EmbeddedResourceType::Android, [&](String name)
+			func.Reset();
+			library.EnumResourceNames(EmbeddedResourceType::Android, [&](String name)
 			{
 				return OnSearchPackage(func, FileItem(std::move(name)));
 			});
-			count += library.EnumResourceNames(EmbeddedResourceType::Windows, [&](String name)
+			library.EnumResourceNames(EmbeddedResourceType::Windows, [&](String name)
 			{
 				return OnSearchPackage(func, FileItem(std::move(name)));
 			});
-			count += library.EnumResourceNames(EmbeddedResourceType::Qt, [&](String name)
+			library.EnumResourceNames(EmbeddedResourceType::Qt, [&](String name)
 			{
 				return OnSearchPackage(func, FileItem(std::move(name)));
 			});
 
-			return count;
+			return func.GetCount();
 		}
 		return 0;
 	}

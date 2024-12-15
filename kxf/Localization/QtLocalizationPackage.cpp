@@ -17,54 +17,48 @@ namespace kxf
 			m_Version = tsNode.GetAttribute("version");
 
 			size_t count = 0;
-			for (const XMLNode& contextNode: tsNode.EnumChildElements("context"))
+			auto AddItem = [&](const XMLNode& messageNode, const String& contextName, ResourceID id, LocalizationItem item)
 			{
-				String name = contextNode.GetFirstChildElement("name").GetValue();
-				for (const XMLNode& messageNode: contextNode.EnumChildElements("message"))
+				if (item)
 				{
-					auto AddItem = [&](ResourceID id, LocalizationItem item)
+					if (auto locationNode = messageNode.GetFirstChildElement("location"))
 					{
-						if (item)
-						{
-							if (auto locationNode = messageNode.GetFirstChildElement("location"))
-							{
-								item.SetComment(Format("[Context={}][FileName={}][Line={}]", name, locationNode.GetAttribute("filename"), locationNode.GetAttribute("line")));
-							}
+						item.SetComment(Format("[Context={}][FileName={}][Line={}]", contextName, locationNode.GetAttribute("filename"), locationNode.GetAttribute("line")));
+					}
 
-							if (loadingScheme.Contains(LoadingScheme::OverwriteExisting))
-							{
-								m_Items.insert_or_assign(std::move(id), std::move(item));
-								count++;
-							}
-							else if (m_Items.emplace(std::move(id), std::move(item)).second)
-							{
-								count++;
-							}
-							return true;
-						}
-						return false;
-					};
-
-					AddItem(messageNode.GetFirstChildElement("source").GetValue(), LocalizationItem(*this, messageNode.GetFirstChildElement("translation").GetValue(), LocalizationItemFlag::Translatable));
+					if (loadingScheme.Contains(LoadingScheme::OverwriteExisting))
+					{
+						m_Items.insert_or_assign(std::move(id), std::move(item));
+						count++;
+					}
+					else if (m_Items.emplace(std::move(id), std::move(item)).second)
+					{
+						count++;
+					}
 					return true;
 				}
-				return true;
-			}
+				return false;
+			};
+
+			tsNode.EnumChildElements([&](XMLNode contextNode)
+			{
+				auto contextName = contextNode.GetFirstChildElement("name").GetValue();
+
+				contextNode.EnumChildElements([&](XMLNode messageNode)
+				{
+					auto id = messageNode.GetFirstChildElement("source").GetValue();
+					auto value = messageNode.GetFirstChildElement("translation").GetValue();
+
+					AddItem(messageNode, contextName, std::move(id), LocalizationItem(*this, std::move(value), LocalizationItemFlag::Translatable));
+				}, "message");
+			}, "context");
 			return count != 0;
 		}
 		return false;
 	}
 
-	Enumerator<String> QtLocalizationPackage::EnumFileExtensions() const
+	std::vector<String> QtLocalizationPackage::GetFileExtensions() const
 	{
-		return [done = false]() mutable -> std::optional<String>
-		{
-			if (!done)
-			{
-				done = true;
-				return "ts";
-			}
-			return {};
-		};
+		return {"ts"};
 	}
 }

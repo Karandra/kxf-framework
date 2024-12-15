@@ -7,6 +7,36 @@
 
 namespace kxf::Localization::Private
 {
+	const LocalizationItem* ItemsPackageHelper::GetItem(const ResourceID& id) const
+	{
+		auto it = m_Items->find(id);
+		if (it != m_Items->end())
+		{
+			return &it->second;
+		}
+		return nullptr;
+	}
+	size_t ItemsPackageHelper::EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const
+	{
+		if (m_Items && !m_Items->empty())
+		{
+			func.Reset();
+			for (const auto& [id, item]: *m_Items)
+			{
+				if (func.Invoke(id, item).ShouldTerminate())
+				{
+					break;
+				}
+			}
+
+			return func.GetCount();
+		}
+		return 0;
+	}
+}
+
+namespace kxf::Localization::Private
+{
 	bool XMLPackageHelper::Load(IInputStream& stream, const Locale& locale, FlagSet<LoadingScheme> loadingScheme)
 	{
 		if (stream && DoLoadXML(XMLDocument(stream), loadingScheme))
@@ -38,17 +68,5 @@ namespace kxf::Localization::Private
 
 		using namespace Localization::Private::EmbeddedResourceType;
 		return DoLoad(Android) || DoLoad(Windows) || DoLoad(Qt);
-	}
-
-	Enumerator<ILocalizationPackage::ItemRef> ItemsPackageHelper::EnumItems() const
-	{
-		if (m_Items && !m_Items->empty())
-		{
-			return Utility::EnumerateIterableContainer<ILocalizationPackage::ItemRef>(*m_Items, [](const auto& it)
-			{
-				return ILocalizationPackage::ItemRef(it.first, it.second);
-			});
-		}
-		return {};
 	}
 }

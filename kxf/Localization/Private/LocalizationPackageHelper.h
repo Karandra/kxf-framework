@@ -1,7 +1,6 @@
 #pragma once
 #include "../Common.h"
 #include "../ILocalizationPackage.h"
-#include "kxf/Core/Enumerator.h"
 
 namespace kxf
 {
@@ -16,10 +15,10 @@ namespace kxf::Localization::Private
 			using TItems = std::unordered_map<ResourceID, LocalizationItem>;
 
 		private:
-			TItems* m_Items = nullptr;
+			const TItems* m_Items = nullptr;
 
 		public:
-			ItemsPackageHelper(TItems& items)
+			ItemsPackageHelper(const TItems& items)
 				:m_Items(&items)
 			{
 			}
@@ -27,16 +26,8 @@ namespace kxf::Localization::Private
 			ItemsPackageHelper(ItemsPackageHelper&&) noexcept = default;
 
 		public:
-			const LocalizationItem* GetItem(const ResourceID& id) const
-			{
-				auto it = m_Items->find(id);
-				if (it != m_Items->end())
-				{
-					return &it->second;
-				}
-				return nullptr;
-			}
-			Enumerator<ILocalizationPackage::ItemRef> EnumItems() const;
+			const LocalizationItem* GetItem(const ResourceID& id) const;
+			size_t EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const;
 
 		public:
 			ItemsPackageHelper& operator=(const ItemsPackageHelper&) = delete;

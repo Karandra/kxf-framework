@@ -16,107 +16,100 @@ namespace kxf
 			m_Items.reserve(resourcesNode.GetChildrenCount());
 
 			size_t count = 0;
-			for (XMLNode itemNode: resourcesNode.EnumChildElements())
+			auto AddItem = [&](const XMLNode& itemNode, LocalizationItem item)
 			{
-				auto AddItem = [&](ResourceID id, LocalizationItem item)
+				if (item)
 				{
-					if (item)
-					{
-						if (auto maxLength = itemNode.QueryAttributeInt("maxLength"))
-						{
-							item.SetMaxLength(*maxLength);
-						}
-						if (auto comment = itemNode.QueryAttribute("comment"))
-						{
-							item.SetComment(std::move(*comment));
-						}
+					ResourceID id = itemNode.GetAttribute("name");
 
-						if (loadingScheme.Contains(LoadingScheme::OverwriteExisting))
+					if (auto maxLength = itemNode.QueryAttributeInt("maxLength"))
+					{
+						item.SetMaxLength(*maxLength);
+					}
+					if (auto comment = itemNode.QueryAttribute("comment"))
+					{
+						item.SetComment(std::move(*comment));
+					}
+
+					if (loadingScheme.Contains(LoadingScheme::OverwriteExisting))
+					{
+						m_Items.insert_or_assign(std::move(id), std::move(item));
+						count++;
+					}
+					else
+					{
+						if (m_Items.emplace(std::move(id), std::move(item)).second)
 						{
-							m_Items.insert_or_assign(std::move(id), std::move(item));
 							count++;
 						}
-						else
-						{
-							if (m_Items.emplace(std::move(id), std::move(item)).second)
-							{
-								count++;
-							}
-						}
-						return true;
 					}
-					return false;
-				};
+					return true;
+				}
+				return false;
+			};
 
+			resourcesNode.EnumChildElements([&](const XMLNode& itemNode)
+			{
 				FlagSet<LocalizationItemFlag> flags;
 				flags.Mod(LocalizationItemFlag::Translatable, itemNode.GetAttributeBool("translatable", true));
 
-				const String itemName = itemNode.GetName();
+				auto itemName = itemNode.GetName();
 				if (itemName == "string")
 				{
-					AddItem(itemNode.GetAttribute("name"), LocalizationItem(*this, itemNode.GetValue(), flags));
+					AddItem(itemNode, LocalizationItem(*this, itemNode.GetValue(), flags));
 				}
 				else if (itemName == "string-array")
 				{
 					LocalizationItem::TMultipleItems items;
 					items.reserve(itemNode.GetChildrenCount());
 
-					for (XMLNode node: itemNode.EnumChildElements("item"))
+					itemNode.EnumChildElements([&](XMLNode node)
 					{
-						if (items.emplace_back(node.GetValue()).IsEmpty())
+						if (auto value = node.GetValue(); !value.IsEmpty())
 						{
-							items.pop_back();
+							items.emplace_back(std::move(value));
 						}
-					}
-					AddItem(itemNode.GetAttribute("name"), LocalizationItem(*this, items, flags));
+					}, "item");
+					AddItem(itemNode, LocalizationItem(*this, std::move(items), flags));
 				}
 				else if (itemName == "plurals")
 				{
 					LocalizationItem::TPlurals plurals;
-					for (XMLNode node : itemNode.EnumChildElements("item"))
+					itemNode.EnumChildElements([&](XMLNode node)
 					{
 						const String name = node.GetAttribute("quantity");
 						if (name == "one")
 						{
 							plurals.emplace(LocalizationItemQuantity::One, node.GetValue());
-							return true;
+							return CallbackCommand::Continue;
 						}
 						else if (name == "few")
 						{
 							plurals.emplace(LocalizationItemQuantity::Few, node.GetValue());
-							return true;
+							return CallbackCommand::Continue;
 						}
 						else if (name == "many")
 						{
 							plurals.emplace(LocalizationItemQuantity::Many, node.GetValue());
-							return true;
+							return CallbackCommand::Continue;
 						}
 						else if (name == "other")
 						{
 							plurals.emplace(LocalizationItemQuantity::Other, node.GetValue());
-							return true;
+							return CallbackCommand::Continue;
 						}
-						return false;
-					}
-					AddItem(itemNode.GetAttribute("name"), LocalizationItem(*this, plurals, flags));
+						return CallbackCommand::Discard;
+					}, "item");
+					AddItem(itemNode, LocalizationItem(*this, std::move(plurals), flags));
 				}
-				return true;
-			}
+			});
 			return count != 0;
 		}
 		return false;
 	}
 
-	Enumerator<String> AndroidLocalizationPackage::EnumFileExtensions() const
+	std::vector<String> AndroidLocalizationPackage::GetFileExtensions() const
 	{
-		return [done = false]() mutable -> std::optional<String>
-		{
-			if (!done)
-			{
-				done = true;
-				return "xml";
-			}
-			return {};
-		};
+		return {"xml"};
 	}
 }
