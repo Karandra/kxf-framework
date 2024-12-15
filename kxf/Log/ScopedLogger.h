@@ -439,7 +439,7 @@ namespace kxf
 				return !m_Function.IsEmpty();
 			}
 
-			void OnEnter(StringView serializedParameters = {});
+			void OnEnter(std::optional<StringView> serializedParameters = {});
 			void OnLeave();
 
 			ScopedMessageLogger FlowControl(String category = {})

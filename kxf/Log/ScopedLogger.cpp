@@ -320,16 +320,16 @@ namespace kxf
 
 namespace kxf
 {
-	void ScopedLogger::OnEnter(StringView serializedParameters)
+	void ScopedLogger::OnEnter(std::optional<StringView> serializedParameters)
 	{
 		if (CanEnterLeave())
 		{
 			if (auto logger = FlowControl(); true)
 			{
 				logger.Log("Enter: ", m_Function);
-				if (!serializedParameters.empty())
+				if (serializedParameters.has_value())
 				{
-					logger.Format(" /. ({})", serializedParameters);
+					logger.Format(" /. ({})", *serializedParameters);
 				}
 			}
 			m_ScopeTLS.OnScopeEnter(*this);
