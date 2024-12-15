@@ -71,11 +71,15 @@ namespace kxf
 	{
 		if (m_State == State::Ready && hook.IsAttached())
 		{
+			void* originalAddress = hook.m_OriginalAddress;
+			void* targetAddress = hook.m_TargetAddress;
+			void* hookAddress = hook.m_HookAddress;
+
 			m_LastError = ::DetourDetach(&hook.m_TargetAddress, hook.m_HookAddress);
 			if (m_LastError.IsSuccess())
 			{
 				hook.OnDetached(*this);
-				Log::TraceCategory(LogCategory::kxf_Detours, "DetourDetach: Name=[{}], TargetAddress=[{}], HookAddress=[{}]", hook.m_Name, hook.m_TargetAddress, hook.m_HookAddress);
+				Log::TraceCategory(LogCategory::kxf_Detours, "DetourDetach: Name=[{}], TargetAddress=[{}], HookAddress=[{}]", hook.m_Name, targetAddress, hookAddress);
 
 				return true;
 			}
