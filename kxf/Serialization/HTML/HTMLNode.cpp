@@ -1,5 +1,6 @@
 #include "KxfPCH.h"
 #include "HTMLDocument.h"
+#include <kxf/Utility/Common.h>
 
 #pragma warning(disable: 4005) // macro redefinition
 #include "gumbo.h"
@@ -69,13 +70,18 @@ namespace kxf::HTML::Private
 		}
 		return nullptr;
 	}
-	const GumboAttribute** GetAttributes(const GumboNode* node)
+	const GumboAttribute** GetAttributes(const GumboNode* node, size_t* count = nullptr)
 	{
 		if (node->type == GUMBO_NODE_ELEMENT)
 		{
+			Utility::SetIfNotNull(count, node->v.element.attributes.length);
 			return const_cast<const GumboAttribute**>(reinterpret_cast<GumboAttribute**>(node->v.element.attributes.data));
 		}
-		return nullptr;
+		else
+		{
+			Utility::SetIfNotNull(count, 0);
+			return nullptr;
+		}
 	}
 	size_t GetAttributesCount(const GumboNode* node)
 	{
@@ -297,24 +303,22 @@ namespace kxf
 	{
 		return HTML::Private::GetAttributesCount(ToGumboNode(GetNode()));
 	}
-	size_t HTMLNode::EnumAttributeNames(std::function<CallbackCommand(String)> func) const
+	size_t HTMLNode::EnumAttributeNames(CallbackFunction<String> func) const
 	{
 		if (auto node = GetNode())
 		{
-			if (const GumboAttribute** attributes = HTML::Private::GetAttributes(ToGumboNode(node)))
+			size_t attributeCount = 0;
+			if (const GumboAttribute** attributes = HTML::Private::GetAttributes(ToGumboNode(node), &attributeCount))
 			{
-				const size_t attributeCount = GetAttributeCount();
-
-				size_t count = 0;
+				func.Reset();
 				for (size_t i = 0; i < attributeCount; i++)
 				{
-					count++;
-					if (std::invoke(func, String::FromUTF8(attributes[i]->name)) == CallbackCommand::Terminate)
+					if (func.Invoke(String::FromUTF8(attributes[i]->name)).ShouldTerminate())
 					{
 						break;
 					}
 				}
-				return 0;
+				return func.GetCount();
 			}
 		}
 		return 0;
@@ -332,22 +336,21 @@ namespace kxf
 	{
 		return HTML::Private::GetChildrenCount(ToGumboNode(GetNode()));
 	}
-	size_t HTMLNode::EnumChildren(std::function<CallbackCommand(HTMLNode)> func) const
+	size_t HTMLNode::EnumChildren(CallbackFunction<HTMLNode> func) const
 	{
 		if (auto node = GetNode())
 		{
 			if (auto children = HTML::Private::GetChildren(ToGumboNode(node)))
 			{
-				size_t count = 0;
+				func.Reset();
 				for (size_t i = 0; i < children->length; i++)
 				{
-					count++;
-					if (std::invoke(func, HTMLNode(HTML::Private::GetNodeAt(children, i), m_Document)) == CallbackCommand::Terminate)
+					if (func.Invoke(HTMLNode(HTML::Private::GetNodeAt(children, i), m_Document)).ShouldTerminate())
 					{
 						break;
 					}
 				}
-				return count;
+				return func.GetCount();
 			}
 		}
 		return 0;

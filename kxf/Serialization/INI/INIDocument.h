@@ -107,7 +107,7 @@ namespace kxf
 			bool ClearNode() override;
 
 			size_t GetAttributeCount() const override;
-			size_t EnumAttributeNames(std::function<CallbackCommand(String)> func) const override;
+			size_t EnumAttributeNames(CallbackFunction<String> func) const override;
 
 			bool HasAttribute(const String& name) const;
 			bool RemoveAttribute(const String& name);
@@ -123,7 +123,7 @@ namespace kxf
 				m_Comment = std::move(comment);
 			}
 
-			size_t EnumKeyNames(std::function<CallbackCommand(String)> func) const;
+			size_t EnumKeyNames(CallbackFunction<String> func) const;
 
 		public:
 			INIDocumentSection& operator=(const INIDocumentSection&) = default;
@@ -235,7 +235,7 @@ namespace kxf
 			INIDocumentSection QueryElement(const String& XPath) const override;
 			INIDocumentSection ConstructElement(const String& XPath) override;
 
-			size_t EnumChildren(std::function<CallbackCommand(INIDocumentSection)> func) const override;
+			size_t EnumChildren(CallbackFunction<INIDocumentSection> func) const override;
 			INIDocumentSection GetFirstChild() const override;
 			INIDocumentSection GetLastChild() const override;
 
@@ -251,8 +251,8 @@ namespace kxf
 			FlagSet<INIDocumentOption> GetOptions() const;
 			void SetOptions(FlagSet<INIDocumentOption> options);
 
-			size_t EnumSectionNames(std::function<CallbackCommand(String)> func) const;
-			size_t EnumKeyNames(const String& sectionName, std::function<CallbackCommand(String)> func) const;
+			size_t EnumSectionNames(CallbackFunction<String> func) const;
+			size_t EnumKeyNames(const String& sectionName, CallbackFunction<String> func) const;
 			using INIDocumentSection::EnumKeyNames;
 
 			bool HasSection(const String& sectionName) const;

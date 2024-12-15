@@ -134,7 +134,7 @@ namespace kxf
 		}
 		return 0;
 	}
-	size_t INIDocumentSection::EnumAttributeNames(std::function<CallbackCommand(String)> func) const
+	size_t INIDocumentSection::EnumAttributeNames(CallbackFunction<String> func) const
 	{
 		if (m_Ref)
 		{
@@ -169,7 +169,7 @@ namespace kxf
 	}
 
 	// INIDocumentSection
-	size_t INIDocumentSection::EnumKeyNames(std::function<CallbackCommand(String)> func) const
+	size_t INIDocumentSection::EnumKeyNames(CallbackFunction<String> func) const
 	{
 		if (m_Ref)
 		{
@@ -486,13 +486,13 @@ namespace kxf
 		return INIDocumentSection(*this, XPath);
 	}
 
-	size_t INIDocument::EnumChildren(std::function<CallbackCommand(INIDocumentSection)> func) const
+	size_t INIDocument::EnumChildren(CallbackFunction<INIDocumentSection> func) const
 	{
 		if (m_Document)
 		{
 			return m_Document->ForEachSection([&](const INIDocumentImpl::Entry& entry)
 			{
-				return std::invoke(func, INIDocumentImpl::ToSection(*this, entry));
+				return func.Invoke(INIDocumentImpl::ToSection(*this, entry)).GetLastCommand();
 			}, SortOrder::Ascending);
 		}
 		return 0;
@@ -619,18 +619,18 @@ namespace kxf
 		}
 	}
 
-	size_t INIDocument::EnumSectionNames(std::function<CallbackCommand(String)> func) const
+	size_t INIDocument::EnumSectionNames(CallbackFunction<String> func) const
 	{
 		if (m_Document)
 		{
 			return m_Document->ForEachSection([&, options = GetOptions()](const INIDocumentImpl::Entry& entry)
 			{
-				return std::invoke(func, String::FromUTF8(entry.pItem));
+				return func.Invoke(String::FromUTF8(entry.pItem)).GetLastCommand();
 			}, SortOrder::Ascending);
 		}
 		return 0;
 	}
-	size_t INIDocument::EnumKeyNames(const String& sectionName, std::function<CallbackCommand(String)> func) const
+	size_t INIDocument::EnumKeyNames(const String& sectionName, CallbackFunction<String> func) const
 	{
 		if (m_Document)
 		{
@@ -646,7 +646,7 @@ namespace kxf
 					RemoveQuotes(keyName);
 				}
 
-				return std::invoke(func, std::move(keyName));
+				return func.Invoke(std::move(keyName)).GetLastCommand();
 			}, sectionName, SortOrder::Ascending);
 		}
 		return 0;

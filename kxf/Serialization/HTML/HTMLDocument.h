@@ -73,7 +73,7 @@ namespace kxf
 			String GetName() const override;
 
 			size_t GetChildrenCount() const override;
-			size_t EnumChildren(std::function<CallbackCommand(HTMLNode)> func) const override;
+			size_t EnumChildren(CallbackFunction<HTMLNode> func) const override;
 
 			virtual String GetHTML() const;
 			NodeType GetType() const;
@@ -90,7 +90,7 @@ namespace kxf
 
 			// Attributes
 			size_t GetAttributeCount() const override;
-			size_t EnumAttributeNames(std::function<CallbackCommand(String)> func) const override;
+			size_t EnumAttributeNames(CallbackFunction<String> func) const override;
 			bool HasAttribute(const String& name) const override;
 		
 			// Navigation

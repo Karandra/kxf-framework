@@ -360,7 +360,7 @@ namespace kxf
 		size_t count = 0;
 		if (auto node = GetNode())
 		{
-			for (const tinyxml2::XMLNode* child = node->FirstChild(); child != nullptr; child = child->NextSibling())
+			for (auto child = node->FirstChild(); child ; child = child->NextSibling())
 			{
 				count++;
 			}
@@ -390,6 +390,44 @@ namespace kxf
 		ClearChildren();
 		ClearAttributes();
 		return true;
+	}
+
+	size_t XMLNode::EnumChildren(CallbackFunction<XMLNode> func) const
+	{
+		if (auto node = GetNode())
+		{
+			func.Reset();
+			for (auto child = node->FirstChild(); child; child = child->NextSibling())
+			{
+				if (func.Invoke(XMLNode(child, *m_Document)).ShouldTerminate())
+				{
+					break;
+				}
+			}
+
+			return func.GetCount();
+		}
+		return 0;
+	}
+	size_t XMLNode::EnumChildElements(CallbackFunction<XMLNode> func, const String& name) const
+	{
+		if (auto node = GetNode())
+		{
+			auto utf8 = name.ToUTF8();
+			auto namePtr = !name.IsEmpty() ? utf8.data() : nullptr;
+
+			func.Reset();
+			for (auto child = node->FirstChildElement(namePtr); child; child = child->NextSiblingElement(namePtr))
+			{
+				if (func.Invoke(XMLNode(child, *m_Document)).ShouldTerminate())
+				{
+					break;
+				}
+			}
+
+			return func.GetCount();
+		}
+		return 0;
 	}
 
 	String XMLNode::GetXML(SerializationFormat mode) const
@@ -511,29 +549,28 @@ namespace kxf
 		}
 		return false;
 	}
-	size_t XMLNode::EnumAttributeNames(std::function<CallbackCommand(String)> func) const
+	size_t XMLNode::EnumAttributeNames(CallbackFunction<String> func) const
 	{
 		return EnumAttributes([&](XMLAttribute attribute)
 		{
-			return std::invoke(func, attribute.GetName());
+			return func.Invoke(attribute.GetName()).GetLastCommand();
 		});
 	}
-	size_t XMLNode::EnumAttributes(std::function<CallbackCommand(XMLAttribute)> func) const
+	size_t XMLNode::EnumAttributes(CallbackFunction<XMLAttribute> func) const
 	{
 		if (GetNode())
 		{
 			if (auto node = GetNode()->ToElement())
 			{
-				size_t count = 0;
-				for (const tinyxml2::XMLAttribute* attribute = node->FirstAttribute(); attribute; attribute = attribute->Next())
+				func.Reset();
+				for (auto attribute = node->FirstAttribute(); attribute; attribute = attribute->Next())
 				{
-					count++;
-					if (std::invoke(func, XMLAttribute(*this, *attribute)) == CallbackCommand::Terminate)
+					if (func.Invoke(XMLAttribute(*this, *attribute)).ShouldTerminate())
 					{
 						break;
 					}
 				}
-				return count;
+				return func.GetCount();
 			}
 		}
 		return 0;

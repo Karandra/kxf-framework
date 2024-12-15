@@ -1,7 +1,6 @@
 #pragma once
 #include "Common.h"
 #include "String.h"
-#include "kxf/Core/Enumerator.h"
 #include "kxf/Core/CallbackFunction.h"
 #include "kxf/Utility/ScopeGuard.h"
 #include "Private/XDocument.h"
@@ -323,7 +322,7 @@ namespace kxf::XDocument
 			{
 				return GetAttributeCount() != 0;
 			}
-			virtual size_t EnumAttributeNames(std::function<CallbackCommand(String)> func) const
+			virtual size_t EnumAttributeNames(CallbackFunction<String> func) const
 			{
 				return 0;
 			}
@@ -476,7 +475,7 @@ namespace kxf::XDocument
 			}
 
 			// Node
-			virtual size_t EnumChildren(std::function<CallbackCommand(TNode)> func) const
+			virtual size_t EnumChildren(CallbackFunction<TNode> func) const
 			{
 				return 0;
 			}
@@ -510,23 +509,6 @@ namespace kxf::XDocument
 			virtual TNode GetLastChild() const
 			{
 				return {};
-			}
-
-			template<class = void>
-			Enumerator<TNode> EnumChildren() const
-			{
-				return [node = GetFirstChild()]() mutable -> std::optional<TNode>
-				{
-					if (!node.IsNull())
-					{
-						Utility::ScopeGuard atExit = [&]()
-						{
-							node = node.GetNextSibling();
-						};
-						return std::move(node);
-					}
-					return {};
-				};
 			}
 
 			// Insertion

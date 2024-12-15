@@ -176,6 +176,9 @@ namespace kxf
 			bool ClearChildren() override;
 			bool ClearNode() override;
 
+			size_t EnumChildren(CallbackFunction<XMLNode> func) const override;
+			size_t EnumChildElements(CallbackFunction<XMLNode> func, const String& name = {}) const;
+
 			XMLDocument& GetDocument()
 			{
 				return *m_Document;
@@ -199,8 +202,8 @@ namespace kxf
 			// Attributes
 			size_t GetAttributeCount() const override;
 			bool HasAttributes() const override;
-			size_t EnumAttributeNames(std::function<CallbackCommand(String)> func) const override;
-			size_t EnumAttributes(std::function<CallbackCommand(XMLAttribute)> func) const;
+			size_t EnumAttributeNames(CallbackFunction<String> func) const override;
+			size_t EnumAttributes(CallbackFunction<XMLAttribute> func) const;
 
 			bool HasAttribute(const String& name) const override;
 			bool RemoveAttribute(const String& name) override;
@@ -220,22 +223,6 @@ namespace kxf
 			XMLNode GetFirstChildElement(const String& name = {}) const;
 			XMLNode GetLastChild() const override;
 			XMLNode GetLastChildElement(const String& name = {}) const;
-
-			Enumerator<XMLNode> EnumChildElements(const String& name = {}) const
-			{
-				return [node = GetFirstChildElement(name), name]() mutable -> std::optional<XMLNode>
-				{
-					if (node)
-					{
-						Utility::ScopeGuard atExit = [&]()
-						{
-							node = node.GetNextSiblingElement(name);
-						};
-						return std::move(node);
-					}
-					return {};
-				};
-			}
 
 			// Insertion
 			bool Insert(XMLNode& node, InsertMode insertMode);
