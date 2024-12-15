@@ -610,9 +610,6 @@
     <ClInclude Include="kxf\Localization\Common.h">
       <Filter>kxf\Localization</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Localization\Private\StandardLocalization.h">
-      <Filter>kxf\Localization\Private</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Localization\Locale.h">
       <Filter>kxf\Localization</Filter>
     </ClInclude>
@@ -2511,6 +2508,9 @@
     <ClInclude Include="kxf\Core\Private\String.h">
       <Filter>kxf\Core\Private</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\wxWidgets\StandardLocalization.h">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">
@@ -2665,9 +2665,6 @@
     </ClCompile>
     <ClCompile Include="kxf\Localization\Common.cpp">
       <Filter>kxf\Localization</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Localization\Private\StandardLocalization.cpp">
-      <Filter>kxf\Localization\Private</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Localization\Locale.cpp">
       <Filter>kxf\Localization</Filter>
@@ -3800,6 +3797,9 @@
     </ClCompile>
     <ClCompile Include="kxf\Core\Async\DefaultAsyncTaskExecutor.cpp">
       <Filter>kxf\Core\Async</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\wxWidgets\StandardLocalization.cpp">
+      <Filter>kxf\wxWidgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

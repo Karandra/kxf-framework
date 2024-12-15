@@ -33,7 +33,7 @@ namespace
 	}
 }
 
-namespace kxf::Localization::Private
+namespace kxf::wxWidgets
 {
 	String LocalizeLabelString(StdID id, FlagSet<wxStockLabelQueryFlag> flags)
 	{

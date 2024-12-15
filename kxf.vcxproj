@@ -728,6 +728,7 @@
     <ClInclude Include="kxf\wxWidgets\EvtHandlerWrapper.h" />
     <ClInclude Include="kxf\wxWidgets\IWithEvent.h" />
     <ClInclude Include="kxf\wxWidgets\RTTI.h" />
+    <ClInclude Include="kxf\wxWidgets\StandardLocalization.h" />
     <ClInclude Include="kxf\wxWidgets\StreamWrapper.h" />
     <ClInclude Include="kxf\wxWidgets\String.h" />
     <ClInclude Include="kxf\wxWidgets\StringFormatters.h" />
@@ -788,7 +789,6 @@
     <ClInclude Include="kxf\Localization\Common.h" />
     <ClInclude Include="kxf\Localization\Locale.h" />
     <ClInclude Include="kxf\Localization\Private\LocaleOptions.h" />
-    <ClInclude Include="kxf\Localization\Private\StandardLocalization.h" />
     <ClInclude Include="kxf\Localization\AndroidLocalizationPackage.h" />
     <ClInclude Include="kxf\Network.hpp" />
     <ClInclude Include="kxf\Network\Common.h" />
@@ -1237,6 +1237,7 @@
     <ClCompile Include="kxf\Utility\Drawing.cpp" />
     <ClCompile Include="kxf\Utility\Memory.cpp" />
     <ClCompile Include="kxf\Utility\SoftwareLicenseDB.cpp" />
+    <ClCompile Include="kxf\wxWidgets\StandardLocalization.cpp" />
     <ClCompile Include="kxf\wxWidgets\StreamWrapper.cpp" />
     <ClCompile Include="KxfPCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -1255,7 +1256,6 @@
     <ClCompile Include="kxf\Localization\Common.cpp" />
     <ClCompile Include="kxf\Localization\Locale.cpp" />
     <ClCompile Include="kxf\Localization\Private\LocaleOptions.cpp" />
-    <ClCompile Include="kxf\Localization\Private\StandardLocalization.cpp" />
     <ClCompile Include="kxf\Localization\AndroidLocalizationPackage.cpp" />
     <ClCompile Include="kxf\Network\Common.cpp" />
     <ClCompile Include="kxf\Network\URI.cpp" />

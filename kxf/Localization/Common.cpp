@@ -5,7 +5,7 @@
 #include "kxf/UI/WidgetID.h"
 #include "kxf/Core/Enumerator.h"
 #include "kxf/System/DynamicLibrary.h"
-#include "Private/StandardLocalization.h"
+#include "kxf/wxWidgets/StandardLocalization.h"
 #include "Private/LocalizationResources.h"
 
 namespace
@@ -30,17 +30,13 @@ namespace
 
 namespace kxf::Localization
 {
-	String GetStandardString(int id)
-	{
-		return Private::LocalizeLabelString(FromInt<StdID>(id));
-	}
 	String GetStandardString(StdID id)
 	{
-		return Private::LocalizeLabelString(id);
+		return wxWidgets::LocalizeLabelString(id);
 	}
-	String GetStandardString(const WidgetID& id)
+	String GetStandardString(WidgetID id)
 	{
-		return Private::LocalizeLabelString(FromInt<StdID>(*id));
+		return wxWidgets::LocalizeLabelString(id.GetValue());
 	}
 
 	size_t SearchPackages(const IFileSystem& fileSystem, const FSPath& directory, std::function<CallbackCommand(Locale, FileItem)> func)
