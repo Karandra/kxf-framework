@@ -155,4 +155,26 @@ namespace std
 			return Base::max();
 		}
 	};
+
+	template<>
+	struct formatter<kxf::UniversallyUniqueID, char>: std::formatter<std::string_view, char>
+	{
+		template<class TFormatContext>
+		auto format(const kxf::UniversallyUniqueID& value, TFormatContext& formatContext) const
+		{
+			auto formatted = value.ToString(kxf::UUIDFormat::CurlyBraces).ToUTF8();
+			return std::formatter<std::string_view, char>::format(formatted, formatContext);
+		}
+	};
+
+	template<>
+	struct formatter<kxf::UniversallyUniqueID, wchar_t>: std::formatter<std::wstring_view, wchar_t>
+	{
+		template<class TFormatContext>
+		auto format(const kxf::UniversallyUniqueID& value, TFormatContext& formatContext) const
+		{
+			auto formatted = value.ToString(kxf::UUIDFormat::CurlyBraces);
+			return std::formatter<std::wstring_view, wchar_t>::format(formatted.view(), formatContext);
+		}
+	};
 }
