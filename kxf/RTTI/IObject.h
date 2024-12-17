@@ -10,9 +10,15 @@ namespace kxf::RTTI
 	class ClassInfo;
 
 	template<std::derived_from<IObject> T>
-	std::shared_ptr<T> assume_non_owned(T& value) noexcept
+	std::shared_ptr<T> assume_non_owned(T& ref) noexcept
 	{
-		return {IObject::ms_UnownedRef, &value};
+		return {IObject::ms_UnownedRef, &ref};
+	}
+
+	template<std::derived_from<IObject> T>
+	bool is_non_owned(const T& ref) noexcept
+	{
+		return ref.weak_from_this().expired();
 	}
 }
 
