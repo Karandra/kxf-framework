@@ -3294,9 +3294,6 @@
     <ClCompile Include="kxf\Core\ResourceID.cpp">
       <Filter>kxf\Core</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\IO\NullStream.cpp">
-      <Filter>kxf\IO</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Network\CURLWebSession\CURLWebRequest.cpp">
       <Filter>kxf\Network\CURLWebSession</Filter>
     </ClCompile>

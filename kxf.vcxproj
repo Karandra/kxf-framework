@@ -978,7 +978,6 @@
     <ClCompile Include="kxf\IO\NativeFileStream.cpp" />
     <ClCompile Include="kxf\IO\IStream.cpp" />
     <ClCompile Include="kxf\IO\MemoryStream.cpp" />
-    <ClCompile Include="kxf\IO\NullStream.cpp" />
     <ClCompile Include="kxf\IO\StreamReaderWriter.cpp" />
     <ClCompile Include="kxf\RPC\SharedMemory.cpp" />
     <ClCompile Include="kxf\RPC\SystemWindowRPC\SystemWindowRPCClient.cpp" />

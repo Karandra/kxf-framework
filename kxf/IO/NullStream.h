@@ -7,7 +7,11 @@ namespace kxf
 	class NullStream final: public IStream
 	{
 		public:
-			static IStream& Get();
+			static IStream& Get()
+			{
+				static NullStream instanse;
+				return instanse;
+			}
 
 		public:
 			// IStream
@@ -39,7 +43,11 @@ namespace kxf
 	class NullInputStream final: public IInputStream
 	{
 		public:
-			static IInputStream& Get();
+			static IInputStream& Get()
+			{
+				static NullInputStream instanse;
+				return instanse;
+			}
 
 		public:
 			// IStream
@@ -112,7 +120,11 @@ namespace kxf
 	class NullOutputStream final: public IOutputStream
 	{
 		public:
-			static IOutputStream& Get();
+			static IOutputStream& Get()
+			{
+				static NullOutputStream instanse;
+				return instanse;
+			}
 
 		public:
 			// IStream
