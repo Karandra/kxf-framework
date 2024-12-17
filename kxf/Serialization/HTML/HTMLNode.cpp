@@ -303,14 +303,13 @@ namespace kxf
 	{
 		return HTML::Private::GetAttributesCount(ToGumboNode(GetNode()));
 	}
-	size_t HTMLNode::EnumAttributeNames(CallbackFunction<String> func) const
+	CallbackResult<void> HTMLNode::EnumAttributeNames(CallbackFunction<String> func) const
 	{
 		if (auto node = GetNode())
 		{
 			size_t attributeCount = 0;
 			if (const GumboAttribute** attributes = HTML::Private::GetAttributes(ToGumboNode(node), &attributeCount))
 			{
-				func.Reset();
 				for (size_t i = 0; i < attributeCount; i++)
 				{
 					if (func.Invoke(String::FromUTF8(attributes[i]->name)).ShouldTerminate())
@@ -318,10 +317,10 @@ namespace kxf
 						break;
 					}
 				}
-				return func.GetCount();
+				return func.Finalize();
 			}
 		}
-		return 0;
+		return {};
 	}
 	bool HTMLNode::HasAttribute(const String& name) const
 	{
@@ -336,13 +335,12 @@ namespace kxf
 	{
 		return HTML::Private::GetChildrenCount(ToGumboNode(GetNode()));
 	}
-	size_t HTMLNode::EnumChildren(CallbackFunction<HTMLNode> func) const
+	CallbackResult<void> HTMLNode::EnumChildren(CallbackFunction<HTMLNode> func) const
 	{
 		if (auto node = GetNode())
 		{
 			if (auto children = HTML::Private::GetChildren(ToGumboNode(node)))
 			{
-				func.Reset();
 				for (size_t i = 0; i < children->length; i++)
 				{
 					if (func.Invoke(HTMLNode(HTML::Private::GetNodeAt(children, i), m_Document)).ShouldTerminate())
@@ -350,10 +348,10 @@ namespace kxf
 						break;
 					}
 				}
-				return func.GetCount();
+				return func.Finalize();
 			}
 		}
-		return 0;
+		return {};
 	}
 
 	HTMLNode HTMLNode::GetElementByAttribute(const String& name, const String& value) const

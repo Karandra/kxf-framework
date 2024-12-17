@@ -36,7 +36,7 @@ namespace kxf
 				return DoGetLocale();
 			}
 			size_t GetItemCount() const override;
-			size_t EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const override;
+			CallbackResult<void> EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const override;
 			const LocalizationItem& GetItem(const ResourceID& id) const override;
 
 			bool Load(IInputStream& stream, const Locale& locale, FlagSet<LoadingScheme> loadingScheme = LoadingScheme::Replace) override
@@ -80,8 +80,8 @@ namespace kxf
 				return {};
 			}
 
-			size_t EnumLocalizationPackages(CallbackFunction<const ILocalizationPackage&> func) const;
-			size_t EnumLocalizationPackages(CallbackFunction<ILocalizationPackage&> func);
+			CallbackResult<void> EnumLocalizationPackages(CallbackFunction<const ILocalizationPackage&> func) const;
+			CallbackResult<void> EnumLocalizationPackages(CallbackFunction<ILocalizationPackage&> func);
 
 		public:
 			explicit operator bool() const

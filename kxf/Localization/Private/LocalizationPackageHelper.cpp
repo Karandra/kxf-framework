@@ -16,11 +16,11 @@ namespace kxf::Localization::Private
 		}
 		return nullptr;
 	}
-	size_t ItemsPackageHelper::EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const
+	CallbackResult<void> ItemsPackageHelper::EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const
 	{
 		if (m_Items && !m_Items->empty())
 		{
-			func.Reset();
+			func.ResetState();
 			for (const auto& [id, item]: *m_Items)
 			{
 				if (func.Invoke(id, item).ShouldTerminate())
@@ -29,9 +29,9 @@ namespace kxf::Localization::Private
 				}
 			}
 
-			return func.GetCount();
+			return func.Finalize();
 		}
-		return 0;
+		return {};
 	}
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "../Common.h"
 #include "../ILocalizationPackage.h"
+#include "kxf/Core/CallbackFunction.h"
 
 namespace kxf
 {
@@ -27,7 +28,7 @@ namespace kxf::Localization::Private
 
 		public:
 			const LocalizationItem* GetItem(const ResourceID& id) const;
-			size_t EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const;
+			CallbackResult<void> EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const;
 
 		public:
 			ItemsPackageHelper& operator=(const ItemsPackageHelper&) = delete;

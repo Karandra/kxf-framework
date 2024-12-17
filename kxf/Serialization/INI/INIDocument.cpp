@@ -29,21 +29,18 @@ namespace kxf
 				return INIDocumentSection(const_cast<INIDocument&>(document), String::FromUTF8(entry.pItem), String::FromUTF8(entry.pComment), entry.nOrder);
 			}
 
-			template<class TFunc>
-			size_t ForEach(TNamesDepend& items, TFunc&& func, SortOrder order = SortOrder::None) const
+			CallbackResult<void> ForEach(TNamesDepend& items, CallbackFunction<Entry&> func, SortOrder order = SortOrder::None) const
 			{
 				if (order != SortOrder::None)
 				{
 					items.sort(INIDocumentImpl::Entry::LoadOrder());
 				}
 
-				size_t count = 0;
 				if (order == SortOrder::Ascending || order == SortOrder::None)
 				{
 					for (auto it = items.begin(); it != items.end(); ++it)
 					{
-						count++;
-						if (std::invoke(func, *it) == CallbackCommand::Terminate)
+						if (func.Invoke(*it).ShouldTerminate())
 						{
 							break;
 						}
@@ -53,45 +50,38 @@ namespace kxf
 				{
 					for (auto it = items.rbegin(); it != items.rend(); ++it)
 					{
-						count++;
-						if (std::invoke(func, *it) == CallbackCommand::Terminate)
+						if (func.Invoke(*it).ShouldTerminate())
 						{
 							break;
 						}
 					}
 				}
-				return count;
+				return func.Finalize();
 			}
-
-			template<class TFunc>
-			size_t ForEachSection(TFunc&& func, SortOrder order = SortOrder::None) const
+			CallbackResult<void> ForEachSection(CallbackFunction<Entry&> func, SortOrder order = SortOrder::None) const
 			{
 				TNamesDepend items;
 				GetAllSections(items);
 
-				return ForEach(items, std::forward<TFunc>(func), order);
+				return ForEach(items, std::move(func), order);
 			}
-
-			template<class TFunc>
-			size_t ForEachKey(TFunc&& func, const String& sectionName, SortOrder order = SortOrder::None) const
+			CallbackResult<void> ForEachKey(CallbackFunction<Entry&> func, const String& sectionName, SortOrder order = SortOrder::None) const
 			{
 				TNamesDepend items;
 				if (GetAllKeys(sectionName.utf8_str(), items))
 				{
-					return ForEach(items, std::forward<TFunc>(func), order);
+					return ForEach(items, std::move(func), order);
 				}
-				return 0;
+				return {};
 			}
-
-			template<class TFunc>
-			size_t ForEachValue(TFunc&& func, const String& sectionName, const String& keyName, SortOrder order = SortOrder::None) const
+			CallbackResult<void> ForEachValue(CallbackFunction<Entry&> func, const String& sectionName, const String& keyName, SortOrder order = SortOrder::None) const
 			{
 				TNamesDepend items;
 				if (GetAllValues(sectionName.utf8_str(), keyName.utf8_str(), items))
 				{
-					return ForEach(items, std::forward<TFunc>(func), order);
+					return ForEach(items, std::move(func), order);
 				}
-				return 0;
+				return {};
 			}
 	};
 }
@@ -134,13 +124,13 @@ namespace kxf
 		}
 		return 0;
 	}
-	size_t INIDocumentSection::EnumAttributeNames(CallbackFunction<String> func) const
+	CallbackResult<void> INIDocumentSection::EnumAttributeNames(CallbackFunction<String> func) const
 	{
 		if (m_Ref)
 		{
 			return m_Ref->EnumKeyNames(m_SectionName, std::move(func));
 		}
-		return 0;
+		return {};
 	}
 
 	bool INIDocumentSection::HasAttribute(const String& name) const
@@ -169,13 +159,13 @@ namespace kxf
 	}
 
 	// INIDocumentSection
-	size_t INIDocumentSection::EnumKeyNames(CallbackFunction<String> func) const
+	CallbackResult<void> INIDocumentSection::EnumKeyNames(CallbackFunction<String> func) const
 	{
 		if (m_Ref)
 		{
 			return m_Ref->EnumKeyNames(m_SectionName, std::move(func));
 		}
-		return 0;
+		return {};
 	}
 }
 
@@ -486,7 +476,7 @@ namespace kxf
 		return INIDocumentSection(*this, XPath);
 	}
 
-	size_t INIDocument::EnumChildren(CallbackFunction<INIDocumentSection> func) const
+	CallbackResult<void> INIDocument::EnumChildren(CallbackFunction<INIDocumentSection> func) const
 	{
 		if (m_Document)
 		{
@@ -495,7 +485,7 @@ namespace kxf
 				return func.Invoke(INIDocumentImpl::ToSection(*this, entry)).GetLastCommand();
 			}, SortOrder::Ascending);
 		}
-		return 0;
+		return {};
 	}
 	INIDocumentSection INIDocument::GetFirstChild() const
 	{
@@ -619,7 +609,7 @@ namespace kxf
 		}
 	}
 
-	size_t INIDocument::EnumSectionNames(CallbackFunction<String> func) const
+	CallbackResult<void> INIDocument::EnumSectionNames(CallbackFunction<String> func) const
 	{
 		if (m_Document)
 		{
@@ -628,9 +618,9 @@ namespace kxf
 				return func.Invoke(String::FromUTF8(entry.pItem)).GetLastCommand();
 			}, SortOrder::Ascending);
 		}
-		return 0;
+		return {};
 	}
-	size_t INIDocument::EnumKeyNames(const String& sectionName, CallbackFunction<String> func) const
+	CallbackResult<void> INIDocument::EnumKeyNames(const String& sectionName, CallbackFunction<String> func) const
 	{
 		if (m_Document)
 		{
@@ -649,7 +639,7 @@ namespace kxf
 				return func.Invoke(std::move(keyName)).GetLastCommand();
 			}, sectionName, SortOrder::Ascending);
 		}
-		return 0;
+		return {};
 	}
 
 	bool INIDocument::HasSection(const String& sectionName) const

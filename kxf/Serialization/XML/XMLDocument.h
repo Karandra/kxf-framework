@@ -176,8 +176,8 @@ namespace kxf
 			bool ClearChildren() override;
 			bool ClearNode() override;
 
-			size_t EnumChildren(CallbackFunction<XMLNode> func) const override;
-			size_t EnumChildElements(CallbackFunction<XMLNode> func, const String& name = {}) const;
+			CallbackResult<void> EnumChildren(CallbackFunction<XMLNode> func) const override;
+			CallbackResult<void> EnumChildElements(CallbackFunction<XMLNode> func, const String& name = {}) const;
 
 			XMLDocument& GetDocument()
 			{
@@ -202,8 +202,8 @@ namespace kxf
 			// Attributes
 			size_t GetAttributeCount() const override;
 			bool HasAttributes() const override;
-			size_t EnumAttributeNames(CallbackFunction<String> func) const override;
-			size_t EnumAttributes(CallbackFunction<XMLAttribute> func) const;
+			CallbackResult<void> EnumAttributeNames(CallbackFunction<String> func) const override;
+			CallbackResult<void> EnumAttributes(CallbackFunction<XMLAttribute> func) const;
 
 			bool HasAttribute(const String& name) const override;
 			bool RemoveAttribute(const String& name) override;

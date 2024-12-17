@@ -15,11 +15,10 @@ namespace kxf
 
 		return count;
 	}
-	size_t LocalizationPackageStack::EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const
+	CallbackResult<void> LocalizationPackageStack::EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const
 	{
 		if (!m_Packages.empty())
 		{
-			func.Reset();
 			for (auto& package: m_Packages)
 			{
 				package->EnumItems([&](const auto& id, const auto& item)
@@ -33,9 +32,9 @@ namespace kxf
 				}
 			}
 
-			return func.GetCount();
+			return func.Finalize();
 		}
-		return 0;
+		return {};
 	}
 	const LocalizationItem& LocalizationPackageStack::GetItem(const ResourceID& id) const
 	{
@@ -53,9 +52,8 @@ namespace kxf
 		return ptr ? *ptr : NullLocalizationItem;
 	}
 
-	size_t LocalizationPackageStack::EnumLocalizationPackages(CallbackFunction<ILocalizationPackage&> func)
+	CallbackResult<void> LocalizationPackageStack::EnumLocalizationPackages(CallbackFunction<ILocalizationPackage&> func)
 	{
-		func.Reset();
 		for (auto& package: m_Packages)
 		{
 			if (func.Invoke(*package).ShouldTerminate())
@@ -63,12 +61,10 @@ namespace kxf
 				break;
 			}
 		}
-
-		return func.GetCount();
+		return func.Finalize();
 	}
-	size_t LocalizationPackageStack::EnumLocalizationPackages(CallbackFunction<const ILocalizationPackage&> func) const
+	CallbackResult<void> LocalizationPackageStack::EnumLocalizationPackages(CallbackFunction<const ILocalizationPackage&> func) const
 	{
-		func.Reset();
 		for (auto& package: m_Packages)
 		{
 			if (func.Invoke(*package).ShouldTerminate())
@@ -76,7 +72,6 @@ namespace kxf
 				break;
 			}
 		}
-
-		return func.GetCount();
+		return func.Finalize();
 	}
 }

@@ -392,11 +392,10 @@ namespace kxf
 		return true;
 	}
 
-	size_t XMLNode::EnumChildren(CallbackFunction<XMLNode> func) const
+	CallbackResult<void> XMLNode::EnumChildren(CallbackFunction<XMLNode> func) const
 	{
 		if (auto node = GetNode())
 		{
-			func.Reset();
 			for (auto child = node->FirstChild(); child; child = child->NextSibling())
 			{
 				if (func.Invoke(XMLNode(child, *m_Document)).ShouldTerminate())
@@ -405,18 +404,17 @@ namespace kxf
 				}
 			}
 
-			return func.GetCount();
+			return func.Finalize();
 		}
-		return 0;
+		return {};
 	}
-	size_t XMLNode::EnumChildElements(CallbackFunction<XMLNode> func, const String& name) const
+	CallbackResult<void> XMLNode::EnumChildElements(CallbackFunction<XMLNode> func, const String& name) const
 	{
 		if (auto node = GetNode())
 		{
 			auto utf8 = name.ToUTF8();
 			auto namePtr = !name.IsEmpty() ? utf8.data() : nullptr;
 
-			func.Reset();
 			for (auto child = node->FirstChildElement(namePtr); child; child = child->NextSiblingElement(namePtr))
 			{
 				if (func.Invoke(XMLNode(child, *m_Document)).ShouldTerminate())
@@ -425,9 +423,9 @@ namespace kxf
 				}
 			}
 
-			return func.GetCount();
+			return func.Finalize();
 		}
-		return 0;
+		return {};
 	}
 
 	String XMLNode::GetXML(SerializationFormat mode) const
@@ -549,20 +547,19 @@ namespace kxf
 		}
 		return false;
 	}
-	size_t XMLNode::EnumAttributeNames(CallbackFunction<String> func) const
+	CallbackResult<void> XMLNode::EnumAttributeNames(CallbackFunction<String> func) const
 	{
 		return EnumAttributes([&](XMLAttribute attribute)
 		{
 			return func.Invoke(attribute.GetName()).GetLastCommand();
 		});
 	}
-	size_t XMLNode::EnumAttributes(CallbackFunction<XMLAttribute> func) const
+	CallbackResult<void> XMLNode::EnumAttributes(CallbackFunction<XMLAttribute> func) const
 	{
 		if (GetNode())
 		{
 			if (auto node = GetNode()->ToElement())
 			{
-				func.Reset();
 				for (auto attribute = node->FirstAttribute(); attribute; attribute = attribute->Next())
 				{
 					if (func.Invoke(XMLAttribute(*this, *attribute)).ShouldTerminate())
@@ -570,10 +567,10 @@ namespace kxf
 						break;
 					}
 				}
-				return func.GetCount();
+				return func.Finalize();
 			}
 		}
-		return 0;
+		return {};
 	}
 
 	bool XMLNode::HasAttribute(const String& name) const

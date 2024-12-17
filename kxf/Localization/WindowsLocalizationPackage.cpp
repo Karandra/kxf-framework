@@ -56,6 +56,6 @@ namespace kxf
 
 	std::vector<String> WindowsLocalizationPackage::GetFileExtensions() const
 	{
-		return {"resx", "resw"};
+		return {"xml", "resx", "resw"};
 	}
 }

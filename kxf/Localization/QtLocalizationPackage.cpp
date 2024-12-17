@@ -59,6 +59,6 @@ namespace kxf
 
 	std::vector<String> QtLocalizationPackage::GetFileExtensions() const
 	{
-		return {"ts"};
+		return {"xml", "ts"};
 	}
 }

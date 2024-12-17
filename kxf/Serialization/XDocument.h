@@ -322,9 +322,9 @@ namespace kxf::XDocument
 			{
 				return GetAttributeCount() != 0;
 			}
-			virtual size_t EnumAttributeNames(CallbackFunction<String> func) const
+			virtual CallbackResult<void> EnumAttributeNames(CallbackFunction<String> func) const
 			{
-				return 0;
+				return {};
 			}
 
 			virtual bool HasAttribute(const String& name) const
@@ -475,9 +475,9 @@ namespace kxf::XDocument
 			}
 
 			// Node
-			virtual size_t EnumChildren(CallbackFunction<TNode> func) const
+			virtual CallbackResult<void> EnumChildren(CallbackFunction<TNode> func) const
 			{
-				return 0;
+				return {};
 			}
 
 			// Navigation

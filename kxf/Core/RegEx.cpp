@@ -104,7 +104,7 @@ namespace kxf
 
 		return m_RegEx->GetMatch(text, index);
 	}
-	CallbackResult RegEx::EnumMatches(const String& text, CallbackFunction<String> func) const
+	CallbackResult<size_t> RegEx::EnumMatches(const String& text, CallbackFunction<String> func) const
 	{
 		if (IsNull())
 		{
@@ -124,7 +124,7 @@ namespace kxf
 				}
 			}
 		}
-		return func.GetResult();
+		return func.Finalize(matchCount);
 	}
 	bool RegEx::GetMatch(size_t& start, size_t& length, size_t index) const noexcept
 	{

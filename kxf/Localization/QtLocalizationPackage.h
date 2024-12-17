@@ -56,7 +56,7 @@ namespace kxf
 				}
 				return NullLocalizationItem;
 			}
-			size_t EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const override
+			CallbackResult<void> EnumItems(CallbackFunction<const ResourceID&, const LocalizationItem&> func) const override
 			{
 				Localization::Private::ItemsPackageHelper helper(m_Items);
 				return helper.EnumItems(std::move(func));
