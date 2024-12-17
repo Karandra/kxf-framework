@@ -2,8 +2,8 @@
 #include "Common.h"
 #include "IID.h"
 #include "kxf/Core/FlagSet.h"
-#include <kxf/Utility/Common.h>
-#include <kxf/Utility/TypeTraits.h>
+#include "kxf/Utility/Common.h"
+#include "kxf/Utility/TypeTraits.h"
 
 namespace kxf::RTTI
 {

@@ -4,9 +4,8 @@
 #include "IEncodingConverter.h"
 #include "kxf/IO/IStream.h"
 #include "kxf/Utility/Common.h"
-#include <wx/string.h>
-#include <kxf/System/UndefWindows.h>
-#include <kxf/wxWidgets/String.h>
+#include "kxf/System/UndefWindows.h"
+#include "kxf/wxWidgets/String.h"
 #include <cctype>
 
 namespace

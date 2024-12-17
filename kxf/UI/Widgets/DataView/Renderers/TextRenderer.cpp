@@ -1,6 +1,6 @@
 #include "KxfPCH.h"
 #include "TextRenderer.h"
-#include <kxf/Drawing/GraphicsRenderer.h>
+#include "kxf/Drawing/GraphicsRenderer.h"
 
 namespace kxf::DataView
 {

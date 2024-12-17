@@ -1,5 +1,5 @@
 #pragma once
-#include <kxf/Common.hpp>
+#include "kxf/Common.hpp"
 #include "kxf/Core/String.h"
 #include "kxf/Core/DataSize.h"
 enum wxSeekMode: int;

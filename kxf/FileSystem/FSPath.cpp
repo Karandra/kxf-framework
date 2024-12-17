@@ -7,10 +7,11 @@
 #include "kxf/Utility/ScopeGuard.h"
 #include "kxf/Utility/String.h"
 #include "Private/NamespacePrefix.h"
+
 #include <pathcch.h>
 #include <locale>
-#include "kxf/System/UndefWindows.h"
 #include <shlwapi.h>
+#include "kxf/System/UndefWindows.h"
 #pragma warning(disable: 4995) // 'PathCanonicalizeW': name was marked as #pragma deprecated
 
 namespace

@@ -1,7 +1,8 @@
 #include "KxfPCH.h"
 #include "ThreadLocalSlot.h"
+
 #include <Windows.h>
-#include <kxf/System/UndefWindows.h>
+#include "kxf/System/UndefWindows.h"
 
 namespace kxf::Threading
 {

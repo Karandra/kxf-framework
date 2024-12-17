@@ -3,8 +3,8 @@
 #include "Angle.h"
 #include "kxf/Core/Common.h"
 #include "kxf/Serialization/BinarySerializer.h"
-#include <kxf/Utility/Common.h>
-#include <kxf/Utility/Numeric.h>
+#include "kxf/Utility/Common.h"
+#include "kxf/Utility/Numeric.h"
 #include <cmath>
 class wxSize;
 class wxPoint;

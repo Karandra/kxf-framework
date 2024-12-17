@@ -1,6 +1,6 @@
 #include "KxfPCH.h"
 #include "HTMLDocument.h"
-#include <kxf/Utility/Common.h>
+#include "kxf/Utility/Common.h"
 
 #pragma warning(disable: 4005) // macro redefinition
 #include "gumbo.h"
