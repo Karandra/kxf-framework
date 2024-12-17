@@ -289,11 +289,11 @@ namespace kxf::SevenZip
 				return false;
 			}
 
-			bool CopyItem(const FSPath& source, const FSPath& destination, std::function<CallbackCommand(DataSize, DataSize)> func = {}, FlagSet<FSActionFlag> flags = {}) override
+			bool CopyItem(const FSPath& source, const FSPath& destination, CallbackFunction<DataSize, DataSize> func = {}, FlagSet<FSActionFlag> flags = {}) override
 			{
 				return false;
 			}
-			bool MoveItem(const FSPath& source, const FSPath& destination, std::function<CallbackCommand(DataSize, DataSize)> func = {}, FlagSet<FSActionFlag> flags = {}) override
+			bool MoveItem(const FSPath& source, const FSPath& destination, CallbackFunction<DataSize, DataSize> func = {}, FlagSet<FSActionFlag> flags = {}) override
 			{
 				return false;
 			}
@@ -310,12 +310,12 @@ namespace kxf::SevenZip
 				return false;
 			}
 
-			std::unique_ptr<IStream> GetStream(const FSPath& path,
-											   FlagSet<IOStreamAccess> access,
-											   IOStreamDisposition disposition,
-											   FlagSet<IOStreamShare> share = IOStreamShare::Read,
-											   FlagSet<IOStreamFlag> streamFlags = IOStreamFlag::None,
-											   FlagSet<FSActionFlag> flags = {}
+			std::shared_ptr<IStream> CreateStream(const FSPath& path,
+												  FlagSet<IOStreamAccess> access,
+												  IOStreamDisposition disposition,
+												  FlagSet<IOStreamShare> share = IOStreamShare::Read,
+												  FlagSet<IOStreamFlag> streamFlags = IOStreamFlag::None,
+												  FlagSet<FSActionFlag> actionFlags = FSActionFlag::None
 			) override
 			{
 				return nullptr;
@@ -345,11 +345,11 @@ namespace kxf::SevenZip
 				return false;
 			}
 
-			bool CopyItem(const UniversallyUniqueID& source, const UniversallyUniqueID& destination, std::function<CallbackCommand(DataSize, DataSize)> func = {}, FlagSet<FSActionFlag> flags = {}) override
+			bool CopyItem(const UniversallyUniqueID& source, const UniversallyUniqueID& destination, CallbackFunction<DataSize, DataSize> func = {}, FlagSet<FSActionFlag> flags = {}) override
 			{
 				return false;
 			}
-			bool MoveItem(const UniversallyUniqueID& source, const UniversallyUniqueID& destination, std::function<CallbackCommand(DataSize, DataSize)> func = {}, FlagSet<FSActionFlag> flags = {}) override
+			bool MoveItem(const UniversallyUniqueID& source, const UniversallyUniqueID& destination, CallbackFunction<DataSize, DataSize> func = {}, FlagSet<FSActionFlag> flags = {}) override
 			{
 				return false;
 			}
@@ -362,12 +362,12 @@ namespace kxf::SevenZip
 				return false;
 			}
 
-			std::unique_ptr<IStream> GetStream(const UniversallyUniqueID& id,
-											   FlagSet<IOStreamAccess> access,
-											   IOStreamDisposition disposition,
-											   FlagSet<IOStreamShare> share = IOStreamShare::Read,
-											   FlagSet<IOStreamFlag> streamFlags = IOStreamFlag::None,
-											   FlagSet<FSActionFlag> flags = {}
+			std::shared_ptr<IStream> CreateStream(const UniversallyUniqueID& id,
+												  FlagSet<IOStreamAccess> access,
+												  IOStreamDisposition disposition,
+												  FlagSet<IOStreamShare> share = IOStreamShare::Read,
+												  FlagSet<IOStreamFlag> streamFlags = IOStreamFlag::None,
+												  FlagSet<FSActionFlag> actionFlags = FSActionFlag::None
 			) override
 			{
 				return nullptr;

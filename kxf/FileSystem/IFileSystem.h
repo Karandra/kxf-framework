@@ -49,28 +49,28 @@ namespace kxf
 			virtual bool ChangeAttributes(const FSPath& path, FlagSet<FileAttribute> attributes) = 0;
 			virtual bool ChangeTimestamp(const FSPath& path, DateTime creationTime, DateTime modificationTime, DateTime lastAccessTime) = 0;
 
-			virtual bool CopyItem(const FSPath& source, const FSPath& destination, std::function<CallbackCommand(DataSize, DataSize)> func = {}, FlagSet<FSActionFlag> flags = {}) = 0;
-			virtual bool MoveItem(const FSPath& source, const FSPath& destination, std::function<CallbackCommand(DataSize, DataSize)> func = {}, FlagSet<FSActionFlag> flags = {}) = 0;
+			virtual bool CopyItem(const FSPath& source, const FSPath& destination, CallbackFunction<DataSize, DataSize> func = {}, FlagSet<FSActionFlag> flags = {}) = 0;
+			virtual bool MoveItem(const FSPath& source, const FSPath& destination, CallbackFunction<DataSize, DataSize> func = {}, FlagSet<FSActionFlag> flags = {}) = 0;
 			virtual bool RenameItem(const FSPath& source, const FSPath& destination, FlagSet<FSActionFlag> flags = {}) = 0;
 			virtual bool RemoveItem(const FSPath& path) = 0;
 			virtual bool RemoveDirectory(const FSPath& path, FlagSet<FSActionFlag> flags = {}) = 0;
 
-			virtual std::unique_ptr<IStream> GetStream(const FSPath& path,
-													   FlagSet<IOStreamAccess> access,
-													   IOStreamDisposition disposition,
-													   FlagSet<IOStreamShare> share = IOStreamShare::Read,
-													   FlagSet<IOStreamFlag> streamFlags = IOStreamFlag::None,
-													   FlagSet<FSActionFlag> flags = {}
+			virtual std::shared_ptr<IStream> CreateStream(const FSPath& path,
+														  FlagSet<IOStreamAccess> access,
+														  IOStreamDisposition disposition,
+														  FlagSet<IOStreamShare> share = IOStreamShare::Read,
+														  FlagSet<IOStreamFlag> streamFlags = IOStreamFlag::None,
+														  FlagSet<FSActionFlag> actionFlags = FSActionFlag::None
 			) = 0;
-			std::unique_ptr<IInputStream> OpenToRead(const FSPath& path,
+			std::shared_ptr<IInputStream> OpenToRead(const FSPath& path,
 													 IOStreamDisposition disposition = IOStreamDisposition::OpenExisting,
 													 FlagSet<IOStreamShare> share = IOStreamShare::Read,
-													 FlagSet<FSActionFlag> flags = {}
+													 FlagSet<FSActionFlag> flags = FSActionFlag::None
 			) const;
-			std::unique_ptr<IOutputStream> OpenToWrite(const FSPath& path,
+			std::shared_ptr<IOutputStream> OpenToWrite(const FSPath& path,
 													   IOStreamDisposition disposition = IOStreamDisposition::CreateAlways,
 													   FlagSet<IOStreamShare> share = IOStreamShare::Read,
-													   FlagSet<FSActionFlag> flags = {}
+													   FlagSet<FSActionFlag> flags = FSActionFlag::None
 			);
 	};
 
@@ -98,27 +98,27 @@ namespace kxf
 			virtual bool ChangeAttributes(const UniversallyUniqueID& id, FlagSet<FileAttribute> attributes) = 0;
 			virtual bool ChangeTimestamp(const UniversallyUniqueID& id, DateTime creationTime, DateTime modificationTime, DateTime lastAccessTime) = 0;
 
-			virtual bool CopyItem(const UniversallyUniqueID& source, const UniversallyUniqueID& destination, std::function<CallbackCommand(DataSize, DataSize)> func = {}, FlagSet<FSActionFlag> flags = {}) = 0;
-			virtual bool MoveItem(const UniversallyUniqueID& source, const UniversallyUniqueID& destination, std::function<CallbackCommand(DataSize, DataSize)> func = {}, FlagSet<FSActionFlag> flags = {}) = 0;
+			virtual bool CopyItem(const UniversallyUniqueID& source, const UniversallyUniqueID& destination, CallbackFunction<DataSize, DataSize> func = {}, FlagSet<FSActionFlag> flags = {}) = 0;
+			virtual bool MoveItem(const UniversallyUniqueID& source, const UniversallyUniqueID& destination, CallbackFunction<DataSize, DataSize> func = {}, FlagSet<FSActionFlag> flags = {}) = 0;
 			virtual bool RemoveItem(const UniversallyUniqueID& id) = 0;
 			virtual bool RemoveDirectory(const UniversallyUniqueID& id, FlagSet<FSActionFlag> flags = {}) = 0;
 
-			virtual std::unique_ptr<IStream> GetStream(const UniversallyUniqueID& id,
-													   FlagSet<IOStreamAccess> access,
-													   IOStreamDisposition disposition,
-													   FlagSet<IOStreamShare> share = IOStreamShare::Read,
-													   FlagSet<IOStreamFlag> streamFlags = IOStreamFlag::None,
-													   FlagSet<FSActionFlag> flags = {}
+			virtual std::shared_ptr<IStream> CreateStream(const UniversallyUniqueID& id,
+														  FlagSet<IOStreamAccess> access,
+														  IOStreamDisposition disposition,
+														  FlagSet<IOStreamShare> share = IOStreamShare::Read,
+														  FlagSet<IOStreamFlag> streamFlags = IOStreamFlag::None,
+														  FlagSet<FSActionFlag> actionFlags = FSActionFlag::None
 			) = 0;
-			std::unique_ptr<IInputStream> OpenToRead(const UniversallyUniqueID& id,
+			std::shared_ptr<IInputStream> OpenToRead(const UniversallyUniqueID& id,
 													 IOStreamDisposition disposition = IOStreamDisposition::OpenExisting,
 													 FlagSet<IOStreamShare> share = IOStreamShare::Read,
-													 FlagSet<FSActionFlag> flags = {}
+													 FlagSet<FSActionFlag> flags = FSActionFlag::None
 			) const;
-			std::unique_ptr<IOutputStream> OpenToWrite(const UniversallyUniqueID& id,
+			std::shared_ptr<IOutputStream> OpenToWrite(const UniversallyUniqueID& id,
 													   IOStreamDisposition disposition = IOStreamDisposition::CreateAlways,
 													   FlagSet<IOStreamShare> share = IOStreamShare::Read,
-													   FlagSet<FSActionFlag> flags = {}
+													   FlagSet<FSActionFlag> flags = FSActionFlag::None
 			);
 	};
 }

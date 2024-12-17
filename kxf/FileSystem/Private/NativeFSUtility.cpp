@@ -179,19 +179,19 @@ namespace kxf::FileSystem::Private
 		return {};
 	}
 
-	bool CopyOrMoveDirectoryTree(NativeFileSystem& fileSystem,
-								 const FSPath& source,
-								 const FSPath& destination,
-								 std::function<CallbackCommand(FSPath, FSPath, DataSize, DataSize)> func,
-								 FlagSet<FSActionFlag> flags,
-								 bool move)
+	CallbackResult<bool> CopyOrMoveDirectoryTree(NativeFileSystem& fileSystem,
+												 const FSPath& source,
+												 const FSPath& destination,
+												 CallbackFunction<FSPath, FSPath, DataSize, DataSize> func,
+												 FlagSet<FSActionFlag> flags,
+												 bool move)
 	{
 		for (const FileItem& item: fileSystem.EnumItems(source, {}, flags|FSActionFlag::Recursive))
 		{
 			FSPath target = destination / item.GetFullPath().GetAfter(source);
 			if (item.IsDirectory())
 			{
-				if (!func || std::invoke(func, source, target, 0, 0) != CallbackCommand::Terminate)
+				if (!func.Invoke(source, target, 0, 0).ShouldTerminate())
 				{
 					fileSystem.CreateDirectory(target);
 					if (move)
@@ -201,7 +201,7 @@ namespace kxf::FileSystem::Private
 				}
 				else
 				{
-					return false;
+					return func.Finalize(false);
 				}
 			}
 			else
@@ -211,7 +211,7 @@ namespace kxf::FileSystem::Private
 				{
 					auto ForwardCallback = [&](DataSize copied, DataSize total)
 					{
-						return std::invoke(func, source, std::move(target), copied, total);
+						return func.Invoke(source, target, copied, total).GetLastCommand();
 					};
 					result = move ? fileSystem.MoveItem(source, target, std::move(ForwardCallback), flags) : fileSystem.CopyItem(source, target, std::move(ForwardCallback), flags);
 				}
@@ -222,10 +222,10 @@ namespace kxf::FileSystem::Private
 
 				if (!result)
 				{
-					return false;
+					return func.Finalize(false);
 				}
 			}
 		}
-		return true;
+		return func.Finalize(true);
 	}
 }

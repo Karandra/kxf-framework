@@ -14,27 +14,23 @@ namespace
 	}
 
 	template<class TStream, class TFileSystem, class TID>
-	std::unique_ptr<TStream> QueryStream(TFileSystem& fs, const TID& id, FlagSet<IOStreamAccess> access, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags)
+	std::shared_ptr<TStream> QueryStream(TFileSystem& fs, const TID& pathOrUniqueID, FlagSet<IOStreamAccess> access, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> actionFlags)
 	{
-		if (auto anyStream = fs.GetStream(id, access, disposition, share, IOStreamFlag::None, flags))
+		if (auto stream = fs.CreateStream(pathOrUniqueID, access, disposition, share, IOStreamFlag::None, actionFlags))
 		{
-			if (auto desiredStream = anyStream->QueryInterface<TStream>())
-			{
-				anyStream.release();
-				return std::unique_ptr<TStream>(desiredStream.get());
-			}
+			return stream->QueryInterface<TStream>();
 		}
-		return {};
+		return nullptr;
 	}
 }
 
 namespace kxf
 {
-	std::unique_ptr<IInputStream> IFileSystem::OpenToRead(const FSPath& path, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags) const
+	std::shared_ptr<IInputStream> IFileSystem::OpenToRead(const FSPath& path, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags) const
 	{
 		return QueryStream<IInputStream>(const_cast<IFileSystem&>(*this), path, IOStreamAccess::Read, disposition, share, flags);
 	}
-	std::unique_ptr<IOutputStream> IFileSystem::OpenToWrite(const FSPath& path, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags)
+	std::shared_ptr<IOutputStream> IFileSystem::OpenToWrite(const FSPath& path, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags)
 	{
 		return QueryStream<IOutputStream>(*this, path, IOStreamAccess::Write, disposition, share, flags);
 	}
@@ -42,11 +38,11 @@ namespace kxf
 
 namespace kxf
 {
-	std::unique_ptr<IInputStream> IFileSystemWithID::OpenToRead(const UniversallyUniqueID& id, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags) const
+	std::shared_ptr<IInputStream> IFileSystemWithID::OpenToRead(const UniversallyUniqueID& id, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags) const
 	{
 		return QueryStream<IInputStream>(const_cast<IFileSystemWithID&>(*this), id, IOStreamAccess::Read, disposition, share, flags);
 	}
-	std::unique_ptr<IOutputStream> IFileSystemWithID::OpenToWrite(const UniversallyUniqueID& id, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags)
+	std::shared_ptr<IOutputStream> IFileSystemWithID::OpenToWrite(const UniversallyUniqueID& id, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags)
 	{
 		return QueryStream<IOutputStream>(*this, id, IOStreamAccess::Write, disposition, share, flags);
 	}

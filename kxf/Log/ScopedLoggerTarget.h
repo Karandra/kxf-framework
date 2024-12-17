@@ -73,7 +73,7 @@ namespace kxf
 	class ScopedLoggerFileTarget: public IScopedLoggerTarget
 	{
 		private:
-			std::unique_ptr<IOutputStream> m_Stream;
+			std::shared_ptr<IOutputStream> m_Stream;
 			Private::ScopedLoggerFlushControl m_FlushControl;
 
 		public:
@@ -95,14 +95,14 @@ namespace kxf
 	{
 		private:
 			ReadWriteLock m_Lock;
-			std::unique_ptr<IOutputStream> m_Stream;
+			std::shared_ptr<IOutputStream> m_Stream;
 			Private::ScopedLoggerFlushControl m_FlushControl;
 
 		public:
 			ScopedLoggerSingleFileTarget(ScopedLoggerTLS& tls)
 			{
 			}
-			ScopedLoggerSingleFileTarget(std::unique_ptr<IOutputStream> stream)
+			ScopedLoggerSingleFileTarget(std::shared_ptr<IOutputStream> stream)
 				:m_Stream(std::move(stream))
 			{
 			}

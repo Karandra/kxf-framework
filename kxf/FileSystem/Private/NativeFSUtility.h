@@ -193,10 +193,10 @@ namespace kxf::FileSystem::Private
 	FileItem ConvertFileInfo(const _WIN32_FIND_DATAW& findInfo, const FSPath& location, UniversallyUniqueID id = {}, FlagSet<FSActionFlag> flags = {});
 	FileItem ConvertFileInfo(void* fileHandle, UniversallyUniqueID id = {}, FlagSet<FSActionFlag> flags = {});
 
-	bool CopyOrMoveDirectoryTree(NativeFileSystem& fileSystem,
-								 const FSPath& source,
-								 const FSPath& destination,
-								 std::function<CallbackCommand(FSPath, FSPath, DataSize, DataSize)> func,
-								 FlagSet<FSActionFlag> flags,
-								 bool move);
+	CallbackResult<bool> CopyOrMoveDirectoryTree(NativeFileSystem& fileSystem,
+												 const FSPath& source,
+												 const FSPath& destination,
+												 CallbackFunction<FSPath, FSPath, DataSize, DataSize> func,
+												 FlagSet<FSActionFlag> flags,
+												 bool move);
 }

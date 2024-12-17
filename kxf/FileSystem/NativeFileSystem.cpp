@@ -21,7 +21,7 @@ namespace
 
 	bool OpenFileByID(const StorageVolume& volume,
 					  const UniversallyUniqueID& fileID,
-					  NativeFileStream& file,
+					  NativeFileStream& fileStream,
 					  FlagSet<IOStreamAccess> access = IOStreamAccess::ReadAttributes,
 					  IOStreamDisposition disposition = IOStreamDisposition::OpenExisting,
 					  FlagSet<IOStreamShare> share = IOStreamShare::Everything,
@@ -65,7 +65,7 @@ namespace
 											   *FileSystem::Private::MapFileFlags(flags));
 				if (handle && handle != INVALID_HANDLE_VALUE)
 				{
-					return file.AttachHandle(handle);
+					return fileStream.AttachHandle(handle);
 				}
 			}
 		}
@@ -458,7 +458,7 @@ namespace kxf
 		});
 	}
 
-	bool NativeFileSystem::CopyItem(const FSPath& source, const FSPath& destination, std::function<CallbackCommand(DataSize, DataSize)> func, FlagSet<FSActionFlag> flags)
+	bool NativeFileSystem::CopyItem(const FSPath& source, const FSPath& destination, CallbackFunction<DataSize, DataSize> func, FlagSet<FSActionFlag> flags)
 	{
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath2(source, destination, [&](const FSPath& source, const FSPath& destination) -> bool
@@ -484,14 +484,13 @@ namespace kxf
 										HANDLE hDestinationFile,
 										LPVOID lpData) -> DWORD
 				{
-					using T = std::remove_reference_t<decltype(func)>;
-					decltype(auto) callback = *reinterpret_cast<T*>(lpData);
+					auto& callback = *static_cast<decltype(func)*>(lpData);
 
-					if (std::invoke(callback, DataSize::FromBytes(TotalBytesTransferred.QuadPart), DataSize::FromBytes(TotalFileSize.QuadPart)) != CallbackCommand::Terminate)
+					if (callback.Invoke(DataSize::FromBytes(TotalBytesTransferred.QuadPart), DataSize::FromBytes(TotalFileSize.QuadPart)).ShouldTerminate())
 					{
-						return PROGRESS_CONTINUE;
+						return PROGRESS_CANCEL;
 					}
-					return PROGRESS_CANCEL;
+					return PROGRESS_CONTINUE;
 				}, &func, &canceled, *copyFlags);
 			}
 			else
@@ -500,7 +499,7 @@ namespace kxf
 			}
 		});
 	}
-	bool NativeFileSystem::MoveItem(const FSPath& source, const FSPath& destination, std::function<CallbackCommand(DataSize, DataSize)> func, FlagSet<FSActionFlag> flags)
+	bool NativeFileSystem::MoveItem(const FSPath& source, const FSPath& destination, CallbackFunction<DataSize, DataSize> func, FlagSet<FSActionFlag> flags)
 	{
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath2(source, destination, [&](const FSPath& source, const FSPath& destination) -> bool
@@ -524,14 +523,13 @@ namespace kxf
 																								 HANDLE hDestinationFile,
 																								 LPVOID lpData) -> DWORD
 				{
-					using T = std::remove_reference_t<decltype(func)>;
-					decltype(auto) callback = *reinterpret_cast<T*>(lpData);
+					auto& callback = *static_cast<decltype(func)*>(lpData);
 
-					if (std::invoke(callback, DataSize::FromBytes(TotalBytesTransferred.QuadPart), DataSize::FromBytes(TotalFileSize.QuadPart)) != CallbackCommand::Terminate)
+					if (callback.Invoke(DataSize::FromBytes(TotalBytesTransferred.QuadPart), DataSize::FromBytes(TotalFileSize.QuadPart)).ShouldTerminate())
 					{
-						return PROGRESS_CONTINUE;
+						return PROGRESS_CANCEL;
 					}
-					return PROGRESS_CANCEL;
+					return PROGRESS_CONTINUE;
 				}, &func, *moveFlags);
 			}
 			else
@@ -651,18 +649,18 @@ namespace kxf
 		});
 	}
 
-	std::unique_ptr<IStream> NativeFileSystem::GetStream(const FSPath& path,
-														 FlagSet<IOStreamAccess> access,
-														 IOStreamDisposition disposition,
-														 FlagSet<IOStreamShare> share,
-														 FlagSet<IOStreamFlag> streamFlags,
-														 FlagSet<FSActionFlag> flags)
+	std::shared_ptr<IStream> NativeFileSystem::CreateStream(const FSPath& path,
+															FlagSet<IOStreamAccess> access,
+															IOStreamDisposition disposition,
+															FlagSet<IOStreamShare> share,
+															FlagSet<IOStreamFlag> streamFlags,
+															FlagSet<FSActionFlag> flags)
 	{
 		FileSystem::Private::PathResolver pathResolver(*this);
-		return pathResolver.DoWithResolvedPath1(path, [&](const FSPath& path) -> std::unique_ptr<IStream>
+		return pathResolver.DoWithResolvedPath1(path, [&](const FSPath& path) -> std::shared_ptr<IStream>
 		{
-			auto fileStream = std::make_unique<NativeFileStream>(path, access, disposition, share, streamFlags);
-			if (!*fileStream && flags.Contains(FSActionFlag::CreateDirectoryTree) && fileStream->GetLastNativeError().IsSameAs<Win32Error>(ERROR_PATH_NOT_FOUND))
+			NativeFileStream fileStream(path, access, disposition, share, streamFlags);
+			if (!fileStream && flags.Contains(FSActionFlag::CreateDirectoryTree) && fileStream.GetLastNativeError().IsSameAs<Win32Error>(ERROR_PATH_NOT_FOUND))
 			{
 				if (streamFlags.Contains(IOStreamFlag::AllowDirectories))
 				{
@@ -672,16 +670,13 @@ namespace kxf
 				{
 					CreateDirectory(path.GetParent(), flags.ExtractIfMatches(FSActionFlag::Recursive));
 				}
-				fileStream = std::make_unique<NativeFileStream>(path, access, disposition, share, streamFlags);
+
+				fileStream.Open(path, access, disposition, share, streamFlags);
 			}
 
-			if (*fileStream)
+			if (fileStream)
 			{
-				if (auto stream = std::unique_ptr<IStream>(fileStream->QueryInterface<IStream>().get()))
-				{
-					fileStream.release();
-					return stream;
-				}
+				return std::make_shared<NativeFileStream>(std::move(fileStream))->QueryInterface<IStream>();
 			}
 			return nullptr;
 		});
@@ -734,10 +729,10 @@ namespace kxf
 			return {};
 		}
 
-		NativeFileStream file;
-		if (OpenFileByID(m_LookupVolume, id, file))
+		NativeFileStream stream;
+		if (OpenFileByID(m_LookupVolume, id, stream))
 		{
-			return FileSystem::Private::ConvertFileInfo(file.GetHandle(), id);
+			return FileSystem::Private::ConvertFileInfo(stream.GetHandle(), id);
 		}
 		return {};
 	}
@@ -746,29 +741,22 @@ namespace kxf
 		return {};
 	}
 
-	std::unique_ptr<IStream> NativeFileSystem::GetStream(const UniversallyUniqueID& id,
-														 FlagSet<IOStreamAccess> access,
-														 IOStreamDisposition disposition,
-														 FlagSet<IOStreamShare> share,
-														 FlagSet<IOStreamFlag> streamFlags,
-														 FlagSet<FSActionFlag> flags)
+	std::shared_ptr<IStream> NativeFileSystem::CreateStream(const UniversallyUniqueID& id,
+															FlagSet<IOStreamAccess> access,
+															IOStreamDisposition disposition,
+															FlagSet<IOStreamShare> share,
+															FlagSet<IOStreamFlag> streamFlags,
+															FlagSet<FSActionFlag> flags)
 	{
-		if (IsNull())
+		if (!id || IsNull())
 		{
 			return nullptr;
 		}
 
-		if (id)
+		NativeFileStream fileStream;
+		if (OpenFileByID(m_LookupVolume, id, fileStream, access, disposition, share, streamFlags))
 		{
-			auto fileStream = std::make_unique<NativeFileStream>();
-			if (OpenFileByID(m_LookupVolume, id, *fileStream, access, disposition, share, streamFlags))
-			{
-				if (auto stream = std::unique_ptr<IStream>(fileStream->QueryInterface<IStream>().get()))
-				{
-					fileStream.release();
-					return stream;
-				}
-			}
+			return std::make_shared<NativeFileStream>(std::move(fileStream))->QueryInterface<IStream>();
 		}
 		return nullptr;
 	}
@@ -782,11 +770,12 @@ namespace kxf
 			return NativeFileStream().Open(path, IOStreamAccess::Read, IOStreamDisposition::OpenExisting, IOStreamShare::None);
 		});
 	}
-	size_t NativeFileSystem::EnumStreams(const FSPath& path, std::function<CallbackCommand(String, DataSize)> func) const
+	CallbackResult<size_t> NativeFileSystem::EnumStreams(const FSPath& path, CallbackFunction<String, DataSize> func) const
 	{
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath1(path, [&](const FSPath& path)
 		{
+			bool invoke = true;
 			size_t counter = 0;
 			String pathString = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 
@@ -803,18 +792,18 @@ namespace kxf
 				{
 					// Fetch the file info and invoke the callback
 					counter++;
-					if (std::invoke(func, streamInfo.cStreamName, DataSize::FromBytes(streamInfo.StreamSize.QuadPart)) == CallbackCommand::Terminate)
+					if (invoke && func.Invoke(streamInfo.cStreamName, DataSize::FromBytes(streamInfo.StreamSize.QuadPart)).ShouldTerminate())
 					{
-						break;
+						invoke = false;
 					}
 				}
 				while (::FindNextStreamW(handle, &streamInfo));
 			}
-			return counter;
+			return func.Finalize(counter);
 		});
 	}
 
-	bool NativeFileSystem::CopyDirectoryTree(const FSPath& source, const FSPath& destination, std::function<CallbackCommand(FSPath, FSPath, DataSize, DataSize)> func, FlagSet<FSActionFlag> flags)
+	CallbackResult<bool> NativeFileSystem::CopyDirectoryTree(const FSPath& source, const FSPath& destination, CallbackFunction<FSPath, FSPath, DataSize, DataSize> func, FlagSet<FSActionFlag> flags)
 	{
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath2(source, destination, [&](const FSPath& source, const FSPath& destination)
@@ -822,7 +811,7 @@ namespace kxf
 			return FileSystem::Private::CopyOrMoveDirectoryTree(*this, source, destination, std::move(func), flags, false);
 		});
 	}
-	bool NativeFileSystem::MoveDirectoryTree(const FSPath& source, const FSPath& destination, std::function<CallbackCommand(FSPath, FSPath, DataSize, DataSize)> func, FlagSet<FSActionFlag> flags)
+	CallbackResult<bool> NativeFileSystem::MoveDirectoryTree(const FSPath& source, const FSPath& destination, CallbackFunction<FSPath, FSPath, DataSize, DataSize> func, FlagSet<FSActionFlag> flags)
 	{
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath2(source, destination, [&](const FSPath& source, const FSPath& destination)
