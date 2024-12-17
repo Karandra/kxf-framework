@@ -36,7 +36,7 @@ namespace kxf
 
 		public:
 			ScopedLoggerSingleFileContext() = default;
-			ScopedLoggerSingleFileContext(std::unique_ptr<IOutputStream> stream);
+			ScopedLoggerSingleFileContext(std::shared_ptr<IOutputStream> stream);
 			ScopedLoggerSingleFileContext(IFileSystem& fs, const FSPath& filePath);
 
 		public:

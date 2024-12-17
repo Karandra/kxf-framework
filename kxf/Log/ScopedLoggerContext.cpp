@@ -14,7 +14,7 @@ namespace kxf
 namespace kxf
 {
 	// ScopedLoggerSingleFileContext
-	ScopedLoggerSingleFileContext::ScopedLoggerSingleFileContext(std::unique_ptr<IOutputStream> stream)
+	ScopedLoggerSingleFileContext::ScopedLoggerSingleFileContext(std::shared_ptr<IOutputStream> stream)
 	{
 		m_Target = std::make_shared<ScopedLoggerSingleFileTarget>(std::move(stream));
 	}
