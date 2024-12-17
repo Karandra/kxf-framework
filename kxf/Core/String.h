@@ -46,8 +46,9 @@ namespace kxf
 		return view;
 	}
 
-	template<class T> requires(std::is_same_v<T, char> || std::is_same_v<T, wchar_t>)
-	constexpr std::basic_string_view<T> StringViewOf(const T* ptr) noexcept
+	template<class T, class Tx = std::remove_cv_t<std::remove_pointer_t<T>>>
+	requires(std::is_pointer_v<T>)
+	constexpr std::basic_string_view<Tx> StringViewOf(T ptr) noexcept
 	{
 		if (ptr)
 		{
@@ -56,13 +57,11 @@ namespace kxf
 		return {};
 	}
 
-	template<class T> requires(std::is_bounded_array_v<T>)
-	constexpr auto StringViewOf(const T& buffer) noexcept
+	template<class T, size_t N>
+	constexpr auto StringViewOf(const T (&buffer)[N]) noexcept
 	{
 		using Tx = std::remove_pointer_t<std::decay_t<T>>;
-
-		auto size = std::size(buffer);
-		return std::basic_string_view<Tx>(std::data(buffer), size != 0 ? size - 1 : size);
+		return std::basic_string_view<Tx>(std::data(buffer), N != 0 ? N - 1 : N);
 	}
 
 	constexpr inline UniChar UniCharOf(char c) noexcept
