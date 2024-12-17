@@ -238,10 +238,10 @@ namespace kxf::System
 		PrepareEnvironmentBuffer(info);
 
 		// Process executable path
-		m_ExecutablePath = info.GetExecutablePath().GetFullPathWithNS(FSPathNamespace::Win32File);
+		m_ExecutablePath = info.GetExecutablePath().GetFullPathTryNS(FSPathNamespace::Win32File);
 
 		// Working directory
-		m_WorkingDirectory = info.GetWorkingDirectory().GetFullPathWithNS(FSPathNamespace::Win32File);
+		m_WorkingDirectory = info.GetWorkingDirectory().GetFullPathTryNS(FSPathNamespace::Win32File);
 
 		// Process command line
 		String commandLine = info.GetExecutableParameters();

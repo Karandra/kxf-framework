@@ -7,6 +7,7 @@
 #include "kxf/IO/INativeStream.h"
 #include "kxf/System/HandlePtr.h"
 #include "kxf/Core/Enumerator.h"
+#include "kxf/Utility/Common.h"
 #include "kxf/Utility/ScopeGuard.h"
 
 namespace
@@ -144,7 +145,7 @@ namespace kxf
 	{
 		if (path)
 		{
-			String mountPoint = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+			String mountPoint = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 			return ::DeleteVolumeMountPointW(mountPoint.wc_str());
 		}
 		return false;
@@ -163,7 +164,7 @@ namespace kxf
 
 	StorageVolume::StorageVolume(const UniversallyUniqueID& id)
 	{
-		static_assert(ARRAYSIZE(StorageVolume::m_Path) >= g_VolumePathTotalLength + 1, "insufficient buffer size");
+		static_assert(Utility::ArraySize<decltype(StorageVolume::m_Path)>::value >= g_VolumePathTotalLength + 1, "insufficient buffer size");
 
 		AssignPath(Format(R"(\\?\Volume{}\)", id.ToString(UUIDFormat::CurlyBraces)));
 	}
@@ -171,7 +172,7 @@ namespace kxf
 	{
 		if (legacyVolume)
 		{
-			String volumePath = legacyVolume.GetPath().GetFullPath(FSPathNamespace::None, FSPathFormat::TrailingSeparator);
+			String volumePath = legacyVolume.GetPath().GetFullPath(FSPathFormat::TrailingSeparator);
 			XChar volumeGuidPath[64] = {};
 			if (::GetVolumeNameForVolumeMountPointW(volumePath.wc_str(), volumeGuidPath, std::size(volumeGuidPath)))
 			{
@@ -184,7 +185,7 @@ namespace kxf
 		if (path.HasVolume())
 		{
 			// Volume paths should be in following format: '\\?\Volume{66843779-55ae-45c5-9abe-b67ccee14079}\'.
-			AssignPath(path.GetFullPathWithNS(FSPathNamespace::Win32File, FSPathFormat::TrailingSeparator).SubLeft(g_VolumePathTotalLength));
+			AssignPath(path.GetFullPathRequireNS(FSPathNamespace::Win32File, FSPathFormat::TrailingSeparator).SubLeft(g_VolumePathTotalLength));
 		}
 	}
 
@@ -216,7 +217,10 @@ namespace kxf
 	}
 	FSPath StorageVolume::GetDevicePath() const
 	{
-		return GetPath().SetNamespace(FSPathNamespace::Win32Device);
+		auto path = GetPath();
+		path.SetNamespace(FSPathNamespace::Win32Device);
+
+		return path;
 	}
 
 	String StorageVolume::GetLabel() const
@@ -347,7 +351,7 @@ namespace kxf
 	{
 		if (path)
 		{
-			String mountPoint = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+			String mountPoint = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 			return ::SetVolumeMountPointW(mountPoint.wc_str(), m_Path);
 		}
 		return false;

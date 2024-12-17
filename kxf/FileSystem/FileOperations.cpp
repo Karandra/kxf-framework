@@ -13,7 +13,7 @@ namespace
 	{
 		using namespace kxf;
 
-		String path = filePath.GetFullPath(FSPathNamespace::Win32File);
+		String path = filePath.GetFullPathTryNS(FSPathNamespace::Win32File);
 		const DWORD length = std::invoke(func, path.wc_str(), nullptr, 0);
 		if (length != 0)
 		{
@@ -48,10 +48,10 @@ namespace kxf::FileSystem
 	{
 		if (relativePath.IsRelative())
 		{
-			String pathString = relativePath.GetFullPath(FSPathNamespace::Win32File);
+			String pathString = relativePath.GetFullPathTryNS(FSPathNamespace::Win32File);
 
 			const DWORD length = ::GetFullPathNameW(pathString.wc_str(), 0, nullptr, nullptr);
-			if (length)
+			if (length != 0)
 			{
 				String result;
 				LPWSTR oldPathStart = nullptr;
@@ -83,18 +83,18 @@ namespace kxf::FileSystem
 			else if (sourceLength >= MAX_PATH)
 			{
 				// PathCompactPathEx doesn't work for paths longer than 'MAX_PATH'
-				// Taking Jeff Atwood 's idea but with a bit different RegEx.
+				// Taking Jeff Atwood's idea but with a bit different RegEx.
 				// Doesn't guarantees final length to not exceed 'maxCharacters'.
 				// https://blog.codinghorror.com/shortening-long-file-paths/
 
 				String source = path.GetFullPath();
-				RegEx regEx(wxS(R"((\w+:\\|)([^\\]+[^\\]+).*\\([^\\]+))"));
+				RegEx regEx(kxS(R"((\w+:\\|)([^\\]+[^\\]+).*\\([^\\]+))"));
 				if (regEx.Matches(source))
 				{
-					regEx.ReplaceAll(source, wxS(R"(\1\2\\...\\\3)"));
+					regEx.ReplaceAll(source, kxS(R"(\1\2\\...\\\3)"));
 				}
 
-				// If it's still longer just truncate it and add ellipsis
+				// If it's still longer, just truncate it and add ellipsis
 				if (source.length() > static_cast<size_t>(maxCharacters))
 				{
 					source.RemoveRight(source.length() - maxCharacters - 3);

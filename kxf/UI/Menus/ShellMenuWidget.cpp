@@ -172,7 +172,7 @@ namespace kxf::Widgets
 			{
 				wxMenu tempMenu;
 
-				String pathName = path.GetFullPathWithNS();
+				String pathName = path.GetFullPath();
 				if (hr = ::SHParseDisplayName(pathName.wc_str(), nullptr, &m_ShellItemList, 0, nullptr))
 				{
 					if (hr = ::SHBindToParent(m_ShellItemList, IID_IShellFolder, m_ShellFolder.GetAddress(), &m_ShellChildItemList))

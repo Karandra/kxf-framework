@@ -20,17 +20,17 @@ namespace
 	constexpr size_t g_VolumePathPrefixLength = 6;
 	constexpr size_t g_VolumePathTotalLength = g_VolumePathPrefixLength + g_GUIDLength + 2;
 
-	constexpr char g_PathSeparator = '\\';
+	constexpr auto g_PathSeparator = kxS('\\');
 }
 namespace
 {
-	kxf::String ConcatWithNamespace(const kxf::String& path, kxf::FSPathNamespace withNamespace)
+	kxf::String ConcatWithNamespace(const kxf::String& path, kxf::FSPathNamespace ns)
 	{
 		using namespace kxf;
 
-		if (withNamespace != FSPathNamespace::None && !path.IsEmpty())
+		if (ns != FSPathNamespace::None && !path.IsEmpty())
 		{
-			return FileSystem::GetNamespaceString(withNamespace) + path;
+			return FileSystem::GetNamespaceString(ns) + path;
 		}
 		return path;
 	}
@@ -239,6 +239,21 @@ namespace kxf
 		return CheckStringOnAssignPath(name);
 	}
 
+	String FSPath::CreateFullPath(FSPathNamespace ns, FlagSet<FSPathFormat> format) const
+	{
+		if (!m_Path.IsEmpty())
+		{
+			String result = ns != FSPathNamespace::None ? ConcatWithNamespace(m_Path, ns) : m_Path;
+
+			if (format & FSPathFormat::TrailingSeparator)
+			{
+				result += g_PathSeparator;
+			}
+			return result;
+		}
+		return {};
+	}
+
 	bool FSPath::IsNull() const
 	{
 		return m_Path.IsEmpty();
@@ -256,11 +271,15 @@ namespace kxf
 	{
 		return !IsNull() && !IsAbsolute();
 	}
+	bool FSPath::IsUNCPath() const
+	{
+		return m_Namespace == FSPathNamespace::Win32FileUNC || m_Namespace == FSPathNamespace::NetworkUNC;
+	}
+
 	bool FSPath::ContainsPath(const FSPath& path, bool caseSensitive) const
 	{
 		return m_Path.Contains(path.GetFullPath(), caseSensitive ? StringActionFlag::None : StringActionFlag::IgnoreCase);
 	}
-
 	size_t FSPath::GetComponentCount() const
 	{
 		size_t count = 0;
@@ -287,22 +306,49 @@ namespace kxf
 			{
 				parts.emplace_back(view);
 			}
-			return true;;
+			return true;
 		});
 
 		return parts;
 	}
-	String FSPath::GetFullPath(FSPathNamespace withNamespace, FlagSet<FSPathFormat> format) const
+
+	String FSPath::GetFullPath(FlagSet<FSPathFormat> format) const
 	{
-		String result = IsAbsolute() ? ConcatWithNamespace(m_Path, withNamespace) : m_Path;
-		if (!result.IsEmpty())
+		return CreateFullPath(FSPathNamespace::None, format);
+	}
+	String FSPath::GetFullPathTryNS(FSPathNamespace ns, FlagSet<FSPathFormat> format) const
+	{
+		if (IsAbsolute())
 		{
-			if (format & FSPathFormat::TrailingSeparator)
+			if (m_Namespace != FSPathNamespace::None)
 			{
-				result += g_PathSeparator;
+				return CreateFullPath(m_Namespace, format);
+			}
+			else if (ns != FSPathNamespace::None && ns != FSPathNamespace::Any)
+			{
+				return CreateFullPath(ns, format);
 			}
 		}
-		return result;
+		return CreateFullPath(FSPathNamespace::None, format);
+	}
+	String FSPath::GetFullPathRequireNS(FSPathNamespace ns, FlagSet<FSPathFormat> format) const
+	{
+		if (ns != FSPathNamespace::None && IsAbsolute())
+		{
+			if (ns == FSPathNamespace::Any)
+			{
+				if (m_Namespace != FSPathNamespace::None)
+				{
+					return CreateFullPath(m_Namespace, format);
+				}
+				return {};
+			}
+			else
+			{
+				return CreateFullPath(ns, format);
+			}
+		}
+		return {};
 	}
 
 	bool FSPath::HasVolume() const
@@ -394,7 +440,7 @@ namespace kxf
 			if (volume)
 			{
 				// Replace with volume path
-				String path = volume.GetPath().GetFullPath(FSPathNamespace::None, FSPathFormat::TrailingSeparator);
+				String path = volume.GetPath().GetFullPath(FSPathFormat::TrailingSeparator);
 				m_Path.ReplaceRange(0, 2, path);
 			}
 			else
@@ -409,7 +455,7 @@ namespace kxf
 			if (volume)
 			{
 				// Replace with a new volume path
-				String path = volume.GetPath().GetFullPath(FSPathNamespace::None, FSPathFormat::TrailingSeparator);
+				String path = volume.GetPath().GetFullPath(FSPathFormat::TrailingSeparator);
 				m_Path.ReplaceRange(0, g_VolumePathTotalLength, path);
 			}
 			else
@@ -422,7 +468,7 @@ namespace kxf
 		else
 		{
 			// Prepend a new volume path
-			String path = volume.GetPath().GetFullPath(FSPathNamespace::None, FSPathFormat::TrailingSeparator);
+			String path = volume.GetPath().GetFullPath(FSPathFormat::TrailingSeparator);
 			m_Path.Prepend(std::move(path));
 
 			Normalize();

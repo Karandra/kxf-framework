@@ -103,7 +103,7 @@ namespace kxf::Widgets
 			}
 			if (workingDirectory)
 			{
-				workingDirectoryString = workingDirectory.GetFullPathWithNS();
+				workingDirectoryString = workingDirectory.GetFullPath();
 				info.lpDirectory = workingDirectoryString.nc_str();
 				info.lpDirectoryW = workingDirectoryString.wc_str();
 			}

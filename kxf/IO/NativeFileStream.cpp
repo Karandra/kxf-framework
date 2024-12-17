@@ -446,12 +446,13 @@ namespace kxf
 
 		if (path)
 		{
+			m_LastError = Win32Error::Success();
 			m_AccessMode = access;
 			m_Disposition = disposition;
 			m_ShareMode = share;
 			m_Flags = flags;
 
-			String pathString = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+			String pathString = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 			m_Handle = ::CreateFileW(pathString.wc_str(),
 									 *FileSystem::Private::MapFileAccessMode(m_AccessMode),
 									 *FileSystem::Private::MapFileShareMode(m_ShareMode),
@@ -468,6 +469,10 @@ namespace kxf
 			{
 				m_LastError = Win32Error::GetLastError();
 			}
+		}
+		else
+		{
+			m_LastError = ERROR_INVALID_PARAMETER;
 		}
 		return false;
 	}

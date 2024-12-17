@@ -19,7 +19,7 @@ namespace
 	{
 		COMPtr<::IStream> fileStream;
 
-		String pathName = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+		String pathName = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 		if (HResult(::SHCreateStreamOnFileEx(pathName.wc_str(), flags, FILE_ATTRIBUTE_NORMAL, flags & STGM_CREATE, nullptr, &fileStream)))
 		{
 			return fileStream;

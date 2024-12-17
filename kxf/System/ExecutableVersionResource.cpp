@@ -31,7 +31,7 @@ namespace kxf
 {
 	void ExecutableVersionResource::Load(const FSPath& filePath)
 	{
-		String filePathString = filePath.GetFullPathWithNS(FSPathNamespace::Win32File);
+		String filePathString = filePath.GetFullPathTryNS(FSPathNamespace::Win32File);
 
 		DWORD structSize = ::GetFileVersionInfoSizeW(filePathString.wc_str(), nullptr);
 		if (structSize != 0)

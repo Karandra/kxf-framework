@@ -27,7 +27,7 @@ namespace kxf::Sciter
 	{
 		if (path)
 		{
-			return String("file://").Append(path.GetFullPath(FSPathNamespace::None, FSPathFormat::TrailingSeparator));
+			return String("file://").Append(path.GetFullPath(FSPathFormat::TrailingSeparator));
 		}
 		else
 		{

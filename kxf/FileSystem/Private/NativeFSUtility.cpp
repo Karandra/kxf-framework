@@ -9,7 +9,7 @@ namespace kxf::FileSystem::Private
 {
 	uint32_t GetFileAttributes(const FSPath& path)
 	{
-		String pathName = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+		String pathName = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 		return ::GetFileAttributesW(pathName.wc_str());
 	}
 	UniversallyUniqueID GetFileUniqueID(HANDLE fileHandle, const _BY_HANDLE_FILE_INFORMATION& fileInfo)
@@ -84,7 +84,7 @@ namespace kxf::FileSystem::Private
 		{
 			ULARGE_INTEGER compressedSize = {};
 
-			String pathName = path.GetFullPathWithNS();
+			String pathName = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 			compressedSize.LowPart = ::GetCompressedFileSizeW(pathName.wc_str(), &compressedSize.HighPart);
 			fileItem.SetCompressedSize(DataSize::FromBytes(compressedSize.QuadPart));
 		}
@@ -101,7 +101,7 @@ namespace kxf::FileSystem::Private
 		}
 		else if (flags.Contains(FSActionFlag::QueryUniqueID))
 		{
-			// Switch to a different directory enumeration method to avoid opening the file here to get its ID
+			// TODO: Switch to a different directory enumeration method to avoid opening the file here to get its ID
 			BY_HANDLE_FILE_INFORMATION fileInfo = {};
 			NativeFileStream stream(path, IOStreamAccess::ReadAttributes, IOStreamDisposition::OpenExisting, IOStreamShare::Everything, IOStreamFlag::AllowDirectories);
 			if (stream && ::GetFileInformationByHandle(stream.GetHandle(), &fileInfo))

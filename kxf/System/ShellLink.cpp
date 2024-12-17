@@ -28,7 +28,7 @@ namespace kxf
 			COMPtr<IPersistFile> persistFile;
 			if (hr = m_ShellLink->QueryInterface(&persistFile))
 			{
-				String pathString = path.GetFullPathWithNS();
+				String pathString = path.GetFullPath();
 				return persistFile->Load(pathString.wc_str(), 0);
 			}
 		}
@@ -43,7 +43,7 @@ namespace kxf
 			COMPtr<IPersistFile> persistFile;
 			if (hr = m_ShellLink->QueryInterface(&persistFile))
 			{
-				String pathString = path.GetFullPathWithNS();
+				String pathString = path.GetFullPath();
 				return persistFile->Save(pathString.wc_str(), TRUE);
 			}
 		}
@@ -62,7 +62,7 @@ namespace kxf
 	}
 	HResult ShellLink::SetTarget(const FSPath& path)
 	{
-		String pathString = path.GetFullPathWithNS();
+		String pathString = path.GetFullPath();
 		return m_ShellLink->SetPath(pathString.wc_str());
 	}
 
@@ -91,7 +91,7 @@ namespace kxf
 	}
 	HResult ShellLink::SetWorkingDirectory(const FSPath& path)
 	{
-		String pathString = path.GetFullPathWithNS();
+		String pathString = path.GetFullPath();
 		return m_ShellLink->SetWorkingDirectory(pathString.wc_str());
 	}
 
@@ -124,7 +124,7 @@ namespace kxf
 	}
 	HResult ShellLink::SetIconLocation(const FSPath& path, int index)
 	{
-		String pathString = path.GetFullPathWithNS();
+		String pathString = path.GetFullPath();
 		return m_ShellLink->SetIconLocation(pathString.wc_str(), index);
 	}
 	std::optional<int> ShellLink::GetIconIndex() const noexcept

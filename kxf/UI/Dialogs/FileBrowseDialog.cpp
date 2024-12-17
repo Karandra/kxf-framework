@@ -176,7 +176,7 @@ namespace kxf::UI
 	{
 		if (m_Instance)
 		{
-			String pathName = path.GetFullPathWithNS();
+			String pathName = path.GetFullPath();
 
 			COMPtr<IShellItem> shellItem;
 			::SHCreateItemFromParsingName(pathName.wc_str(), nullptr, IID_PPV_ARGS(&shellItem));
@@ -191,7 +191,7 @@ namespace kxf::UI
 	{
 		if (m_InstanceExtra)
 		{
-			String pathName = path.GetFullPathWithNS();
+			String pathName = path.GetFullPath();
 
 			COMPtr<IShellItem> shellItem;
 			SHCreateItemFromParsingName(pathName.wc_str(), nullptr, IID_PPV_ARGS(&shellItem));
@@ -288,7 +288,7 @@ namespace kxf::UI
 	{
 		if (m_Instance)
 		{
-			String pathName = path.GetFullPathWithNS();
+			String pathName = path.GetFullPath();
 
 			COMPtr<IShellItem> pathItem;
 			::SHCreateItemFromParsingName(pathName.wc_str(), nullptr, IID_PPV_ARGS(&pathItem));

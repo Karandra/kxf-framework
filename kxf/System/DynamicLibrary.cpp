@@ -191,7 +191,7 @@ namespace kxf
 	{
 		if (NativeAPI::Kernel32::AddDllDirectory)
 		{
-			String pathString = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+			String pathString = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 			return reinterpret_cast<SearchDirectory*>(NativeAPI::Kernel32::AddDllDirectory(pathString.wc_str()));
 		}
 		return nullptr;
@@ -225,7 +225,7 @@ namespace kxf
 
 		if (path)
 		{
-			String pathString = path.IsAbsolute() ? path.GetFullPathWithNS(FSPathNamespace::Win32File) : path.GetFullPath();
+			String pathString = path.IsAbsolute() ? path.GetFullPathTryNS(FSPathNamespace::Win32File) : path.GetFullPath();
 			m_Handle = reinterpret_cast<void*>(::LoadLibraryExW(pathString.wc_str(), nullptr, *MapDynamicLibraryLoadFlags(flags)));
 			m_LoadFlags = flags;
 			m_ShouldUnload = true;

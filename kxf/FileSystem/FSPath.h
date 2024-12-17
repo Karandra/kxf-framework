@@ -41,6 +41,8 @@ namespace kxf
 			bool CheckStringOnAssignPath(const String& path) const;
 			bool CheckStringOnAssignName(const String& name) const;
 
+			String CreateFullPath(FSPathNamespace ns, FlagSet<FSPathFormat> format) const;
+
 		public:
 			FSPath() = default;
 			FSPath(FSPath&&) = default;
@@ -64,10 +66,7 @@ namespace kxf
 			bool IsSameAs(const FSPath& other, bool caseSensitive = false) const;
 			bool IsAbsolute() const;
 			bool IsRelative() const;
-			bool IsUNCPath() const
-			{
-				return m_Namespace == FSPathNamespace::Win32FileUNC || m_Namespace == FSPathNamespace::NetworkUNC;
-			}
+			bool IsUNCPath() const;
 			
 			bool ContainsPath(const FSPath& path, bool caseSensitive = false) const;
 			bool ContainsAnyOfCharacters(const String& characters, bool caseSensitive = false) const
@@ -104,23 +103,24 @@ namespace kxf
 			}
 			FSPath& SetNamespace(FSPathNamespace ns)
 			{
-				m_Namespace = ns;
+				if (ns != FSPathNamespace::Any)
+				{
+					m_Namespace = ns;
+				}
 				return *this;
 			}
 			FSPath& EnsureNamespaceSet(FSPathNamespace ns)
 			{
-				if (m_Namespace == FSPathNamespace::None)
+				if (m_Namespace == FSPathNamespace::None && ns != FSPathNamespace::Any)
 				{
 					m_Namespace = ns;
 				}
 				return *this;
 			}
 			
-			String GetFullPath(FSPathNamespace withNamespace = FSPathNamespace::None, FlagSet<FSPathFormat> format = {}) const;
-			String GetFullPathWithNS(FSPathNamespace withNamespace = FSPathNamespace::None, FlagSet<FSPathFormat> format = {}) const
-			{
-				return GetFullPath(m_Namespace != FSPathNamespace::None ? m_Namespace : withNamespace, format);
-			}
+			String GetFullPath(FlagSet<FSPathFormat> format = {}) const;
+			String GetFullPathTryNS(FSPathNamespace ns, FlagSet<FSPathFormat> format = {}) const;
+			String GetFullPathRequireNS(FSPathNamespace ns, FlagSet<FSPathFormat> format = {}) const;
 
 			bool HasAnyVolume() const
 			{

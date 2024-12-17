@@ -7,9 +7,10 @@
 
 namespace kxf
 {
-	enum class DriveType: uint32_t
+	enum class DriveType: int32_t
 	{
-		Unknown = 0,
+		Unknown = -1,
+
 		NotMounted,
 		Fixed,
 		Remote,
@@ -17,9 +18,11 @@ namespace kxf
 		Optical,
 		Removable,
 	};
-	enum class FSPathNamespace: uint32_t
+	enum class FSPathNamespace: int32_t
 	{
 		None = 0,
+		Any = -1,
+
 		NT,
 		Win32File,
 		Win32FileUNC,

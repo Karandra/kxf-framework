@@ -83,7 +83,7 @@ namespace kxf
 					FSPath path = m_LookupDirectory;
 					path.Append(item.Name);
 
-					auto fullPath = path.GetFullPathWithNS();
+					auto fullPath = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 					KX_SCOPEDLOG.Info().Format("Loading library '{}' using a fully qualified path name '{}'", item.Name, fullPath);
 
 					item.Handle = ::LoadLibraryW(fullPath.wc_str());
@@ -296,7 +296,7 @@ namespace kxf
 
 	void NativeAPILoader::SetLookupDirectory(const FSPath& path)
 	{
-		m_LookupDirectory = path.GetFullPathWithNS();
+		m_LookupDirectory = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 	}
 }
 

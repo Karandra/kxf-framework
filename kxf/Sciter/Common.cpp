@@ -40,7 +40,7 @@ namespace kxf::Sciter
 	{
 		if (!g_SciterLibrary)
 		{
-			auto fullPath = path.GetFullPathWithNS();
+			auto fullPath = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 			Log::Info("Loading Sciter DLL from: '{}'", fullPath);
 
 			g_SciterLibrary = ::LoadLibraryW(fullPath.wc_str());

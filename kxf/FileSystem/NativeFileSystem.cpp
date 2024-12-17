@@ -166,11 +166,11 @@ namespace kxf::FileSystem::Private
 			{
 				if (m_Query)
 				{
-					return (directory / m_Query).GetFullPathWithNS(FSPathNamespace::Win32File);
+					return (directory / m_Query).GetFullPathTryNS(FSPathNamespace::Win32File);
 				}
 				else
 				{
-					return (directory / "*").GetFullPathWithNS(FSPathNamespace::Win32File);
+					return (directory / kxS("*")).GetFullPathTryNS(FSPathNamespace::Win32File);
 				}
 			}
 			std::optional<FileItem> DoItem(IEnumerator& enumerator, WIN32_FIND_DATAW& findInfo, const FSPath& directory, std::vector<FSPath>& childDirectories)
@@ -277,7 +277,7 @@ namespace kxf
 		{
 			auto DoChange = [](const FSPath& directory)
 			{
-				String directoryString = directory.GetFullPathWithNS(FSPathNamespace::Win32File);
+				String directoryString = directory.GetFullPathTryNS(FSPathNamespace::Win32File);
 				return ::SetCurrentDirectoryW(directoryString.wc_str());
 			};
 
@@ -406,7 +406,7 @@ namespace kxf
 					{
 						finalPath /= std::move(currentDirectoryName);
 
-						const String currentPath = finalPath.GetFullPathWithNS(FSPathNamespace::Win32File);
+						const String currentPath = finalPath.GetFullPathTryNS(FSPathNamespace::Win32File);
 						const bool isCreated = ::CreateDirectoryW(currentPath.wc_str(), nullptr);
 						const bool alreadyExist = !isCreated && (*Win32Error::GetLastError() == ERROR_ALREADY_EXISTS || finalPath.GetComponentCount() == 1);
 
@@ -421,7 +421,7 @@ namespace kxf
 			}
 			else
 			{
-				const String pathName = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+				const String pathName = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 				return ::CreateDirectoryW(pathName.wc_str(), nullptr);
 			}
 			return false;
@@ -434,7 +434,7 @@ namespace kxf
 		{
 			if (attributes != FileAttribute::Invalid && path.IsAbsolute())
 			{
-				String pathString = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+				String pathString = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 				return ::SetFileAttributesW(pathString.wc_str(), *FileSystem::Private::MapFileAttributes(attributes));
 			}
 			return false;
@@ -467,8 +467,8 @@ namespace kxf
 			copyFlags.Add(COPY_FILE_FAIL_IF_EXISTS, !(flags & FSActionFlag::ReplaceIfExist));
 			copyFlags.Add(COPY_FILE_NO_BUFFERING, flags & FSActionFlag::NoBuffering);
 
-			const String sourcePath = source.GetFullPathWithNS(FSPathNamespace::Win32File);
-			const String destinationPath = destination.GetFullPathWithNS(FSPathNamespace::Win32File);
+			const String sourcePath = source.GetFullPathTryNS(FSPathNamespace::Win32File);
+			const String destinationPath = destination.GetFullPathTryNS(FSPathNamespace::Win32File);
 
 			BOOL canceled = FALSE;
 			if (func)
@@ -509,8 +509,8 @@ namespace kxf
 			moveFlags.Add(MOVEFILE_REPLACE_EXISTING, flags & FSActionFlag::ReplaceIfExist);
 			moveFlags.Add(MOVEFILE_WRITE_THROUGH, flags & FSActionFlag::NoBuffering);
 
-			const String sourcePath = source.GetFullPathWithNS(FSPathNamespace::Win32File);
-			const String destinationPath = destination.GetFullPathWithNS(FSPathNamespace::Win32File);
+			const String sourcePath = source.GetFullPathTryNS(FSPathNamespace::Win32File);
+			const String destinationPath = destination.GetFullPathTryNS(FSPathNamespace::Win32File);
 
 			if (func)
 			{
@@ -545,8 +545,8 @@ namespace kxf
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath2(source, destination, [&](const FSPath& source, const FSPath& destination) -> bool
 		{
-			const String sourcePath = source.GetFullPathWithNS(FSPathNamespace::Win32File);
-			const String destinationPath = destination.GetFullPathWithNS(FSPathNamespace::Win32File);
+			const String sourcePath = source.GetFullPathTryNS(FSPathNamespace::Win32File);
+			const String destinationPath = destination.GetFullPathTryNS(FSPathNamespace::Win32File);
 
 			DWORD moveFlags = flags & FSActionFlag::ReplaceIfExist ? MOVEFILE_REPLACE_EXISTING : 0;
 			return ::MoveFileExW(sourcePath.wc_str(), destinationPath.wc_str(), moveFlags);
@@ -557,7 +557,7 @@ namespace kxf
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath1(path, [&](const FSPath& path) -> bool
 		{
-			const String sourcePath = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+			const String sourcePath = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 
 			const uint32_t attributes = ::GetFileAttributesW(sourcePath.wc_str());
 			if (attributes != INVALID_FILE_ATTRIBUTES)
@@ -582,7 +582,7 @@ namespace kxf
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath1(path, [&](const FSPath& path) -> bool
 		{
-			const String sourcePath = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+			const String sourcePath = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 
 			const FlagSet<uint32_t> attributes = ::GetFileAttributesW(sourcePath.wc_str());
 			if (!attributes.Equals(INVALID_FILE_ATTRIBUTES) && attributes.Contains(FILE_ATTRIBUTE_DIRECTORY))
@@ -592,7 +592,7 @@ namespace kxf
 					std::vector<String> directories;
 					for (const FileItem& item: EnumItems(path, {}, FSActionFlag::Recursive))
 					{
-						String filePath = item.GetFullPath().GetFullPathWithNS(FSPathNamespace::Win32File);
+						String filePath = item.GetFullPath().GetFullPathTryNS(FSPathNamespace::Win32File);
 						if (item.IsDirectory())
 						{
 							if (!DoRemoveDirectory(filePath))
@@ -788,7 +788,7 @@ namespace kxf
 		return pathResolver.DoWithResolvedPath1(path, [&](const FSPath& path)
 		{
 			size_t counter = 0;
-			String pathString = path.GetFullPathWithNS(FSPathNamespace::Win32File);
+			String pathString = path.GetFullPathTryNS(FSPathNamespace::Win32File);
 
 			WIN32_FIND_STREAM_DATA streamInfo = {};
 			HANDLE handle = ::FindFirstStreamW(pathString.wc_str(), STREAM_INFO_LEVELS::FindStreamInfoStandard, &streamInfo, 0);
