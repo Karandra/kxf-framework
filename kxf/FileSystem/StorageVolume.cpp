@@ -182,7 +182,7 @@ namespace kxf
 	}
 	StorageVolume::StorageVolume(const FSPath& path)
 	{
-		if (path.HasVolume())
+		if (path.ContainsStorageVolume())
 		{
 			// Volume paths should be in following format: '\\?\Volume{66843779-55ae-45c5-9abe-b67ccee14079}\'.
 			AssignPath(path.GetFullPathRequireNS(FSPathNamespace::Win32File, FSPathFormat::TrailingSeparator).SubLeft(g_VolumePathTotalLength));

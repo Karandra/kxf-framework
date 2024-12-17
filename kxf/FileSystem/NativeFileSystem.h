@@ -43,7 +43,7 @@ namespace kxf
 			}
 			void DoAssingLookupDirectory(FSPath directory) noexcept
 			{
-				m_LookupVolume = directory.GetAsVolume();
+				m_LookupVolume = directory.GetStorageVolume();
 				m_LookupDirectory = std::move(directory);
 			}
 

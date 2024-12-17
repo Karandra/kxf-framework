@@ -20,7 +20,8 @@ namespace
 	constexpr size_t g_VolumePathPrefixLength = 6;
 	constexpr size_t g_VolumePathTotalLength = g_VolumePathPrefixLength + g_GUIDLength + 2;
 
-	constexpr auto g_PathSeparator = kxS('\\');
+	constexpr auto g_PathSeparatorForward = kxS('/');
+	constexpr auto g_PathSeparatorBackward = kxS('\\');
 }
 namespace
 {
@@ -42,7 +43,7 @@ namespace
 		if (pos != String::npos)
 		{
 			String result = path.SubLeft(pos);
-			if (!result.IsEmpty() && result.back() == g_PathSeparator)
+			if (!result.IsEmpty() && result.back() == g_PathSeparatorBackward)
 			{
 				result.RemoveRight(1);
 			}
@@ -58,7 +59,7 @@ namespace
 		if (pos != String::npos && pos + 1 < path.length())
 		{
 			String result = path.SubMid(pos + 1, count);
-			if (!result.IsEmpty() && result[0] == g_PathSeparator)
+			if (!result.IsEmpty() && result[0] == g_PathSeparatorBackward)
 			{
 				result.Remove(0, 1);
 			}
@@ -113,13 +114,13 @@ namespace kxf
 			auto& c = m_Path[i];
 
 			// Replace forward slashes with backward slashes
-			if (c == '/')
+			if (c == g_PathSeparatorForward)
 			{
-				c = g_PathSeparator;
+				c = g_PathSeparatorBackward;
 			}
 
 			// Remove any duplicating slashes
-			if (c == g_PathSeparator)
+			if (c == g_PathSeparatorBackward)
 			{
 				if (removeNextSlash || i + 1 == m_Path.length())
 				{
@@ -171,7 +172,7 @@ namespace kxf
 		using namespace FileSystem::Private;
 
 		// All namespaces starts from at least one '\'
-		if (path.IsEmpty() || path[0] != g_PathSeparator)
+		if (path.IsEmpty() || path[0] != g_PathSeparatorBackward)
 		{
 			ns = FSPathNamespace::None;
 
@@ -236,7 +237,8 @@ namespace kxf
 	}
 	bool FSPath::CheckStringOnAssignName(const String& name) const
 	{
-		return CheckStringOnAssignPath(name);
+		constexpr XChar chars[] = {g_PathSeparatorForward, g_PathSeparatorBackward, 0};
+		return !name.ContainsAnyOfCharacters(StringViewOf(chars)) && CheckStringOnAssignPath(name);
 	}
 
 	String FSPath::CreateFullPath(FSPathNamespace ns, FlagSet<FSPathFormat> format) const
@@ -247,7 +249,7 @@ namespace kxf
 
 			if (format & FSPathFormat::TrailingSeparator)
 			{
-				result += g_PathSeparator;
+				result += g_PathSeparatorBackward;
 			}
 			return result;
 		}
@@ -265,7 +267,7 @@ namespace kxf
 	bool FSPath::IsAbsolute() const
 	{
 		// Path is absolute if it has a namespace or starts with a volume (a disk designator)
-		return !IsNull() && (m_Namespace != FSPathNamespace::None || HasAnyVolume());
+		return !IsNull() && (m_Namespace != FSPathNamespace::None || ContainsVolume());
 	}
 	bool FSPath::IsRelative() const
 	{
@@ -285,13 +287,13 @@ namespace kxf
 		size_t count = 0;
 		for (XChar c: m_Path)
 		{
-			if (c == g_PathSeparator)
+			if (c == g_PathSeparatorBackward)
 			{
 				count++;
 			}
 		}
 
-		if (HasAnyVolume())
+		if (ContainsVolume())
 		{
 			count++;
 		}
@@ -300,7 +302,7 @@ namespace kxf
 	std::vector<StringView> FSPath::EnumComponents() const
 	{
 		std::vector<StringView> parts;
-		m_Path.SplitBySeparator(g_PathSeparator, [&](StringView view)
+		m_Path.SplitBySeparator(g_PathSeparatorBackward, [&](StringView view)
 		{
 			if (!view.empty())
 			{
@@ -362,48 +364,49 @@ namespace kxf
 		return {};
 	}
 
-	bool FSPath::HasVolume() const
+	bool FSPath::ContainsStorageVolume() const
 	{
 		return CheckIsVolumeGUID(m_Path);
 	}
-	bool FSPath::HasLegacyVolume() const
+	bool FSPath::ContainsLegacyVolume() const
 	{
 		return CheckIsLegacyVolume(m_Path);
 	}
-	StorageVolume FSPath::GetVolume() const
+	StorageVolume FSPath::GetStorageVolume() const
 	{
-		// StorageVolume constructor does the validity check and extracts volume path
-		return *this;
-	}
-	StorageVolume FSPath::GetAsVolume() const
-	{
-		StorageVolume volume = GetVolume();
-		if (!volume)
+		if (!m_Path.IsEmpty())
 		{
-			volume = GetLegacyVolume();
-		}
-		return volume;
-	}
-	LegacyVolume FSPath::GetLegacyVolume() const
-	{
-		if (HasLegacyVolume())
-		{
-			return LegacyVolume::FromChar(m_Path[0]);
+			if (ContainsLegacyVolume())
+			{
+				return StorageVolume(LegacyVolume::FromChar(m_Path[0]));
+			}
+			else if (ContainsStorageVolume())
+			{
+				// StorageVolume constructor does the validity check and extracts the volume path
+				return StorageVolume(*this);
+			}
 		}
 		return {};
 	}
-	LegacyVolume FSPath::GetAsLegacyVolume() const
+	LegacyVolume FSPath::GetLegacyVolume() const
 	{
-		LegacyVolume legacyVolume = GetLegacyVolume();
-		if (!legacyVolume)
+		if (!m_Path.IsEmpty())
 		{
-			legacyVolume = GetVolume().GetLegacyVolume();
+			if (ContainsLegacyVolume())
+			{
+				return LegacyVolume::FromChar(m_Path[0]);
+			}
+			else if (ContainsStorageVolume())
+			{
+				// See 'FSPath::GetStorageVolume'
+				return StorageVolume(*this).GetLegacyVolume();
+			}
 		}
-		return legacyVolume;
+		return {};
 	}
 	FSPath& FSPath::SetVolume(const LegacyVolume& drive)
 	{
-		if (HasLegacyVolume())
+		if (ContainsLegacyVolume())
 		{
 			if (drive)
 			{
@@ -417,7 +420,7 @@ namespace kxf
 				Normalize();
 			}
 		}
-		else if (HasVolume())
+		else if (ContainsStorageVolume())
 		{
 			if (drive)
 			{
@@ -446,7 +449,7 @@ namespace kxf
 	}
 	FSPath& FSPath::SetVolume(const StorageVolume& volume)
 	{
-		if (HasLegacyVolume())
+		if (ContainsLegacyVolume())
 		{
 			if (volume)
 			{
@@ -461,7 +464,7 @@ namespace kxf
 			}
 			Normalize();
 		}
-		else if (HasVolume())
+		else if (ContainsStorageVolume())
 		{
 			if (volume)
 			{
@@ -489,12 +492,12 @@ namespace kxf
 
 	String FSPath::GetPath() const
 	{
-		if (HasLegacyVolume())
+		if (ContainsLegacyVolume())
 		{
 			// Return after the disk designator
 			return m_Path.SubMid(2);
 		}
-		else if (HasVolume())
+		else if (ContainsStorageVolume())
 		{
 			// Return after GUID path
 			return m_Path.SubMid(g_VolumePathTotalLength);
@@ -505,28 +508,28 @@ namespace kxf
 			return m_Path;
 		}
 	}
-	FSPath& FSPath::SetPath(String path)
+	FSPath& FSPath::SetPath(const String& path)
 	{
 		if (CheckStringOnAssignPath(path))
 		{
-			if (HasLegacyVolume())
+			if (ContainsLegacyVolume())
 			{
 				// Replace after the disk designator
 				m_Path.Remove(2, String::npos);
-				m_Path += g_PathSeparator;
+				m_Path += g_PathSeparatorBackward;
 				m_Path += path;
 			}
-			else if (HasVolume())
+			else if (ContainsStorageVolume())
 			{
 				// Replace after GUID path
 				m_Path.Truncate(g_VolumePathTotalLength);
-				m_Path += g_PathSeparator;
+				m_Path += g_PathSeparatorBackward;
 				m_Path += path;
 			}
 			else
 			{
 				// Replace the full path
-				m_Path = std::move(path);
+				m_Path = path;
 			}
 			Normalize();
 		}
@@ -575,14 +578,14 @@ namespace kxf
 	String FSPath::GetName() const
 	{
 		// Return everything after last path delimiter or itself
-		String path = ExtractAfter(m_Path, g_PathSeparator, String::npos, true);
+		String path = ExtractAfter(m_Path, g_PathSeparatorBackward, String::npos, true);
 		return path.IsEmpty() ? m_Path : path;
 	}
 	FSPath& FSPath::SetName(const String& name)
 	{
 		if (CheckStringOnAssignName(name))
 		{
-			const size_t pos = m_Path.ReverseFind(g_PathSeparator);
+			const size_t pos = m_Path.ReverseFind(g_PathSeparatorBackward);
 			if (pos != String::npos)
 			{
 				const size_t dot = m_Path.Find('.', {}, pos);
@@ -607,30 +610,32 @@ namespace kxf
 	}
 	FSPath& FSPath::SetExtension(const String& ext)
 	{
-		auto Replace = [this](const String& ext)
+		if (CheckStringOnAssignName(ext))
 		{
-			const size_t pos = m_Path.ReverseFind('.');
-			if (pos != String::npos)
+			auto Replace = [this](const String& ext)
 			{
-				m_Path.ReplaceRange(pos + 1, m_Path.length() - pos, ext);
+				const size_t pos = m_Path.ReverseFind('.');
+				if (pos != String::npos)
+				{
+					m_Path.ReplaceRange(pos + 1, m_Path.length() - pos, ext);
+				}
+				else
+				{
+					m_Path += '.';
+					m_Path += ext;
+				}
+			};
+
+			if (String extWithoutDot; ext.StartsWith('.', &extWithoutDot))
+			{
+				Replace(extWithoutDot);
 			}
 			else
 			{
-				m_Path += '.';
-				m_Path += ext;
+				Replace(ext);
 			}
-		};
-
-		if (String extWithoutDot; ext.StartsWith('.', &extWithoutDot))
-		{
-			Replace(extWithoutDot);
+			Normalize();
 		}
-		else
-		{
-			Replace(ext);
-		}
-		Normalize();
-
 		return *this;
 	}
 
@@ -662,9 +667,9 @@ namespace kxf
 	}
 	FSPath FSPath::GetParent() const
 	{
-		return FSPath(ExtractBefore(m_Path, g_PathSeparator, true)).EnsureNamespaceSet(m_Namespace);
+		return FSPath(ExtractBefore(m_Path, g_PathSeparatorBackward, true)).EnsureNamespaceSet(m_Namespace);
 	}
-	FSPath& FSPath::RemoveLastPart()
+	FSPath& FSPath::RemoveRight()
 	{
 		*this = GetParent();
 		return *this;
@@ -676,7 +681,7 @@ namespace kxf
 		{
 			if (!m_Path.IsEmpty())
 			{
-				m_Path += g_PathSeparator;
+				m_Path += g_PathSeparatorBackward;
 			}
 			m_Path += other.m_Path;
 

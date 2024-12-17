@@ -88,7 +88,7 @@ namespace kxf
 			}
 			size_t GetLength() const
 			{
-				return m_Path.length();
+				return m_Path.GetLength();
 			}
 			size_t GetComponentCount() const;
 			std::vector<StringView> EnumComponents() const;
@@ -123,21 +123,19 @@ namespace kxf
 			String GetFullPathRequireNS(FSPathNamespace ns, FlagSet<FSPathFormat> format = {}) const;
 			String GetDisplayString() const;
 
-			bool HasAnyVolume() const
+			bool ContainsVolume() const
 			{
-				return HasVolume() || HasLegacyVolume();
+				return ContainsStorageVolume() || ContainsLegacyVolume();
 			}
-			bool HasVolume() const;
-			bool HasLegacyVolume() const;
-			StorageVolume GetVolume() const;
-			StorageVolume GetAsVolume() const;
+			bool ContainsStorageVolume() const;
+			bool ContainsLegacyVolume() const;
+			StorageVolume GetStorageVolume() const;
 			LegacyVolume GetLegacyVolume() const;
-			LegacyVolume GetAsLegacyVolume() const;
 			FSPath& SetVolume(const LegacyVolume& volume);
 			FSPath& SetVolume(const StorageVolume& volume);
 
 			String GetPath() const;
-			FSPath& SetPath(String path);
+			FSPath& SetPath(const String& path);
 			FSPath& SimplifyPath();
 
 			String GetName() const;
@@ -149,7 +147,7 @@ namespace kxf
 			FSPath GetAfter(const FSPath& start) const;
 			FSPath GetBefore(const FSPath& end) const;
 			FSPath GetParent() const;
-			FSPath& RemoveLastPart();
+			FSPath& RemoveRight();
 
 			FSPath& Append(const FSPath& other);
 			FSPath& Append(const XChar* other)
