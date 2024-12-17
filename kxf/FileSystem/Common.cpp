@@ -5,7 +5,7 @@
 
 namespace kxf::FileSystem
 {
-	String GetNamespaceString(FSPathNamespace type)
+	StringView GetNamespaceString(FSPathNamespace type)
 	{
 		using namespace Private;
 

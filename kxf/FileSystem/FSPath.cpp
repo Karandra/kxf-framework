@@ -350,6 +350,17 @@ namespace kxf
 		}
 		return {};
 	}
+	String FSPath::GetDisplayString() const
+	{
+		if (!m_Path.IsEmpty())
+		{
+			FlagSet<FSPathFormat> format;
+			format.Add(FSPathFormat::TrailingSeparator, m_Path.GetLength() == 2 && CheckIsLegacyVolume(m_Path));
+
+			return CreateFullPath(m_Namespace != FSPathNamespace::None ? m_Namespace : FSPathNamespace::None, format);
+		}
+		return {};
+	}
 
 	bool FSPath::HasVolume() const
 	{

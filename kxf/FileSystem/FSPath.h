@@ -117,10 +117,11 @@ namespace kxf
 				}
 				return *this;
 			}
-			
+
 			String GetFullPath(FlagSet<FSPathFormat> format = {}) const;
 			String GetFullPathTryNS(FSPathNamespace ns, FlagSet<FSPathFormat> format = {}) const;
 			String GetFullPathRequireNS(FSPathNamespace ns, FlagSet<FSPathFormat> format = {}) const;
+			String GetDisplayString() const;
 
 			bool HasAnyVolume() const
 			{
@@ -277,6 +278,28 @@ namespace std
 		size_t operator()(const kxf::FSPath& fsPath) const noexcept
 		{
 			return std::hash<kxf::String>()(fsPath.m_Path);
+		}
+	};
+
+	template<>
+	struct formatter<kxf::FSPath, char>: std::formatter<std::string_view, char>
+	{
+		template<class TFormatContext>
+		auto format(const kxf::FSPath& value, TFormatContext& formatContext) const
+		{
+			auto formatted = value.GetDisplayString().ToUTF8();
+			return std::formatter<std::string_view, char>::format(formatted, formatContext);
+		}
+	};
+
+	template<>
+	struct formatter<kxf::FSPath, wchar_t>: std::formatter<std::wstring_view, wchar_t>
+	{
+		template<class TFormatContext>
+		auto format(const kxf::FSPath& value, TFormatContext& formatContext) const
+		{
+			auto formatted = value.GetDisplayString();
+			return std::formatter<std::wstring_view, wchar_t>::format(formatted.view(), formatContext);
 		}
 	};
 }
