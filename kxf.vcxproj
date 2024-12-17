@@ -898,6 +898,7 @@
     <ClCompile Include="kxf\Compression\SevenZip\Private\Utility.cpp" />
     <ClCompile Include="kxf\Core\Async\Coroutine\CoroutineImpl.cpp" />
     <ClCompile Include="kxf\Core\Async\DefaultAsyncTaskExecutor.cpp" />
+    <ClCompile Include="kxf\Core\CallbackFunction.cpp" />
     <ClCompile Include="kxf\Core\EncodingConverter\NativeEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\IEncodingConverter.cpp" />

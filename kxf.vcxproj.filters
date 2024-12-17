@@ -3801,6 +3801,9 @@
     <ClCompile Include="kxf\wxWidgets\StandardLocalization.cpp">
       <Filter>kxf\wxWidgets</Filter>
     </ClCompile>
+    <ClCompile Include="kxf\Core\CallbackFunction.cpp">
+      <Filter>kxf\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="kxf\System\Private\ErrorCodeNtStatus.i">
