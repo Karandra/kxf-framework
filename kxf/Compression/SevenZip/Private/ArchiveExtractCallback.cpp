@@ -94,13 +94,6 @@ namespace kxf::SevenZip::Private::Callback
 	STDMETHODIMP ExtractArchiveWrapper::SetOperationResult(Int32 operationResult)
 	{
 		OutputStreamDelegate stream = std::move(m_Stream);
-		Utility::ScopeGuard atExit = [&]()
-		{
-			if (stream && stream.OwnsTargetStream())
-			{
-				stream->Close();
-			}
-		};
 
 		if (ShouldCancel())
 		{

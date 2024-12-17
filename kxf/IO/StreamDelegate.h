@@ -1,54 +1,47 @@
 #pragma once
 #include "Common.h"
 #include "IStream.h"
-#include "kxf/Core/OptionalPtr.h"
 
 namespace kxf::Private
 {
 	template<class TBaseStream_>
+	requires(std::is_base_of_v<IStream, TBaseStream_>)
 	class DelegateStreamBase: public TBaseStream_
 	{
 		public:
 			using TBaseStream = TBaseStream_;
 
 		protected:
-			optional_ptr<TBaseStream> m_Stream;
+			std::shared_ptr<TBaseStream> m_Stream;
 
 		protected:
 			DelegateStreamBase() = default;
-			DelegateStreamBase(std::nullptr_t)
+			DelegateStreamBase(std::nullopt_t)
 			{
 			}
-			DelegateStreamBase(TBaseStream& stream)
-				:m_Stream(stream)
-			{
-			}
-			
-			template<class T> requires(std::is_base_of_v<TBaseStream, T>)
-			DelegateStreamBase(std::unique_ptr<T> stream)
+			DelegateStreamBase(std::shared_ptr<TBaseStream> stream)
 				:m_Stream(std::move(stream))
 			{
 			}
-
 			DelegateStreamBase(DelegateStreamBase&&) noexcept = default;
 			DelegateStreamBase(const DelegateStreamBase&) = delete;
 
 		public:
-			bool OwnsTargetStream() const
-			{
-				return m_Stream.is_owned();
-			}
 			bool HasTargetStream() const
 			{
-				return !m_Stream.is_null();
+				return m_Stream != nullptr;
 			}
-			std::unique_ptr<TBaseStream> TakeTargetStream()
+			std::shared_ptr<TBaseStream> TakeTargetStream() noexcept
 			{
-				return m_Stream.get_unique();
+				return std::move(m_Stream);
 			}
 			TBaseStream* GetTargetStream() const
 			{
 				return m_Stream.get();
+			}
+			std::shared_ptr<TBaseStream> get_ptr() const noexcept
+			{
+				return m_Stream;
 			}
 
 			const TBaseStream& operator*() const
@@ -109,15 +102,15 @@ namespace kxf
 	{
 		public:
 			InputStreamDelegate() = default;
-			InputStreamDelegate(const InputStreamDelegate&) = delete;
-			InputStreamDelegate(InputStreamDelegate&& other)
-				:DelegateStreamBase(std::move(other))
+			InputStreamDelegate(std::nullptr_t)
 			{
 			}
-
-			template<class... Args>
-			InputStreamDelegate(Args&&... arg)
-				:DelegateStreamBase(std::forward<Args>(arg)...)
+			InputStreamDelegate(std::shared_ptr<IInputStream> stream)
+				:DelegateStreamBase(std::move(stream))
+			{
+			}
+			InputStreamDelegate(IInputStream& ref)
+				:DelegateStreamBase(RTTI::assume_non_owned(ref))
 			{
 			}
 
@@ -161,31 +154,23 @@ namespace kxf
 			}
 			DataSize SeekI(DataSize offset, IOStreamSeek seek) override
 			{
-				return m_Stream->SeekI(offset.ToBytes(), seek);
+				return m_Stream->SeekI(offset, seek);
 			}
-
-		public:
-			InputStreamDelegate& operator=(InputStreamDelegate&& other) noexcept
-			{
-				static_cast<DelegateStreamBase&>(*this) = std::move(other);
-				return *this;
-			}
-			InputStreamDelegate& operator=(const InputStreamDelegate&) = delete;
 	};
 
 	class KX_API OutputStreamDelegate: public Private::DelegateStreamBase<IOutputStream>
 	{
 		public:
 			OutputStreamDelegate() = default;
-			OutputStreamDelegate(const OutputStreamDelegate&) = delete;
-			OutputStreamDelegate(OutputStreamDelegate&& other)
-				:DelegateStreamBase(std::move(other))
+			OutputStreamDelegate(std::nullptr_t)
 			{
 			}
-
-			template<class... Args>
-			OutputStreamDelegate(Args&&... arg)
-				:DelegateStreamBase(std::forward<Args>(arg)...)
+			OutputStreamDelegate(std::shared_ptr<IOutputStream> stream)
+				:DelegateStreamBase(std::move(stream))
+			{
+			}
+			OutputStreamDelegate(IOutputStream& ref)
+				:DelegateStreamBase(RTTI::assume_non_owned(ref))
 			{
 			}
 
@@ -221,7 +206,7 @@ namespace kxf
 			}
 			DataSize SeekO(DataSize offset, IOStreamSeek seek) override
 			{
-				return m_Stream->SeekO(offset.ToBytes(), seek);
+				return m_Stream->SeekO(offset, seek);
 			}
 
 			bool Flush() override
@@ -232,13 +217,5 @@ namespace kxf
 			{
 				return m_Stream->SetAllocationSize(allocationSize);
 			}
-
-		public:
-			OutputStreamDelegate& operator=(OutputStreamDelegate&& other) noexcept
-			{
-				static_cast<DelegateStreamBase&>(*this) = std::move(other);
-				return *this;
-			}
-			OutputStreamDelegate& operator=(const OutputStreamDelegate&) = delete;
 	};
 }
