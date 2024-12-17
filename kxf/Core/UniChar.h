@@ -5,10 +5,36 @@
 
 namespace kxf
 {
+	enum class UnicodePlane
+	{
+		None = -1,
+
+		BasicMultilingualPlane = 0,
+		SupplementaryMultilingualPlane = 1,
+		SupplementaryIdeographicPlane = 2,
+		TertiaryIdeographicPlane = 3,
+		Planes4_13 = 4,
+		SupplementarySpecialpPurposePlane = 14,
+		SupplementaryPrivateUseArea = 15
+	};
+}
+
+namespace kxf
+{
 	class UniChar final
 	{
 		private:
 			char32_t m_Value = 0;
+
+		private:
+			static constexpr char16_t ToLowSurrogate(char32_t value) noexcept
+			{
+				return static_cast<uint16_t>(0xDC00u | ((value - 0x10000u) & 0x03FFu));
+			}
+			static constexpr char16_t ToHighSurrogate(char32_t value) noexcept
+			{
+				return static_cast<uint16_t>(0xD800u | ((value - 0x10000u) >> 10));
+			}
 
 		public:
 			constexpr UniChar(char32_t c = 0) noexcept
@@ -23,15 +49,50 @@ namespace kxf
 			}
 			constexpr bool IsASCII() const noexcept
 			{
-				return m_Value < 0x80u;
+				return m_Value <= 0x7Fu;
 			}
-			constexpr bool IsBMP() const noexcept
+			constexpr bool IsBasic() const noexcept
 			{
-				return m_Value < 0x10000u;
+				return m_Value <= 0xFFFFu;
 			}
 			constexpr bool IsSupplementary() const noexcept
 			{
 				return m_Value >= 0x10000u && m_Value <= 0x10FFFFu;
+			}
+			constexpr bool IsUnicodePlane(UnicodePlane plane) const noexcept
+			{
+				switch (plane)
+				{
+					case UnicodePlane::BasicMultilingualPlane:
+					{
+						return m_Value <= 0xFFFFu;
+					}
+					case UnicodePlane::SupplementaryMultilingualPlane:
+					{
+						return m_Value >= 0x10000u && m_Value <= 0x1FFFFu;
+					}
+					case UnicodePlane::SupplementaryIdeographicPlane:
+					{
+						return m_Value >= 0x20000u && m_Value <= 0x2FFFFu;
+					}
+					case UnicodePlane::TertiaryIdeographicPlane:
+					{
+						return m_Value >= 0x30000u && m_Value <= 0x3FFFFu;
+					}
+					case UnicodePlane::Planes4_13:
+					{
+						return m_Value >= 0x40000u && m_Value <= 0xDFFFFu;
+					}
+					case UnicodePlane::SupplementarySpecialpPurposePlane:
+					{
+						return m_Value >= 0xE0000u && m_Value <= 0xEFFFFu;
+					}
+					case UnicodePlane::SupplementaryPrivateUseArea:
+					{
+						return m_Value >= 0xF0000u && m_Value <= 0x10FFFFu;
+					}
+				};
+				return false;
 			}
 			constexpr bool IsWhitespace() const noexcept
 			{
@@ -77,21 +138,31 @@ namespace kxf
 				}
 				return {};
 			}
-			constexpr std::optional<uint16_t> ToLowSurrogate() const noexcept
+			constexpr std::optional<char16_t> ToUTF16() const noexcept
 			{
-				if (IsSupplementary())
+				if (IsBasic())
 				{
-					return static_cast<uint16_t>(0xDC00u | ((m_Value - 0x10000u) & 0x03FFu));
+					return static_cast<char16_t>(m_Value);
 				}
 				return {};
 			}
-			constexpr std::optional<uint16_t> ToHighSurrogate() const noexcept
+			constexpr void ToUTF16(char16_t& lowSurrogate, char16_t& highSurrogate) const noexcept
 			{
-				if (IsSupplementary())
+				if (IsBasic())
 				{
-					return static_cast<uint16_t>(0xD800u | ((m_Value - 0x10000u) >> 10));
+					lowSurrogate = static_cast<char16_t>(m_Value);
+					highSurrogate = 0;
 				}
-				return {};
+				else if (IsSupplementary())
+				{
+					lowSurrogate = ToLowSurrogate(m_Value);
+					highSurrogate = ToHighSurrogate(m_Value);
+				}
+				else
+				{
+					lowSurrogate = 0;
+					highSurrogate = 0;
+				}
 			}
 
 			constexpr char32_t GetValue() const noexcept
@@ -103,7 +174,8 @@ namespace kxf
 				m_Value = c;
 			}
 
-			template<class T> requires(std::is_integral_v<T> || std::is_enum_v<T>)
+			template<class T>
+			requires(std::is_integral_v<T> || std::is_enum_v<T>)
 			constexpr T GetAs() const noexcept
 			{
 				return static_cast<T>(m_Value);
@@ -116,10 +188,7 @@ namespace kxf
 			{
 				return m_Value <=> other.m_Value;
 			}
-			std::strong_ordering CompareNoCase(const UniChar& other) const noexcept
-			{
-				return ToLowerCase().m_Value <=> other.ToLowerCase().m_Value;
-			}
+			std::strong_ordering CompareNoCase(const UniChar& other) const noexcept;
 
 		public:
 			constexpr explicit operator bool() const noexcept
@@ -146,7 +215,7 @@ namespace std
 	{
 		size_t operator()(const kxf::UniChar& c) const noexcept
 		{
-			return std::hash<uint32_t>()(static_cast<uint32_t>(c.GetValue()));
+			return std::hash<char32_t>()(c.GetValue());
 		}
 	};
 }
@@ -164,7 +233,7 @@ namespace kxf
 		{
 			uint32_t value = 0;
 			auto read = Serialization::ReadObject(stream, value);
-			c.SetValue(value);
+			c.SetValue(static_cast<char32_t>(value));
 
 			return read;
 		}
