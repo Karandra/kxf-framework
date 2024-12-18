@@ -53,7 +53,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup>
-    <IntDir>$(ProjectDir)Junk\$(Configuration) $(Platform)\</IntDir>
+    <IntDir>$(ProjectDir)Junk\[$(ProjectName)] $(Configuration) $(Platform)\</IntDir>
     <OutDir>$(ProjectDir)Build\$(Configuration) $(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

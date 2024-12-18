@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf", "kxf.vcxproj", "{157D
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf-shared", "kxf-shared\kxf-shared.vcxitems", "{39004F32-FBCE-4091-862A-D29848625D1F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf-widgets", "kxf-widgets.vcxproj", "{4DA13401-93D5-4E1F-980D-3E1746D44131}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -29,6 +31,18 @@ Global
 		{157DA1E6-2B05-4203-8284-9A9EDD0F1235}.Release|x64.Build.0 = Release|x64
 		{157DA1E6-2B05-4203-8284-9A9EDD0F1235}.Release|x86.ActiveCfg = Release|Win32
 		{157DA1E6-2B05-4203-8284-9A9EDD0F1235}.Release|x86.Build.0 = Release|Win32
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Debug|x64.ActiveCfg = Debug|x64
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Debug|x64.Build.0 = Debug|x64
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Debug|x86.ActiveCfg = Debug|Win32
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Debug|x86.Build.0 = Debug|Win32
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Release MT|x64.ActiveCfg = Release MT|x64
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Release MT|x64.Build.0 = Release MT|x64
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Release MT|x86.ActiveCfg = Release MT|Win32
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Release MT|x86.Build.0 = Release MT|Win32
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Release|x64.ActiveCfg = Release|x64
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Release|x64.Build.0 = Release|x64
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Release|x86.ActiveCfg = Release|Win32
+		{4DA13401-93D5-4E1F-980D-3E1746D44131}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
