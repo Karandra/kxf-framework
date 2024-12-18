@@ -1,8 +1,10 @@
 #pragma once
-#include "../Common.h"
+#include "kxf/DateTime/Common.h"
+#include "kxf/DateTime/TimeSpan.h"
+#include "kxf/DateTime/TimeZone.h"
 #include <wx/datetime.h>
 
-namespace kxf::Private
+namespace kxf::wxWidgets
 {
 	constexpr wxDateTime::Month MapMonth(Month month) noexcept
 	{

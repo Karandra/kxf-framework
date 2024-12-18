@@ -3,7 +3,7 @@
 #include "TimeSpan.h"
 #include "kxf/Localization/Locale.h"
 #include "kxf/Utility/ScopeGuard.h"
-#include "Private/Mapping.h"
+#include "kxf/wxWidgets/MapDateTime.h"
 
 #include <ctime>
 #include <Windows.h>
@@ -59,37 +59,37 @@ namespace kxf
 
 	Country DateTime::GetDefaultCountry() noexcept
 	{
-		return Private::MapCountry(wxDateTime::GetCountry());
+		return wxWidgets::MapCountry(wxDateTime::GetCountry());
 	}
 	void DateTime::SetDefaultCountry(Country country) noexcept
 	{
-		return wxDateTime::SetCountry(Private::MapCountry(country));
+		return wxDateTime::SetCountry(wxWidgets::MapCountry(country));
 	}
 
 	bool DateTime::IsDSTApplicable(int year, Country country)
 	{
-		return wxDateTime::IsDSTApplicable(year, Private::MapCountry(country));
+		return wxDateTime::IsDSTApplicable(year, wxWidgets::MapCountry(country));
 	}
 	DateTime DateTime::GetBeginDST(int year, Country country)
 	{
-		return wxDateTime::GetBeginDST(year, Private::MapCountry(country));
+		return wxDateTime::GetBeginDST(year, wxWidgets::MapCountry(country));
 	}
 	DateTime DateTime::GetEndDST(int year, Country country) noexcept
 	{
-		return wxDateTime::GetEndDST(year, Private::MapCountry(country));
+		return wxDateTime::GetEndDST(year, wxWidgets::MapCountry(country));
 	}
 
 	bool DateTime::IsLeapYear(int year, Calendar calendar) noexcept
 	{
-		return wxDateTime::IsLeapYear(year, Private::MapCalendar(calendar));
+		return wxDateTime::IsLeapYear(year, wxWidgets::MapCalendar(calendar));
 	}
 	int DateTime::GetNumberOfDays(int year, Calendar calendar) noexcept
 	{
-		return wxDateTime::GetNumberOfDays(year, Private::MapCalendar(calendar));
+		return wxDateTime::GetNumberOfDays(year, wxWidgets::MapCalendar(calendar));
 	}
 	int DateTime::GetNumberOfDays(Month month, int year, Calendar calendar) noexcept
 	{
-		return wxDateTime::GetNumberOfDays(Private::MapMonth(month), year, Private::MapCalendar(calendar));
+		return wxDateTime::GetNumberOfDays(wxWidgets::MapMonth(month), year, wxWidgets::MapCalendar(calendar));
 	}
 
 	String DateTime::GetMonthName(Month month, const Locale& locale, FlagSet<UnitNameFlag> flags)
@@ -109,7 +109,7 @@ namespace kxf
 	// Accessors and modifiers
 	int DateTime::GetMillisecond(const TimeZoneOffset& tz) const noexcept
 	{
-		return AsWxDateTime(m_Value).GetMillisecond(Private::MapTimeZone(tz));
+		return AsWxDateTime(m_Value).GetMillisecond(wxWidgets::MapTimeZone(tz));
 	}
 	DateTime& DateTime::SetMillisecond(int value) noexcept
 	{
@@ -122,7 +122,7 @@ namespace kxf
 
 	int DateTime::GetSecond(const TimeZoneOffset& tz) const noexcept
 	{
-		return AsWxDateTime(m_Value).GetSecond(Private::MapTimeZone(tz));
+		return AsWxDateTime(m_Value).GetSecond(wxWidgets::MapTimeZone(tz));
 	}
 	DateTime& DateTime::SetSecond(int value) noexcept
 	{
@@ -135,7 +135,7 @@ namespace kxf
 
 	int DateTime::GetMinute(const TimeZoneOffset& tz) const noexcept
 	{
-		return AsWxDateTime(m_Value).GetMinute(Private::MapTimeZone(tz));
+		return AsWxDateTime(m_Value).GetMinute(wxWidgets::MapTimeZone(tz));
 	}
 	DateTime& DateTime::SetMinute(int value) noexcept
 	{
@@ -148,7 +148,7 @@ namespace kxf
 
 	int DateTime::GetHour(const TimeZoneOffset& tz) const noexcept
 	{
-		return AsWxDateTime(m_Value).GetHour(Private::MapTimeZone(tz));
+		return AsWxDateTime(m_Value).GetHour(wxWidgets::MapTimeZone(tz));
 	}
 	DateTime& DateTime::SetHour(int value) noexcept
 	{
@@ -161,7 +161,7 @@ namespace kxf
 
 	int DateTime::GetDay(const TimeZoneOffset& tz) const noexcept
 	{
-		return AsWxDateTime(m_Value).GetDay(Private::MapTimeZone(tz));
+		return AsWxDateTime(m_Value).GetDay(wxWidgets::MapTimeZone(tz));
 	}
 	DateTime& DateTime::SetDay(int value) noexcept
 	{
@@ -174,20 +174,20 @@ namespace kxf
 
 	Month DateTime::GetMonth(const TimeZoneOffset& tz) const noexcept
 	{
-		return Private::MapMonth(AsWxDateTime(m_Value).GetMonth(Private::MapTimeZone(tz)));
+		return wxWidgets::MapMonth(AsWxDateTime(m_Value).GetMonth(wxWidgets::MapTimeZone(tz)));
 	}
 	DateTime& DateTime::SetMonth(Month value) noexcept
 	{
 		ModifyAsWxDateTime(m_Value, [&](wxDateTime& dt) noexcept
 		{
-			dt.SetMonth(Private::MapMonth(value));
+			dt.SetMonth(wxWidgets::MapMonth(value));
 		});
 		return *this;
 	}
 
 	int DateTime::GetYear(const TimeZoneOffset& tz) const noexcept
 	{
-		return AsWxDateTime(m_Value).GetYear(Private::MapTimeZone(tz));
+		return AsWxDateTime(m_Value).GetYear(wxWidgets::MapTimeZone(tz));
 	}
 	DateTime& DateTime::SetYear(int value) noexcept
 	{
@@ -200,15 +200,15 @@ namespace kxf
 
 	int DateTime::GetCentury(const TimeZoneOffset& tz) const noexcept
 	{
-		return AsWxDateTime(m_Value).GetCentury(Private::MapTimeZone(tz));
+		return AsWxDateTime(m_Value).GetCentury(wxWidgets::MapTimeZone(tz));
 	}
 	int DateTime::GetDayOfYear(const TimeZoneOffset& tz) const noexcept
 	{
-		return AsWxDateTime(m_Value).GetDayOfYear(Private::MapTimeZone(tz));
+		return AsWxDateTime(m_Value).GetDayOfYear(wxWidgets::MapTimeZone(tz));
 	}
 	WeekDay DateTime::GetWeekDay(const TimeZoneOffset& tz) const noexcept
 	{
-		return Private::MapWeekDay(AsWxDateTime(m_Value).GetWeekDay(Private::MapTimeZone(tz)));
+		return wxWidgets::MapWeekDay(AsWxDateTime(m_Value).GetWeekDay(wxWidgets::MapTimeZone(tz)));
 	}
 
 	DateTime DateTime::GetDateOnly() const noexcept
@@ -234,7 +234,7 @@ namespace kxf
 		tm.tm_sec = GetSecond(tz);
 
 		tm.tm_mday = GetDay(tz);
-		tm.tm_wday = static_cast<int>(Private::MapWeekDay(GetWeekDay(tz)));
+		tm.tm_wday = static_cast<int>(wxWidgets::MapWeekDay(GetWeekDay(tz)));
 		tm.tm_yday = GetDayOfYear(tz);
 		tm.tm_isdst = AsWxDateTime(m_Value).IsDST();
 
@@ -247,7 +247,7 @@ namespace kxf
 			dt.Set(value);
 			if (!tz.IsLocal())
 			{
-				dt = dt.FromTimezone(Private::MapTimeZone(tz));
+				dt = dt.FromTimezone(wxWidgets::MapTimeZone(tz));
 			}
 		});
 		return *this;
@@ -273,13 +273,13 @@ namespace kxf
 				years = 0;
 			}
 
-			int months = AsWxDateTime(m_Value).GetMonth(Private::MapTimeZone(tz));
+			int months = AsWxDateTime(m_Value).GetMonth(wxWidgets::MapTimeZone(tz));
 			if (months == wxDateTime::Inv_Month)
 			{
 				months = 0;
 			}
 
-			return DateSpan(years, months, 0, AsWxDateTime(m_Value).GetDay(Private::MapTimeZone(tz)));
+			return DateSpan(years, months, 0, AsWxDateTime(m_Value).GetDay(wxWidgets::MapTimeZone(tz)));
 		}
 		return {};
 	}
@@ -318,7 +318,7 @@ namespace kxf
 				AsWxDateTime(dateTime.m_Value).GetAsMSWSysTime(&systemTime);
 
 				// Set the day of week because 'wxDateTime::GetAsMSWSysTime' doesn't set it for some reason
-				systemTime.wDayOfWeek = static_cast<int>(Private::MapWeekDay(dateTime.GetWeekDay(tz)));
+				systemTime.wDayOfWeek = static_cast<int>(wxWidgets::MapWeekDay(dateTime.GetWeekDay(tz)));
 				return systemTime;
 			};
 
@@ -340,7 +340,7 @@ namespace kxf
 			dt.SetFromMSWSysTime(other);
 			if (!tz.IsLocal())
 			{
-				dt = dt.FromTimezone(Private::MapTimeZone(tz));
+				dt = dt.FromTimezone(wxWidgets::MapTimeZone(tz));
 			}
 		});
 		return *this;
@@ -466,11 +466,11 @@ namespace kxf
 	{
 		if (format.IsEmpty())
 		{
-			return AsWxDateTime(m_Value).Format(wxDefaultDateTimeFormat, Private::MapTimeZone(tz));
+			return AsWxDateTime(m_Value).Format(wxDefaultDateTimeFormat, wxWidgets::MapTimeZone(tz));
 		}
 		else
 		{
-			return AsWxDateTime(m_Value).Format(format, Private::MapTimeZone(tz));
+			return AsWxDateTime(m_Value).Format(format, wxWidgets::MapTimeZone(tz));
 		}
 	}
 	String DateTime::FormatDate(const Locale& locale, FlagSet<DateFormatFlag> flags, const TimeZoneOffset& tz) const
@@ -607,27 +607,27 @@ namespace kxf
 	// Calendar calculations
 	bool DateTime::IsWorkDay(Country country) const noexcept
 	{
-		return AsWxDateTime(m_Value).IsWorkDay(Private::MapCountry(country));
+		return AsWxDateTime(m_Value).IsWorkDay(wxWidgets::MapCountry(country));
 	}
 	bool DateTime::SetToWeekDay(WeekDay weekday, int n, Month month, int year) noexcept
 	{
 		return ModifyAsWxDateTime(m_Value, [&](wxDateTime& dt) noexcept
 		{
-			return dt.SetToWeekDay(Private::MapWeekDay(weekday), n, Private::MapMonth(month), year);
+			return dt.SetToWeekDay(wxWidgets::MapWeekDay(weekday), n, wxWidgets::MapMonth(month), year);
 		});
 	}
 	bool DateTime::SetToLastWeekDay(WeekDay weekday, Month month, int year) noexcept
 	{
 		return ModifyAsWxDateTime(m_Value, [&](wxDateTime& dt) noexcept
 		{
-			return dt.SetToLastWeekDay(Private::MapWeekDay(weekday), Private::MapMonth(month), year);
+			return dt.SetToLastWeekDay(wxWidgets::MapWeekDay(weekday), wxWidgets::MapMonth(month), year);
 		});
 	}
 	DateTime& DateTime::SetToWeekDayInSameWeek(WeekDay weekday, WeekDayOption options) noexcept
 	{
 		ModifyAsWxDateTime(m_Value, [&](wxDateTime& dt) noexcept
 		{
-			dt.SetToWeekDayInSameWeek(Private::MapWeekDay(weekday), Private::MapWeekDayFlag(options));
+			dt.SetToWeekDayInSameWeek(wxWidgets::MapWeekDay(weekday), wxWidgets::MapWeekDayFlag(options));
 		});
 		return *this;
 	}
@@ -635,7 +635,7 @@ namespace kxf
 	{
 		ModifyAsWxDateTime(m_Value, [&](wxDateTime& dt) noexcept
 		{
-			dt.SetToNextWeekDay(Private::MapWeekDay(weekday));
+			dt.SetToNextWeekDay(wxWidgets::MapWeekDay(weekday));
 		});
 		
 		return *this;
@@ -644,7 +644,7 @@ namespace kxf
 	{
 		ModifyAsWxDateTime(m_Value, [&](wxDateTime& dt) noexcept
 		{
-			dt.SetToPrevWeekDay(Private::MapWeekDay(weekday));
+			dt.SetToPrevWeekDay(wxWidgets::MapWeekDay(weekday));
 		});
 		return *this;
 	}
@@ -652,7 +652,7 @@ namespace kxf
 	{
 		ModifyAsWxDateTime(m_Value, [&](wxDateTime& dt) noexcept
 		{
-			dt.SetToLastMonthDay(Private::MapMonth(month), year);
+			dt.SetToLastMonthDay(wxWidgets::MapMonth(month), year);
 		});
 		return *this;
 	}
@@ -691,11 +691,11 @@ namespace kxf
 	// Time Zone and DST support
 	DateTime DateTime::ToTimeZone(const TimeZoneOffset& tz, bool noDST) const noexcept
 	{
-		return AsWxDateTime(m_Value).ToTimezone(Private::MapTimeZone(tz), noDST);
+		return AsWxDateTime(m_Value).ToTimezone(wxWidgets::MapTimeZone(tz), noDST);
 	}
 	DateTime DateTime::FromTimeZone(const TimeZoneOffset& tz, bool noDST) const noexcept
 	{
-		return AsWxDateTime(m_Value).FromTimezone(Private::MapTimeZone(tz), noDST);
+		return AsWxDateTime(m_Value).FromTimezone(wxWidgets::MapTimeZone(tz), noDST);
 	}
 	DateTime DateTime::ToUTC(bool noDST) const noexcept
 	{
@@ -703,7 +703,7 @@ namespace kxf
 	}
 	bool DateTime::IsDST(Country country) const noexcept
 	{
-		return AsWxDateTime(m_Value).IsDST(Private::MapCountry(country));
+		return AsWxDateTime(m_Value).IsDST(wxWidgets::MapCountry(country));
 	}
 
 	DateTime::operator wxDateTime() const noexcept

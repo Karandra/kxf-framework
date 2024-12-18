@@ -2,7 +2,7 @@
 #include "kxf/Common.hpp"
 #include "kxf/IO/Common.h"
 #include "kxf/Core/String.h"
-#include "kxf/Core/DateTime.h"
+#include "kxf/DateTime/DateTime.h"
 
 namespace kxf
 {

@@ -1,10 +1,12 @@
 #pragma once
 #include "Common.h"
 #include "IWithEvent.h"
+#include "kxf/Core/OptionalPtr.h"
+#include "kxf/DateTime/TimeSpan.h"
+#include "kxf/DateTime/TimeClock.h"
 #include "kxf/EventSystem/IEvent.h"
 #include "kxf/EventSystem/IEvtHandler.h"
 #include "kxf/EventSystem/Private/EventWaitInfo.h"
-#include "kxf/Core/OptionalPtr.h"
 #include <wx/object.h>
 #include <wx/event.h>
 

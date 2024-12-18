@@ -2,7 +2,7 @@
 #include "kxf-gui/Widgets/Common.h"
 #include "kxf/Drawing/GDIRenderer/GDIFont.h"
 #include "kxf/Drawing/GDIRenderer/GDIIcon.h"
-#include "kxf/wxWidgets/ConstantsMapping.h"
+#include "kxf/wxWidgets/MapConstants.h"
 #include "kxf/Utility/Common.h"
 #include <wx/richtooltip.h>
 

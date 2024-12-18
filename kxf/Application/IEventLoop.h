@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Core/DateTime/TimeSpan.h"
+#include "kxf/DateTime/TimeSpan.h"
 
 /*
 	NOTE ABOUT IEventLoop::YieldFor LOGIC

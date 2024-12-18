@@ -1,6 +1,6 @@
 #pragma once
 #include "../Common.h"
-#include "kxf/EventSystem/GenericTimer.h"
+#include "kxf/DateTime/SimpleTimer.h"
 #include "kxf/EventSystem/IndirectInvocationEvent.h"
 #include "YieldInstruction.h"
 #include <utility>
@@ -18,7 +18,7 @@ namespace kxf::Async
 
 namespace kxf::Async
 {
-	class KXF_API CoroutineTimer final: public GenericTimer
+	class KXF_API CoroutineTimer final: public SimpleTimer
 	{
 		private:
 			std::unique_ptr<CoroutineBase> m_Coroutine;
@@ -30,6 +30,7 @@ namespace kxf::Async
 			void Wait(std::unique_ptr<CoroutineBase> coroutine, const TimeSpan& time);
 			std::unique_ptr<CoroutineBase> Relinquish();
 	};
+
 	class KXF_API CoroutineExecutor final: public EventSystem::IndirectInvocationEvent
 	{
 		private:

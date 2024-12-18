@@ -1,7 +1,7 @@
 #pragma once
 #include "Common.h"
-#include "BasicEvent.h"
-#include "kxf/Core/DateTime.h"
+#include "TimeSpan.h"
+#include "kxf/EventSystem/BasicEvent.h"
 
 namespace kxf
 {

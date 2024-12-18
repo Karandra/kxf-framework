@@ -1,8 +1,8 @@
 #pragma once
 #include "../Common.h"
 #include "CommonEventLoop.h"
-#include "kxf/Core/DateTime/TimeSpan.h"
 #include "kxf/Drawing/Geometry.h"
+#include "kxf/DateTime/TimeSpan.h"
 #include "kxf/Threading/SynchronizedCondition.h"
 struct tagMSG;
 

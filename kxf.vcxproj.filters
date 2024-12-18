@@ -43,12 +43,6 @@
     <Filter Include="kxf\Drawing\Private">
       <UniqueIdentifier>{d0521874-4a25-4cdf-b542-c5159ced03de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\Core\DateTime">
-      <UniqueIdentifier>{073e2d6c-cfc9-4471-90ed-fc3f9dc3733b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Core\DateTime\Private">
-      <UniqueIdentifier>{1927ba84-01dd-4b98-90dd-7496ee4a3211}</UniqueIdentifier>
-    </Filter>
     <Filter Include="kxf\Compression\SevenZip">
       <UniqueIdentifier>{e925ebf1-8615-496c-8539-4d57df6010b2}</UniqueIdentifier>
     </Filter>
@@ -219,6 +213,12 @@
     </Filter>
     <Filter Include="kxf\Win32">
       <UniqueIdentifier>{f222d3d1-6cba-4032-8f79-16757a424297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\DateTime">
+      <UniqueIdentifier>{073e2d6c-cfc9-4471-90ed-fc3f9dc3733b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\DateTime\Private">
+      <UniqueIdentifier>{1927ba84-01dd-4b98-90dd-7496ee4a3211}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -507,35 +507,8 @@
     <ClInclude Include="kxf\System\Private\SystemInformationDefinesMapping.h">
       <Filter>kxf\System\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime\TimeClock.h">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime\TimeSpan.h">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime\ITimeClock.h">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime.h">
-      <Filter>kxf\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime\Common.h">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime\DateTime.h">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime\TimeZone.h">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime\Private\Mapping.h">
-      <Filter>kxf\Core\DateTime\Private</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\pch.hpp">
       <Filter>kxf</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\DateTime\DateSpan.h">
-      <Filter>kxf\Core\DateTime</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Core\RegEx.h">
       <Filter>kxf\Core</Filter>
@@ -1299,15 +1272,6 @@
     <ClInclude Include="kxf\Application\CommandLineParser.h">
       <Filter>kxf\Application</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\EventSystem\GenericTimer.h">
-      <Filter>kxf\EventSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\EventSystem\ITimer.h">
-      <Filter>kxf\EventSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\EventSystem\TimerEvent.h">
-      <Filter>kxf\EventSystem\&lt;Events&gt;</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\wxWidgets\WithImageList.h">
       <Filter>kxf\wxWidgets</Filter>
     </ClInclude>
@@ -1554,7 +1518,7 @@
     <ClInclude Include="kxf\Core\StdIcon.h">
       <Filter>kxf\Core</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\wxWidgets\ConstantsMapping.h">
+    <ClInclude Include="kxf\wxWidgets\MapConstants.h">
       <Filter>kxf\wxWidgets</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Core\StdButton.h">
@@ -1583,6 +1547,39 @@
     </ClInclude>
     <ClInclude Include="kxf\Application\IEventLoop.h">
       <Filter>kxf\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\Common.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\DateSpan.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\DateTime.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\ITimeClock.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\TimeClock.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\TimeSpan.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\TimeZone.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\wxWidgets\MapDateTime.h">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\ITimer.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\TimerEvent.h">
+      <Filter>kxf\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\DateTime\SimpleTimer.h">
+      <Filter>kxf\DateTime</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1723,21 +1720,6 @@
     </ClCompile>
     <ClCompile Include="kxf\Utility\Drawing.cpp">
       <Filter>kxf\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Core\DateTime\TimeSpan.cpp">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Core\DateTime\TimeClock.cpp">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Core\DateTime\DateTime.cpp">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Core\DateTime\TimeZone.cpp">
-      <Filter>kxf\Core\DateTime</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Core\DateTime\DateSpan.cpp">
-      <Filter>kxf\Core\DateTime</Filter>
     </ClCompile>
     <ClCompile Include="kxf\System\UserName.cpp">
       <Filter>kxf\System</Filter>
@@ -2102,9 +2084,6 @@
     <ClCompile Include="kxf\Drawing\AffineMatrix.cpp">
       <Filter>kxf\Drawing</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\EventSystem\GenericTimer.cpp">
-      <Filter>kxf\EventSystem</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Drawing\FontMetrics.cpp">
       <Filter>kxf\Drawing</Filter>
     </ClCompile>
@@ -2258,7 +2237,7 @@
     <ClCompile Include="kxf\+PCH\kxf-pch.cpp">
       <Filter>kxf/+PCH</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\wxWidgets\ConstantsMapping.cpp">
+    <ClCompile Include="kxf\wxWidgets\MapConstants.cpp">
       <Filter>kxf\wxWidgets</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Core\KeyboardState.cpp">
@@ -2278,6 +2257,27 @@
     </ClCompile>
     <ClCompile Include="kxf\Application\IEventLoop.cpp">
       <Filter>kxf\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\DateTime\DateSpan.cpp">
+      <Filter>kxf\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\DateTime\DateTime.cpp">
+      <Filter>kxf\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\DateTime\TimeClock.cpp">
+      <Filter>kxf\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\DateTime\TimeSpan.cpp">
+      <Filter>kxf\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\DateTime\TimeZone.cpp">
+      <Filter>kxf\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\EventSystem\BasicEvent.cpp">
+      <Filter>kxf\EventSystem\&lt;Events&gt;</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\DateTime\SimpleTimer.cpp">
+      <Filter>kxf\DateTime</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

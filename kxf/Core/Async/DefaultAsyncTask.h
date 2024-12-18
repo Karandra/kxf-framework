@@ -3,7 +3,7 @@
 #include "kxf/Core/IAsyncTask.h"
 #include "kxf/Core/IAsyncTaskExecutor.h"
 #include "kxf/Core/Any.h"
-#include "kxf/Core/DateTime.h"
+#include "kxf/DateTime/TimeSpan.h"
 #include "kxf/System/SystemThread.h"
 
 namespace kxf

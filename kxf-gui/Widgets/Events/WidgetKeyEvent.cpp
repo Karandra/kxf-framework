@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "WidgetKeyEvent.h"
 #include "kxf/Utility/Numeric.h"
-#include "kxf/wxWidgets/ConstantsMapping.h"
+#include "kxf/wxWidgets/MapConstants.h"
 #include <wx/event.h>
 
 namespace kxf

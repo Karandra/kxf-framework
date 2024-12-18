@@ -4,7 +4,7 @@
 #include "GDIRenderer/GDIIcon.h"
 #include "BitmapImage.h"
 #include "ImageBundle.h"
-#include "kxf/wxWidgets/ConstantsMapping.h"
+#include "kxf/wxWidgets/MapConstants.h"
 #include "kxf/Utility/Container.h"
 #include <wx/artprov.h>
 

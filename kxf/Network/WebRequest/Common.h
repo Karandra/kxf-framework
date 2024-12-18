@@ -6,9 +6,10 @@
 #include "kxf/IO/Common.h"
 #include "kxf/Core/String.h"
 #include "kxf/Core/FlagSet.h"
-#include "kxf/Core/DateTime.h"
 #include "kxf/Core/DataSize.h"
 #include "kxf/Core/Enumerator.h"
+#include "kxf/DateTime/DateTime.h"
+#include "kxf/DateTime/TimeSpan.h"
 
 namespace kxf
 {

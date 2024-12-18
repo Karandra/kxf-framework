@@ -1,7 +1,7 @@
 #pragma once
 #include "Common.h"
-#include "IEvtHandler.h"
-#include "kxf/Core/DateTime.h"
+#include "TimeSpan.h"
+#include "kxf/EventSystem/IEvtHandler.h"
 
 namespace kxf
 {
@@ -30,8 +30,8 @@ namespace kxf
 			virtual bool IsRunning() const = 0;
 			virtual TimeSpan GetInterval() const = 0;
 
-			virtual IEvtHandler* GetEvtHandler() const = 0;
-			virtual void SetEvtHandler(IEvtHandler& evtHandler, int id = -1) = 0;
+			virtual std::shared_ptr<IEvtHandler> GetEvtHandler() const = 0;
+			virtual void SetEvtHandler(std::shared_ptr<IEvtHandler> evtHandler, int id = -1) = 0;
 
 			virtual void Start(TimeSpan interval, FlagSet<TimerFlag> flags = {}) = 0;
 			virtual void Stop() = 0;

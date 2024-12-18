@@ -2,9 +2,9 @@
 #include "Common.h"
 #include "kxf/Core/String.h"
 #include "kxf/Core/NativeUUID.h"
-#include "kxf/Core/DateTime.h"
 #include "kxf/Core/AlignedObjectStorage.h"
 #include "kxf/Serialization/BinarySerializer.h"
+#include "kxf/DateTime/DateTime.h"
 #include "HResult.h"
 struct tagVARIANT;
 struct tagPROPVARIANT;

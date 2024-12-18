@@ -1,6 +1,6 @@
 #include "kxf-pch.h"
 #include "RichToolTip.h"
-#include "kxf/wxWidgets/ConstantsMapping.h"
+#include "kxf/wxWidgets/MapConstants.h"
 
 namespace kxf::UI
 {

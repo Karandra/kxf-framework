@@ -1,8 +1,8 @@
 #pragma once
 #include "../Common.h"
 #include "kxf/RTTI/RTTI.h"
-#include "kxf/Core/DateTime.h"
 #include "kxf/Drawing/Geometry.h"
+#include "kxf/DateTime/TimeSpan.h"
 
 namespace kxf
 {

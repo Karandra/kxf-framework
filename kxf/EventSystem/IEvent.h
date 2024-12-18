@@ -1,9 +1,9 @@
 #pragma once
 #include "Common.h"
 #include "EventID.h"
-#include "kxf/RTTI/RTTI.h"
 #include "kxf/Core/UniversallyUniqueID.h"
-#include "kxf/Core/DateTime/TimeSpan.h"
+#include "kxf/DateTime/TimeSpan.h"
+#include "kxf/RTTI/RTTI.h"
 
 namespace kxf
 {

@@ -3,6 +3,7 @@
 #include "TimeSpan.h"
 #include "DateSpan.h"
 #include "TimeZone.h"
+#include "kxf/Core/String.h"
 #include "kxf/Serialization/BinarySerializer.h"
 
 class wxDateTime;

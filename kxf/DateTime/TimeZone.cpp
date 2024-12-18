@@ -1,13 +1,13 @@
 #include "kxf-pch.h"
 #include "TimeZone.h"
-#include "Private/Mapping.h"
+#include "kxf/wxWidgets/MapDateTime.h"
 #include <wx/datetime.h>
 
 namespace kxf
 {
 	void TimeZoneOffset::FromTimeZone(TimeZone tz) noexcept
 	{
-		m_Offset = Private::MapTimeZone(wxDateTime::TimeZone(static_cast<wxDateTime::TZ>(tz)));
+		m_Offset = wxWidgets::MapTimeZone(wxDateTime::TimeZone(static_cast<wxDateTime::TZ>(tz)));
 	}
 
 	bool TimeZoneOffset::IsLocal() const noexcept
@@ -16,7 +16,7 @@ namespace kxf
 	}
 	TimeSpan TimeZoneOffset::GetOffset() const noexcept
 	{
-		auto wxOffset = Private::MapTimeZone(m_Offset, IsLocal());
+		auto wxOffset = wxWidgets::MapTimeZone(m_Offset, IsLocal());
 		return TimeSpan::Seconds(wxOffset.GetOffset());
 	}
 }

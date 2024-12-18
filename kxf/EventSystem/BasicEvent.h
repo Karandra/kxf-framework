@@ -2,7 +2,7 @@
 #include "Common.h"
 #include "IEvent.h"
 #include "Private/EventWaitInfo.h"
-#include "kxf/Core/DateTime.h"
+#include "kxf/DateTime/TimeSpan.h"
 
 namespace kxf::EventSystem
 {
@@ -90,43 +90,14 @@ namespace kxf
 				return TestAndSetPrivateState(EventPrivateState::WillBeProcessedAgain);
 			}
 
-			bool OnStartProcess(const EventID& eventID, const UniversallyUniqueID& uuid, FlagSet<ProcessEventFlag> flags, bool isAsync) noexcept override
-			{
-				if (!m_PrivateState.Contains(EventPrivateState::Started))
-				{
-					m_PrivateState.Add(EventPrivateState::Started);
-					m_PrivateState.Mod(EventPrivateState::Async, isAsync);
-
-					m_EventID = eventID;
-					m_UniqueID = uuid;
-					m_Timestamp = TimeSpan::Now(SteadyClock());
-					m_ProcessFlags = flags;
-
-					return true;
-				}
-				return false;
-			}
+			bool OnStartProcess(const EventID& eventID, const UniversallyUniqueID& uuid, FlagSet<ProcessEventFlag> flags, bool isAsync) noexcept override;
 			FlagSet<ProcessEventFlag> GetProcessFlags() const noexcept override
 			{
 				return m_ProcessFlags;
 			}
 
-			std::unique_ptr<IEvent> WaitProcessed() noexcept override
-			{
-				if (!m_WaitInfo.HasWaitInfo())
-				{
-					m_PrivateState.Add(EventPrivateState::Waitable);
-					return m_WaitInfo.WaitProcessed();
-				}
-				return nullptr;
-			}
-			void SignalProcessed(std::unique_ptr<IEvent> event) noexcept override
-			{
-				if (m_PrivateState.Contains(EventPrivateState::Waitable))
-				{
-					m_WaitInfo.SignalProcessed(std::move(event));
-				}
-			}
+			std::unique_ptr<IEvent> WaitProcessed() noexcept override;
+			void SignalProcessed(std::unique_ptr<IEvent> event) noexcept override;
 
 			void PutWaitResult(std::unique_ptr<IEvent> event) noexcept override
 			{

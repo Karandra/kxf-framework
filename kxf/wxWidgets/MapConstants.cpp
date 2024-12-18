@@ -1,5 +1,5 @@
 #include "kxf-pch.h"
-#include "ConstantsMapping.h"
+#include "MapConstants.h"
 #include <wx/defs.h>
 #include <wx/event.h>
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "kxf/Core/DateTime.h"
+#include "kxf/DateTime/TimeSpan.h"
 #include <deque>
 
 namespace kxf::Sciter

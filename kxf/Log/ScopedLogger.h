@@ -2,10 +2,11 @@
 #include "Common.h"
 #include "kxf/RTTI/RTTI.h"
 #include "kxf/Core/String.h"
-#include "kxf/Core/DateTime.h"
 #include "kxf/System/SystemProcess.h"
 #include "kxf/System/SystemThread.h"
 #include "kxf/Threading/ThreadLocalSlot.h"
+#include "kxf/DateTime/DateTime.h"
+#include "kxf/DateTime/TimeZone.h"
 #include "kxf/Utility/Common.h"
 #include <source_location>
 #include <atomic>

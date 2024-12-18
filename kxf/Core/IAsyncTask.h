@@ -1,10 +1,10 @@
 #pragma once
 #include "Common.h"
-#include "Any.h"
 #include "kxf/RTTI/RTTI.h"
 
 namespace kxf
 {
+	class Any;
 	class TimeSpan;
 	class SystemThread;
 	class IAsyncTaskExecutor;
