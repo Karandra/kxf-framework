@@ -268,13 +268,8 @@ namespace kxf::SevenZip
 				return {};
 			}
 
-			bool ItemExist(const FSPath& path) const override;
-			bool FileExist(const FSPath& path) const override;
-			bool DirectoryExist(const FSPath& path) const override;
-
 			FileItem GetItem(const FSPath& path) const override;
 			Enumerator<FileItem> EnumItems(const FSPath& directory, const FSPath& query = {}, FlagSet<FSActionFlag> flags = {}) const override;
-			bool IsDirectoryEmpty(const FSPath& directory) const override;
 
 			bool CreateDirectory(const FSPath& path, FlagSet<FSActionFlag> flags = {}) override
 			{
@@ -328,13 +323,8 @@ namespace kxf::SevenZip
 				return {};
 			}
 
-			bool ItemExist(const UniversallyUniqueID& id) const override;
-			bool FileExist(const UniversallyUniqueID& id) const override;
-			bool DirectoryExist(const UniversallyUniqueID& id) const override;
-
 			FileItem GetItem(const UniversallyUniqueID& id) const override;
 			Enumerator<FileItem> EnumItems(const UniversallyUniqueID& id, FlagSet<FSActionFlag> flags = {}) const override;
-			bool IsDirectoryEmpty(const UniversallyUniqueID& id) const override;
 
 			bool ChangeAttributes(const UniversallyUniqueID& id, FlagSet<FileAttribute> attributes) override
 			{

@@ -319,42 +319,15 @@ namespace kxf
 		return FileSystem::Private::PathResolver(*this).Resolve(relativePath);
 	}
 
-	bool NativeFileSystem::ItemExist(const FSPath& path) const
-	{
-		FileSystem::Private::PathResolver pathResolver(*this);
-		return pathResolver.DoWithResolvedPath1(path, [](const FSPath& path)
-		{
-			return FileSystem::Private::GetFileAttributes(path) != INVALID_FILE_ATTRIBUTES;
-		});
-	}
-	bool NativeFileSystem::FileExist(const FSPath& path) const
-	{
-		FileSystem::Private::PathResolver pathResolver(*this);
-		return pathResolver.DoWithResolvedPath1(path, [](const FSPath& path)
-		{
-			const FlagSet<DWORD> attributes = FileSystem::Private::GetFileAttributes(path);
-			return !attributes.Equals(INVALID_FILE_ATTRIBUTES) && !attributes.Contains(FILE_ATTRIBUTE_DIRECTORY);
-		});
-	}
-	bool NativeFileSystem::DirectoryExist(const FSPath& path) const
-	{
-		FileSystem::Private::PathResolver pathResolver(*this);
-		return pathResolver.DoWithResolvedPath1(path, [](const FSPath& path)
-		{
-			const FlagSet<uint32_t> attributes = FileSystem::Private::GetFileAttributes(path);
-			return !attributes.Equals(INVALID_FILE_ATTRIBUTES) && attributes.Contains(FILE_ATTRIBUTE_DIRECTORY);
-		});
-	}
-
 	FileItem NativeFileSystem::GetItem(const FSPath& path) const
 	{
 		FileSystem::Private::PathResolver pathResolver(*this);
 		return pathResolver.DoWithResolvedPath1(path, [](const FSPath& path) -> FileItem
 		{
-			NativeFileStream file(path, IOStreamAccess::ReadAttributes, IOStreamDisposition::OpenExisting, IOStreamShare::Everything);
-			if (file)
+			NativeFileStream fileStream(path, IOStreamAccess::ReadAttributes, IOStreamDisposition::OpenExisting, IOStreamShare::Everything, IOStreamFlag::AllowDirectories);
+			if (fileStream)
 			{
-				return FileSystem::Private::ConvertFileInfo(file.GetHandle());
+				return FileSystem::Private::ConvertFileInfo(fileStream.GetHandle());
 			}
 			return {};
 		});
@@ -372,20 +345,6 @@ namespace kxf
 		{
 			return FileSystem::Private::NativeDirectoryEnumerator(std::move(path), query, flags);
 		});
-	}
-
-	bool NativeFileSystem::IsDirectoryEmpty(const FSPath& directory) const
-	{
-		if (IsNull())
-		{
-			return false;
-		}
-
-		for (const FileItem& item: EnumItems(directory))
-		{
-			return false;
-		}
-		return true;
 	}
 
 	bool NativeFileSystem::CreateDirectory(const FSPath& path, FlagSet<FSActionFlag> flags)
@@ -683,45 +642,6 @@ namespace kxf
 	}
 
 	// IFileIDSystem
-	bool NativeFileSystem::ItemExist(const UniversallyUniqueID& id) const
-	{
-		if (IsNull())
-		{
-			return false;
-		}
-
-		NativeFileStream file;
-		return OpenFileByID(m_LookupVolume, id, file);
-	}
-	bool NativeFileSystem::FileExist(const UniversallyUniqueID& id) const
-	{
-		if (IsNull())
-		{
-			return false;
-		}
-
-		NativeFileStream file;
-		if (OpenFileByID(m_LookupVolume, id, file))
-		{
-			return !file.GetAttributes().Contains(FileAttribute::Directory);
-		}
-		return false;
-	}
-	bool NativeFileSystem::DirectoryExist(const UniversallyUniqueID& id) const
-	{
-		if (IsNull())
-		{
-			return false;
-		}
-
-		NativeFileStream file;
-		if (OpenFileByID(m_LookupVolume, id, file))
-		{
-			return file.GetAttributes().Contains(FileAttribute::Directory);
-		}
-		return false;
-	}
-	
 	FileItem NativeFileSystem::GetItem(const UniversallyUniqueID& id) const
 	{
 		if (IsNull())

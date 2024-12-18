@@ -26,6 +26,20 @@ namespace
 
 namespace kxf
 {
+	bool IFileSystem::IsDirectoryEmpty(const FSPath& directory) const
+	{
+		if (IsNull())
+		{
+			return false;
+		}
+
+		for (const FileItem& item: EnumItems(directory))
+		{
+			return false;
+		}
+		return true;
+	}
+
 	std::shared_ptr<IInputStream> IFileSystem::OpenToRead(const FSPath& path, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags) const
 	{
 		return QueryStream<IInputStream>(const_cast<IFileSystem&>(*this), path, IOStreamAccess::Read, disposition, share, flags);
@@ -38,6 +52,20 @@ namespace kxf
 
 namespace kxf
 {
+	bool IFileSystemWithID::IsDirectoryEmpty(const UniversallyUniqueID& id) const
+	{
+		if (IsNull())
+		{
+			return false;
+		}
+
+		for (const FileItem& item: EnumItems(id))
+		{
+			return false;
+		}
+		return true;
+	}
+
 	std::shared_ptr<IInputStream> IFileSystemWithID::OpenToRead(const UniversallyUniqueID& id, IOStreamDisposition disposition, FlagSet<IOStreamShare> share, FlagSet<FSActionFlag> flags) const
 	{
 		return QueryStream<IInputStream>(const_cast<IFileSystemWithID&>(*this), id, IOStreamAccess::Read, disposition, share, flags);

@@ -37,13 +37,9 @@ namespace kxf
 			virtual FSPath ResolvePath(const FSPath& relativePath) const = 0;
 			virtual FSPath GetLookupDirectory() const = 0;
 
-			virtual bool ItemExist(const FSPath& path) const = 0;
-			virtual bool FileExist(const FSPath& path) const = 0;
-			virtual bool DirectoryExist(const FSPath& path) const = 0;
-
 			virtual FileItem GetItem(const FSPath& path) const = 0;
 			virtual Enumerator<FileItem> EnumItems(const FSPath& directory, const FSPath& query = {}, FlagSet<FSActionFlag> flags = {}) const = 0;
-			virtual bool IsDirectoryEmpty(const FSPath& directory) const = 0;
+			virtual bool IsDirectoryEmpty(const FSPath& directory) const;
 			
 			virtual bool CreateDirectory(const FSPath& path, FlagSet<FSActionFlag> flags = {}) = 0;
 			virtual bool ChangeAttributes(const FSPath& path, FlagSet<FileAttribute> attributes) = 0;
@@ -87,13 +83,9 @@ namespace kxf
 			virtual bool IsLookupScoped() const = 0;
 			virtual UniversallyUniqueID GetLookupScope() const = 0;
 
-			virtual bool ItemExist(const UniversallyUniqueID& id) const = 0;
-			virtual bool FileExist(const UniversallyUniqueID& id) const = 0;
-			virtual bool DirectoryExist(const UniversallyUniqueID& id) const = 0;
-
 			virtual FileItem GetItem(const UniversallyUniqueID& id) const = 0;
 			virtual Enumerator<FileItem> EnumItems(const UniversallyUniqueID& id, FlagSet<FSActionFlag> flags = {}) const = 0;
-			virtual bool IsDirectoryEmpty(const UniversallyUniqueID& id) const = 0;
+			virtual bool IsDirectoryEmpty(const UniversallyUniqueID& id) const;
 
 			virtual bool ChangeAttributes(const UniversallyUniqueID& id, FlagSet<FileAttribute> attributes) = 0;
 			virtual bool ChangeTimestamp(const UniversallyUniqueID& id, DateTime creationTime, DateTime modificationTime, DateTime lastAccessTime) = 0;

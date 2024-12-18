@@ -3,7 +3,6 @@
 #include "kxf/System/Win32Error.h"
 #include "kxf/FileSystem/Private/NativeFSUtility.h"
 #include "kxf/Utility/ScopeGuard.h"
-#include "kxf/Utility/String.h"
 
 namespace
 {
@@ -59,20 +58,6 @@ namespace
 		LARGE_INTEGER offset = {};
 		::SetFilePointerEx(handle, offset, &offset, FILE_CURRENT);
 		return offset.QuadPart;
-	}
-	FSPath GetPathByHandle(HANDLE handle)
-	{
-		constexpr DWORD flags = VOLUME_NAME_DOS|FILE_NAME_NORMALIZED;
-		const DWORD length = ::GetFinalPathNameByHandleW(handle, nullptr, 0, flags);
-		if (length != 0)
-		{
-			String result;
-			if (::GetFinalPathNameByHandleW(handle, Utility::StringBuffer(result, length), length, flags) != 0)
-			{
-				return FSPath(std::move(result));
-			}
-		}
-		return {};
 	}
 }
 
@@ -424,7 +409,7 @@ namespace kxf
 	// IStreamOnFileSystem
 	FSPath NativeFileStream::GetFilePath() const
 	{
-		return GetPathByHandle(m_Handle);
+		return FileSystem::Private::GetFileFullPath(m_Handle);
 	}
 	UniversallyUniqueID NativeFileStream::GetFileUniqueID() const
 	{

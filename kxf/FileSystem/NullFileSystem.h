@@ -40,19 +40,6 @@ namespace kxf::FileSystem
 				return {};
 			}
 
-			bool ItemExist(const FSPath& path) const override
-			{
-				return false;
-			}
-			bool FileExist(const FSPath& path) const override
-			{
-				return false;
-			}
-			bool DirectoryExist(const FSPath& path) const override
-			{
-				return false;
-			}
-
 			FileItem GetItem(const FSPath& path) const override
 			{
 				return {};
@@ -116,19 +103,6 @@ namespace kxf::FileSystem
 			UniversallyUniqueID GetLookupScope() const override
 			{
 				return {};
-			}
-
-			bool ItemExist(const UniversallyUniqueID& id) const override
-			{
-				return false;
-			}
-			bool FileExist(const UniversallyUniqueID& id) const override
-			{
-				return false;
-			}
-			bool DirectoryExist(const UniversallyUniqueID& id) const override
-			{
-				return false;
 			}
 
 			FileItem GetItem(const UniversallyUniqueID& id) const override
