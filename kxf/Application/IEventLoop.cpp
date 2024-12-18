@@ -1,6 +1,6 @@
 #include "kxf-pch.h"
 #include "IEventLoop.h"
-#include "kxf/Application/ICoreApplication.h"
+#include "ICoreApplication.h"
 
 namespace
 {

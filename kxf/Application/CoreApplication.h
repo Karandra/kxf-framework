@@ -58,17 +58,7 @@ namespace kxf
 			// IEvtHandler
 			Private::CoreApplicationEvtHandler m_EvtHandler;
 
-			// ICoreApplication
-			mutable RecursiveRWLock m_EventFiltersLock;
-			std::list<std::shared_ptr<IEventFilter>> m_EventFilters;
-
-			DefaultAsyncTaskExecutor m_TaskExecutor;
-
-			std::optional<int> m_ExitCode;
-			bool m_NativeAppInitialized = false;
-			bool m_NativeAppCleanedUp = false;
-
-			// Application::IBasicInfo
+			// ICoreApplication -> Basic Info
 			String m_Name;
 			String m_DisplayName;
 			String m_VendorName;
@@ -76,13 +66,13 @@ namespace kxf
 			String m_ClassName;
 			Version m_Version;
 
-			// Application::IMainEventLoop
+			// ICoreApplication -> Main Event Loop
 			std::shared_ptr<IEventLoop> m_MainLoop;
 
-			// Application::IActiveEventLoop
+			// ICoreApplication -> Active Event Loop
 			IEventLoop* m_ActiveEventLoop = nullptr;
 
-			// Application::IPendingEvents
+			// ICoreApplication -> Pending Events
 			std::atomic<bool> m_PendingEventsProcessingEnabled = true;
 
 			mutable RecursiveRWLock m_ScheduledForDestructionLock;
@@ -92,27 +82,32 @@ namespace kxf
 			std::list<IEvtHandler*> m_PendingEvtHandlers;
 			std::list<IEvtHandler*> m_DelayedPendingEvtHandlers;
 
-			// Application::IExceptionHandler
+			// ICoreApplication -> Exception Handler
 			std::exception_ptr m_StoredException;
 
-			// Application::ICommandLine
+			// ICoreApplication -> Command Line
 			CommandLineParser m_CommandLineParser;
 			size_t m_ArgC = 0;
 			char** m_ArgVA = nullptr;
 			wchar_t** m_ArgVW = nullptr;
 
+			// ICoreApplication -> Application
+			mutable RecursiveRWLock m_EventFiltersLock;
+			std::list<std::shared_ptr<IEventFilter>> m_EventFilters;
+
+			DefaultAsyncTaskExecutor m_TaskExecutor;
+			std::optional<int> m_ExitCode;
+
+			bool m_NativeAppInitialized = false;
+			bool m_NativeAppCleanedUp = false;
+
 			// CoreApplication
 			void* m_DLLNotificationsCookie = nullptr;
-
-		private:
-			bool InitDLLNotifications();
-			void UninitDLLNotifications();
 
 		protected:
 			// IObject
 			RTTI::QueryInfo DoQueryInterface(const IID& iid) noexcept override;
 
-		protected:
 			// IEvtHandler
 			LocallyUniqueID DoBind(const EventID& eventID, std::unique_ptr<IEventExecutor> executor, FlagSet<BindEventFlag> flags = {}) override
 			{
@@ -148,6 +143,11 @@ namespace kxf
 				return m_EvtHandler.Access().TryAfter(event);
 			}
 
+		private:
+			// CoreApplication
+			bool InitDLLNotifications();
+			void UninitDLLNotifications();
+
 		public:
 			CoreApplication()
 				:m_EvtHandler(*this)
@@ -155,33 +155,6 @@ namespace kxf
 			}
 
 		public:
-			// ICoreApplication
-			bool OnCreate() override;
-			void OnDestroy() override;
-
-			bool OnInit() override = 0;
-			void OnExit() override;
-			int OnRun() override;
-
-			void Exit(int exitCode) override;
-			std::optional<int> GetExitCode() const override
-			{
-				return m_ExitCode;
-			}
-
-			void AddEventFilter(std::shared_ptr<IEventFilter> eventFilter) override;
-			void RemoveEventFilter(IEventFilter& eventFilter) override;
-			IEventFilter::Result FilterEvent(IEvent& event) override;
-
-			IEvtHandler& GetEvtHandler() override
-			{
-				return m_EvtHandler;
-			}
-			IAsyncTaskExecutor& GetTaskExecutor() override
-			{
-				return m_TaskExecutor;
-			}
-
 			// IEvtHandler
 			bool ProcessPendingEvents() override
 			{
@@ -228,7 +201,7 @@ namespace kxf
 			}
 
 		public:
-			// Application::IBasicInfo
+			// ICoreApplication -> Basic Info
 			String GetName() const override;
 			void SetName(const String& name) override;
 
@@ -247,7 +220,7 @@ namespace kxf
 			String GetClassName() const override;
 			void SetClassName(const String& name) override;
 
-			// Application::IMainEventLoop
+			// ICoreApplication -> Main Event Loop
 			std::shared_ptr<IEventLoop> CreateMainLoop() override;
 			IEventLoop* GetMainLoop() override
 			{
@@ -264,7 +237,7 @@ namespace kxf
 				// Nothing to do
 			}
 
-			// Application::IActiveEventLoop
+			// ICoreApplication -> Active Event Loop
 			IEventLoop* GetActiveEventLoop() override;
 			void SetActiveEventLoop(IEventLoop* eventLoop) override;
 
@@ -274,7 +247,7 @@ namespace kxf
 			bool DispatchIdle() override;
 			bool Yield(FlagSet<EventYieldFlag> flags) override;
 
-			// Application::IPendingEvents
+			// ICoreApplication -> Pending Events
 			bool IsPendingEventHandlerProcessingEnabled() const override;
 			void EnablePendingEventHandlerProcessing(bool enable = true) override;
 
@@ -289,7 +262,7 @@ namespace kxf
 			void ScheduleForDestruction(std::shared_ptr<IObject> object) override;
 			void FinalizeScheduledForDestruction() override;
 
-			// Application::IExceptionHandler
+			// ICoreApplication -> Exception Handler
 			bool OnMainLoopException() override;
 			void OnFatalException() override;
 			void OnUnhandledException() override;
@@ -297,10 +270,10 @@ namespace kxf
 			bool StoreCurrentException() override;
 			void RethrowStoredException() override;
 
-			// Application::IDebugHandler
+			// ICoreApplication -> Debug Handler
 			void OnAssertFailure(const String& file, int line, const String& function, const String& condition, const String& message) override;
 
-			// Application::ICommandLine
+			// ICoreApplication -> Command Line
 			void InitializeCommandLine(char** argv, size_t argc) override;
 			void InitializeCommandLine(wchar_t** argv, size_t argc) override;
 
@@ -309,5 +282,28 @@ namespace kxf
 			bool OnCommandLineParsed(CommandLineParser& parser) override;
 			bool OnCommandLineError(CommandLineParser& parser) override;
 			bool OnCommandLineHelp(CommandLineParser& parser) override;
+
+			// ICoreApplication -> Application
+			bool OnCreate() override;
+			void OnDestroy() override;
+
+			bool OnInit() override = 0;
+			void OnExit() override;
+			int OnRun() override;
+
+			void Exit(int exitCode) override;
+			std::optional<int> GetExitCode() const override
+			{
+				return m_ExitCode;
+			}
+
+			void AddEventFilter(std::shared_ptr<IEventFilter> eventFilter) override;
+			void RemoveEventFilter(IEventFilter& eventFilter) override;
+			IEventFilter::Result FilterEvent(IEvent& event) override;
+
+			IAsyncTaskExecutor& GetTaskExecutor() override
+			{
+				return m_TaskExecutor;
+			}
 	};
 }

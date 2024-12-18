@@ -1,6 +1,5 @@
 #pragma once
 #include "Common.h"
-#include "kxf/RTTI/RTTI.h"
 #include "kxf/Core/DateTime/TimeSpan.h"
 
 /*
@@ -35,10 +34,6 @@ namespace kxf
 	};
 	kxf_FlagSet_Declare(EventYieldFlag);
 }
-namespace kxf::Application
-{
-	class IActiveEventLoop;
-}
 namespace kxf::wxWidgets
 {
 	class EventLoopWrapperWx;
@@ -50,7 +45,7 @@ namespace kxf
 	{
 		kxf_RTTI_DeclareIID(IEventLoop, {0x7926acb6, 0x7016, 0x478c, {0x9d, 0xa3, 0x5f, 0x3e, 0xc1, 0xa1, 0xcc, 0xbb}});
 
-		friend class Application::IActiveEventLoop;
+		friend class ICoreApplication;
 		friend class wxWidgets::EventLoopWrapperWx;
 
 		public:

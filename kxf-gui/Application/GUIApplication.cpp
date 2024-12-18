@@ -13,6 +13,7 @@
 
 namespace kxf
 {
+	// GUIApplication
 	void GUIApplication::DeleteAllTopLevelWindows()
 	{
 		// TLWs remove themselves from 'wxTopLevelWindows' when destroyed, so iterate until none are left.
@@ -23,7 +24,47 @@ namespace kxf
 		}
 	}
 
-	// ICoreApplication
+	// ICoreApplication -> Main Event Loop
+	std::shared_ptr<IEventLoop> GUIApplication::CreateMainLoop()
+	{
+		return std::make_shared<EventSystem::Private::Win32GUIEventLoop>();
+	}
+
+	// ICoreApplication -> Active Event Loop
+	bool GUIApplication::DispatchIdle()
+	{
+		// Send an event to the application instance itself first
+		bool needMore = CoreApplication::DispatchIdle();
+		if (auto nativeApp = Application::Private::NativeApp::GetInstance())
+		{
+			if (nativeApp->wxApp::ProcessIdle())
+			{
+				needMore = true;
+			}
+		}
+
+		ReadLockGuard lock(m_ScheduledForDestructionLock);
+		for (wxWindow* window: wxTopLevelWindows)
+		{
+			// Don't send idle events to the windows that are about to be destroyed anyhow, this is wasteful and unexpected.
+			wxIdleEvent event;
+			if (window && !wxTheApp->IsScheduledForDestruction(window) && window->SendIdleEvents(event))
+			{
+				needMore = true;
+			}
+		}
+
+		wxUpdateUIEvent::ResetUpdateTime();
+		return needMore;
+	}
+
+	// ICoreApplication -> Exception Handler
+	bool GUIApplication::OnMainLoopException()
+	{
+		return Application::Private::OnMainLoopExceptionGUI();
+	}
+
+	// ICoreApplication -> Application
 	bool GUIApplication::OnCreate()
 	{
 		m_LayoutDirection = GUIApplication::GetLayoutDirection();
@@ -67,48 +108,8 @@ namespace kxf
 			}
 		}
 
-		// Ru the main loop
+		// Run the main loop
 		return CoreApplication::OnRun();
-	}
-
-	// Application::IMainEventLoop
-	std::shared_ptr<IEventLoop> GUIApplication::CreateMainLoop()
-	{
-		return std::make_shared<EventSystem::Private::Win32GUIEventLoop>();
-	}
-
-	// Application::IActiveEventLoop
-	bool GUIApplication::DispatchIdle()
-	{
-		// Send an event to the application instance itself first
-		bool needMore = CoreApplication::DispatchIdle();
-		if (auto nativeApp = Application::Private::NativeApp::GetInstance())
-		{
-			if (nativeApp->wxApp::ProcessIdle())
-			{
-				needMore = true;
-			}
-		}
-
-		ReadLockGuard lock(m_ScheduledForDestructionLock);
-		for (wxWindow* window: wxTopLevelWindows)
-		{
-			// Don't send idle events to the windows that are about to be destroyed anyhow, this is wasteful and unexpected.
-			wxIdleEvent event;
-			if (window && !wxTheApp->IsScheduledForDestruction(window) && window->SendIdleEvents(event))
-			{
-				needMore = true;
-			}
-		}
-
-		wxUpdateUIEvent::ResetUpdateTime();
-		return needMore;
-	}
-
-	// Application::IExceptionHandler
-	bool GUIApplication::OnMainLoopException()
-	{
-		return Application::Private::OnMainLoopExceptionGUI();
 	}
 
 	// IGUIApplication

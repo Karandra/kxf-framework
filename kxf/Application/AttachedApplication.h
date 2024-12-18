@@ -11,7 +11,7 @@ namespace kxf
 			~AttachedApplication();
 
 		public:
-			// Application::IMainEventLoop
+			// ICoreApplication -> Main Event Loop
 			std::shared_ptr<IEventLoop> CreateMainLoop() override;
 	};
 }

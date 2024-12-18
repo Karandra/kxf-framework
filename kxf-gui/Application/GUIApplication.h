@@ -22,25 +22,26 @@ namespace kxf
 			bool m_IsActive = true;
 
 		protected:
+			// GUIApplication
 			void DeleteAllTopLevelWindows();
 
 		public:
 			GUIApplication() = default;
 
 		public:
-			// ICoreApplication
+			// ICoreApplication -> Main Event Loop
+			std::shared_ptr<IEventLoop> CreateMainLoop() override;
+
+			// ICoreApplication -> Active Event Loop
+			bool DispatchIdle() override;
+
+			// ICoreApplication -> Exception Handler
+			bool OnMainLoopException() override;
+
+			// ICoreApplication -> Application
 			bool OnCreate() override;
 			void OnDestroy() override;
 			int OnRun() override;
-
-			// Application::IMainEventLoop
-			std::shared_ptr<IEventLoop> CreateMainLoop() override;
-
-			// Application::IActiveEventLoop
-			bool DispatchIdle() override;
-
-			// Application::IExceptionHandler
-			bool OnMainLoopException() override;
 
 			// IGUIApplication
 			std::shared_ptr<ITopLevelWidget> GetTopWidget() const override;

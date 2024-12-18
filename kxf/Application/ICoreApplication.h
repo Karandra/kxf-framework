@@ -11,21 +11,34 @@ namespace kxf
 	class IEventLoop;
 	class IEventFilter;
 	class IEventExecutor;
-
 	class IAsyncTaskExecutor;
 	class CommandLineParser;
 }
 
-namespace kxf::Application
+namespace kxf
 {
-	class KXF_API IBasicInfo: public RTTI::Interface<IBasicInfo>
+	class KXF_API ICoreApplication: public RTTI::ExtendInterface<ICoreApplication, IEvtHandler>
 	{
-		kxf_RTTI_DeclareIID(IBasicInfo, {0x2604f989, 0xb6d1, 0x4eb7, {0x8b, 0x2a, 0xd2, 0x70, 0x6, 0x96, 0x4c, 0x21}});
+		kxf_RTTI_DeclareIID(ICoreApplication, {0x2db9e5b5, 0x29cb, 0x4e8a, {0xb4, 0x59, 0x16, 0xee, 0xb, 0xad, 0x92, 0xdf}});
 
 		public:
-			virtual ~IBasicInfo() = default;
+			kxf_EVENT_MEMBER(ActivateEvent, Activated);
+			kxf_EVENT_MEMBER(FSActionEvent, ExecutingModuleWorkingDirectoryChanged);
 
 		public:
+			static ICoreApplication* GetInstance() noexcept;
+			static void SetInstance(ICoreApplication* instance) noexcept;
+
+		private:
+			// IEvtHandler
+			using IEvtHandler::ProcessPendingEvents;
+			using IEvtHandler::DiscardPendingEvents;
+
+		public:
+			virtual ~ICoreApplication() = default;
+
+		public:
+			// ICoreApplication -> Basic Info
 			virtual String GetName() const = 0;
 			virtual void SetName(const String& name) = 0;
 
@@ -43,34 +56,19 @@ namespace kxf::Application
 
 			virtual String GetClassName() const = 0;
 			virtual void SetClassName(const String& name) = 0;
-	};
 
-	class KXF_API IMainEventLoop: public RTTI::Interface<IMainEventLoop>
-	{
-		kxf_RTTI_DeclareIID(IMainEventLoop, {0x537d4221, 0xb942, 0x4536, {0x91, 0xf0, 0xb, 0xd9, 0x56, 0x38, 0x59, 0x19}});
-
-		public:
-			virtual ~IMainEventLoop() = default;
-
-		public:
+			// ICoreApplication -> Main Event Loop
 			virtual std::shared_ptr<IEventLoop> CreateMainLoop() = 0;
 			virtual IEventLoop* GetMainLoop() = 0;
 			virtual void ExitMainLoop(int exitCode = 0) = 0;
 
 			virtual void OnEventLoopEnter(IEventLoop& loop) = 0;
 			virtual void OnEventLoopExit(IEventLoop& loop) = 0;
-	};
 
-	class KXF_API IActiveEventLoop: public RTTI::Interface<IActiveEventLoop>
-	{
-		kxf_RTTI_DeclareIID(IActiveEventLoop, {0xd27bff03, 0x58d1, 0x471b, {0x83, 0x67, 0x3c, 0xde, 0xfd, 0x4c, 0x77, 0xb0}});
-
+			// ICoreApplication -> Active Event Loop
 		protected:
 			static void CallOnEnterEventLoop(IEventLoop& eventLoop);
 			static void CallOnExitEventLoop(IEventLoop& eventLoop);
-
-		public:
-			virtual ~IActiveEventLoop() = default;
 
 		public:
 			virtual IEventLoop* GetActiveEventLoop() = 0;
@@ -81,12 +79,8 @@ namespace kxf::Application
 			virtual bool Dispatch() = 0;
 			virtual bool DispatchIdle() = 0;
 			virtual bool Yield(FlagSet<EventYieldFlag> flags) = 0;
-	};
 
-	class KXF_API IPendingEvents: public RTTI::Interface<IPendingEvents>
-	{
-		kxf_RTTI_DeclareIID(IPendingEvents, {0xf3c249fd, 0xf2ca, 0x41af, {0x85, 0x31, 0x5a, 0x74, 0x3d, 0x78, 0x34, 0xb7}});
-
+			// ICoreApplication -> Pending Events
 		protected:
 			virtual bool OnPendingEventHandlerProcess(IEvtHandler& evtHandler)
 			{
@@ -96,9 +90,6 @@ namespace kxf::Application
 			{
 				return true;
 			}
-
-		public:
-			virtual ~IPendingEvents() = default;
 
 		public:
 			virtual bool IsPendingEventHandlerProcessingEnabled() const = 0;
@@ -114,43 +105,19 @@ namespace kxf::Application
 			virtual bool IsScheduledForDestruction(const IObject& object) const = 0;
 			virtual void ScheduleForDestruction(std::shared_ptr<IObject> object) = 0;
 			virtual void FinalizeScheduledForDestruction() = 0;
-	};
 
-	class KXF_API IExceptionHandler: public RTTI::Interface<IExceptionHandler>
-	{
-		kxf_RTTI_DeclareIID(IExceptionHandler, {0x924de29c, 0xfa90, 0x4ebe, {0xba, 0xbc, 0x33, 0x0, 0x10, 0x5, 0x9d, 0xa5}});
-
-		public:
-			virtual ~IExceptionHandler() = default;
-
-		public:
+			// ICoreApplication -> Exception Handler
 			virtual bool OnMainLoopException() = 0;
 			virtual void OnUnhandledException() = 0;
 			virtual void OnFatalException() = 0;
 
 			virtual bool StoreCurrentException() = 0;
 			virtual void RethrowStoredException() = 0;
-	};
 
-	class KXF_API IDebugHandler: public RTTI::Interface<IDebugHandler>
-	{
-		kxf_RTTI_DeclareIID(IDebugHandler, {0x2165d85c, 0xe7ae, 0x4cc6, {0x88, 0x6f, 0x3f, 0x93, 0x8d, 0x9a, 0x1d, 0x7}});
-
-		public:
-			virtual ~IDebugHandler() = default;
-
-		public:
+			// ICoreApplication -> Debug Handler
 			virtual void OnAssertFailure(const String& file, int line, const String& function, const String& condition, const String& message) = 0;
-	};
 
-	class KXF_API ICommandLine: public RTTI::Interface<ICommandLine>
-	{
-		kxf_RTTI_DeclareIID(ICommandLine, {0xbf92c139, 0xff8f, 0x4840, {0xa8, 0x9e, 0x9f, 0xd, 0x97, 0x3d, 0x8b, 0xf}});
-
-		public:
-			virtual ~ICommandLine() = default;
-
-		public:
+			// ICoreApplication -> Command Line
 			virtual void InitializeCommandLine(char** argv, size_t argc) = 0;
 			virtual void InitializeCommandLine(wchar_t** argv, size_t argc) = 0;
 
@@ -159,42 +126,8 @@ namespace kxf::Application
 			virtual bool OnCommandLineParsed(CommandLineParser& parser) = 0;
 			virtual bool OnCommandLineError(CommandLineParser& parser) = 0;
 			virtual bool OnCommandLineHelp(CommandLineParser& parser) = 0;
-	};
-}
 
-namespace kxf
-{
-	class KXF_API ICoreApplication: public RTTI::ExtendInterface
-		<
-			ICoreApplication,
-			IEvtHandler,
-			Application::IBasicInfo,
-			Application::IMainEventLoop,
-			Application::IActiveEventLoop,
-			Application::IPendingEvents,
-			Application::IExceptionHandler,
-			Application::IDebugHandler,
-			Application::ICommandLine
-		>
-	{
-		kxf_RTTI_DeclareIID(ICoreApplication, {0x2db9e5b5, 0x29cb, 0x4e8a, {0xb4, 0x59, 0x16, 0xee, 0xb, 0xad, 0x92, 0xdf}});
-
-		public:
-			kxf_EVENT_MEMBER(ActivateEvent, Activated);
-			kxf_EVENT_MEMBER(FSActionEvent, ExecutingModuleWorkingDirectoryChanged);
-
-		public:
-			static ICoreApplication* GetInstance() noexcept;
-			static void SetInstance(ICoreApplication* instance) noexcept;
-
-		private:
-			using IEvtHandler::ProcessPendingEvents;
-			using IEvtHandler::DiscardPendingEvents;
-
-		public:
-			virtual ~ICoreApplication() = default;
-
-		public:
+			// ICoreApplication -> Application
 			virtual bool OnCreate() = 0;
 			virtual void OnDestroy() = 0;
 
@@ -209,7 +142,6 @@ namespace kxf
 			virtual void RemoveEventFilter(IEventFilter& eventFilter) = 0;
 			virtual IEventFilter::Result FilterEvent(IEvent& event) = 0;
 
-			virtual IEvtHandler& GetEvtHandler() = 0;
 			virtual IAsyncTaskExecutor& GetTaskExecutor() = 0;
 			virtual const ILocalizationPackage& GetLocalizationPackage() const = 0;
 	};

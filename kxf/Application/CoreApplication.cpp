@@ -88,6 +88,7 @@ namespace kxf::Private
 
 namespace kxf
 {
+	// CoreApplication
 	bool CoreApplication::InitDLLNotifications()
 	{
 		if (!NativeAPI::NtDLL::LdrRegisterDllNotification)
@@ -151,6 +152,7 @@ namespace kxf
 		m_DLLNotificationsCookie = nullptr;
 	}
 
+	// IEvtHandler
 	bool CoreApplication::OnDynamicBind(EventItem& eventItem)
 	{
 		if (!m_DLLNotificationsCookie)
@@ -185,136 +187,7 @@ namespace kxf
 		return TBaseClass::DoQueryInterface(iid);
 	}
 
-	// ICoreApplication
-	bool CoreApplication::OnCreate()
-	{
-		KXF_SCOPEDLOG_FUNC;
-
-		if (!m_NativeAppInitialized)
-		{
-			if (auto app = wxAppConsole::GetInstance())
-			{
-				int argc = m_ArgC;
-				m_NativeAppInitialized = app->wxAppConsole::Initialize(argc, m_ArgVW);
-				if (!m_NativeAppInitialized)
-				{
-					KXF_SCOPEDLOG.SetFail();
-					return false;
-				}
-			}
-		}
-
-		KXF_SCOPEDLOG.SetSuccess();
-		return true;
-	}
-	void CoreApplication::OnDestroy()
-	{
-		KXF_SCOPEDLOG_FUNC;
-
-		UninitDLLNotifications();
-
-		// Destroy the main loop
-		m_MainLoop = nullptr;
-
-		// Clean up any still pending objects. Normally there shouldn't any as we
-		// already do this in 'OnExit', but this could happen if the user code has
-		// somehow managed to create more of them since then or just forgot to call
-		// the base class 'OnExit'.
-		FinalizeScheduledForDestruction();
-
-		if (m_NativeAppInitialized && !m_NativeAppCleanedUp)
-		{
-			if (auto app = wxAppConsole::GetInstance())
-			{
-				app->wxAppConsole::CleanUp();
-				m_NativeAppCleanedUp = true;
-			}
-		}
-
-		KXF_SCOPEDLOG.SetSuccess();
-	}
-
-	void CoreApplication::OnExit()
-	{
-		// Finalize scheduled objects if there are anything left
-		FinalizeScheduledForDestruction();
-	}
-	int CoreApplication::OnRun()
-	{
-		KXF_SCOPEDLOG_FUNC;
-
-		if (auto mainLoop = CreateMainLoop())
-		{
-			// Save the old main loop pointer (if any), create a new loop and run it.
-			// At the end of the loop, restore the original main loop.
-			std::swap(m_MainLoop, mainLoop);
-			Utility::ScopeGuard atExit = [&]()
-			{
-				m_MainLoop = std::move(mainLoop);
-			};
-
-			// Here we're running our newly created main loop saved in place of 'm_MainLoop' pointer.
-			int code = m_MainLoop->Run();
-
-			KXF_SCOPEDLOG.LogReturn(code);
-			return code;
-		}
-
-		KXF_SCOPEDLOG.LogReturn(m_ExitCode);
-		return m_ExitCode.value_or(-1);
-	}
-
-	void CoreApplication::Exit(int exitCode)
-	{
-		KXF_SCOPEDLOG_ARGS(exitCode);
-
-		if (m_MainLoop)
-		{
-			ExitMainLoop(exitCode);
-		}
-		else
-		{
-			m_ExitCode = exitCode;
-			std::terminate();
-		}
-
-		KXF_SCOPEDLOG.SetSuccess();
-	}
-
-	void CoreApplication::AddEventFilter(std::shared_ptr<IEventFilter> eventFilter)
-	{
-		WriteLockGuard lock(m_EventFiltersLock);
-
-		m_EventFilters.emplace_back(std::move(eventFilter));
-	}
-	void CoreApplication::RemoveEventFilter(IEventFilter& eventFilter)
-	{
-		WriteLockGuard lock(m_EventFiltersLock);
-
-		m_EventFilters.remove_if([&](auto& item)
-		{
-			return item.get() == &eventFilter;
-		});
-	}
-	IEventFilter::Result CoreApplication::FilterEvent(IEvent& event)
-	{
-		using Result = IEventFilter::Result;
-
-		ReadLockGuard lock(m_EventFiltersLock);
-		for (auto& eventFilter: m_EventFilters)
-		{
-			const Result result = eventFilter->FilterEvent(event);
-			if (result != Result::Skip)
-			{
-				return result;
-			}
-		}
-
-		// Do nothing by default if there are no event filters
-		return Result::Skip;
-	}
-
-	// Application::IBasicInfo
+	// ICoreApplication -> Basic Info
 	String CoreApplication::GetName() const
 	{
 		if (!m_Name.IsEmpty())
@@ -421,7 +294,7 @@ namespace kxf
 		}
 	}
 
-	// Application::IMainEoventLoop
+	// ICoreApplication -> Main Event Loop
 	std::shared_ptr<IEventLoop> CoreApplication::CreateMainLoop()
 	{
 		return std::make_shared<kxf::EventSystem::Private::Win32ConsoleEventLoop>();
@@ -438,7 +311,7 @@ namespace kxf
 		}
 	}
 
-	// Application::IActiveEventLoop
+	// ICoreApplication -> Active Event Loop
 	IEventLoop* CoreApplication::GetActiveEventLoop()
 	{
 		return m_ActiveEventLoop;
@@ -449,7 +322,7 @@ namespace kxf
 		if (eventLoop)
 		{
 			wxEventLoopBase::SetActive(static_cast<wxEventLoopBase*>(eventLoop->GetHandle()));
-			IActiveEventLoop::CallOnEnterEventLoop(*eventLoop);
+			ICoreApplication::CallOnEnterEventLoop(*eventLoop);
 		}
 	}
 
@@ -511,7 +384,7 @@ namespace kxf
 		return false;
 	}
 
-	// Application::IPendingEvents
+	// ICoreApplication -> Pending Events
 	bool CoreApplication::IsPendingEventHandlerProcessingEnabled() const
 	{
 		return m_PendingEventsProcessingEnabled;
@@ -716,7 +589,7 @@ namespace kxf
 		return count;
 	}
 
-	// Application::IExceptionHandler
+	// ICoreApplication -> Exception Handler
 	bool CoreApplication::OnMainLoopException()
 	{
 		return Application::Private::OnMainLoopException();
@@ -753,13 +626,13 @@ namespace kxf
 		}
 	}
 
-	// Application::IDebugHandler
+	// ICoreApplication -> Debug Handler
 	void CoreApplication::OnAssertFailure(const String& file, int line, const String& function, const String& condition, const String& message)
 	{
 		// No need to do anything with it here, it's going to be logged by our log system
 	}
 
-	// Application::ICommandLine
+	// ICoreApplication -> Command Line
 	void CoreApplication::InitializeCommandLine(char** argv, size_t argc)
 	{
 		KXF_SCOPEDLOG_ARGS(argv, argc);
@@ -840,5 +713,134 @@ namespace kxf
 			parser.ShowUsage();
 		}
 		return false;
+	}
+
+	// ICoreApplication -> Application
+	bool CoreApplication::OnCreate()
+	{
+		KXF_SCOPEDLOG_FUNC;
+
+		if (!m_NativeAppInitialized)
+		{
+			if (auto app = wxAppConsole::GetInstance())
+			{
+				int argc = m_ArgC;
+				m_NativeAppInitialized = app->wxAppConsole::Initialize(argc, m_ArgVW);
+				if (!m_NativeAppInitialized)
+				{
+					KXF_SCOPEDLOG.SetFail();
+					return false;
+				}
+			}
+		}
+
+		KXF_SCOPEDLOG.SetSuccess();
+		return true;
+	}
+	void CoreApplication::OnDestroy()
+	{
+		KXF_SCOPEDLOG_FUNC;
+
+		UninitDLLNotifications();
+
+		// Destroy the main loop
+		m_MainLoop = nullptr;
+
+		// Clean up any still pending objects. Normally there shouldn't any as we
+		// already do this in 'OnExit', but this could happen if the user code has
+		// somehow managed to create more of them since then or just forgot to call
+		// the base class 'OnExit'.
+		FinalizeScheduledForDestruction();
+
+		if (m_NativeAppInitialized && !m_NativeAppCleanedUp)
+		{
+			if (auto app = wxAppConsole::GetInstance())
+			{
+				app->wxAppConsole::CleanUp();
+				m_NativeAppCleanedUp = true;
+			}
+		}
+
+		KXF_SCOPEDLOG.SetSuccess();
+	}
+
+	void CoreApplication::OnExit()
+	{
+		// Finalize scheduled objects if there are anything left
+		FinalizeScheduledForDestruction();
+	}
+	int CoreApplication::OnRun()
+	{
+		KXF_SCOPEDLOG_FUNC;
+
+		if (auto mainLoop = CreateMainLoop())
+		{
+			// Save the old main loop pointer (if any), create a new loop and run it.
+			// At the end of the loop, restore the original main loop.
+			std::swap(m_MainLoop, mainLoop);
+			Utility::ScopeGuard atExit = [&]()
+			{
+				m_MainLoop = std::move(mainLoop);
+			};
+
+			// Here we're running our newly created main loop saved in place of 'm_MainLoop' pointer.
+			int code = m_MainLoop->Run();
+
+			KXF_SCOPEDLOG.LogReturn(code);
+			return code;
+		}
+
+		KXF_SCOPEDLOG.LogReturn(m_ExitCode);
+		return m_ExitCode.value_or(-1);
+	}
+
+	void CoreApplication::Exit(int exitCode)
+	{
+		KXF_SCOPEDLOG_ARGS(exitCode);
+
+		if (m_MainLoop)
+		{
+			ExitMainLoop(exitCode);
+		}
+		else
+		{
+			m_ExitCode = exitCode;
+			std::terminate();
+		}
+
+		KXF_SCOPEDLOG.SetSuccess();
+	}
+
+	void CoreApplication::AddEventFilter(std::shared_ptr<IEventFilter> eventFilter)
+	{
+		WriteLockGuard lock(m_EventFiltersLock);
+
+		m_EventFilters.emplace_back(std::move(eventFilter));
+	}
+	void CoreApplication::RemoveEventFilter(IEventFilter& eventFilter)
+	{
+		WriteLockGuard lock(m_EventFiltersLock);
+
+		m_EventFilters.remove_if([&](auto& item)
+		{
+			return item.get() == &eventFilter;
+		});
+	}
+	IEventFilter::Result CoreApplication::FilterEvent(IEvent& event)
+	{
+		using Result = IEventFilter::Result;
+
+		ReadLockGuard lock(m_EventFiltersLock);
+		for (auto& eventFilter: m_EventFilters)
+		{
+			const Result result = eventFilter->FilterEvent(event);
+			if (result != Result::Skip)
+			{
+				return result;
+			}
+		}
+
+		// Do nothing by default if there are no event filters
+		return Result::Skip;
 	}
 }
