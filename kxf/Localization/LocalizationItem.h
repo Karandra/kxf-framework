@@ -31,12 +31,12 @@ namespace kxf
 		ConstrainedLength = 1 << 2,
 		WithComment = 1 << 3
 	};
-	KxFlagSet_Declare(LocalizationItemFlag);
+	kxf_FlagSet_Declare(LocalizationItemFlag);
 }
 
 namespace kxf
 {
-	class KX_API LocalizationItem final
+	class KXF_API LocalizationItem final
 	{
 		public:
 			using TSingleItem = String;
@@ -212,5 +212,5 @@ namespace kxf
 
 namespace kxf
 {
-	KX_API extern const LocalizationItem NullLocalizationItem;
+	KXF_API extern const LocalizationItem NullLocalizationItem;
 }

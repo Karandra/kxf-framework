@@ -20,12 +20,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::HTMLWindowStyle);
+	kxf_FlagSet_Declare(UI::HTMLWindowStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API HTMLWindow: public WindowRefreshScheduler<wxHtmlWindow>, public wxTextEntry
+	class KXF_API HTMLWindow: public WindowRefreshScheduler<wxHtmlWindow>, public wxTextEntry
 	{
 		public:
 			static constexpr FlagSet<HTMLWindowStyle> DefaultStyle = HTMLWindowStyle::ScrollbarAuto;

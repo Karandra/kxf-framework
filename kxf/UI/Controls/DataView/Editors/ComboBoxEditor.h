@@ -4,7 +4,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API ComboBoxEditorBase
+	class KXF_API ComboBoxEditorBase
 	{
 		private:
 			int m_MaxVisibleItems = -1;
@@ -53,7 +53,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ComboBoxEditor: public Editor, public ComboBoxEditorBase, public WithImageList
+	class KXF_API ComboBoxEditor: public Editor, public ComboBoxEditorBase, public WithImageList
 	{
 		private:
 			std::vector<wxString> m_Items;
@@ -127,7 +127,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ComboBoxEditorControlHandler: public EditorControlHandler
+	class KXF_API ComboBoxEditorControlHandler: public EditorControlHandler
 	{
 		protected:
 			void DoOnKillFocus(wxFocusEvent& event) override;

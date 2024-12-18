@@ -10,7 +10,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API ImageGallery: public RTTI::Implementation<ImageGallery, Private::BasicWxWidget<ImageGallery, WXUI::ImageGallery, IImageGalleryWidget>, IGraphicsRendererAwareWidget>
+	class KXF_API ImageGallery: public RTTI::Implementation<ImageGallery, Private::BasicWxWidget<ImageGallery, WXUI::ImageGallery, IImageGalleryWidget>, IGraphicsRendererAwareWidget>
 	{
 		private:
 			std::shared_ptr<IGraphicsRenderer> m_Renderer;

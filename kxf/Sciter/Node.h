@@ -11,7 +11,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API Node final: public HandleWrapper<Node, NodeHandle>
+	class KXF_API Node final: public HandleWrapper<Node, NodeHandle>
 	{
 		friend class HandleWrapper<Node, NodeHandle>;
 

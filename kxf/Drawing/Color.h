@@ -33,7 +33,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API Color final
+	class KXF_API Color final
 	{
 		friend struct BinarySerializer<Color>;
 

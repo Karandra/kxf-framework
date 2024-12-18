@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API DisableWOW64FSRedirection final
+	class KXF_API DisableWOW64FSRedirection final
 	{
 		private:
 			void* m_Value = nullptr;

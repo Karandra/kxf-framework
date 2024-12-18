@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IBitmapImage: public RTTI::ExtendInterface<IBitmapImage, IImage2D>
+	class KXF_API IBitmapImage: public RTTI::ExtendInterface<IBitmapImage, IImage2D>
 	{
-		KxRTTI_DeclareIID(IImage2D, {0x2c48e1ad, 0xb93e, 0x4047, {0xb4, 0x52, 0x9b, 0x4c, 0x3a, 0x43, 0xeb, 0x77}});
+		kxf_RTTI_DeclareIID(IImage2D, {0x2c48e1ad, 0xb93e, 0x4047, {0xb4, 0x52, 0x9b, 0x4c, 0x3a, 0x43, 0xeb, 0x77}});
 
 		public:
 			virtual ~IBitmapImage() = default;

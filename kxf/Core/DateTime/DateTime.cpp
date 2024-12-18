@@ -4,10 +4,11 @@
 #include "kxf/Localization/Locale.h"
 #include "kxf/Utility/ScopeGuard.h"
 #include "Private/Mapping.h"
+
 #include <ctime>
 #include <Windows.h>
 #include <wx/datetime.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

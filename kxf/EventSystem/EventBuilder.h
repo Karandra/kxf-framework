@@ -64,7 +64,7 @@ namespace kxf::EventSystem::Private
 
 namespace kxf::EventSystem
 {
-	class KX_API EventBuilderBase
+	class KXF_API EventBuilderBase
 	{
 		protected:
 			IEvtHandler* m_EvtHandler = nullptr;

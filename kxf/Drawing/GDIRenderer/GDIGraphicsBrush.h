@@ -9,9 +9,9 @@
 
 namespace kxf
 {
-	class KX_API GDIGraphicsBrush: public RTTI::Interface<GDIGraphicsBrush>
+	class KXF_API GDIGraphicsBrush: public RTTI::Interface<GDIGraphicsBrush>
 	{
-		KxRTTI_DeclareIID(IGraphicsBrush, {0x8bc6b8e3, 0x5ae1, 0x46a9, {0x9f, 0x5a, 0xa7, 0x18, 0xcd, 0x3e, 0x5, 0x17}});
+		kxf_RTTI_DeclareIID(IGraphicsBrush, {0x8bc6b8e3, 0x5ae1, 0x46a9, {0x9f, 0x5a, 0xa7, 0x18, 0xcd, 0x3e, 0x5, 0x17}});
 
 		public:
 			GDIGraphicsBrush() noexcept = default;
@@ -26,7 +26,7 @@ namespace kxf
 namespace kxf::Drawing::Private
 {
 	template<class TBase>
-	class KX_API GDIGraphicsBrushBase: public RTTI::Implementation<GDIGraphicsBrushBase<TBase>, TBase, IGDIObject, GDIGraphicsBrush>
+	class KXF_API GDIGraphicsBrushBase: public RTTI::Implementation<GDIGraphicsBrushBase<TBase>, TBase, IGDIObject, GDIGraphicsBrush>
 	{
 		protected:
 			GDIGraphicsRenderer* m_Renderer = nullptr;
@@ -135,7 +135,7 @@ namespace kxf::Drawing::Private
 
 namespace kxf
 {
-	class KX_API GDIGraphicsSolidBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsSolidBrush>
+	class KXF_API GDIGraphicsSolidBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsSolidBrush>
 	{
 		public:
 			GDIGraphicsSolidBrush() = default;
@@ -164,7 +164,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIGraphicsHatchBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsHatchBrush>
+	class KXF_API GDIGraphicsHatchBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsHatchBrush>
 	{
 		private:
 			Color m_BackgroundColor;
@@ -223,7 +223,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIGraphicsTextureBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsTextureBrush>
+	class KXF_API GDIGraphicsTextureBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsTextureBrush>
 	{
 		private:
 			WrapMode m_WrapMode = WrapMode::None;
@@ -284,7 +284,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIGraphicsLinearGradientBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsLinearGradientBrush>
+	class KXF_API GDIGraphicsLinearGradientBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsLinearGradientBrush>
 	{
 		private:
 			RectF m_Rect;
@@ -354,7 +354,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIGraphicsRadialGradientBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsRadialGradientBrush>
+	class KXF_API GDIGraphicsRadialGradientBrush: public Drawing::Private::GDIGraphicsBrushBase<IGraphicsRadialGradientBrush>
 	{
 		private:
 			RectF m_Rect;

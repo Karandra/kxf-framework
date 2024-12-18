@@ -19,12 +19,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::ComboBoxStyle);
+	kxf_FlagSet_Declare(UI::ComboBoxStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API ComboBox: public WindowRefreshScheduler<wxSystemThemedControl<wxComboBox>>
+	class KXF_API ComboBox: public WindowRefreshScheduler<wxSystemThemedControl<wxComboBox>>
 	{
 		public:
 			static constexpr FlagSet<ComboBoxStyle> DefaultStyle = ComboBoxStyle::ProcessEnter|ComboBoxStyle::Dropdown|ComboBoxStyle::ReadOnly;

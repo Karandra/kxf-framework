@@ -23,9 +23,9 @@ namespace kxf::DataView
 
 namespace kxf
 {
-	class KX_API IDataViewModel: public RTTI::Interface<IDataViewModel>
+	class KXF_API IDataViewModel: public RTTI::Interface<IDataViewModel>
 	{
-		KxRTTI_DeclareIID(IDataViewModel, {0x96657379, 0x220e, 0x4df1, {0xa8, 0x4d, 0x9d, 0x66, 0xd9, 0x4e, 0xa, 0xa3}});
+		kxf_RTTI_DeclareIID(IDataViewModel, {0x96657379, 0x220e, 0x4df1, {0xa8, 0x4d, 0x9d, 0x66, 0xd9, 0x4e, 0xa, 0xa3}});
 
 		public:
 			virtual void OnSortChildren(const DataView::SortMode& sortMode)

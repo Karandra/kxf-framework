@@ -17,7 +17,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API GraphicsMatrix final
+	class KXF_API GraphicsMatrix final
 	{
 		friend class GraphicsContext;
 
@@ -51,7 +51,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API GraphicsContext final: public HandleWrapper<GraphicsContext, GraphicsContextHandle>
+	class KXF_API GraphicsContext final: public HandleWrapper<GraphicsContext, GraphicsContextHandle>
 	{
 		friend class HandleWrapper<GraphicsContext, GraphicsContextHandle>;
 

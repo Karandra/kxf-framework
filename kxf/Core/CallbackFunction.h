@@ -15,7 +15,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API CallbackFunctionState final
+	class KXF_API CallbackFunctionState final
 	{
 		template<class... Args_>
 		friend class CallbackFunction;

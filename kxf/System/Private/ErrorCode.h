@@ -8,12 +8,10 @@
 #include "BeginIncludeCOM.h"
 namespace
 {
-	Kx_MakeWinUnicodeCallWrapper(FormatMessage);
+	kxf_MakeWinUnicodeCallWrapper(FormatMessage);
 }
-#include <comdef.h>
-#include "EndIncludeCOM.h"
 
-#include "../UndefWindows.h"
+#include "EndIncludeCOM.h"
 
 namespace kxf
 {

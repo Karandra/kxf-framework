@@ -1,6 +1,5 @@
 #pragma once
 #include <wx/defs.h>
-#include "kxf/System/UndefWindows.h"
 
 namespace kxf
 {
@@ -30,7 +29,7 @@ namespace kxf
 		DoNotSave = WX_LAST_STD << 4,
 		ContextHelp = WX_LAST_STD << 5,
 	};
-	KxFlagSet_Declare(StdButton);
+	kxf_FlagSet_Declare(StdButton);
 }
 
 namespace kxf::UI

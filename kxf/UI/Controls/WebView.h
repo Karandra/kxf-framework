@@ -4,7 +4,7 @@
 
 namespace kxf::UI
 {
-	class KX_API WebView: public wxWebView
+	class KXF_API WebView: public wxWebView
 	{
 		public:
 			static constexpr char DefaultPage[] = "about:blank";

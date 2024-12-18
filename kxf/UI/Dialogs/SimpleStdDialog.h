@@ -4,7 +4,7 @@
 
 namespace kxf::UI
 {
-	class KX_API SimpleStdDialog: public StdDialog
+	class KXF_API SimpleStdDialog: public StdDialog
 	{
 		private:
 			wxWindow* m_View = nullptr;

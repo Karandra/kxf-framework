@@ -20,7 +20,7 @@ namespace kxf::WXUI::DataView
 
 namespace kxf::WXUI::DataView
 {
-	class KX_API HeaderCtrl: public UI::WindowRefreshScheduler<wxControl>
+	class KXF_API HeaderCtrl: public UI::WindowRefreshScheduler<wxControl>
 	{
 		friend class View;
 		friend class MainWindow;

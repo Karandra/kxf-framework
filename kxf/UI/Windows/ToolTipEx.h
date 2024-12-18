@@ -19,12 +19,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::ToolTipExStyle);
+	kxf_FlagSet_Declare(UI::ToolTipExStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API ToolTipEx: public wxNativeWindow, public WithOptions<ToolTipExStyle, ToolTipExStyle::None>
+	class KXF_API ToolTipEx: public wxNativeWindow, public WithOptions<ToolTipExStyle, ToolTipExStyle::None>
 	{
 		private:
 			String m_Caption;

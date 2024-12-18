@@ -2,8 +2,9 @@
 #include "SystemProcessInfo.h"
 #include "kxf/System/SystemProcess.h"
 #include "kxf/System/SystemInformation.h"
+
 #include <Windows.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {

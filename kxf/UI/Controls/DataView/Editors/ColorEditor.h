@@ -17,12 +17,12 @@ namespace kxf::UI::DataView
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::DataView::ColorEditorOption);
+	kxf_FlagSet_Declare(UI::DataView::ColorEditorOption);
 }
 
 namespace kxf::UI::DataView
 {
-	class KX_API ColorValue: public WithOptions<ColorEditorOption, ColorEditorOption::None>
+	class KXF_API ColorValue: public WithOptions<ColorEditorOption, ColorEditorOption::None>
 	{
 		protected:
 			Color m_Color;
@@ -88,7 +88,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ColorEditor: public Editor
+	class KXF_API ColorEditor: public Editor
 	{
 		private:
 			ColorValue m_Value;

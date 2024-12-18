@@ -10,9 +10,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ITopLevelWidget: public RTTI::ExtendInterface<ITopLevelWidget, IWidget>
+	class KXF_API ITopLevelWidget: public RTTI::ExtendInterface<ITopLevelWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(ITopLevelWidget, {0x66b86a18, 0x9717, 0x4497, {0xbe, 0xbf, 0xb1, 0x64, 0x88, 0x73, 0x40, 0xde}});
+		kxf_RTTI_DeclareIID(ITopLevelWidget, {0x66b86a18, 0x9717, 0x4497, {0xbe, 0xbf, 0xb1, 0x64, 0x88, 0x73, 0x40, 0xde}});
 
 		public:
 			virtual ~ITopLevelWidget() = default;

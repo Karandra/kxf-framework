@@ -9,7 +9,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API ComboPopup: public wxComboPopup
+	class KXF_API ComboPopup: public wxComboPopup
 	{
 		friend class ComboControl;
 

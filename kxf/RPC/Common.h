@@ -10,5 +10,5 @@ namespace kxf
 
 		GlobalSession = 1 << 0
 	};
-	KxFlagSet_Declare(RPCExchangeFlag);
+	kxf_FlagSet_Declare(RPCExchangeFlag);
 }

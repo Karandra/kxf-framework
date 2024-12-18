@@ -3,11 +3,11 @@
 
 namespace kxf
 {
-	class KX_API WidgetFocusEvent: public WidgetEvent
+	class KXF_API WidgetFocusEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetFocusEvent, FocusReceived);
-			KxEVENT_MEMBER(WidgetFocusEvent, FocusLost);
+			kxf_EVENT_MEMBER(WidgetFocusEvent, FocusReceived);
+			kxf_EVENT_MEMBER(WidgetFocusEvent, FocusLost);
 
 		public:
 			WidgetFocusEvent() noexcept = default;

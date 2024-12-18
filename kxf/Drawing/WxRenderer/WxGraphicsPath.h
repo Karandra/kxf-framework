@@ -6,9 +6,9 @@
 
 namespace kxf
 {
-	class KX_API WxGraphicsPath: public RTTI::ExtendInterface<WxGraphicsPath, IGraphicsPath>
+	class KXF_API WxGraphicsPath: public RTTI::ExtendInterface<WxGraphicsPath, IGraphicsPath>
 	{
-		KxRTTI_DeclareIID(WxGraphicsPath, {0x7a5f4e69, 0x24e7, 0x49b0, {0xa6, 0x36, 0x31, 0x4b, 0xf7, 0x1f, 0x32, 0xb2}});
+		kxf_RTTI_DeclareIID(WxGraphicsPath, {0x7a5f4e69, 0x24e7, 0x49b0, {0xa6, 0x36, 0x31, 0x4b, 0xf7, 0x1f, 0x32, 0xb2}});
 
 		protected:
 			WxGraphicsRenderer* m_Renderer = nullptr;

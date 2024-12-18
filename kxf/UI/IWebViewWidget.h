@@ -10,9 +10,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IWebViewWidget: public RTTI::ExtendInterface<IWebViewWidget, IWidget>
+	class KXF_API IWebViewWidget: public RTTI::ExtendInterface<IWebViewWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IWebViewWidget, {0xfe1ceae9, 0xd8e, 0x4ac8, {0x88, 0x7e, 0x5c, 0x8a, 0x8b, 0xb2, 0x62, 0x2}});
+		kxf_RTTI_DeclareIID(IWebViewWidget, {0xfe1ceae9, 0xd8e, 0x4ac8, {0x88, 0x7e, 0x5c, 0x8a, 0x8b, 0xb2, 0x62, 0x2}});
 
 		public:
 			struct HistoryItem

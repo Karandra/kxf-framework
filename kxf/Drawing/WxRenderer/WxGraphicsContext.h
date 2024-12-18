@@ -8,9 +8,9 @@
 
 namespace kxf
 {
-	class KX_API WxGraphicsContext: public RTTI::ExtendInterface<WxGraphicsContext, IGraphicsContext>
+	class KXF_API WxGraphicsContext: public RTTI::ExtendInterface<WxGraphicsContext, IGraphicsContext>
 	{
-		KxRTTI_DeclareIID(WxGraphicsContext, {0x941a0455, 0x2c28, 0x4545, {0xb1, 0xfa, 0xa5, 0xa5, 0xbf, 0x56, 0x45, 0x69}});
+		kxf_RTTI_DeclareIID(WxGraphicsContext, {0x941a0455, 0x2c28, 0x4545, {0xb1, 0xfa, 0xa5, 0xa5, 0xbf, 0x56, 0x45, 0x69}});
 
 		protected:
 			class ChangeTextParameters final
@@ -325,7 +325,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API WxGraphicsGDIContext: public WxGraphicsContext
+	class KXF_API WxGraphicsGDIContext: public WxGraphicsContext
 	{
 		private:
 			GDIContext m_DC;
@@ -365,7 +365,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API WxGraphicsMemoryContext: public WxGraphicsContext
+	class KXF_API WxGraphicsMemoryContext: public WxGraphicsContext
 	{
 		private:
 			BitmapImage* m_Image = nullptr;
@@ -426,7 +426,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API WxGraphicsMeasuringContext: public WxGraphicsContext
+	class KXF_API WxGraphicsMeasuringContext: public WxGraphicsContext
 	{
 		private:
 			wxWindow* m_Window = nullptr;
@@ -494,7 +494,7 @@ namespace kxf
 		};
 
 		template<class T>
-		class KX_API WxGraphicsBasicGDIContext_ImageBuffered: public WxGraphicsGDIContext
+		class KXF_API WxGraphicsBasicGDIContext_ImageBuffered: public WxGraphicsGDIContext
 		{
 			private:
 				T m_DC;

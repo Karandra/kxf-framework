@@ -14,14 +14,14 @@
 
 namespace kxf::Drawing
 {
-	KX_API std::shared_ptr<IGraphicsRenderer> GetGDIRenderer();
-	KX_API std::shared_ptr<IGraphicsRenderer> GetGDIPlusRenderer();
-	KX_API std::shared_ptr<IGraphicsRenderer> GetDirect2DRenderer();
-	KX_API std::shared_ptr<IGraphicsRenderer> GetCairoRenderer();
+	KXF_API std::shared_ptr<IGraphicsRenderer> GetGDIRenderer();
+	KXF_API std::shared_ptr<IGraphicsRenderer> GetGDIPlusRenderer();
+	KXF_API std::shared_ptr<IGraphicsRenderer> GetDirect2DRenderer();
+	KXF_API std::shared_ptr<IGraphicsRenderer> GetCairoRenderer();
 
-	KX_API std::shared_ptr<IGraphicsRenderer> GetDefaultRenderer();
-	KX_API void SetDefaultRenderer(std::shared_ptr<IGraphicsRenderer> renderer);
+	KXF_API std::shared_ptr<IGraphicsRenderer> GetDefaultRenderer();
+	KXF_API void SetDefaultRenderer(std::shared_ptr<IGraphicsRenderer> renderer);
 
-	KX_API size_t EnumAvailableRenderers(std::function<bool(std::shared_ptr<IGraphicsRenderer>)> func);
-	KX_API std::shared_ptr<IGraphicsRenderer> GetRendererByName(const String& name);
+	KXF_API size_t EnumAvailableRenderers(std::function<bool(std::shared_ptr<IGraphicsRenderer>)> func);
+	KXF_API std::shared_ptr<IGraphicsRenderer> GetRendererByName(const String& name);
 }

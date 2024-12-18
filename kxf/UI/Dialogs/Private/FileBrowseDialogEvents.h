@@ -2,19 +2,19 @@
 #include "kxf/UI/Common.h"
 #include "kxf/System/COM.h"
 #include "kxf/EventSystem/Common.h"
+
 #include <PropKey.h>
 #include <ShObjIDL.h>
-#include "kxf/System/UndefWindows.h"
-#include <atomic>
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::UI
 {
-	class KX_API FileBrowseDialog;
+	class KXF_API FileBrowseDialog;
 }
 
 namespace kxf::UI::Private
 {
-	class KX_API FileBrowseDialogEvents: public IFileDialogEvents
+	class KXF_API FileBrowseDialogEvents: public IFileDialogEvents
 	{
 		private:
 			std::atomic<ULONG> m_RefCount = 1;

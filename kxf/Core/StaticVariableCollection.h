@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API StaticVariableCollection: public RTTI::Implementation<StaticVariableCollection, IVariableCollection>
+	class KXF_API StaticVariableCollection: public RTTI::Implementation<StaticVariableCollection, IVariableCollection>
 	{
 		protected:
 			struct Item final

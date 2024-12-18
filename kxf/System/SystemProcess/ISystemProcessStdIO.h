@@ -12,9 +12,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ISystemProcessStdIO: public RTTI::Interface<ISystemProcessStdIO>
+	class KXF_API ISystemProcessStdIO: public RTTI::Interface<ISystemProcessStdIO>
 	{
-		KxRTTI_DeclareIID(ISystemProcessStdIO, {0xbeb81b73, 0x3c92, 0x4e7b, {0x8a, 0x85, 0x7, 0x69, 0x4, 0x24, 0xe3, 0xa8}});
+		kxf_RTTI_DeclareIID(ISystemProcessStdIO, {0xbeb81b73, 0x3c92, 0x4e7b, {0x8a, 0x85, 0x7, 0x69, 0x4, 0x24, 0xe3, 0xa8}});
 
 		public:
 			virtual ~ISystemProcessStdIO() = default;

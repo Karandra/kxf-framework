@@ -7,9 +7,9 @@
 
 namespace kxf
 {
-	class KX_API GDIGraphicsFont: public RTTI::ExtendInterface<GDIGraphicsFont, IGraphicsFont, IGDIObject>
+	class KXF_API GDIGraphicsFont: public RTTI::ExtendInterface<GDIGraphicsFont, IGraphicsFont, IGDIObject>
 	{
-		KxRTTI_DeclareIID(GDIGraphicsFont, {0x166c83ff, 0xc5cf, 0x4098, {0x9c, 0x7c, 0xa8, 0x4b, 0x21, 0xfa, 0xe3, 0x9c}});
+		kxf_RTTI_DeclareIID(GDIGraphicsFont, {0x166c83ff, 0xc5cf, 0x4098, {0x9c, 0x7c, 0xa8, 0x4b, 0x21, 0xfa, 0xe3, 0x9c}});
 
 		protected:
 			GDIGraphicsRenderer* m_Renderer = nullptr;

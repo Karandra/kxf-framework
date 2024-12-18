@@ -12,7 +12,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API Font
+	class KXF_API Font
 	{
 		friend struct BinarySerializer<Font>;
 
@@ -176,7 +176,7 @@ namespace kxf
 namespace kxf
 {
 	template<>
-	struct KX_API BinarySerializer<Font> final
+	struct KXF_API BinarySerializer<Font> final
 	{
 		uint64_t Serialize(IOutputStream& stream, const Font& value) const;
 		uint64_t Deserialize(IInputStream& stream, Font& value) const;

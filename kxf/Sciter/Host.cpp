@@ -5,9 +5,10 @@
 #include "kxf/Sciter/Private/Conversion.h"
 #include "kxf/System/SystemInformation.h"
 #include "kxf/Utility/Common.h"
+
 #include <WindowsX.h>
 #include <Uxtheme.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 #pragma warning(disable: 4302) // 'reinterpret_cast': truncation from 'void *' to 'UINT'
 #pragma warning(disable: 4311) // 'reinterpret_cast': pointer truncation from 'void *' to 'UINT'

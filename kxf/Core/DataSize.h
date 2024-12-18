@@ -20,12 +20,12 @@ namespace kxf
 		Fractional = 1 << 0,
 		WithLabel = 1 << 1,
 	};
-	KxFlagSet_Declare(DataSizeFormat);
+	kxf_FlagSet_Declare(DataSizeFormat);
 }
 
 namespace kxf
 {
-	class KX_API DataSize final
+	class KXF_API DataSize final
 	{
 		public:
 			static constexpr DataSize FromBytes(int64_t bytes) noexcept

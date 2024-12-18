@@ -14,9 +14,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API BitmapImage final: public RTTI::DynamicImplementation<BitmapImage, IBitmapImage>
+	class KXF_API BitmapImage final: public RTTI::DynamicImplementation<BitmapImage, IBitmapImage>
 	{
-		KxRTTI_DeclareIID(BitmapImage, {0x84c3ee9b, 0x62dc, 0x4d8c, {0x8c, 0x94, 0xd1, 0xbc, 0xaf, 0x68, 0xfb, 0xc1}});
+		kxf_RTTI_DeclareIID(BitmapImage, {0x84c3ee9b, 0x62dc, 0x4d8c, {0x8c, 0x94, 0xd1, 0xbc, 0xaf, 0x68, 0xfb, 0xc1}});
 
 		public:
 			static size_t GetImageCount(IInputStream& stream, const UniversallyUniqueID& format = ImageFormat::Any);
@@ -183,7 +183,7 @@ namespace kxf
 namespace kxf
 {
 	template<>
-	struct KX_API BinarySerializer<BitmapImage> final
+	struct KXF_API BinarySerializer<BitmapImage> final
 	{
 		uint64_t Serialize(IOutputStream& stream, const BitmapImage& value) const;
 		uint64_t Deserialize(IInputStream& stream, BitmapImage& value) const;

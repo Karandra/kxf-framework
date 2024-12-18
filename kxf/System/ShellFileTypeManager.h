@@ -8,7 +8,7 @@
 
 namespace kxf
 {
-	class KX_API ShellFileTypeManager
+	class KXF_API ShellFileTypeManager
 	{
 		public:
 			static bool IsOfType(const String& mimeType, const String& wildcard)

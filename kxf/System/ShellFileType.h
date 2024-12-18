@@ -7,7 +7,7 @@
 
 namespace kxf
 {
-	class KX_API ShellFileType final
+	class KXF_API ShellFileType final
 	{
 		public:
 			using MessageParameters = wxFileType::MessageParameters;

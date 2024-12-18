@@ -352,8 +352,8 @@ namespace kxf
 		CaretTimeout = wxSYS_CARET_TIMEOUT_MSEC,
 	};
 
-	KxFlagSet_Declare(ExitWorkstationCommand);
-	KxFlagSet_Declare(DisplayDeviceFlag);
-	KxFlagSet_Declare(DisplayAdapterFlag);
-	KxFlagSet_Declare(SystemProductSuite);
+	kxf_FlagSet_Declare(ExitWorkstationCommand);
+	kxf_FlagSet_Declare(DisplayDeviceFlag);
+	kxf_FlagSet_Declare(DisplayAdapterFlag);
+	kxf_FlagSet_Declare(SystemProductSuite);
 }

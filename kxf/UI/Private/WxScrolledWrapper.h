@@ -5,7 +5,7 @@ class wxScrollHelper;
 
 namespace kxf::WXUI::Private
 {
-	class KX_API WxScrolledWrapper
+	class KXF_API WxScrolledWrapper
 	{
 		protected:
 			wxScrollHelper* m_ScrollHelper = nullptr;

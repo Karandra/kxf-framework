@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API GDIPen: public IGDIObject
+	class KXF_API GDIPen: public IGDIObject
 	{
 		public:
 			using Dash = wxDash;
@@ -264,5 +264,5 @@ namespace kxf
 
 namespace kxf::Drawing
 {
-	KX_API GDIPen GetStockGDIPen(StockPen pen);
+	KXF_API GDIPen GetStockGDIPen(StockPen pen);
 }

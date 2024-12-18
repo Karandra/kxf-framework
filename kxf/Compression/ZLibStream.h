@@ -18,7 +18,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ZLibInputStream final: public InputStreamDelegate
+	class KXF_API ZLibInputStream final: public InputStreamDelegate
 	{
 		private:
 			std::unique_ptr<wxZlibInputStream> m_ZStream;
@@ -31,7 +31,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ZLibOutputStream final: public OutputStreamDelegate
+	class KXF_API ZLibOutputStream final: public OutputStreamDelegate
 	{
 		private:
 			std::unique_ptr<wxZlibOutputStream> m_ZStream;

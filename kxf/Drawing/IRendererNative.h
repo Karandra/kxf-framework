@@ -47,7 +47,7 @@ namespace kxf
 
 		// Reserved [32, 63]
 	};
-	KxFlagSet_Declare(NativeWidgetFlag);
+	kxf_FlagSet_Declare(NativeWidgetFlag);
 
 	enum class NativeTitleBarButton: uint32_t
 	{
@@ -80,9 +80,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IRendererNative: public RTTI::Interface<IRendererNative>
+	class KXF_API IRendererNative: public RTTI::Interface<IRendererNative>
 	{
-		KxRTTI_DeclareIID(IRendererNative, {0x4fb9dfc6, 0xfba2, 0x4b99, {0x83, 0x92, 0x38, 0xd3, 0x26, 0x71, 0x1b, 0x6c}});
+		kxf_RTTI_DeclareIID(IRendererNative, {0x4fb9dfc6, 0xfba2, 0x4b99, {0x83, 0x92, 0x38, 0xd3, 0x26, 0x71, 0x1b, 0x6c}});
 
 		public:
 			static IRendererNative& Get();

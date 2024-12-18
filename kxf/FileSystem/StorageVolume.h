@@ -11,7 +11,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API StorageVolume final
+	class KXF_API StorageVolume final
 	{
 		public:
 			struct SpaceLayoutInfo final

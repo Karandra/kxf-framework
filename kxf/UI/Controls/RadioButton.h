@@ -4,7 +4,7 @@
 
 namespace kxf::UI
 {
-	class KX_API RadioButton: public wxRadioButton
+	class KXF_API RadioButton: public wxRadioButton
 	{
 		public:
 			static constexpr long DefaultStyle = 0;

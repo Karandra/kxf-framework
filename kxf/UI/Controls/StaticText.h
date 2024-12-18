@@ -21,12 +21,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::StaticTextStyle);
+	kxf_FlagSet_Declare(UI::StaticTextStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API StaticText: public WindowRefreshScheduler<wxStaticText>
+	class KXF_API StaticText: public WindowRefreshScheduler<wxStaticText>
 	{
 		public:
 			static constexpr FlagSet<StaticTextStyle> DefaultStyle = StaticTextStyle::None;

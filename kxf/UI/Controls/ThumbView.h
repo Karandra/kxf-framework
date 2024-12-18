@@ -8,7 +8,7 @@
 
 namespace kxf::UI
 {
-	class KX_API ThumbViewItem final
+	class KXF_API ThumbViewItem final
 	{
 		private:
 			GDIBitmap m_Bitmap;
@@ -33,16 +33,16 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API ThumbView: public wxSystemThemedControl<WindowRefreshScheduler<wxVScrolledWindow>>
+	class KXF_API ThumbView: public wxSystemThemedControl<WindowRefreshScheduler<wxVScrolledWindow>>
 	{
 		public:
 			static constexpr FlagSet<WindowStyle> DefaultStyle = WindowStyle::None;
 			static inline const Size DefaultThumbSize = Size(256, 144);
 			static constexpr double ThumbPaddingScale = 0.9;
 
-			KxEVENT_MEMBER(wxCommandEvent, Selected);
-			KxEVENT_MEMBER(wxCommandEvent, Activated);
-			KxEVENT_MEMBER(wxContextMenuEvent, ContextMenu);
+			kxf_EVENT_MEMBER(wxCommandEvent, Selected);
+			kxf_EVENT_MEMBER(wxCommandEvent, Activated);
+			kxf_EVENT_MEMBER(wxContextMenuEvent, ContextMenu);
 
 		private:
 			static constexpr size_t InvalidItemIndex = std::numeric_limits<size_t>::max();

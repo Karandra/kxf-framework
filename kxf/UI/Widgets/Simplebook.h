@@ -10,7 +10,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API Simplebook: public RTTI::Implementation<Simplebook, Private::BasicWxWidget<Simplebook, WXUI::Simplebook, IBookWidget>>
+	class KXF_API Simplebook: public RTTI::Implementation<Simplebook, Private::BasicWxWidget<Simplebook, WXUI::Simplebook, IBookWidget>>
 	{
 		private:
 			WXUI::Private::WxBookCtrlWrapper m_BookCtrlWrapper;

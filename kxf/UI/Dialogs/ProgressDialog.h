@@ -5,7 +5,7 @@
 
 namespace kxf::UI
 {
-	class KX_API ProgressDialog: public RTTI::Implementation<ProgressDialog, StdDialog, ProgressBarWrapper>
+	class KXF_API ProgressDialog: public RTTI::Implementation<ProgressDialog, StdDialog, ProgressBarWrapper>
 	{
 		public:
 			static constexpr int DefaultProgressWidth = 300;

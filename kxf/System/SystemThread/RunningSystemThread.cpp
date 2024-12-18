@@ -5,9 +5,10 @@
 #include "kxf/System/Private/System.h"
 #include "kxf/System/NativeAPI.h"
 #include "kxf/System/HResult.h"
+
 #include <Windows.h>
 #include <PsAPI.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {

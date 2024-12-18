@@ -15,9 +15,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IScrollableWidget: public RTTI::Interface<IScrollableWidget>
+	class KXF_API IScrollableWidget: public RTTI::Interface<IScrollableWidget>
 	{
-		KxRTTI_DeclareIID(IScrollableWidget, {0x2dbba444, 0xbab2, 0x4239, {0xa9, 0x45, 0xe0, 0x72, 0xa0, 0x2e, 0x84, 0xe8}});
+		kxf_RTTI_DeclareIID(IScrollableWidget, {0x2dbba444, 0xbab2, 0x4239, {0xa9, 0x45, 0xe0, 0x72, 0xa0, 0x2e, 0x84, 0xe8}});
 
 		public:
 			virtual ~IScrollableWidget() = default;

@@ -14,7 +14,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API FileItem final
+	class KXF_API FileItem final
 	{
 		friend struct BinarySerializer<FileItem>;
 

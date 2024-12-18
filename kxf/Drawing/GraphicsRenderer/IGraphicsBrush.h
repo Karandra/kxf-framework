@@ -9,9 +9,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IGraphicsBrush: public RTTI::ExtendInterface<IGraphicsBrush, IGraphicsObject>
+	class KXF_API IGraphicsBrush: public RTTI::ExtendInterface<IGraphicsBrush, IGraphicsObject>
 	{
-		KxRTTI_DeclareIID(IGraphicsBrush, {0x9e7e0f22, 0xc647, 0x4b60, {0x8f, 0x3a, 0x93, 0xd7, 0x2, 0x1, 0x6, 0xea}});
+		kxf_RTTI_DeclareIID(IGraphicsBrush, {0x9e7e0f22, 0xc647, 0x4b60, {0x8f, 0x3a, 0x93, 0xd7, 0x2, 0x1, 0x6, 0xea}});
 
 		public:
 			virtual ~IGraphicsBrush() = default;
@@ -23,14 +23,14 @@ namespace kxf
 			virtual void SetColor(const Color& color) = 0;
 	};
 
-	class KX_API IGraphicsSolidBrush: public RTTI::ExtendInterface<IGraphicsSolidBrush, IGraphicsBrush>
+	class KXF_API IGraphicsSolidBrush: public RTTI::ExtendInterface<IGraphicsSolidBrush, IGraphicsBrush>
 	{
-		KxRTTI_DeclareIID(IGraphicsSolidBrush, {0xc0252eaf, 0x8ce8, 0x482f, {0x9e, 0xe4, 0xd2, 0x40, 0x81, 0x95, 0xa7, 0xc9}});
+		kxf_RTTI_DeclareIID(IGraphicsSolidBrush, {0xc0252eaf, 0x8ce8, 0x482f, {0x9e, 0xe4, 0xd2, 0x40, 0x81, 0x95, 0xa7, 0xc9}});
 	};
 
-	class KX_API IGraphicsHatchBrush: public RTTI::ExtendInterface<IGraphicsHatchBrush, IGraphicsBrush>
+	class KXF_API IGraphicsHatchBrush: public RTTI::ExtendInterface<IGraphicsHatchBrush, IGraphicsBrush>
 	{
-		KxRTTI_DeclareIID(IGraphicsHatchBrush, {0xa3dd188, 0x94ca, 0x40bf, {0x89, 0x2, 0x0, 0x47, 0x27, 0x84, 0xbc, 0x95}});
+		kxf_RTTI_DeclareIID(IGraphicsHatchBrush, {0xa3dd188, 0x94ca, 0x40bf, {0x89, 0x2, 0x0, 0x47, 0x27, 0x84, 0xbc, 0x95}});
 
 		public:
 			virtual Color GetBackgroundColor() const = 0;
@@ -43,9 +43,9 @@ namespace kxf
 			virtual void SetHatchStyle(HatchStyle style) = 0;
 	};
 
-	class KX_API IGraphicsTextureBrush: public RTTI::ExtendInterface<IGraphicsTextureBrush, IGraphicsBrush>
+	class KXF_API IGraphicsTextureBrush: public RTTI::ExtendInterface<IGraphicsTextureBrush, IGraphicsBrush>
 	{
-		KxRTTI_DeclareIID(IGraphicsTextureBrush, {0xc5b52910, 0xa895, 0x4e02, {0xa2, 0x4d, 0xd7, 0xc7, 0xd2, 0xb7, 0xf5, 0xa7}});
+		kxf_RTTI_DeclareIID(IGraphicsTextureBrush, {0xc5b52910, 0xa895, 0x4e02, {0xa2, 0x4d, 0xd7, 0xc7, 0xd2, 0xb7, 0xf5, 0xa7}});
 
 		public:
 			virtual std::shared_ptr<IGraphicsTexture> GetTexture() const = 0;
@@ -55,9 +55,9 @@ namespace kxf
 			virtual void SetWrapMode(WrapMode wrapMode) = 0;
 	};
 
-	class KX_API IGraphicsLinearGradientBrush: public RTTI::ExtendInterface<IGraphicsLinearGradientBrush, IGraphicsBrush>
+	class KXF_API IGraphicsLinearGradientBrush: public RTTI::ExtendInterface<IGraphicsLinearGradientBrush, IGraphicsBrush>
 	{
-		KxRTTI_DeclareIID(IGraphicsLinearGradientBrush, {0xdcb0c79a, 0x6bc1, 0x43a4, {0xad, 0x77, 0x41, 0xeb, 0x83, 0xe1, 0xdf, 0x69}});
+		kxf_RTTI_DeclareIID(IGraphicsLinearGradientBrush, {0xdcb0c79a, 0x6bc1, 0x43a4, {0xad, 0x77, 0x41, 0xeb, 0x83, 0xe1, 0xdf, 0x69}});
 
 		public:
 			virtual RectF GetRect() const = 0;
@@ -73,9 +73,9 @@ namespace kxf
 			virtual void SetWrapMode(WrapMode wrapMode) = 0;
 	};
 
-	class KX_API IGraphicsRadialGradientBrush: public RTTI::ExtendInterface<IGraphicsRadialGradientBrush, IGraphicsBrush>
+	class KXF_API IGraphicsRadialGradientBrush: public RTTI::ExtendInterface<IGraphicsRadialGradientBrush, IGraphicsBrush>
 	{
-		KxRTTI_DeclareIID(IGraphicsRadialGradientBrush, {0x69d4326b, 0x1948, 0x4751, {0x8a, 0xa5, 0x40, 0xd3, 0x1e, 0xbb, 0x19, 0xef}});
+		kxf_RTTI_DeclareIID(IGraphicsRadialGradientBrush, {0x69d4326b, 0x1948, 0x4751, {0x8a, 0xa5, 0x40, 0xd3, 0x1e, 0xbb, 0x19, 0xef}});
 
 		public:
 			virtual PointF GetCenterPoint() const = 0;

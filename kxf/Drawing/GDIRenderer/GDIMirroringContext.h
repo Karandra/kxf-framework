@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API GDIMirroringContext final: public GDIContext
+	class KXF_API GDIMirroringContext final: public GDIContext
 	{
 		private:
 			wxMirrorDC m_DC;

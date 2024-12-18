@@ -8,7 +8,7 @@
 
 namespace kxf
 {
-	class KX_API DefaultAsyncTask final: public RTTI::Implementation<DefaultAsyncTask, IAsyncTask>
+	class KXF_API DefaultAsyncTask final: public RTTI::Implementation<DefaultAsyncTask, IAsyncTask>
 	{
 		friend class DefaultAsyncTaskExecutor;
 

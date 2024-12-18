@@ -10,7 +10,7 @@ namespace kxf
 
 namespace kxf::Localization::Private
 {
-	class KX_API ItemsPackageHelper final
+	class KXF_API ItemsPackageHelper final
 	{
 		public:
 			using TItems = std::unordered_map<ResourceID, LocalizationItem>;
@@ -35,7 +35,7 @@ namespace kxf::Localization::Private
 			ItemsPackageHelper& operator=(ItemsPackageHelper&& other) noexcept = default;
 	};
 
-	class KX_API XMLPackageHelper
+	class KXF_API XMLPackageHelper
 	{
 		protected:
 			virtual bool DoLoadXML(const XMLDocument& xml, FlagSet<LoadingScheme> loadingScheme) = 0;

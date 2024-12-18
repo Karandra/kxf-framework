@@ -3,10 +3,10 @@
 
 namespace kxf
 {
-	class KX_API WidgetSizeEvent: public WidgetEvent
+	class KXF_API WidgetSizeEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetSizeEvent, Size);
+			kxf_EVENT_MEMBER(WidgetSizeEvent, Size);
 
 		private:
 			Rect m_Rect;

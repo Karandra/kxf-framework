@@ -10,7 +10,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API ProgressBar: public RTTI::Implementation<ProgressBar, Private::BasicWxWidget<ProgressBar, WXUI::ProgressBar, IProgressMeterWidget>, IGraphicsRendererAwareWidget>
+	class KXF_API ProgressBar: public RTTI::Implementation<ProgressBar, Private::BasicWxWidget<ProgressBar, WXUI::ProgressBar, IProgressMeterWidget>, IGraphicsRendererAwareWidget>
 	{
 		private:
 			std::shared_ptr<IGraphicsRenderer> m_Renderer;

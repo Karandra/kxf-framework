@@ -24,12 +24,12 @@ namespace kxf
 	class GDIMemoryContext;
 	class GDIWindowContext;
 
-	KxFlagSet_Declare(UI::DrawablePanelMode);
+	kxf_FlagSet_Declare(UI::DrawablePanelMode);
 }
 
 namespace kxf::UI
 {
-	class KX_API DrawablePanel: public WindowRefreshScheduler<Panel>
+	class KXF_API DrawablePanel: public WindowRefreshScheduler<Panel>
 	{
 		public:
 			static Size DrawScaledBitmap(wxGraphicsContext* gc, const wxGraphicsBitmap& bitmap, const Size& bitmapSize, const Rect& rect, BitmapScaleMode scaleMode, double globalScale = 1.0);

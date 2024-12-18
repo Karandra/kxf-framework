@@ -18,7 +18,7 @@ namespace kxf
 		RW = Read|Write,
 		AllAccess = RW|ReadAttributes|WriteAttributes
 	};
-	KxFlagSet_Declare(IOStreamAccess);
+	kxf_FlagSet_Declare(IOStreamAccess);
 
 	enum class IOStreamShare: uint32_t
 	{
@@ -29,7 +29,7 @@ namespace kxf
 
 		Everything = Read|Write|Delete
 	};
-	KxFlagSet_Declare(IOStreamShare);
+	kxf_FlagSet_Declare(IOStreamShare);
 
 	enum class IOStreamFlag: uint32_t
 	{
@@ -38,7 +38,7 @@ namespace kxf
 		Normal = 1 << 0,
 		AllowDirectories = 1 << 1
 	};
-	KxFlagSet_Declare(IOStreamFlag);
+	kxf_FlagSet_Declare(IOStreamFlag);
 
 	enum class IOStreamSeek
 	{
@@ -57,6 +57,6 @@ namespace kxf
 
 namespace kxf::IO
 {
-	KX_API std::optional<wxSeekMode> ToWxSeekMode(IOStreamSeek seekMode) noexcept;
-	KX_API std::optional<IOStreamSeek> FromWxSeekMode(wxSeekMode seekMode) noexcept;
+	KXF_API std::optional<wxSeekMode> ToWxSeekMode(IOStreamSeek seekMode) noexcept;
+	KXF_API std::optional<IOStreamSeek> FromWxSeekMode(wxSeekMode seekMode) noexcept;
 }

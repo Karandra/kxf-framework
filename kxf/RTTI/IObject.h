@@ -149,7 +149,7 @@ namespace kxf::RTTI
 
 namespace kxf
 {
-	class KX_API IObject: public std::enable_shared_from_this<IObject>
+	class KXF_API IObject: public std::enable_shared_from_this<IObject>
 	{
 		template<class T>
 		friend constexpr IID RTTI::GetInterfaceID() noexcept;
@@ -212,7 +212,7 @@ namespace kxf
 	};
 }
 
-#define KxRTTI_DeclareIID(T, ...)	\
+#define kxf_RTTI_DeclareIID(T, ...)	\
 friend class kxf::IObject;	\
 \
 template<class T>	\
@@ -221,7 +221,7 @@ friend constexpr kxf::IID kxf::RTTI::GetInterfaceID() noexcept;	\
 private:	\
 	static constexpr kxf::IID ms_IID = kxf::NativeUUID __VA_ARGS__;
 
-#define KxRTTI_DeclareIID_Using(T, iid)	\
+#define kxf_RTTI_DeclareIID_Using(T, iid)	\
 friend class kxf::IObject;	\
 \
 template<class T>	\
@@ -230,7 +230,7 @@ friend constexpr kxf::IID kxf::RTTI::GetInterfaceID() noexcept;	\
 private:	\
 	static constexpr kxf::IID ms_IID = (iid);
 
-#define KxRTTI_DeclareIID_External(T, ...)	\
+#define kxf_RTTI_DeclareIID_External(T, ...)	\
 namespace RTTI	\
 {	\
 	template<>	\

@@ -13,7 +13,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API BasicEventDispatcher
+	class KXF_API BasicEventDispatcher
 	{
 		friend class Host;
 
@@ -81,7 +81,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API EventDispatcher: public BasicEventDispatcher
+	class KXF_API EventDispatcher: public BasicEventDispatcher
 	{
 		private:
 			IEvtHandler& m_EvtHandler;
@@ -99,7 +99,7 @@ namespace kxf::Sciter
 			}
 	};
 
-	class KX_API WindowEventDispatcher: public BasicEventDispatcher
+	class KXF_API WindowEventDispatcher: public BasicEventDispatcher
 	{
 		private:
 			wxWindow& m_Window;
@@ -118,7 +118,7 @@ namespace kxf::Sciter
 			}
 	};
 
-	class KX_API WidgetEventDispatcher: public BasicEventDispatcher
+	class KXF_API WidgetEventDispatcher: public BasicEventDispatcher
 	{
 		private:
 			Widget& m_Widget;

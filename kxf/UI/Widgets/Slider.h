@@ -9,7 +9,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API Slider: public RTTI::Implementation<Slider, Private::BasicWxWidget<Slider, WXUI::Slider, ISliderWidget>>
+	class KXF_API Slider: public RTTI::Implementation<Slider, Private::BasicWxWidget<Slider, WXUI::Slider, ISliderWidget>>
 	{
 		public:
 			Slider();

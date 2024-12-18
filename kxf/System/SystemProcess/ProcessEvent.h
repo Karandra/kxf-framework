@@ -4,11 +4,11 @@
 
 namespace kxf
 {
-	class KX_API ProcessEvent: public BasicEvent
+	class KXF_API ProcessEvent: public BasicEvent
 	{
 		public:
-			KxEVENT_MEMBER(ProcessEvent, InputIdle);
-			KxEVENT_MEMBER(ProcessEvent, Termination);
+			kxf_EVENT_MEMBER(ProcessEvent, InputIdle);
+			kxf_EVENT_MEMBER(ProcessEvent, Termination);
 
 		private:
 			uint32_t m_PID = 0;

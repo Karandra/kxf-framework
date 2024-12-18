@@ -8,7 +8,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API ImageGallery: public EvtHandlerWrapper<ImageGallery, wxSystemThemedControl<UI::WindowRefreshScheduler<wxVScrolledWindow>>>
+	class KXF_API ImageGallery: public EvtHandlerWrapper<ImageGallery, wxSystemThemedControl<UI::WindowRefreshScheduler<wxVScrolledWindow>>>
 	{
 		private:
 			IImageGalleryWidget& m_Widget;

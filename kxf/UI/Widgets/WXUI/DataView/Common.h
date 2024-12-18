@@ -13,5 +13,5 @@ namespace kxf::WXUI::DataView
 
 namespace kxf
 {
-	KxFlagSet_Declare(WXUI::DataView::DNDOpType);
+	kxf_FlagSet_Declare(WXUI::DataView::DNDOpType);
 }

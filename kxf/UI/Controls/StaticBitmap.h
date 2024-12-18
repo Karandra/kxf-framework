@@ -16,7 +16,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API StaticBitmap: public wxGenericStaticBitmap
+	class KXF_API StaticBitmap: public wxGenericStaticBitmap
 	{
 		public:
 			static constexpr FlagSet<WindowStyle> DefaultStyle = WindowStyle::None;

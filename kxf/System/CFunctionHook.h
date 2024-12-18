@@ -11,7 +11,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API CFunctionHook
+	class KXF_API CFunctionHook
 	{
 		friend class CFunctionHookTransaction;
 
@@ -122,7 +122,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API CFunctionHookTransaction final
+	class KXF_API CFunctionHookTransaction final
 	{
 		friend class CFunctionHookController;
 		enum class State
@@ -203,7 +203,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API CFunctionHookController final
+	class KXF_API CFunctionHookController final
 	{
 		public:
 			static CFunctionHookController& GetInstance()

@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API SystemThread: public ISystemThread
+	class KXF_API SystemThread: public ISystemThread
 	{
 		public:
 			static SystemThread GetCurrentThread();
@@ -111,7 +111,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API SystemThreadInfo: public ISystemThread
+	class KXF_API SystemThreadInfo: public ISystemThread
 	{
 		public:
 			static SystemThreadInfo GetCurrentThread();

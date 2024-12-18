@@ -12,9 +12,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API GDIGraphicsPen: public RTTI::ExtendInterface<GDIGraphicsPen, IGraphicsPen, IGDIObject>
+	class KXF_API GDIGraphicsPen: public RTTI::ExtendInterface<GDIGraphicsPen, IGraphicsPen, IGDIObject>
 	{
-		KxRTTI_DeclareIID(GDIGraphicsPen, {0xc5cfc8bc, 0x1f1f, 0x4c5e, {0xbb, 0x51, 0x8, 0xb6, 0x9d, 0xc2, 0xa0, 0x7c}});
+		kxf_RTTI_DeclareIID(GDIGraphicsPen, {0xc5cfc8bc, 0x1f1f, 0x4c5e, {0xbb, 0x51, 0x8, 0xb6, 0x9d, 0xc2, 0xa0, 0x7c}});
 
 		protected:
 			GDIGraphicsRenderer* m_Renderer = nullptr;

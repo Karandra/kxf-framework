@@ -3,15 +3,15 @@
 
 namespace kxf::Sciter
 {
-	class KX_API FocusEvent: public SciterEvent
+	class KXF_API FocusEvent: public SciterEvent
 	{
 		public:
-			KxEVENT_MEMBER(FocusEvent, SetFocus);
-			KxEVENT_MEMBER(FocusEvent, KillFocus);
-			KxEVENT_MEMBER(FocusEvent, ContainerSetFocus);
-			KxEVENT_MEMBER(FocusEvent, ContainerKillFocus);
-			KxEVENT_MEMBER(FocusEvent, RequestFocus);
-			KxEVENT_MEMBER(FocusEvent, RequestFocusAdvance);
+			kxf_EVENT_MEMBER(FocusEvent, SetFocus);
+			kxf_EVENT_MEMBER(FocusEvent, KillFocus);
+			kxf_EVENT_MEMBER(FocusEvent, ContainerSetFocus);
+			kxf_EVENT_MEMBER(FocusEvent, ContainerKillFocus);
+			kxf_EVENT_MEMBER(FocusEvent, RequestFocus);
+			kxf_EVENT_MEMBER(FocusEvent, RequestFocusAdvance);
 
 		public:
 			FocusEvent(Host& host)
@@ -30,10 +30,10 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, SetFocus);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, KillFocus);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, ContainerSetFocus);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, ContainerKillFocus);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, RequestFocus);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, RequestFocusAdvance);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, SetFocus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, KillFocus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, ContainerSetFocus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, ContainerKillFocus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, RequestFocus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(FocusEvent, RequestFocusAdvance);
 }

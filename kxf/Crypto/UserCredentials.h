@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API UserCredentials: public UserName
+	class KXF_API UserCredentials: public UserName
 	{
 		private:
 			SecretValue m_Secret;

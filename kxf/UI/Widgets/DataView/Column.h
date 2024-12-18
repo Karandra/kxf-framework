@@ -12,7 +12,7 @@ namespace kxf::WXUI::DataView
 
 namespace kxf::DataView
 {
-	class KX_API Column final
+	class KXF_API Column final
 	{
 		friend class WXUI::DataView::View;
 		friend class WXUI::DataView::MainWindow;

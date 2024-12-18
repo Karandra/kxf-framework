@@ -1,8 +1,9 @@
 #include "kxf-pch.h"
 #include "SystemThreadInfo.h"
 #include "kxf/System/SystemProcess.h"
+
 #include <Windows.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {

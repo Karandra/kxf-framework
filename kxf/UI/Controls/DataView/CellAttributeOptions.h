@@ -43,9 +43,9 @@ namespace kxf::UI::DataView
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::DataView::CellOption);
-	KxFlagSet_Declare(UI::DataView::CellBGOption);
-	KxFlagSet_Declare(UI::DataView::CellFontOption);
+	kxf_FlagSet_Declare(UI::DataView::CellOption);
+	kxf_FlagSet_Declare(UI::DataView::CellBGOption);
+	kxf_FlagSet_Declare(UI::DataView::CellFontOption);
 }
 
 namespace kxf::UI::DataView::CellAttributes

@@ -4,10 +4,10 @@
 
 namespace kxf::Sciter
 {
-	class KX_API NativeTextBoxWidget: public NativeWidget, public UI::TextBox
+	class KXF_API NativeTextBoxWidget: public NativeWidget, public UI::TextBox
 	{
-		KxRTTI_DeclareIID(NativeTextBoxWidget, {0x7edd9ea0, 0x16ca, 0x427e, {0x81, 0x27, 0xbb, 0x5d, 0x8c, 0x11, 0xdd, 0x55}});
-		KxRTTI_QueryInterface_Extend(NativeTextBoxWidget, NativeWidget);
+		kxf_RTTI_DeclareIID(NativeTextBoxWidget, {0x7edd9ea0, 0x16ca, 0x427e, {0x81, 0x27, 0xbb, 0x5d, 0x8c, 0x11, 0xdd, 0x55}});
+		kxf_RTTI_QueryInterface_Extend(NativeTextBoxWidget, NativeWidget);
 
 		protected:
 			// NativeWidget
@@ -36,7 +36,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API NativeTextBoxWidgetFactory: public StdWidgetFactory, public WidgetFactoryInstance<NativeTextBoxWidgetFactory>
+	class KXF_API NativeTextBoxWidgetFactory: public StdWidgetFactory, public WidgetFactoryInstance<NativeTextBoxWidgetFactory>
 	{
 		public:
 			NativeTextBoxWidgetFactory()

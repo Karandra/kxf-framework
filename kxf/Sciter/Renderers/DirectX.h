@@ -12,7 +12,7 @@
 
 namespace kxf::Sciter
 {
-	class KX_API DirectX: public IWindowRenderer
+	class KXF_API DirectX: public IWindowRenderer
 	{
 		private:
 			Host& m_SciterHost;

@@ -10,9 +10,9 @@ namespace kxf
 
 namespace kxf::Compression
 {
-	class KX_API IExtractCallback: public RTTI::Interface<IExtractCallback>
+	class KXF_API IExtractCallback: public RTTI::Interface<IExtractCallback>
 	{
-		KxRTTI_DeclareIID(IExtractCallback, {0x8a6363c5, 0x35be, 0x4884, {0x8a, 0x35, 0x5e, 0x14, 0x5, 0x81, 0xbc, 0x25}});
+		kxf_RTTI_DeclareIID(IExtractCallback, {0x8a6363c5, 0x35be, 0x4884, {0x8a, 0x35, 0x5e, 0x14, 0x5, 0x81, 0xbc, 0x25}});
 
 		public:
 			virtual ~IExtractCallback() = default;
@@ -28,7 +28,7 @@ namespace kxf::Compression
 	};
 
 	template<class TOutStream = IOutputStream>
-	class KX_API ExtractWithOptions: public IExtractCallback
+	class KXF_API ExtractWithOptions: public IExtractCallback
 	{
 		static_assert(std::is_base_of_v<IOutputStream, TOutStream>, "Descendant of 'IOutputStream' is required");
 
@@ -108,9 +108,9 @@ namespace kxf::Compression
 
 namespace kxf::Compression
 {
-	class KX_API IUpdateCallback: public RTTI::Interface<IUpdateCallback>
+	class KXF_API IUpdateCallback: public RTTI::Interface<IUpdateCallback>
 	{
-		KxRTTI_DeclareIID(IUpdateCallback, {0xab48769d, 0x339b, 0x4579, {0xbd, 0x55, 0xbc, 0x51, 0xa6, 0x93, 0xdc, 0xaa}});
+		kxf_RTTI_DeclareIID(IUpdateCallback, {0xab48769d, 0x339b, 0x4579, {0xbd, 0x55, 0xbc, 0x51, 0xa6, 0x93, 0xdc, 0xaa}});
 
 		public:
 			virtual ~IUpdateCallback() = default;

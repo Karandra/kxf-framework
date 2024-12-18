@@ -11,7 +11,7 @@ namespace kxf
 		Abbreviated = FlagSetValue<UnitNameFlag>(0),
 		GenetiveCase = FlagSetValue<UnitNameFlag>(1)
 	};
-	KxFlagSet_Declare(UnitNameFlag);
+	kxf_FlagSet_Declare(UnitNameFlag);
 
 	enum class ClockDirection
 	{
@@ -53,7 +53,7 @@ namespace kxf
 		ExpandTabs = FlagSetValue<EllipsizeFlag>(0),
 		ProcessMnemonics = FlagSetValue<EllipsizeFlag>(1)
 	};
-	KxFlagSet_Declare(EllipsizeFlag);
+	kxf_FlagSet_Declare(EllipsizeFlag);
 
 	enum class Orientation: uint32_t
 	{
@@ -63,7 +63,7 @@ namespace kxf
 		Vertical = FlagSetValue<Orientation>(1),
 		Both = Horizontal|Vertical
 	};
-	KxFlagSet_Declare(Orientation);
+	kxf_FlagSet_Declare(Orientation);
 
 	enum class Alignment: uint32_t
 	{
@@ -79,7 +79,7 @@ namespace kxf
 		CenterHorizontal = FlagSetValue<Alignment>(8),
 		Center = CenterVertical|CenterHorizontal,
 	};
-	KxFlagSet_Declare(Alignment);
+	kxf_FlagSet_Declare(Alignment);
 
 	enum class Direction: uint32_t
 	{
@@ -92,7 +92,7 @@ namespace kxf
 
 		All = Left|Right|Up|Down
 	};
-	KxFlagSet_Declare(Direction);
+	kxf_FlagSet_Declare(Direction);
 
 	enum class LineBreakFormat
 	{
@@ -119,7 +119,7 @@ namespace kxf
 		RX = Read|Execute,
 		RWX = Read|Write|Execute,
 	};
-	KxFlagSet_Declare(MemoryProtection);
+	kxf_FlagSet_Declare(MemoryProtection);
 
 	enum class SortOrder
 	{

@@ -5,15 +5,15 @@
 
 namespace kxf
 {
-	class KX_API WidgetItemEvent: public WidgetEvent
+	class KXF_API WidgetItemEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetItemEvent, Selected);
-			KxEVENT_MEMBER(WidgetItemEvent, Activated);
-			KxEVENT_MEMBER(WidgetItemEvent, ContextMenu);
+			kxf_EVENT_MEMBER(WidgetItemEvent, Selected);
+			kxf_EVENT_MEMBER(WidgetItemEvent, Activated);
+			kxf_EVENT_MEMBER(WidgetItemEvent, ContextMenu);
 
-			KxEVENT_MEMBER(WidgetItemEvent, Enter);
-			KxEVENT_MEMBER(WidgetItemEvent, Leave);
+			kxf_EVENT_MEMBER(WidgetItemEvent, Enter);
+			kxf_EVENT_MEMBER(WidgetItemEvent, Leave);
 
 		protected:
 			WidgetMouseEvent m_MouseEvent;

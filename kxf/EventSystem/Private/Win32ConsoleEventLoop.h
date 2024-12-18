@@ -4,7 +4,7 @@
 
 namespace kxf::EventSystem::Private
 {
-	class KX_API Win32ConsoleEventLoop: public Win32CommonEventLoop
+	class KXF_API Win32ConsoleEventLoop: public Win32CommonEventLoop
 	{
 		protected:
 			void OnYieldFor(FlagSet<EventCategory> toProcess) override

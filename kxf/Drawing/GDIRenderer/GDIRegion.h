@@ -12,9 +12,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API GDIRegion: public RTTI::ExtendInterface<GDIRegion, IGDIObject>
+	class KXF_API GDIRegion: public RTTI::ExtendInterface<GDIRegion, IGDIObject>
 	{
-		KxRTTI_DeclareIID(GDIRegion, {0xd8f0f933, 0x9126, 0x4ef9, {0xa0, 0xf, 0x69, 0xe4, 0xd9, 0x9c, 0x7a, 0x97}});
+		kxf_RTTI_DeclareIID(GDIRegion, {0xd8f0f933, 0x9126, 0x4ef9, {0xa0, 0xf, 0x69, 0xe4, 0xd9, 0x9c, 0x7a, 0x97}});
 
 		private:
 			wxRegion m_Region;

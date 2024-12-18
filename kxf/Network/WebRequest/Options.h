@@ -62,7 +62,7 @@ namespace kxf
 		Bearer = 1 << 3,
 		Negotiate = 1 << 4
 	};
-	KxFlagSet_Declare(WebRequestAuthMethod);
+	kxf_FlagSet_Declare(WebRequestAuthMethod);
 
 	enum class WebRequestIPVersion
 	{
@@ -121,5 +121,5 @@ namespace kxf
 
 		Everything = std::numeric_limits<uint64_t>::max()
 	};
-	KxFlagSet_Declare(WebRequestProtocol);
+	kxf_FlagSet_Declare(WebRequestProtocol);
 }

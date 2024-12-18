@@ -14,9 +14,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IProgressMeter: public RTTI::Interface<IProgressMeter>
+	class KXF_API IProgressMeter: public RTTI::Interface<IProgressMeter>
 	{
-		KxRTTI_DeclareIID(IProgressMeter, {0xc2e38cf4, 0x8f60, 0x47fa, {0x8f, 0xf7, 0x9, 0x29, 0x5e, 0x61, 0xa7, 0x43}});
+		kxf_RTTI_DeclareIID(IProgressMeter, {0xc2e38cf4, 0x8f60, 0x47fa, {0x8f, 0xf7, 0x9, 0x29, 0x5e, 0x61, 0xa7, 0x43}});
 
 		public:
 			virtual int GetRange() const = 0;
@@ -90,9 +90,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IProgressMeterWidget: public RTTI::ExtendInterface<IProgressMeterWidget, IWidget, IProgressMeter>
+	class KXF_API IProgressMeterWidget: public RTTI::ExtendInterface<IProgressMeterWidget, IWidget, IProgressMeter>
 	{
-		KxRTTI_DeclareIID(IProgressMeterWidget, {0x6c55e659, 0x9773, 0x417e, {0x8a, 0x5, 0xdd, 0x30, 0xfa, 0x44, 0xd0, 0xfb}});
+		kxf_RTTI_DeclareIID(IProgressMeterWidget, {0x6c55e659, 0x9773, 0x417e, {0x8a, 0x5, 0xdd, 0x30, 0xfa, 0x44, 0xd0, 0xfb}});
 
 		public:
 			virtual String GetLabel(FlagSet<WidgetTextFlag> flags = {}) const = 0;

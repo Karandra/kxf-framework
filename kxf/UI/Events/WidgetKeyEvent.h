@@ -5,14 +5,14 @@ class wxKeyEvent;
 
 namespace kxf
 {
-	class KX_API WidgetKeyEvent: public WidgetEvent
+	class KXF_API WidgetKeyEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetKeyEvent, KeyUp);
-			KxEVENT_MEMBER(WidgetKeyEvent, KeyDown);
+			kxf_EVENT_MEMBER(WidgetKeyEvent, KeyUp);
+			kxf_EVENT_MEMBER(WidgetKeyEvent, KeyDown);
 
-			KxEVENT_MEMBER(WidgetKeyEvent, Char);
-			KxEVENT_MEMBER(WidgetKeyEvent, CharHook);
+			kxf_EVENT_MEMBER(WidgetKeyEvent, Char);
+			kxf_EVENT_MEMBER(WidgetKeyEvent, CharHook);
 
 		private:
 			KeyboardState m_KeyboardState;

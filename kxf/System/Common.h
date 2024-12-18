@@ -34,7 +34,7 @@ namespace kxf
 		Default = 1 << 17,
 		Inactive = 1 << 18,
 	};
-	KxFlagSet_Declare(SHWindowCommand);
+	kxf_FlagSet_Declare(SHWindowCommand);
 
 	enum class SystemStandardAccess: uint32_t
 	{
@@ -48,7 +48,7 @@ namespace kxf
 
 		Everything = std::numeric_limits<uint32_t>::max()
 	};
-	KxFlagSet_Declare(SystemStandardAccess);
+	kxf_FlagSet_Declare(SystemStandardAccess);
 
 	enum class SystemThreadAccess: uint32_t
 	{
@@ -69,7 +69,7 @@ namespace kxf
 
 		Everything = std::numeric_limits<uint32_t>::max()
 	};
-	KxFlagSet_Declare(SystemThreadAccess);
+	kxf_FlagSet_Declare(SystemThreadAccess);
 
 	enum class SystemProcessAccess: uint32_t
 	{
@@ -91,7 +91,7 @@ namespace kxf
 
 		Everything = std::numeric_limits<uint32_t>::max()
 	};
-	KxFlagSet_Declare(SystemProcessAccess);
+	kxf_FlagSet_Declare(SystemProcessAccess);
 
 	enum class CreateSystemProcessFlag: uint32_t
 	{
@@ -105,7 +105,7 @@ namespace kxf
 
 		Async = 1 << 16
 	};
-	KxFlagSet_Declare(CreateSystemProcessFlag);
+	kxf_FlagSet_Declare(CreateSystemProcessFlag);
 
 	enum class SystemProcessPriority
 	{

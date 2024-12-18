@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API LegacyVolume final
+	class KXF_API LegacyVolume final
 	{
 		public:
 			static Enumerator<LegacyVolume> EnumVolumes();

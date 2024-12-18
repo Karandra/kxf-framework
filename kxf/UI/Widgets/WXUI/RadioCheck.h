@@ -5,7 +5,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API RadioCheck: public EvtHandlerWrapper<RadioCheck, wxRadioButton>
+	class KXF_API RadioCheck: public EvtHandlerWrapper<RadioCheck, wxRadioButton>
 	{
 		friend class EvtHandlerWrapper;
 

@@ -26,12 +26,12 @@ namespace kxf::UI::DataView
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::DataView::ComboCtrlOption);
+	kxf_FlagSet_Declare(UI::DataView::ComboCtrlOption);
 }
 
 namespace kxf::UI::DataView
 {
-	class KX_API ComboCtrl:
+	class KXF_API ComboCtrl:
 		public View,
 		public ComboPopup,
 		public WithOptions<ComboCtrlOption, ComboCtrlOption::ForceGetStringOnDismiss|ComboCtrlOption::AltPopupWindow>
@@ -40,8 +40,8 @@ namespace kxf::UI::DataView
 			static constexpr FlagSet<ComboBoxStyle> DefaultStyle = ComboBoxStyle::ReadOnly;
 			static constexpr FlagSet<CtrlStyle> DefaultDataViewStyle = CtrlStyle::Default;
 
-			KxEVENT_MEMBER(ItemEvent, GetStringValue);
-			KxEVENT_MEMBER(ItemEvent, SetStringValue);
+			kxf_EVENT_MEMBER(ItemEvent, GetStringValue);
+			kxf_EVENT_MEMBER(ItemEvent, SetStringValue);
 
 		protected:
 			FlagSet<CtrlStyle> m_DataViewFlags = DefaultDataViewStyle;

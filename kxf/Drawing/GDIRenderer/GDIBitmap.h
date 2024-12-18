@@ -11,9 +11,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API GDIBitmap: public RTTI::DynamicImplementation<GDIBitmap, IGDIObject, IImage2D>
+	class KXF_API GDIBitmap: public RTTI::DynamicImplementation<GDIBitmap, IGDIObject, IImage2D>
 	{
-		KxRTTI_DeclareIID(GDIBitmap, {0xd4c3e7be, 0xf0fd, 0x4c38, {0xa1, 0x94, 0x16, 0xb3, 0x9, 0xa, 0x34, 0xb5}});
+		kxf_RTTI_DeclareIID(GDIBitmap, {0xd4c3e7be, 0xf0fd, 0x4c38, {0xa1, 0x94, 0x16, 0xb3, 0x9, 0xa, 0x34, 0xb5}});
 
 		private:
 			wxBitmap m_Bitmap;

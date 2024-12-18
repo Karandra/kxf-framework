@@ -12,7 +12,7 @@ namespace kxf
 
 namespace kxf::EventSystem
 {
-	class KX_API BroadcastProcessorHandler final: public EvtHandler
+	class KXF_API BroadcastProcessorHandler final: public EvtHandler
 	{
 		private:
 			EventBroadcastProcessor& m_Processor;
@@ -27,7 +27,7 @@ namespace kxf::EventSystem
 			}
 	};
 
-	class KX_API BroadcastReceiverHandler final: public EvtHandler
+	class KXF_API BroadcastReceiverHandler final: public EvtHandler
 	{
 		friend class EventBroadcastReceiver;
 
@@ -38,7 +38,7 @@ namespace kxf::EventSystem
 
 namespace kxf
 {
-	class KX_API EventBroadcastProcessor: public EvtHandlerDelegate
+	class KXF_API EventBroadcastProcessor: public EvtHandlerDelegate
 	{
 		friend class EventBroadcastReceiver;
 
@@ -95,7 +95,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API EventBroadcastReceiver: public EvtHandlerDelegate
+	class KXF_API EventBroadcastReceiver: public EvtHandlerDelegate
 	{
 		friend class EventBroadcastProcessor;
 

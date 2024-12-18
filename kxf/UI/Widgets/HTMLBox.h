@@ -13,7 +13,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API HTMLBox: public RTTI::Implementation<HTMLBox, Private::BasicWxWidget<HTMLBox, WXUI::HTMLBox, IHTMLWidget>, IScrollableWidget, IGraphicsRendererAwareWidget>
+	class KXF_API HTMLBox: public RTTI::Implementation<HTMLBox, Private::BasicWxWidget<HTMLBox, WXUI::HTMLBox, IHTMLWidget>, IScrollableWidget, IGraphicsRendererAwareWidget>
 	{
 		private:
 			std::shared_ptr<IGraphicsRenderer> m_Renderer;

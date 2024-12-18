@@ -6,9 +6,9 @@
 
 namespace kxf
 {
-	class KX_API GDIGraphicsRenderer: public RTTI::ExtendInterface<GDIGraphicsRenderer, IGraphicsRenderer>
+	class KXF_API GDIGraphicsRenderer: public RTTI::ExtendInterface<GDIGraphicsRenderer, IGraphicsRenderer>
 	{
-		KxRTTI_DeclareIID(GDIGraphicsRenderer, {0x366d774d, 0x7570, 0x489d, {0xb5, 0xbc, 0x6, 0x8, 0xa6, 0xbc, 0x88, 0xa4}});
+		kxf_RTTI_DeclareIID(GDIGraphicsRenderer, {0x366d774d, 0x7570, 0x489d, {0xb5, 0xbc, 0x6, 0x8, 0xa6, 0xbc, 0x88, 0xa4}});
 
 		friend class GDIGraphicsContext;
 

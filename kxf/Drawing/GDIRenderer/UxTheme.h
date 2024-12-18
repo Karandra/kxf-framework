@@ -19,7 +19,7 @@ namespace kxf
 		NonClient = 1 << 0,
 		ForceRectSizing = 1 << 1,
 	};
-	KxFlagSet_Declare(UxThemeFlag);
+	kxf_FlagSet_Declare(UxThemeFlag);
 
 	enum class UxThemeClass
 	{
@@ -64,7 +64,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API UxTheme final
+	class KXF_API UxTheme final
 	{
 		public:
 			static bool ClearDC(wxWindow& window, GDIContext& dc) noexcept;

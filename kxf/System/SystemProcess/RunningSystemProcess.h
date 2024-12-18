@@ -3,7 +3,7 @@
 
 namespace kxf
 {
-	class KX_API RunningSystemProcess: public ISystemProcess
+	class KXF_API RunningSystemProcess: public ISystemProcess
 	{
 		public:
 			static RunningSystemProcess GetCurrentProcess();

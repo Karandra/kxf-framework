@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API SystemWindow: public ISystemWindow
+	class KXF_API SystemWindow: public ISystemWindow
 	{
 		public:
 			static SystemWindow GetShellWindow();
@@ -114,7 +114,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API OwningSystemWindow final: public SystemWindow
+	class KXF_API OwningSystemWindow final: public SystemWindow
 	{
 		public:
 			OwningSystemWindow(void* hwnd = nullptr)

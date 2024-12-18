@@ -6,7 +6,7 @@
 
 namespace kxf
 {
-	class KX_API Mutex final
+	class KXF_API Mutex final
 	{
 		private:
 			void* m_Handle = nullptr;

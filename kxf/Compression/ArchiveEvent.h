@@ -6,10 +6,10 @@
 
 namespace kxf
 {
-	class KX_API ArchiveEvent: public FSActionEvent
+	class KXF_API ArchiveEvent: public FSActionEvent
 	{
 		public:
-			KxEVENT_MEMBER(ArchiveEvent, IdentifyFormat);
+			kxf_EVENT_MEMBER(ArchiveEvent, IdentifyFormat);
 
 		private:
 			FileItem m_FileItem;

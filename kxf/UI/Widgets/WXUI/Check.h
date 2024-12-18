@@ -5,7 +5,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API Check: public EvtHandlerWrapper<Check, wxCheckBox>
+	class KXF_API Check: public EvtHandlerWrapper<Check, wxCheckBox>
 	{
 		friend class EvtHandlerWrapper;
 

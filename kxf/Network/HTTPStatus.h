@@ -156,7 +156,7 @@ namespace kxf
 {
 	class HTTPStatus final: public RTTI::DynamicImplementation<HTTPStatus, IErrorCode>, public IndexedEnumValue<HTTPStatusCodeDef, HTTPStatusCode::Unknown>
 	{
-		KxRTTI_DeclareIID(HTTPStatus, {0xc9e3d90, 0xaf81, 0x48d8, {0x90, 0x25, 0xca, 0x15, 0x71, 0xec, 0x3d, 0x59}});
+		kxf_RTTI_DeclareIID(HTTPStatus, {0xc9e3d90, 0xaf81, 0x48d8, {0x90, 0x25, 0xca, 0x15, 0x71, 0xec, 0x3d, 0x59}});
 
 		public:
 			HTTPStatus() noexcept = default;

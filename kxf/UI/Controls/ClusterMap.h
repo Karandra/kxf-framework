@@ -6,7 +6,7 @@
 
 namespace kxf::UI
 {
-	class KX_API ClusterMap: public WindowRefreshScheduler<wxSystemThemedControl<wxControl>>
+	class KXF_API ClusterMap: public WindowRefreshScheduler<wxSystemThemedControl<wxControl>>
 	{
 		private:
 			struct DrawInfo

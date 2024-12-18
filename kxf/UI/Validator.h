@@ -4,7 +4,7 @@
 
 namespace kxf::UI::Private
 {
-	KX_API void GetValidatorControlValue(const wxValidator& validator, wxString& value, int& position, XChar& character);
+	KXF_API void GetValidatorControlValue(const wxValidator& validator, wxString& value, int& position, XChar& character);
 }
 
 namespace kxf::UI

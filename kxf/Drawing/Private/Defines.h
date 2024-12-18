@@ -4,7 +4,7 @@
 #include <wx/image.h>
 #include <wx/bitmap.h>
 #include <wx/fontenc.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {
@@ -266,7 +266,7 @@ namespace kxf
 		Underline = 1 << 3,
 		Strikethrough = 1 << 4,
 	};
-	KxFlagSet_Declare(FontStyle);
+	kxf_FlagSet_Declare(FontStyle);
 }
 
 namespace kxf::Drawing

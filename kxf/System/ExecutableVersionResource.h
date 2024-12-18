@@ -24,7 +24,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ExecutableVersionResource final
+	class KXF_API ExecutableVersionResource final
 	{
 		private:
 			std::vector<uint8_t> m_Buffer;

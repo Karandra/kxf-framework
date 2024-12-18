@@ -3,12 +3,12 @@
 
 namespace kxf::Sciter
 {
-	class KX_API KeyEvent: public SciterEvent, public wxKeyboardState
+	class KXF_API KeyEvent: public SciterEvent, public wxKeyboardState
 	{
 		public:
-			KxEVENT_MEMBER(KeyEvent, KeyChar);
-			KxEVENT_MEMBER(KeyEvent, KeyUp);
-			KxEVENT_MEMBER(KeyEvent, KeyDown);
+			kxf_EVENT_MEMBER(KeyEvent, KeyChar);
+			kxf_EVENT_MEMBER(KeyEvent, KeyUp);
+			kxf_EVENT_MEMBER(KeyEvent, KeyDown);
 
 		protected:
 			Point m_Position = Point::UnspecifiedPosition();
@@ -68,7 +68,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(KeyEvent, KeyChar);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(KeyEvent, KeyUp);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(KeyEvent, KeyDown);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(KeyEvent, KeyChar);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(KeyEvent, KeyUp);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(KeyEvent, KeyDown);
 }

@@ -2,11 +2,10 @@
 #include "kxf/Common.hpp"
 #include <cstdint>
 #include <cstring>
-#include "kxf/System/UndefWindows.h"
 
 namespace kxf::Utility
 {
-	KX_API void SecureZeroMemory(void* ptr, size_t size) noexcept;
+	KXF_API void SecureZeroMemory(void* ptr, size_t size) noexcept;
 
 	template<class T, class... Args>
 	requires(std::is_constructible_v<T, Args...>)

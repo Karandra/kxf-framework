@@ -5,9 +5,9 @@
 
 namespace kxf
 {
-	class KX_API IGDIObject: public RTTI::Interface<IGDIObject>
+	class KXF_API IGDIObject: public RTTI::Interface<IGDIObject>
 	{
-		KxRTTI_DeclareIID(IGDIObject, {0x773303ba, 0xe1a6, 0x47af, {0xa5, 0xa9, 0x19, 0x3, 0xf7, 0xcd, 0x8f, 0xb6}});
+		kxf_RTTI_DeclareIID(IGDIObject, {0x773303ba, 0xe1a6, 0x47af, {0xa5, 0xa9, 0x19, 0x3, 0xf7, 0xcd, 0x8f, 0xb6}});
 
 		public:
 			virtual ~IGDIObject() = default;

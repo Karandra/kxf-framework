@@ -9,7 +9,7 @@ namespace kxf::UI
 
 namespace kxf::UI::Private
 {
-	class KX_API TaskDialogNativeInfo final
+	class KXF_API TaskDialogNativeInfo final
 	{
 		friend class TaskDialog;
 

@@ -25,12 +25,12 @@ namespace kxf::Sciter
 }
 namespace kxf
 {
-	KxFlagSet_Declare(Sciter::HostStyle);
+	kxf_FlagSet_Declare(Sciter::HostStyle);
 }
 
 namespace kxf::Sciter
 {
-	class KX_API Host: public wxObject
+	class KXF_API Host: public wxObject
 	{
 		friend class Node;
 		friend class Element;

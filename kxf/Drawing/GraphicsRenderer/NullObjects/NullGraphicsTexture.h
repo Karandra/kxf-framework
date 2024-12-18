@@ -5,7 +5,7 @@
 
 namespace kxf::Drawing
 {
-	class KX_API NullGraphicsTexture final: public IGraphicsTexture
+	class KXF_API NullGraphicsTexture final: public IGraphicsTexture
 	{
 		public:
 			~NullGraphicsTexture() = default;

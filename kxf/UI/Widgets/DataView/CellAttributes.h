@@ -4,7 +4,7 @@
 
 namespace kxf::DataView
 {
-	class KX_API CellAttributes final
+	class KXF_API CellAttributes final
 	{
 		private:
 			CellOptions m_Options;

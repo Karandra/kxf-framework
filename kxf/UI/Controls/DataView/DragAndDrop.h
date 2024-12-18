@@ -15,7 +15,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API DNDOperationInfo final
+	class KXF_API DNDOperationInfo final
 	{
 		private:
 			wxDataObjectSimple* m_DropDataObject = nullptr;
@@ -54,7 +54,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API DnDInfo final
+	class KXF_API DnDInfo final
 	{
 		public:
 			enum class Result
@@ -112,7 +112,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API DropSource: public wxDropSource
+	class KXF_API DropSource: public wxDropSource
 	{
 		private:
 			MainWindow* m_MainWindow = nullptr;
@@ -137,7 +137,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API DropTarget: public wxDropTarget
+	class KXF_API DropTarget: public wxDropTarget
 	{
 		private:
 			MainWindow* m_MainWindow = nullptr;

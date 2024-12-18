@@ -24,11 +24,11 @@ namespace kxf::EventSystem
 
 namespace kxf
 {
-	class KX_API IEvtHandler: public RTTI::Interface<IEvtHandler>
+	class KXF_API IEvtHandler: public RTTI::Interface<IEvtHandler>
 	{
 		friend class EventSystem::EvtHandlerAccessor;
 
-		KxRTTI_DeclareIID(IEvtHandler, {0x96ae0970, 0x8cc5, 0x4288, {0xb1, 0x1b, 0x7a, 0xe6, 0x42, 0xf8, 0xdf, 0x8c}});
+		kxf_RTTI_DeclareIID(IEvtHandler, {0x96ae0970, 0x8cc5, 0x4288, {0xb1, 0x1b, 0x7a, 0xe6, 0x42, 0xf8, 0xdf, 0x8c}});
 
 		protected:
 			using EventItem = EventSystem::EventItem;

@@ -14,9 +14,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IGraphicsTexture: public RTTI::ExtendInterface<IGraphicsTexture, IGraphicsObject>
+	class KXF_API IGraphicsTexture: public RTTI::ExtendInterface<IGraphicsTexture, IGraphicsObject>
 	{
-		KxRTTI_DeclareIID(IGraphicsTexture, {0xa7852135, 0x2bf0, 0x4737, {0xa4, 0xfb, 0xc9, 0x99, 0xc7, 0xa2, 0x57, 0xd3}});
+		kxf_RTTI_DeclareIID(IGraphicsTexture, {0xa7852135, 0x2bf0, 0x4737, {0xa4, 0xfb, 0xc9, 0x99, 0xc7, 0xa2, 0x57, 0xd3}});
 
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

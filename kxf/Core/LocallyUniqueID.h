@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API LocallyUniqueID final
+	class KXF_API LocallyUniqueID final
 	{
 		public:
 			static LocallyUniqueID CreateSequential() noexcept;

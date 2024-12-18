@@ -8,7 +8,7 @@ struct IShellLinkW;
 
 namespace kxf
 {
-	class KX_API ShellLink final
+	class KXF_API ShellLink final
 	{
 		private:
 			COMPtr<IShellLinkW> m_ShellLink;

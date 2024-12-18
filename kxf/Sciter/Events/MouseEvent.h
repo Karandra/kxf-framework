@@ -3,19 +3,19 @@
 
 namespace kxf::Sciter
 {
-	class KX_API MouseEvent: public SciterEvent, public wxMouseState
+	class KXF_API MouseEvent: public SciterEvent, public wxMouseState
 	{
 		public:
-			KxEVENT_MEMBER(MouseEvent, MouseEnter);
-			KxEVENT_MEMBER(MouseEvent, MouseLeave);
-			KxEVENT_MEMBER(MouseEvent, MouseMove);
-			KxEVENT_MEMBER(MouseEvent, MouseUp);
-			KxEVENT_MEMBER(MouseEvent, MouseDown);
+			kxf_EVENT_MEMBER(MouseEvent, MouseEnter);
+			kxf_EVENT_MEMBER(MouseEvent, MouseLeave);
+			kxf_EVENT_MEMBER(MouseEvent, MouseMove);
+			kxf_EVENT_MEMBER(MouseEvent, MouseUp);
+			kxf_EVENT_MEMBER(MouseEvent, MouseDown);
 
-			KxEVENT_MEMBER(MouseEvent, MouseClick);
-			KxEVENT_MEMBER(MouseEvent, MouseDoubleClick);
-			KxEVENT_MEMBER(MouseEvent, MouseTick);
-			KxEVENT_MEMBER(MouseEvent, MouseIdle);
+			kxf_EVENT_MEMBER(MouseEvent, MouseClick);
+			kxf_EVENT_MEMBER(MouseEvent, MouseDoubleClick);
+			kxf_EVENT_MEMBER(MouseEvent, MouseTick);
+			kxf_EVENT_MEMBER(MouseEvent, MouseIdle);
 
 		protected:
 			Point m_RelativePosition = Point::UnspecifiedPosition();
@@ -67,14 +67,14 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseEnter);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseLeave);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseMove);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseUp);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseDown);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseEnter);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseLeave);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseMove);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseUp);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseDown);
 
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseClick);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseDoubleClick);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseTick);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseIdle);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseClick);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseDoubleClick);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseTick);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(MouseEvent, MouseIdle);
 }

@@ -3,7 +3,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API ToggleValue
+	class KXF_API ToggleValue
 	{
 		private:
 			ToggleState m_State = ToggleState::None;
@@ -79,7 +79,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ToggleRendererBase
+	class KXF_API ToggleRendererBase
 	{
 		private:
 			ToggleValue& m_Value;
@@ -97,7 +97,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ToggleRenderer: public Renderer, public ToggleRendererBase
+	class KXF_API ToggleRenderer: public Renderer, public ToggleRendererBase
 	{
 		private:
 			ToggleValue m_Value;

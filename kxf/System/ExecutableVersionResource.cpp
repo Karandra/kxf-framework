@@ -1,7 +1,8 @@
 #include "kxf-pch.h"
 #include "ExecutableVersionResource.h"
+
 #include <Windows.h>
-#include "UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

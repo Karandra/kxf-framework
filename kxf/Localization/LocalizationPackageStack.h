@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API LocalizationPackageStack: public RTTI::Implementation<LocalizationPackageStack, ILocalizationPackage>
+	class KXF_API LocalizationPackageStack: public RTTI::Implementation<LocalizationPackageStack, ILocalizationPackage>
 	{
 		private:
 			std::vector<std::shared_ptr<ILocalizationPackage>> m_Packages;

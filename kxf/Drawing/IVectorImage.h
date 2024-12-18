@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IVectorImage: public RTTI::ExtendInterface<IVectorImage, IImage2D>
+	class KXF_API IVectorImage: public RTTI::ExtendInterface<IVectorImage, IImage2D>
 	{
-		KxRTTI_DeclareIID(IVectorImage, {0x650f73df, 0x1ba0, 0x4da5, {0xbf, 0x83, 0xe4, 0xe8, 0x51, 0x84, 0xe, 0xc6}});
+		kxf_RTTI_DeclareIID(IVectorImage, {0x650f73df, 0x1ba0, 0x4da5, {0xbf, 0x83, 0xe4, 0xe8, 0x51, 0x84, 0xe, 0xc6}});
 
 		public:
 			virtual ~IVectorImage() = default;

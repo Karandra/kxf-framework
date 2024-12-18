@@ -19,7 +19,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API DateTime final
+	class KXF_API DateTime final
 	{
 		public:
 			static const int InvalidDay;

@@ -12,7 +12,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API MemoryInputStream: public RTTI::Implementation<MemoryInputStream, IInputStream, IMemoryStream>
+	class KXF_API MemoryInputStream: public RTTI::Implementation<MemoryInputStream, IInputStream, IMemoryStream>
 	{
 		private:
 			MemoryStreamBuffer m_StreamBuffer;
@@ -172,7 +172,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API MemoryOutputStream: public RTTI::Implementation<MemoryInputStream, IOutputStream, IMemoryStream, IReadableOutputStream>
+	class KXF_API MemoryOutputStream: public RTTI::Implementation<MemoryInputStream, IOutputStream, IMemoryStream, IReadableOutputStream>
 	{
 		private:
 			MemoryStreamBuffer m_StreamBuffer;

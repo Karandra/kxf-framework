@@ -15,7 +15,7 @@ namespace kxf
 		NoSubstitution = 1 << 1,
 		NewLine = 1 << 2,
 	};
-	KxFlagSet_Declare(RegExFlag);
+	kxf_FlagSet_Declare(RegExFlag);
 
 	enum class RegExCompileFlag: uint32_t
 	{
@@ -24,12 +24,12 @@ namespace kxf
 		NotBegin = 1 << 0,
 		NotEnd = 1 << 1
 	};
-	KxFlagSet_Declare(RegExCompileFlag);
+	kxf_FlagSet_Declare(RegExCompileFlag);
 }
 
 namespace kxf
 {
-	class KX_API RegEx final
+	class KXF_API RegEx final
 	{
 		public:
 			static String EscapeMeta(const String& value);

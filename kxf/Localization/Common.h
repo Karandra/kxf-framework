@@ -20,9 +20,9 @@ namespace kxf
 
 namespace kxf::Localization
 {
-	KX_API String GetStandardString(StdID id);
-	KX_API String GetStandardString(WidgetID id);
+	KXF_API String GetStandardString(StdID id);
+	KXF_API String GetStandardString(WidgetID id);
 
-	KX_API CallbackResult<void> SearchPackages(const IFileSystem& fileSystem, const FSPath& directory, CallbackFunction<Locale, FileItem, String> func);
-	KX_API CallbackResult<void> SearchPackages(const DynamicLibrary& library, CallbackFunction<Locale, FileItem, String> func);
+	KXF_API CallbackResult<void> SearchPackages(const IFileSystem& fileSystem, const FSPath& directory, CallbackFunction<Locale, FileItem, String> func);
+	KXF_API CallbackResult<void> SearchPackages(const DynamicLibrary& library, CallbackFunction<Locale, FileItem, String> func);
 }

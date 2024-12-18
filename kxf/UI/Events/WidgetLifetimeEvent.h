@@ -3,11 +3,11 @@
 
 namespace kxf
 {
-	class KX_API WidgetLifetimeEvent: public WidgetEvent
+	class KXF_API WidgetLifetimeEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetLifetimeEvent, Created);
-			KxEVENT_MEMBER(WidgetLifetimeEvent, Destroyed);
+			kxf_EVENT_MEMBER(WidgetLifetimeEvent, Created);
+			kxf_EVENT_MEMBER(WidgetLifetimeEvent, Destroyed);
 
 		public:
 			WidgetLifetimeEvent() noexcept = default;

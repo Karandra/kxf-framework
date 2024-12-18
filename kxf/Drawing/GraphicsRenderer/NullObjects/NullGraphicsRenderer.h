@@ -10,7 +10,7 @@
 
 namespace kxf::Drawing
 {
-	class KX_API NullGraphicsRenderer final: public IGraphicsRenderer
+	class KXF_API NullGraphicsRenderer final: public IGraphicsRenderer
 	{
 		public:
 			// IGraphicsRenderer

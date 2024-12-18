@@ -5,7 +5,7 @@
 
 namespace kxf::FFI
 {
-	class KX_API CFunctionCompiler
+	class KXF_API CFunctionCompiler
 	{
 		private:
 			Private::CInterface m_CInterface;

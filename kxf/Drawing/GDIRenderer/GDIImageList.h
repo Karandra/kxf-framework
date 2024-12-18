@@ -20,14 +20,14 @@ namespace kxf
 		Selected = 1 << 1,
 		Focused = 1 << 2,
 	};
-	KxFlagSet_Declare(ImageListFlag);
+	kxf_FlagSet_Declare(ImageListFlag);
 }
 
 namespace kxf
 {
-	class KX_API GDIImageList: public wxImageList, public RTTI::ExtendInterface<GDIImageList, IGDIObject>
+	class KXF_API GDIImageList: public wxImageList, public RTTI::ExtendInterface<GDIImageList, IGDIObject>
 	{
-		KxRTTI_DeclareIID(GDIImageList, {0x50e3b888, 0xefda, 0x4d73, {0x88, 0x58, 0x1, 0xde, 0xf, 0xf8, 0xc8, 0xaf}});
+		kxf_RTTI_DeclareIID(GDIImageList, {0x50e3b888, 0xefda, 0x4d73, {0x88, 0x58, 0x1, 0xde, 0xf, 0xf8, 0xc8, 0xaf}});
 
 		protected:
 			uint32_t m_Flags = 0;

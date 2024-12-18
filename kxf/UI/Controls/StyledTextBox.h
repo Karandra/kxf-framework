@@ -5,7 +5,7 @@
 
 namespace kxf::UI
 {
-	class KX_API StyledTextBox: public wxStyledTextCtrl
+	class KXF_API StyledTextBox: public wxStyledTextCtrl
 	{
 		public:
 			static constexpr long DefaultStyle = 0;

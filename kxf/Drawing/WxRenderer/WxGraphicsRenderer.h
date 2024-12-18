@@ -6,7 +6,7 @@ class wxGraphicsRenderer;
 
 namespace kxf
 {
-	class KX_API WxGraphicsRenderer: public RTTI::ExtendInterface<WxGraphicsRenderer, IGraphicsRenderer>
+	class KXF_API WxGraphicsRenderer: public RTTI::ExtendInterface<WxGraphicsRenderer, IGraphicsRenderer>
 	{
 		public:
 			enum class Type

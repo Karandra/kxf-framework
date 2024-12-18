@@ -14,7 +14,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API DefaultAsyncTaskExecutor final: public RTTI::DynamicImplementation<DefaultAsyncTaskExecutor, IAsyncTaskExecutor, IThreadPool>
+	class KXF_API DefaultAsyncTaskExecutor final: public RTTI::DynamicImplementation<DefaultAsyncTaskExecutor, IAsyncTaskExecutor, IThreadPool>
 	{
 		private:
 			std::vector<std::thread> m_ThreadPool;

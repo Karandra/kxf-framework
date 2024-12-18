@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API GDIScreenContext final: public GDIContext
+	class KXF_API GDIScreenContext final: public GDIContext
 	{
 		private:
 			wxScreenDC m_DC;

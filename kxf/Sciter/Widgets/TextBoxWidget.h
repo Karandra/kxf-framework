@@ -4,10 +4,10 @@
 
 namespace kxf::Sciter
 {
-	class KX_API TextBoxWidget: public Widget
+	class KXF_API TextBoxWidget: public Widget
 	{
-		KxRTTI_DeclareIID(TextBoxWidget, {0xec599691, 0x8610, 0x4987, {0x99, 0xcb, 0xe3, 0x27, 0x81, 0xf2, 0xc4, 0x2f}});
-		KxRTTI_QueryInterface_Extend(TextBoxWidget, Widget);
+		kxf_RTTI_DeclareIID(TextBoxWidget, {0xec599691, 0x8610, 0x4987, {0x99, 0xcb, 0xe3, 0x27, 0x81, 0xf2, 0xc4, 0x2f}});
+		kxf_RTTI_QueryInterface_Extend(TextBoxWidget, Widget);
 
 		private:
 			Element m_LabelArea;
@@ -68,7 +68,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API TextBoxWidgetFactory: public StdWidgetFactory, public WidgetFactoryInstance<TextBoxWidgetFactory>
+	class KXF_API TextBoxWidgetFactory: public StdWidgetFactory, public WidgetFactoryInstance<TextBoxWidgetFactory>
 	{
 		public:
 			TextBoxWidgetFactory()

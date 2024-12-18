@@ -1,9 +1,10 @@
 #include "kxf-pch.h"
 #include "System.h"
 #include "kxf/Utility/ScopeGuard.h"
+
 #include <Windows.h>
 #include <TlHelp32.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::System::Private
 {

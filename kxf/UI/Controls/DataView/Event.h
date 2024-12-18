@@ -17,34 +17,34 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ItemEvent: public wxNotifyEvent
+	class KXF_API ItemEvent: public wxNotifyEvent
 	{
 		public:
-			KxEVENT_MEMBER(ItemEvent, ItemSelected);
-			KxEVENT_MEMBER(ItemEvent, ItemHovered);
-			KxEVENT_MEMBER(ItemEvent, ItemActivated);
-			KxEVENT_MEMBER(ItemEvent, ItemCollapsed);
-			KxEVENT_MEMBER(ItemEvent, ItemExpanded);
-			KxEVENT_MEMBER(ItemEvent, ItemCollapsing);
-			KxEVENT_MEMBER(ItemEvent, ItemExpanding);
-			KxEVENT_MEMBER(ItemEvent, ItemContextMenu);
-			KxEVENT_MEMBER(ItemEvent, ItemValueChanged);
+			kxf_EVENT_MEMBER(ItemEvent, ItemSelected);
+			kxf_EVENT_MEMBER(ItemEvent, ItemHovered);
+			kxf_EVENT_MEMBER(ItemEvent, ItemActivated);
+			kxf_EVENT_MEMBER(ItemEvent, ItemCollapsed);
+			kxf_EVENT_MEMBER(ItemEvent, ItemExpanded);
+			kxf_EVENT_MEMBER(ItemEvent, ItemCollapsing);
+			kxf_EVENT_MEMBER(ItemEvent, ItemExpanding);
+			kxf_EVENT_MEMBER(ItemEvent, ItemContextMenu);
+			kxf_EVENT_MEMBER(ItemEvent, ItemValueChanged);
 
-			KxEVENT_MEMBER(ItemEvent, ColumnHeaderClick);
-			KxEVENT_MEMBER(ItemEvent, ColumnHeaderRClick);
-			KxEVENT_MEMBER(ItemEvent, ColumnHeaderMenuItem);
-			KxEVENT_MEMBER(ItemEvent, ColumnHeaderSeparatorDClick);
-			KxEVENT_MEMBER(ItemEvent, ColumnHeaderWidthFit);
-			KxEVENT_MEMBER(ItemEvent, ColumnDropdown);
-			KxEVENT_MEMBER(ItemEvent, ColumnToggle);
-			KxEVENT_MEMBER(ItemEvent, ColumnSorted);
-			KxEVENT_MEMBER(ItemEvent, ColumnMoved);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnHeaderClick);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnHeaderRClick);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnHeaderMenuItem);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnHeaderSeparatorDClick);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnHeaderWidthFit);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnDropdown);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnToggle);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnSorted);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnMoved);
 
-			KxEVENT_MEMBER(ItemEvent, ColumnBeginResize);
-			KxEVENT_MEMBER(ItemEvent, ColumnResize);
-			KxEVENT_MEMBER(ItemEvent, ColumnEndResize);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnBeginResize);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnResize);
+			kxf_EVENT_MEMBER(ItemEvent, ColumnEndResize);
 
-			KxEVENT_MEMBER(ItemEvent, ViewCacheHint);
+			kxf_EVENT_MEMBER(ItemEvent, ViewCacheHint);
 
 		private:
 			Node* m_Node = nullptr;
@@ -178,12 +178,12 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API EditorEvent: public ItemEvent
+	class KXF_API EditorEvent: public ItemEvent
 	{
 		public:
-			KxEVENT_MEMBER(EditorEvent, ItemEditStarting);
-			KxEVENT_MEMBER(EditorEvent, ItemEditStarted);
-			KxEVENT_MEMBER(EditorEvent, ItemEditDone);
+			kxf_EVENT_MEMBER(EditorEvent, ItemEditStarting);
+			kxf_EVENT_MEMBER(EditorEvent, ItemEditStarted);
+			kxf_EVENT_MEMBER(EditorEvent, ItemEditDone);
 
 		private:
 			std::variant<Any, const Any*> m_Value;
@@ -246,14 +246,14 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API DragDropEvent: public ItemEvent
+	class KXF_API DragDropEvent: public ItemEvent
 	{
 		friend class MainWindow;
 
 		public:
-			KxEVENT_MEMBER(DragDropEvent, ItemDrag);
-			KxEVENT_MEMBER(DragDropEvent, ItemDrop);
-			KxEVENT_MEMBER(DragDropEvent, ItemDropPossible);
+			kxf_EVENT_MEMBER(DragDropEvent, ItemDrag);
+			kxf_EVENT_MEMBER(DragDropEvent, ItemDrop);
+			kxf_EVENT_MEMBER(DragDropEvent, ItemDropPossible);
 
 		private:
 			wxDataObjectSimple* m_DataObject = nullptr;

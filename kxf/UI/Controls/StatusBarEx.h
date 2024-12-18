@@ -8,7 +8,7 @@
 
 namespace kxf::UI
 {
-	class KX_API StatusBarEx: public StatusBar, public WithImageList, public IProgressMeter
+	class KXF_API StatusBarEx: public StatusBar, public WithImageList, public IProgressMeter
 	{
 		public:
 			static constexpr FlagSet<StatusBarStyle> DefaultStyle = StatusBar::DefaultStyle;

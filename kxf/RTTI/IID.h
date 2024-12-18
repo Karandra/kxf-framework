@@ -9,7 +9,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IID final
+	class KXF_API IID final
 	{
 		friend struct std::hash<IID>;
 		friend struct BinarySerializer<IID>;

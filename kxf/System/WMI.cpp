@@ -3,17 +3,16 @@
 #include "SafeArray.h"
 #include "VariantProperty.h"
 #include "kxf/Utility/Enumerator.h"
+
 #include <Windows.h>
 #include <wbemcli.h>
-#include "UndefWindows.h"
 #pragma comment(lib, "wbemuuid.lib")
 
 #include "Private/BeginIncludeCOM.h"
 namespace
 {
-	Kx_MakeWinUnicodeCallWrapper(FormatMessage);
+	kxf_MakeWinUnicodeCallWrapper(FormatMessage);
 }
-#include <comdef.h>
 #include "Private/EndIncludeCOM.h"
 
 namespace

@@ -6,17 +6,17 @@
 
 namespace kxf
 {
-	class KX_API WidgetTextEvent: public WidgetEvent
+	class KXF_API WidgetTextEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetTextEvent, LengthLimit);
-			KxEVENT_MEMBER(WidgetTextEvent, Changed);
-			KxEVENT_MEMBER(WidgetTextEvent, Commit);
-			KxEVENT_MEMBER(WidgetTextEvent, URI);
+			kxf_EVENT_MEMBER(WidgetTextEvent, LengthLimit);
+			kxf_EVENT_MEMBER(WidgetTextEvent, Changed);
+			kxf_EVENT_MEMBER(WidgetTextEvent, Commit);
+			kxf_EVENT_MEMBER(WidgetTextEvent, URI);
 
-			KxEVENT_MEMBER(WidgetTextEvent, Cut);
-			KxEVENT_MEMBER(WidgetTextEvent, Copy);
-			KxEVENT_MEMBER(WidgetTextEvent, Paste);
+			kxf_EVENT_MEMBER(WidgetTextEvent, Cut);
+			kxf_EVENT_MEMBER(WidgetTextEvent, Copy);
+			kxf_EVENT_MEMBER(WidgetTextEvent, Paste);
 
 		private:
 			std::shared_ptr<ITextEntry> m_TextEntry;

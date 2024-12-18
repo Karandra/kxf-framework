@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API DynamicVariableCollection: public RTTI::Implementation<DynamicVariableCollection, StaticVariableCollection>
+	class KXF_API DynamicVariableCollection: public RTTI::Implementation<DynamicVariableCollection, StaticVariableCollection>
 	{
 		public:
 			using TValue = std::function<Any(const String& ns, const String& id)>;

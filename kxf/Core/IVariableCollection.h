@@ -12,18 +12,18 @@ namespace kxf
 
 namespace kxf
 {
-	KX_API String ExpandVariables(const String& source, std::function<String(const String& ns, const String& id)> onVariable);
-	KX_API String ExpandVariables(const String& source, const IVariableCollection& collection);
+	KXF_API String ExpandVariables(const String& source, std::function<String(const String& ns, const String& id)> onVariable);
+	KXF_API String ExpandVariables(const String& source, const IVariableCollection& collection);
 
-	KX_API String ExpandStdVariables(const String& source);
-	KX_API String ExpandStdVariables(const String& source, const IVariableCollection& collection);
+	KXF_API String ExpandStdVariables(const String& source);
+	KXF_API String ExpandStdVariables(const String& source, const IVariableCollection& collection);
 }
 
 namespace kxf
 {
-	class KX_API IVariableCollection: public RTTI::Interface<IVariableCollection>
+	class KXF_API IVariableCollection: public RTTI::Interface<IVariableCollection>
 	{
-		KxRTTI_DeclareIID(IVariableCollection, {0xc7cbd77f, 0x4982, 0x4a5f, {0xa6, 0xac, 0x57, 0xbb, 0x3, 0xb6, 0xb3, 0x3b}});
+		kxf_RTTI_DeclareIID(IVariableCollection, {0xc7cbd77f, 0x4982, 0x4a5f, {0xa6, 0xac, 0x57, 0xbb, 0x3, 0xb6, 0xb3, 0x3b}});
 
 		protected:
 			virtual size_t DoClearItems(const String& ns) = 0;

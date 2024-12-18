@@ -4,7 +4,7 @@
 
 namespace kxf::Log
 {
-	class KX_API WxOverride final: public wxLog
+	class KXF_API WxOverride final: public wxLog
 	{
 		public:
 			static void Install();

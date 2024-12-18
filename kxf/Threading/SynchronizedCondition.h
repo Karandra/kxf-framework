@@ -3,7 +3,7 @@
 
 namespace kxf
 {
-	class KX_API SynchronizedCondition final
+	class KXF_API SynchronizedCondition final
 	{
 		private:
 			void* m_Handle = nullptr;

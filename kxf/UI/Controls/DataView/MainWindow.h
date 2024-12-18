@@ -29,7 +29,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API MainWindow: public WindowRefreshScheduler<wxWindow>
+	class KXF_API MainWindow: public WindowRefreshScheduler<wxWindow>
 	{
 		friend class Renderer;
 		friend class Editor;

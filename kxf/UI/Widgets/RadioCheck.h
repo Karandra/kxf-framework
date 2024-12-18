@@ -9,7 +9,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API RadioCheck: public RTTI::Implementation<RadioCheck, Private::BasicWxWidget<RadioCheck, WXUI::RadioCheck, ICheckWidget>>
+	class KXF_API RadioCheck: public RTTI::Implementation<RadioCheck, Private::BasicWxWidget<RadioCheck, WXUI::RadioCheck, ICheckWidget>>
 	{
 		public:
 			RadioCheck();

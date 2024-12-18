@@ -11,7 +11,7 @@ namespace kxf
 
 namespace kxf::EventSystem::Private
 {
-	class KX_API EventWaitInfo final
+	class KXF_API EventWaitInfo final
 	{
 		private:
 			struct WaitInfo

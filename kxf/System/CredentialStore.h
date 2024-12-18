@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API CredentialStore: public ISecretStore
+	class KXF_API CredentialStore: public ISecretStore
 	{
 		private:
 			String m_ServiceName;

@@ -5,9 +5,9 @@
 
 namespace kxf
 {
-	class KX_API IImageComboBoxWidget: public RTTI::ExtendInterface<IImageComboBoxWidget, IComboBoxWidget>
+	class KXF_API IImageComboBoxWidget: public RTTI::ExtendInterface<IImageComboBoxWidget, IComboBoxWidget>
 	{
-		KxRTTI_DeclareIID(IImageComboBoxWidget, {0x4d3ddc9f, 0xa781, 0x4686, {0x96, 0xf2, 0x8e, 0x7b, 0xc9, 0x9b, 0x53, 0x2b}});
+		kxf_RTTI_DeclareIID(IImageComboBoxWidget, {0x4d3ddc9f, 0xa781, 0x4686, {0x96, 0xf2, 0x8e, 0x7b, 0xc9, 0x9b, 0x53, 0x2b}});
 
 		public:
 			using IComboBoxWidget::InsertItem;

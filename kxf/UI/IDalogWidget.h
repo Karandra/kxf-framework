@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IDalogWidget: public RTTI::ExtendInterface<IDalogWidget, ITopLevelWidget>
+	class KXF_API IDalogWidget: public RTTI::ExtendInterface<IDalogWidget, ITopLevelWidget>
 	{
-		KxRTTI_DeclareIID(IDalogWidget, {0xa6bd3c33, 0x4d1e, 0x4a13, {0x8a, 0x16, 0xb6, 0xc9, 0x26, 0x9e, 0xb0, 0xc1}});
+		kxf_RTTI_DeclareIID(IDalogWidget, {0xa6bd3c33, 0x4d1e, 0x4a13, {0x8a, 0x16, 0xb6, 0xc9, 0x26, 0x9e, 0xb0, 0xc1}});
 
 		public:
 			virtual ~IDalogWidget() = default;

@@ -14,7 +14,7 @@ namespace kxf
 
 namespace kxf::WXUI
 {
-	class KX_API HTMLBox: public EvtHandlerWrapper<HTMLBox, UI::WindowRefreshScheduler<wxSystemThemedControl<wxHtmlWindow>>>, public wxTextEntry
+	class KXF_API HTMLBox: public EvtHandlerWrapper<HTMLBox, UI::WindowRefreshScheduler<wxSystemThemedControl<wxHtmlWindow>>>, public wxTextEntry
 	{
 		public:
 			static String ProcessPlainText(const String& text);

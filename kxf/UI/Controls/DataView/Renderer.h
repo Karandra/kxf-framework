@@ -18,7 +18,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API Renderer
+	class KXF_API Renderer
 	{
 		friend class Model;
 		friend class Column;

@@ -43,7 +43,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API RenderEngine
+	class KXF_API RenderEngine
 	{
 		private:
 			Renderer& m_Renderer;

@@ -7,7 +7,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API StatusBar: public EvtHandlerWrapper<StatusBar, UI::WindowRefreshScheduler<wxSystemThemedControl<wxStatusBar>>>
+	class KXF_API StatusBar: public EvtHandlerWrapper<StatusBar, UI::WindowRefreshScheduler<wxSystemThemedControl<wxStatusBar>>>
 	{
 		protected:
 			IStatusBarWidget& m_Widget;

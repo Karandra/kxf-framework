@@ -11,9 +11,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API Win32Error final: public RTTI::DynamicImplementation<Win32Error, IErrorCode>
+	class KXF_API Win32Error final: public RTTI::DynamicImplementation<Win32Error, IErrorCode>
 	{
-		KxRTTI_DeclareIID(Win32Error, {0x747f17c6, 0xea9d, 0x484d, {0xb9, 0xbe, 0xec, 0xc4, 0xa3, 0x72, 0x9f, 0x40}});
+		kxf_RTTI_DeclareIID(Win32Error, {0x747f17c6, 0xea9d, 0x484d, {0xb9, 0xbe, 0xec, 0xc4, 0xa3, 0x72, 0x9f, 0x40}});
 
 		public:
 			static Win32Error Success() noexcept;

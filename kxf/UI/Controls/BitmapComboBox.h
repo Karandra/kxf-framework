@@ -8,7 +8,7 @@
 
 namespace kxf::UI
 {
-	class KX_API BitmapComboBox: public WindowRefreshScheduler<wxSystemThemedControl<wxBitmapComboBox>>, public WithImageList
+	class KXF_API BitmapComboBox: public WindowRefreshScheduler<wxSystemThemedControl<wxBitmapComboBox>>, public WithImageList
 	{
 		public:
 			static constexpr FlagSet<ComboBoxStyle> DefaultStyle = ComboBoxStyle::ProcessEnter|ComboBoxStyle::Dropdown|ComboBoxStyle::ReadOnly;

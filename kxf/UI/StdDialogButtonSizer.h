@@ -13,7 +13,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API StdDialogButtonSizer: public wxBoxSizer
+	class KXF_API StdDialogButtonSizer: public wxBoxSizer
 	{
 		private:
 			std::vector<wxAnyButton*> m_NonStandardButtons;

@@ -3,19 +3,18 @@
 #include "ArchiveEvent.h"
 #include "IArchiveCallbacks.h"
 #include "kxf/EventSystem/Event.h"
-#include "kxf/System/UndefWindows.h"
 #include "kxf/RTTI/RTTI.h"
 
 namespace kxf
 {
-	class KX_API IArchive: public RTTI::Interface<IArchive>
+	class KXF_API IArchive: public RTTI::Interface<IArchive>
 	{
-		KxRTTI_DeclareIID(IArchive, {0xb4327a42, 0x17a7, 0x44db, {0x84, 0xb, 0xc3, 0x24, 0x5b, 0x29, 0xca, 0xe8}});
+		kxf_RTTI_DeclareIID(IArchive, {0xb4327a42, 0x17a7, 0x44db, {0x84, 0xb, 0xc3, 0x24, 0x5b, 0x29, 0xca, 0xe8}});
 
 		public:
-			KxEVENT_MEMBER(ArchiveEvent, OpenBytes);
-			KxEVENT_MEMBER(ArchiveEvent, OpenItems);
-			KxEVENT_MEMBER(ArchiveEvent, Password);
+			kxf_EVENT_MEMBER(ArchiveEvent, OpenBytes);
+			kxf_EVENT_MEMBER(ArchiveEvent, OpenItems);
+			kxf_EVENT_MEMBER(ArchiveEvent, Password);
 
 		public:
 			virtual ~IArchive() = default;
@@ -49,15 +48,15 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IArchiveExtract: public RTTI::Interface<IArchiveExtract>
+	class KXF_API IArchiveExtract: public RTTI::Interface<IArchiveExtract>
 	{
-		KxRTTI_DeclareIID(IArchiveExtract, {0x105f744b, 0x904d, 0x4822, {0xb4, 0x7a, 0x57, 0x8b, 0x3e, 0xd, 0x95, 0xe6}});
+		kxf_RTTI_DeclareIID(IArchiveExtract, {0x105f744b, 0x904d, 0x4822, {0xb4, 0x7a, 0x57, 0x8b, 0x3e, 0xd, 0x95, 0xe6}});
 
 		public:
-			KxEVENT_MEMBER(ArchiveEvent, Item);
-			KxEVENT_MEMBER(ArchiveEvent, ItemDone);
-			KxEVENT_MEMBER(ArchiveEvent, WriteStream);
-			KxEVENT_MEMBER(ArchiveEvent, Password);
+			kxf_EVENT_MEMBER(ArchiveEvent, Item);
+			kxf_EVENT_MEMBER(ArchiveEvent, ItemDone);
+			kxf_EVENT_MEMBER(ArchiveEvent, WriteStream);
+			kxf_EVENT_MEMBER(ArchiveEvent, Password);
 
 		public:
 			virtual ~IArchiveExtract() = default;
@@ -84,15 +83,15 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IArchiveUpdate: public RTTI::Interface<IArchiveUpdate>
+	class KXF_API IArchiveUpdate: public RTTI::Interface<IArchiveUpdate>
 	{
-		KxRTTI_DeclareIID(IArchiveUpdate, {0xcf9bb9ac, 0x6519, 0x49d4, {0xa3, 0xb4, 0xcd, 0x63, 0x17, 0x52, 0xe1, 0x55}});
+		kxf_RTTI_DeclareIID(IArchiveUpdate, {0xcf9bb9ac, 0x6519, 0x49d4, {0xa3, 0xb4, 0xcd, 0x63, 0x17, 0x52, 0xe1, 0x55}});
 
 		public:
-			KxEVENT_MEMBER(ArchiveEvent, Item);
-			KxEVENT_MEMBER(ArchiveEvent, ItemDone);
-			KxEVENT_MEMBER(ArchiveEvent, ReadStream);
-			KxEVENT_MEMBER(ArchiveEvent, Password);
+			kxf_EVENT_MEMBER(ArchiveEvent, Item);
+			kxf_EVENT_MEMBER(ArchiveEvent, ItemDone);
+			kxf_EVENT_MEMBER(ArchiveEvent, ReadStream);
+			kxf_EVENT_MEMBER(ArchiveEvent, Password);
 
 		public:
 			virtual ~IArchiveUpdate() = default;
@@ -108,9 +107,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IArchiveProperties: public RTTI::Interface<IArchiveProperties>
+	class KXF_API IArchiveProperties: public RTTI::Interface<IArchiveProperties>
 	{
-		KxRTTI_DeclareIID(IArchiveProperties, {0x8ecede61, 0x7542, 0x4164, {0x99, 0x7c, 0xd6, 0x72, 0x57, 0x24, 0x94, 0x26}});
+		kxf_RTTI_DeclareIID(IArchiveProperties, {0x8ecede61, 0x7542, 0x4164, {0x99, 0x7c, 0xd6, 0x72, 0x57, 0x24, 0x94, 0x26}});
 
 		public:
 			virtual ~IArchiveProperties() = default;
@@ -132,24 +131,24 @@ namespace kxf
 
 namespace kxf::Compression
 {
-	#define Kx_Compression_DeclareUserProperty(section, name)	constexpr XChar section##_##name[] = "User/" wxS(#section) "/" wxS(#name);
+	#define kxf_Compression_DeclareUserProperty(section, name)	constexpr XChar section##_##name[] = "User/" wxS(#section) "/" wxS(#name);
 
 	namespace Property
 	{
-		#define Kx_Compression_DeclareBaseProperty(section, name) constexpr XChar section##_##name[] = "Archive/" wxS(#section) "/" wxS(#name);
+		#define kxf_Compression_DeclareBaseProperty(section, name) constexpr XChar section##_##name[] = "Archive/" wxS(#section) "/" wxS(#name);
 
-		Kx_Compression_DeclareBaseProperty(Common, FilePath);
-		Kx_Compression_DeclareBaseProperty(Common, ItemCount);
-		Kx_Compression_DeclareBaseProperty(Common, OriginalSize);
-		Kx_Compression_DeclareBaseProperty(Common, CompressedSize);
+		kxf_Compression_DeclareBaseProperty(Common, FilePath);
+		kxf_Compression_DeclareBaseProperty(Common, ItemCount);
+		kxf_Compression_DeclareBaseProperty(Common, OriginalSize);
+		kxf_Compression_DeclareBaseProperty(Common, CompressedSize);
 
-		Kx_Compression_DeclareBaseProperty(Compression, Format);
-		Kx_Compression_DeclareBaseProperty(Compression, Method);
-		Kx_Compression_DeclareBaseProperty(Compression, Level);
-		Kx_Compression_DeclareBaseProperty(Compression, Solid);
-		Kx_Compression_DeclareBaseProperty(Compression, MultiThreaded);
-		Kx_Compression_DeclareBaseProperty(Compression, DictionarySize);
+		kxf_Compression_DeclareBaseProperty(Compression, Format);
+		kxf_Compression_DeclareBaseProperty(Compression, Method);
+		kxf_Compression_DeclareBaseProperty(Compression, Level);
+		kxf_Compression_DeclareBaseProperty(Compression, Solid);
+		kxf_Compression_DeclareBaseProperty(Compression, MultiThreaded);
+		kxf_Compression_DeclareBaseProperty(Compression, DictionarySize);
 
-		#undef KxArchiveDeclareBaseProperty
+		#undef Kx_Compression_DeclareBaseProperty
 	}
 }

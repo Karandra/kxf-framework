@@ -3,81 +3,81 @@
 
 namespace kxf::Sciter
 {
-	class KX_API BehaviorEvent: public SciterEvent
+	class KXF_API BehaviorEvent: public SciterEvent
 	{
 		public:
 			// Button
-			KxEVENT_MEMBER(BehaviorEvent, ButtonClick);
-			KxEVENT_MEMBER(BehaviorEvent, ButtonPress);
-			KxEVENT_MEMBER(BehaviorEvent, ButtonStateChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, ButtonClick);
+			kxf_EVENT_MEMBER(BehaviorEvent, ButtonPress);
+			kxf_EVENT_MEMBER(BehaviorEvent, ButtonStateChanged);
 
 			// Edit
-			KxEVENT_MEMBER(BehaviorEvent, EditValueChanging);
-			KxEVENT_MEMBER(BehaviorEvent, EditValueChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, EditValueChanging);
+			kxf_EVENT_MEMBER(BehaviorEvent, EditValueChanged);
 
 			// Select
-			KxEVENT_MEMBER(BehaviorEvent, SelectValueChanged);
-			KxEVENT_MEMBER(BehaviorEvent, SelectStateChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, SelectValueChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, SelectStateChanged);
 
 			// Popup
-			KxEVENT_MEMBER(BehaviorEvent, PopupReady);
-			KxEVENT_MEMBER(BehaviorEvent, PopupDismissing);
-			KxEVENT_MEMBER(BehaviorEvent, PopupDismissed);
-			KxEVENT_MEMBER(BehaviorEvent, PopupShowRequest);
-			KxEVENT_MEMBER(BehaviorEvent, PopupCloseRequest);
+			kxf_EVENT_MEMBER(BehaviorEvent, PopupReady);
+			kxf_EVENT_MEMBER(BehaviorEvent, PopupDismissing);
+			kxf_EVENT_MEMBER(BehaviorEvent, PopupDismissed);
+			kxf_EVENT_MEMBER(BehaviorEvent, PopupShowRequest);
+			kxf_EVENT_MEMBER(BehaviorEvent, PopupCloseRequest);
 
 			// Menu
-			KxEVENT_MEMBER(BehaviorEvent, ContextMenuRequest);
-			KxEVENT_MEMBER(BehaviorEvent, MenuItemActive);
-			KxEVENT_MEMBER(BehaviorEvent, MenuItemClick);
+			kxf_EVENT_MEMBER(BehaviorEvent, ContextMenuRequest);
+			kxf_EVENT_MEMBER(BehaviorEvent, MenuItemActive);
+			kxf_EVENT_MEMBER(BehaviorEvent, MenuItemClick);
 			
 			// History
-			KxEVENT_MEMBER(BehaviorEvent, HistoryPush);
-			KxEVENT_MEMBER(BehaviorEvent, HistoryDrop);
-			KxEVENT_MEMBER(BehaviorEvent, HistoryBackward);
-			KxEVENT_MEMBER(BehaviorEvent, HistoryForward);
-			KxEVENT_MEMBER(BehaviorEvent, HistoryStateChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, HistoryPush);
+			kxf_EVENT_MEMBER(BehaviorEvent, HistoryDrop);
+			kxf_EVENT_MEMBER(BehaviorEvent, HistoryBackward);
+			kxf_EVENT_MEMBER(BehaviorEvent, HistoryForward);
+			kxf_EVENT_MEMBER(BehaviorEvent, HistoryStateChanged);
 
 			// Document
-			KxEVENT_MEMBER(BehaviorEvent, DocumentComplete);
-			KxEVENT_MEMBER(BehaviorEvent, DocumentCreated);
-			KxEVENT_MEMBER(BehaviorEvent, DocumentParsed);
-			KxEVENT_MEMBER(BehaviorEvent, DocumentReady);
-			KxEVENT_MEMBER(BehaviorEvent, DocumentClosing);
-			KxEVENT_MEMBER(BehaviorEvent, DocumentClosed);
+			kxf_EVENT_MEMBER(BehaviorEvent, DocumentComplete);
+			kxf_EVENT_MEMBER(BehaviorEvent, DocumentCreated);
+			kxf_EVENT_MEMBER(BehaviorEvent, DocumentParsed);
+			kxf_EVENT_MEMBER(BehaviorEvent, DocumentReady);
+			kxf_EVENT_MEMBER(BehaviorEvent, DocumentClosing);
+			kxf_EVENT_MEMBER(BehaviorEvent, DocumentClosed);
 
 			// Video
-			KxEVENT_MEMBER(BehaviorEvent, VideoInitialized);
-			KxEVENT_MEMBER(BehaviorEvent, VideoStarted);
-			KxEVENT_MEMBER(BehaviorEvent, VideoStopped);
-			KxEVENT_MEMBER(BehaviorEvent, VideoBindingRequest);
+			kxf_EVENT_MEMBER(BehaviorEvent, VideoInitialized);
+			kxf_EVENT_MEMBER(BehaviorEvent, VideoStarted);
+			kxf_EVENT_MEMBER(BehaviorEvent, VideoStopped);
+			kxf_EVENT_MEMBER(BehaviorEvent, VideoBindingRequest);
 
 			// Pagination
-			KxEVENT_MEMBER(BehaviorEvent, PaginationStart);
-			KxEVENT_MEMBER(BehaviorEvent, PaginationPage);
-			KxEVENT_MEMBER(BehaviorEvent, PaginationEnd);
+			kxf_EVENT_MEMBER(BehaviorEvent, PaginationStart);
+			kxf_EVENT_MEMBER(BehaviorEvent, PaginationPage);
+			kxf_EVENT_MEMBER(BehaviorEvent, PaginationEnd);
 
 			// Generic
-			KxEVENT_MEMBER(BehaviorEvent, GenericClick);
-			KxEVENT_MEMBER(BehaviorEvent, GenericChange);
-			KxEVENT_MEMBER(BehaviorEvent, HyperlinkClick);
+			kxf_EVENT_MEMBER(BehaviorEvent, GenericClick);
+			kxf_EVENT_MEMBER(BehaviorEvent, GenericChange);
+			kxf_EVENT_MEMBER(BehaviorEvent, HyperlinkClick);
 
 			// Expand/Collapse
-			KxEVENT_MEMBER(BehaviorEvent, ElementExpanded);
-			KxEVENT_MEMBER(BehaviorEvent, ElementCollapsed);
+			kxf_EVENT_MEMBER(BehaviorEvent, ElementExpanded);
+			kxf_EVENT_MEMBER(BehaviorEvent, ElementCollapsed);
 
 			// Forms
-			KxEVENT_MEMBER(BehaviorEvent, FormSubmit);
-			KxEVENT_MEMBER(BehaviorEvent, FormReset);
+			kxf_EVENT_MEMBER(BehaviorEvent, FormSubmit);
+			kxf_EVENT_MEMBER(BehaviorEvent, FormReset);
 
 			// Misc
-			KxEVENT_MEMBER(BehaviorEvent, Animation);
-			KxEVENT_MEMBER(BehaviorEvent, ActivateChild);
+			kxf_EVENT_MEMBER(BehaviorEvent, Animation);
+			kxf_EVENT_MEMBER(BehaviorEvent, ActivateChild);
 
-			KxEVENT_MEMBER(BehaviorEvent, VisualStatusChanged);
-			KxEVENT_MEMBER(BehaviorEvent, DisabledStatusChanged);
-			KxEVENT_MEMBER(BehaviorEvent, ContentChanged);
-			KxEVENT_MEMBER(BehaviorEvent, UIStateChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, VisualStatusChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, DisabledStatusChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, ContentChanged);
+			kxf_EVENT_MEMBER(BehaviorEvent, UIStateChanged);
 
 		protected:
 			String m_EventName;

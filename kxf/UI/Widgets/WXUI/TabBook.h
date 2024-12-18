@@ -15,7 +15,7 @@ namespace kxf::WXUI::Private
 
 namespace kxf::WXUI
 {
-	class KX_API TabBook: public EvtHandlerWrapper<TabBook, UI::WindowRefreshScheduler<wxSystemThemedControl<wxAuiNotebook>>>
+	class KXF_API TabBook: public EvtHandlerWrapper<TabBook, UI::WindowRefreshScheduler<wxSystemThemedControl<wxAuiNotebook>>>
 	{
 		friend class EvtHandlerWrapper;
 		friend class Private::TabBookTabRenderer;
@@ -63,7 +63,7 @@ namespace kxf::WXUI
 
 namespace kxf::WXUI::Private
 {
-	class KX_API TabBookTabRenderer: public wxAuiDefaultTabArt
+	class KXF_API TabBookTabRenderer: public wxAuiDefaultTabArt
 	{
 		private:
 			TabBook* m_TabBook = nullptr;
@@ -97,7 +97,7 @@ namespace kxf::WXUI::Private
 
 namespace kxf::WXUI::Private
 {
-	class KX_API TabBookDockRenderer: public wxAuiDefaultDockArt
+	class KXF_API TabBookDockRenderer: public wxAuiDefaultDockArt
 	{
 		private:
 			TabBook* m_TabBook = nullptr;

@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API StupidMemoryAllocator: public RTTI::Implementation<StupidMemoryAllocator, IMemoryPoolAllocator, IMemoryAllocator>
+	class KXF_API StupidMemoryAllocator: public RTTI::Implementation<StupidMemoryAllocator, IMemoryPoolAllocator, IMemoryAllocator>
 	{
 		private:
 			struct RegionInfo

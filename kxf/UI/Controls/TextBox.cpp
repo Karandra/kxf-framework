@@ -1,8 +1,9 @@
 #include "kxf-pch.h"
 #include "TextBox.h"
-#include <CommCtrl.h>
-#include "kxf/System/UndefWindows.h"
 #include "kxf/System/Win32Error.h"
+
+#include <CommCtrl.h>
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::UI
 {

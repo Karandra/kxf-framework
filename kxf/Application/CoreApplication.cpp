@@ -188,7 +188,7 @@ namespace kxf
 	// ICoreApplication
 	bool CoreApplication::OnCreate()
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		if (!m_NativeAppInitialized)
 		{
@@ -198,18 +198,18 @@ namespace kxf
 				m_NativeAppInitialized = app->wxAppConsole::Initialize(argc, m_ArgVW);
 				if (!m_NativeAppInitialized)
 				{
-					KX_SCOPEDLOG.SetFail();
+					KXF_SCOPEDLOG.SetFail();
 					return false;
 				}
 			}
 		}
 
-		KX_SCOPEDLOG.SetSuccess();
+		KXF_SCOPEDLOG.SetSuccess();
 		return true;
 	}
 	void CoreApplication::OnDestroy()
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		UninitDLLNotifications();
 
@@ -231,7 +231,7 @@ namespace kxf
 			}
 		}
 
-		KX_SCOPEDLOG.SetSuccess();
+		KXF_SCOPEDLOG.SetSuccess();
 	}
 
 	void CoreApplication::OnExit()
@@ -241,7 +241,7 @@ namespace kxf
 	}
 	int CoreApplication::OnRun()
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		if (auto mainLoop = CreateMainLoop())
 		{
@@ -256,17 +256,17 @@ namespace kxf
 			// Here we're running our newly created main loop saved in place of 'm_MainLoop' pointer.
 			int code = m_MainLoop->Run();
 
-			KX_SCOPEDLOG.LogReturn(code);
+			KXF_SCOPEDLOG.LogReturn(code);
 			return code;
 		}
 
-		KX_SCOPEDLOG.LogReturn(m_ExitCode);
+		KXF_SCOPEDLOG.LogReturn(m_ExitCode);
 		return m_ExitCode.value_or(-1);
 	}
 
 	void CoreApplication::Exit(int exitCode)
 	{
-		KX_SCOPEDLOG_ARGS(exitCode);
+		KXF_SCOPEDLOG_ARGS(exitCode);
 
 		if (m_MainLoop)
 		{
@@ -278,7 +278,7 @@ namespace kxf
 			std::terminate();
 		}
 
-		KX_SCOPEDLOG.SetSuccess();
+		KXF_SCOPEDLOG.SetSuccess();
 	}
 
 	void CoreApplication::AddEventFilter(std::shared_ptr<IEventFilter> eventFilter)
@@ -428,7 +428,7 @@ namespace kxf
 	}
 	void CoreApplication::ExitMainLoop(int exitCode)
 	{
-		KX_SCOPEDLOG_ARGS(exitCode);
+		KXF_SCOPEDLOG_ARGS(exitCode);
 
 		// We should exit from the main event loop, not just any currently active (e.g. modal dialog) event loop
 		m_ExitCode = exitCode;
@@ -762,7 +762,7 @@ namespace kxf
 	// Application::ICommandLine
 	void CoreApplication::InitializeCommandLine(char** argv, size_t argc)
 	{
-		KX_SCOPEDLOG_ARGS(argv, argc);
+		KXF_SCOPEDLOG_ARGS(argv, argc);
 
 		m_ArgC = argc;
 		m_ArgVA = argv;
@@ -771,11 +771,11 @@ namespace kxf
 		m_CommandLineParser.SetCommandLine(argc, argv);
 		OnCommandLineInit(m_CommandLineParser);
 
-		KX_SCOPEDLOG.SetSuccess();
+		KXF_SCOPEDLOG.SetSuccess();
 	}
 	void CoreApplication::InitializeCommandLine(wchar_t** argv, size_t argc)
 	{
-		KX_SCOPEDLOG_ARGS(argv, argc);
+		KXF_SCOPEDLOG_ARGS(argv, argc);
 
 		m_ArgC = argc;
 		m_ArgVA = nullptr;
@@ -784,7 +784,7 @@ namespace kxf
 		m_CommandLineParser.SetCommandLine(argc, argv);
 		OnCommandLineInit(m_CommandLineParser);
 
-		KX_SCOPEDLOG.SetSuccess();
+		KXF_SCOPEDLOG.SetSuccess();
 	}
 
 	Enumerator<String> CoreApplication::EnumCommandLineArgs() const

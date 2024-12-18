@@ -26,7 +26,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API View:
+	class KXF_API View:
 		public WindowRefreshScheduler<wxSystemThemedControl<wxScrolled<wxWindow>>>,
 		public WindowWithStyles<View, CtrlStyle>,
 		public WindowWithExtraStyles<View, CtrlExtraStyle>,

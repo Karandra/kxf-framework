@@ -3,8 +3,9 @@
 #include "../TaskDialog.h"
 #include "kxf/Core/ErrorCode.h"
 #include "kxf/Utility/Common.h"
+
 #include <CommCtrl.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

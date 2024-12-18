@@ -316,6 +316,9 @@
     <Filter Include="kxf/+Resources\SoftwareLicenseDB">
       <UniqueIdentifier>{09f70c3f-0b6b-49ae-afff-9f9e5b894dc5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="kxf\Win32">
+      <UniqueIdentifier>{f222d3d1-6cba-4032-8f79-16757a424297}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kxf\Threading\Common.h">
@@ -470,9 +473,6 @@
     </ClInclude>
     <ClInclude Include="kxf\FileSystem\RecycleBin.h">
       <Filter>kxf\FileSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\System\UndefWindows.h">
-      <Filter>kxf\System</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Compression\Common.h">
       <Filter>kxf\Compression</Filter>
@@ -2501,6 +2501,15 @@
     </ClInclude>
     <ClInclude Include="kxf\+Resources\kxf-resources.h">
       <Filter>kxf/+Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\WrapperUnicode.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\WrapperMemory.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\UndefMacros.h">
+      <Filter>kxf\Win32</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

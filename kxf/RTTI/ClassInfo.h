@@ -31,17 +31,17 @@ namespace kxf::RTTI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(RTTI::ClassTrait);
+	kxf_FlagSet_Declare(RTTI::ClassTrait);
 }
 
 namespace kxf::RTTI
 {
-	class KX_API ClassInfo: public IObject
+	class KXF_API ClassInfo: public IObject
 	{
-		KxRTTI_DeclareIID(ClassInfo, {0xccefbb7f, 0xe63e, 0x4a32, {0x95, 0xfa, 0xce, 0x15, 0x13, 0xe3, 0x5c, 0xfc}});
+		kxf_RTTI_DeclareIID(ClassInfo, {0xccefbb7f, 0xe63e, 0x4a32, {0x95, 0xfa, 0xce, 0x15, 0x13, 0xe3, 0x5c, 0xfc}});
 
-		friend KX_API const ClassInfo* GetClassInfoByName(std::string_view) noexcept;
-		friend KX_API const ClassInfo* GetClassInfoByName(const kxf::String&) noexcept;
+		friend KXF_API const ClassInfo* GetClassInfoByName(std::string_view) noexcept;
+		friend KXF_API const ClassInfo* GetClassInfoByName(const kxf::String&) noexcept;
 
 		friend class Private::BaseClassesEnumerator;
 

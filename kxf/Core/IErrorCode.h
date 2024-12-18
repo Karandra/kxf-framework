@@ -6,9 +6,9 @@
 
 namespace kxf
 {
-	class KX_API IErrorCode: public RTTI::Interface<IErrorCode>
+	class KXF_API IErrorCode: public RTTI::Interface<IErrorCode>
 	{
-		KxRTTI_DeclareIID(IErrorCode, {0x79dd38bf, 0xec09, 0x4d32, {0x99, 0x4b, 0xa7, 0x82, 0x51, 0x90, 0x34, 0x12}});
+		kxf_RTTI_DeclareIID(IErrorCode, {0x79dd38bf, 0xec09, 0x4d32, {0x99, 0x4b, 0xa7, 0x82, 0x51, 0x90, 0x34, 0x12}});
 
 		public:
 			IErrorCode() noexcept = default;

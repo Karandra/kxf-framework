@@ -47,9 +47,9 @@ namespace kxf::Drawing
 
 namespace kxf
 {
-	class KX_API GDICursor: public RTTI::DynamicImplementation<GDICursor, IGDIObject, IImage2D>
+	class KXF_API GDICursor: public RTTI::DynamicImplementation<GDICursor, IGDIObject, IImage2D>
 	{
-		KxRTTI_DeclareIID(GDICursor, {0xec12b28a, 0x111e, 0x4f00, {0x8c, 0xe0, 0xdd, 0xb, 0x18, 0x9, 0xf7, 0x5e}});
+		kxf_RTTI_DeclareIID(GDICursor, {0xec12b28a, 0x111e, 0x4f00, {0x8c, 0xe0, 0xdd, 0xb, 0x18, 0x9, 0xf7, 0x5e}});
 
 		private:
 			wxCursor m_Cursor;
@@ -193,5 +193,5 @@ namespace kxf::Drawing
 		return static_cast<StockCursor>(cursorType);
 	}
 
-	KX_API GDICursor GetStockCursor(Drawing::StockCursor cursor);
+	KXF_API GDICursor GetStockCursor(Drawing::StockCursor cursor);
 }

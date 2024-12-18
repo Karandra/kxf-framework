@@ -6,7 +6,7 @@
 
 namespace kxf
 {
-	class KX_API EvtHandlerDelegate: public RTTI::Implementation<EvtHandlerDelegate, IEvtHandler>
+	class KXF_API EvtHandlerDelegate: public RTTI::Implementation<EvtHandlerDelegate, IEvtHandler>
 	{
 		private:
 			optional_ptr<IEvtHandler> m_EvtHandler;

@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IImageViewWidget: public RTTI::ExtendInterface<IImageViewWidget, IWidget>
+	class KXF_API IImageViewWidget: public RTTI::ExtendInterface<IImageViewWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IImageViewWidget, {0x648cbcaa, 0xf464, 0x4156, {0x92, 0x7d, 0xa2, 0xb4, 0x46, 0xcf, 0xc5, 0x26}});
+		kxf_RTTI_DeclareIID(IImageViewWidget, {0x648cbcaa, 0xf464, 0x4156, {0x92, 0x7d, 0xa2, 0xb4, 0x46, 0xcf, 0xc5, 0x26}});
 
 		public:
 			enum class BackgroundMode

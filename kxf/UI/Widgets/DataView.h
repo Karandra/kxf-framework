@@ -14,7 +14,7 @@ namespace kxf::WXUI::DataView
 
 namespace kxf::Widgets
 {
-	class KX_API DataView: public RTTI::Implementation<DataView, Private::BasicWxWidget<DataView, WXUI::DataView::View, IDataViewWidget>, IGraphicsRendererAwareWidget>
+	class KXF_API DataView: public RTTI::Implementation<DataView, Private::BasicWxWidget<DataView, WXUI::DataView::View, IDataViewWidget>, IGraphicsRendererAwareWidget>
 	{
 		public:
 			using Column = kxf::DataView::Column;

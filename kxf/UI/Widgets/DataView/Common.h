@@ -52,6 +52,6 @@ namespace kxf::DataView
 
 namespace kxf
 {
-	KxFlagSet_Declare(DataView::WidgetStyle);
-	KxFlagSet_Declare(DataView::ColumnStyle);
+	kxf_FlagSet_Declare(DataView::WidgetStyle);
+	kxf_FlagSet_Declare(DataView::ColumnStyle);
 }

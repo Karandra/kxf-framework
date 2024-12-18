@@ -34,12 +34,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::AuiNotebookStyle);
+	kxf_FlagSet_Declare(UI::AuiNotebookStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API AuiNotebook: public wxWidgets::WithImageListWrapper<wxAuiNotebook>
+	class KXF_API AuiNotebook: public wxWidgets::WithImageListWrapper<wxAuiNotebook>
 	{
 		public:
 			enum class RendererType: uint32_t
@@ -96,7 +96,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API AuiDefaultTabArt: public AuiDefaultTabArtBase
+	class KXF_API AuiDefaultTabArt: public AuiDefaultTabArtBase
 	{
 		private:
 			AuiNotebook* m_Notebook = nullptr;
@@ -130,7 +130,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API AuiNotebookDockArtProvider: public AuiDefaultDockArtBase
+	class KXF_API AuiNotebookDockArtProvider: public AuiDefaultDockArtBase
 	{
 		private:
 			AuiNotebook* m_Notebook = nullptr;

@@ -3,7 +3,7 @@
 
 namespace kxf::Threading
 {
-	KX_API bool IsMainThread() noexcept;
-	KX_API uint32_t GetCurrentThreadID() noexcept;
-	KX_API uint32_t GetHardwareConcurrency() noexcept;
+	KXF_API bool IsMainThread() noexcept;
+	KXF_API uint32_t GetCurrentThreadID() noexcept;
+	KXF_API uint32_t GetHardwareConcurrency() noexcept;
 }

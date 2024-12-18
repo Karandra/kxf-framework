@@ -3,7 +3,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API SpinEditor: public Editor
+	class KXF_API SpinEditor: public Editor
 	{
 		private:
 			enum class Type

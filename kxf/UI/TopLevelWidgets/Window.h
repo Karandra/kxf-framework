@@ -9,7 +9,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API Window: public RTTI::Implementation<Window, Private::BasicWindowWidget<Window, WXUI::Frame, ITopLevelWidget>>
+	class KXF_API Window: public RTTI::Implementation<Window, Private::BasicWindowWidget<Window, WXUI::Frame, ITopLevelWidget>>
 	{
 		public:
 			Window();

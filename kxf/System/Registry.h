@@ -69,13 +69,13 @@ namespace kxf
 		FullResourceDescriptor,
 	};
 
-	KxFlagSet_Declare(RegistryAccess);
-	KxFlagSet_Declare(RegistryKeyFlag);
+	kxf_FlagSet_Declare(RegistryAccess);
+	kxf_FlagSet_Declare(RegistryKeyFlag);
 }
 
 namespace kxf
 {
-	class KX_API RegistryKey final
+	class KXF_API RegistryKey final
 	{
 		public:
 			static RegistryKey CreateKey(RegistryRootKey baseKey, const FSPath& subKey, FlagSet<RegistryAccess> access, FlagSet<RegistryKeyFlag> flags = {}, RegistryWOW64 wow64 = RegistryWOW64::Default)

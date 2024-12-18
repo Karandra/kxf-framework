@@ -13,7 +13,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API EvtHandler: public RTTI::Implementation<EvtHandler, IEvtHandler>
+	class KXF_API EvtHandler: public RTTI::Implementation<EvtHandler, IEvtHandler>
 	{
 		private:
 			// Dynamic events table

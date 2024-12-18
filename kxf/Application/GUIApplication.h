@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API GUIApplication: public RTTI::Implementation<GUIApplication, CoreApplication, IGUIApplication>
+	class KXF_API GUIApplication: public RTTI::Implementation<GUIApplication, CoreApplication, IGUIApplication>
 	{
 		private:
 			enum class ExitWhenLastWidgetDestroyed

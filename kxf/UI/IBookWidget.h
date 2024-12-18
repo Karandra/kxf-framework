@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IBookWidget: public RTTI::ExtendInterface<IBookWidget, IWidget>
+	class KXF_API IBookWidget: public RTTI::ExtendInterface<IBookWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IBookWidget, {0x8aecb241, 0xef0e, 0x4d69, {0x9c, 0x42, 0x52, 0x91, 0x27, 0xc, 0xfe, 0xa8}});
+		kxf_RTTI_DeclareIID(IBookWidget, {0x8aecb241, 0xef0e, 0x4d69, {0x9c, 0x42, 0x52, 0x91, 0x27, 0xc, 0xfe, 0xa8}});
 
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

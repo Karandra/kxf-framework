@@ -22,7 +22,7 @@ namespace kxf::XDocument
 
 namespace kxf::XDocument
 {
-	class KX_API IXNode
+	class KXF_API IXNode
 	{
 		public:
 			using AsCDATA = XDocument::AsCDATA;

@@ -17,7 +17,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API HTMLNode: public XDocument::XNode<HTMLNode>
+	class KXF_API HTMLNode: public XDocument::XNode<HTMLNode>
 	{
 		friend class HTMLDocument;
 
@@ -116,7 +116,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API HTMLDocument: public HTMLNode
+	class KXF_API HTMLDocument: public HTMLNode
 	{
 		private:
 			std::vector<uint8_t> m_Buffer;

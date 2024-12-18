@@ -1,8 +1,9 @@
 #include "kxf-pch.h"
 #include "ISystemThread.h"
 #include <Windows.h>
+
 #include <PsAPI.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {

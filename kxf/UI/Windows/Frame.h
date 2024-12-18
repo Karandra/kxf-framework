@@ -19,13 +19,13 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::FrameStyle);
-	KxFlagSet_Extend(UI::FrameStyle, UI::WindowStyle);
+	kxf_FlagSet_Declare(UI::FrameStyle);
+	kxf_FlagSet_Extend(UI::FrameStyle, UI::WindowStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API Frame: public TopLevelWindow<wxFrame>
+	class KXF_API Frame: public TopLevelWindow<wxFrame>
 	{
 		public:
 			static constexpr FlagSet<FrameStyle> DefaultStyle = FrameStyle::DefaultStyle|FrameStyle::Shaped;

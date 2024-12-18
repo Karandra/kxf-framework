@@ -23,9 +23,9 @@ namespace kxf::WXUI::DataView
 
 namespace kxf
 {
-	class KX_API IDataViewCellEditor: public RTTI::Interface<IDataViewCellEditor>
+	class KXF_API IDataViewCellEditor: public RTTI::Interface<IDataViewCellEditor>
 	{
-		KxRTTI_DeclareIID(IDataViewCellEditor, {0x8a08c334, 0xebce, 0x4ccd, {0x8c, 0xa5, 0xe7, 0x78, 0xd, 0xc9, 0xbf, 0x53}});
+		kxf_RTTI_DeclareIID(IDataViewCellEditor, {0x8a08c334, 0xebce, 0x4ccd, {0x8c, 0xa5, 0xe7, 0x78, 0xd, 0xc9, 0xbf, 0x53}});
 
 		friend class DataView::CellEditor;
 
@@ -64,7 +64,7 @@ namespace kxf
 
 namespace kxf::DataView
 {
-	class KX_API CellEditor final
+	class KXF_API CellEditor final
 	{
 		friend class MainWindow;
 		friend class CellEditorWidgetHandler;
@@ -204,7 +204,7 @@ namespace kxf::DataView
 
 namespace kxf::DataView
 {
-	class KX_API CellEditorWidgetHandler: public EvtHandler
+	class KXF_API CellEditorWidgetHandler: public EvtHandler
 	{
 		private:
 			CellEditor& m_Editor;

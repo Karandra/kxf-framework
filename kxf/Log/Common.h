@@ -22,7 +22,7 @@ namespace kxf
 
 namespace kxf::Log
 {
-	KX_API bool IsEnabled() noexcept;
-	KX_API bool IsLevelEnabled(LogLevel level) noexcept;
-	KX_API void Enable(LogLevel level) noexcept;
+	KXF_API bool IsEnabled() noexcept;
+	KXF_API bool IsLevelEnabled(LogLevel level) noexcept;
+	KXF_API void Enable(LogLevel level) noexcept;
 }

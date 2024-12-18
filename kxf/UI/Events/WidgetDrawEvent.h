@@ -8,11 +8,11 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API WidgetDrawEvent: public WidgetEvent
+	class KXF_API WidgetDrawEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetDrawEvent, DrawContent);
-			KxEVENT_MEMBER(WidgetDrawEvent, DrawBackground);
+			kxf_EVENT_MEMBER(WidgetDrawEvent, DrawContent);
+			kxf_EVENT_MEMBER(WidgetDrawEvent, DrawBackground);
 
 		protected:
 			std::shared_ptr<IGraphicsContext> m_GraphicsContext;

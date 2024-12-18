@@ -21,12 +21,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::NotebookStyle);
+	kxf_FlagSet_Declare(UI::NotebookStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API Notebook: public wxWidgets::WithImageListWrapper<wxNotebook>
+	class KXF_API Notebook: public wxWidgets::WithImageListWrapper<wxNotebook>
 	{
 		public:
 			static constexpr FlagSet<NotebookStyle> DefaultStyle = NotebookStyle::Top;

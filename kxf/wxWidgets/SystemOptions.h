@@ -44,7 +44,7 @@ namespace kxf::wxWidgets::SystemOption
 
 namespace kxf::wxWidgets
 {
-	class KX_API SystemOptions final
+	class KXF_API SystemOptions final
 	{
 		public:
 			static String GetOption(const String& name)

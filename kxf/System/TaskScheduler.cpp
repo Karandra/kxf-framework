@@ -10,9 +10,8 @@
 #include "Private/BeginIncludeCOM.h"
 namespace
 {
-	Kx_MakeWinUnicodeCallWrapper(FormatMessage);
+	kxf_MakeWinUnicodeCallWrapper(FormatMessage);
 }
-#include <comdef.h>
 #include "Private/EndIncludeCOM.h"
 
 namespace

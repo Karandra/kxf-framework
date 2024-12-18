@@ -3,7 +3,7 @@
 
 namespace kxf::DataView
 {
-	class KX_API TextRenderer: public IDataViewCellRenderer
+	class KXF_API TextRenderer: public IDataViewCellRenderer
 	{
 		private:
 			String m_Value;

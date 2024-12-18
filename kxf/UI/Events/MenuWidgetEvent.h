@@ -5,14 +5,14 @@
 
 namespace kxf
 {
-	class KX_API MenuWidgetEvent: public WidgetItemEvent
+	class KXF_API MenuWidgetEvent: public WidgetItemEvent
 	{
 		public:
-			KxEVENT_MEMBER(MenuWidgetEvent, Open);
-			KxEVENT_MEMBER(MenuWidgetEvent, Close);
+			kxf_EVENT_MEMBER(MenuWidgetEvent, Open);
+			kxf_EVENT_MEMBER(MenuWidgetEvent, Close);
 
-			KxEVENT_MEMBER_AS(MenuWidgetEvent, Selected, WidgetItemEvent::EvtSelected);
-			KxEVENT_MEMBER_AS(MenuWidgetEvent, Focused, WidgetItemEvent::EvtEnter);
+			kxf_EVENT_MEMBER_AS(MenuWidgetEvent, Selected, WidgetItemEvent::EvtSelected);
+			kxf_EVENT_MEMBER_AS(MenuWidgetEvent, Focused, WidgetItemEvent::EvtEnter);
 
 		private:
 			std::shared_ptr<IWidget> m_InvokingWidget;

@@ -5,7 +5,7 @@
 #include <Windows.h>
 #include <combaseapi.h>
 #include <unknwn.h>
-#include "UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

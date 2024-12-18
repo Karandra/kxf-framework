@@ -6,7 +6,7 @@
 
 #include <Shlobj.h>
 #include <commoncontrols.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

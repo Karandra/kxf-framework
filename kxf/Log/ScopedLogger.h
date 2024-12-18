@@ -23,9 +23,9 @@ namespace kxf
 
 namespace kxf
 {
-	class IScopedLoggerTarget: public RTTI::Interface<IScopedLoggerTarget>
+	class KXF_API IScopedLoggerTarget: public RTTI::Interface<IScopedLoggerTarget>
 	{
-		KxRTTI_DeclareIID(IScopedLoggerTarget, {0xddebd088, 0x6198, 0x46aa, {0x9f, 0xe9, 0xc2, 0xda, 0xc5, 0xb4, 0x60, 0x9a}});
+		kxf_RTTI_DeclareIID(IScopedLoggerTarget, {0xddebd088, 0x6198, 0x46aa, {0x9f, 0xe9, 0xc2, 0xda, 0xc5, 0xb4, 0x60, 0x9a}});
 
 		public:
 			virtual ~IScopedLoggerTarget() = default;
@@ -40,9 +40,9 @@ namespace kxf
 			}
 	};
 
-	class IScopedLoggerContext: public RTTI::Interface<IScopedLoggerContext>
+	class KXF_API IScopedLoggerContext: public RTTI::Interface<IScopedLoggerContext>
 	{
-		KxRTTI_DeclareIID(IScopedLoggerContext, {0x7dd1c550, 0xe0a1, 0x4f92, {0x8c, 0x3c, 0x3f, 0xd8, 0x46, 0x3c, 0x80, 0xd2 }});
+		kxf_RTTI_DeclareIID(IScopedLoggerContext, {0x7dd1c550, 0xe0a1, 0x4f92, {0x8c, 0x3c, 0x3f, 0xd8, 0x46, 0x3c, 0x80, 0xd2 }});
 
 		public:
 			virtual ~IScopedLoggerContext() = default;
@@ -55,7 +55,7 @@ namespace kxf
 
 namespace kxf
 {
-	class ScopedLoggerTLS
+	class KXF_API ScopedLoggerTLS
 	{
 		friend class ScopedLogger;
 		friend class ScopedLoggerGlobalContext;
@@ -150,7 +150,7 @@ namespace kxf
 
 namespace kxf
 {
-	class ScopedMessageLogger final
+	class KXF_API ScopedMessageLogger final
 	{
 		friend class ScopedLoggerTLS;
 		friend class ScopedLoggerUnknownTLS;
@@ -414,7 +414,7 @@ namespace kxf
 
 namespace kxf
 {
-	class ScopedLogger
+	class KXF_API ScopedLogger
 	{
 		protected:
 			ScopedLoggerTLS& m_ScopeTLS;
@@ -547,7 +547,7 @@ namespace kxf
 			}
 	};
 
-	class ScopedLoggerNewScope final: public ScopedLogger
+	class KXF_API ScopedLoggerNewScope final: public ScopedLogger
 	{
 		private:
 			static ScopedLoggerTLS& GetTLS();
@@ -565,7 +565,7 @@ namespace kxf
 			}
 	};
 
-	class ScopedLoggerAutoScope final: public ScopedLogger
+	class KXF_API ScopedLoggerAutoScope final: public ScopedLogger
 	{
 		private:
 			static ScopedLoggerTLS& GetActiveTLS();
@@ -590,7 +590,7 @@ namespace kxf
 
 namespace kxf
 {
-	class ScopedLoggerUnknownScope final: public ScopedLogger
+	class KXF_API ScopedLoggerUnknownScope final: public ScopedLogger
 	{
 		friend class ScopedLoggerUnknownTLS;
 
@@ -605,7 +605,7 @@ namespace kxf
 			}
 	};
 
-	class ScopedLoggerUnknownTLS final: public ScopedLoggerTLS
+	class KXF_API ScopedLoggerUnknownTLS final: public ScopedLoggerTLS
 	{
 		private:
 			ScopedLoggerUnknownScope m_Scope;
@@ -629,9 +629,9 @@ namespace kxf
 
 namespace kxf
 {
-	String ToString(LogLevel value);
+	KXF_API String ToString(LogLevel value);
 
-	class ScopedLoggerGlobalContext final
+	class KXF_API ScopedLoggerGlobalContext final
 	{
 		public:
 			static ScopedLoggerGlobalContext& Initialize(std::shared_ptr<IScopedLoggerContext> userContext, LogLevel logLevel = LogLevel::Unknown);
@@ -788,10 +788,10 @@ namespace kxf::Log
 	}
 }
 
-#define KX_SCOPEDLOG							scopedLogger_
-#define KX_SCOPEDLOG_AUTO						kxf::ScopedLoggerAutoScope	KX_SCOPEDLOG
-#define KX_SCOPEDLOG_FUNC						kxf::ScopedLoggerNewScope	KX_SCOPEDLOG(std::source_location::current())
-#define KX_SCOPEDLOG_ARGS(...)					kxf::ScopedLoggerNewScope	KX_SCOPEDLOG(std::source_location::current(), __VA_ARGS__)
+#define KXF_SCOPEDLOG							scopedLogger_
+#define KXF_SCOPEDLOG_AUTO						kxf::ScopedLoggerAutoScope	KXF_SCOPEDLOG
+#define KXF_SCOPEDLOG_FUNC						kxf::ScopedLoggerNewScope	KXF_SCOPEDLOG(std::source_location::current())
+#define KXF_SCOPEDLOG_ARGS(...)					kxf::ScopedLoggerNewScope	KXF_SCOPEDLOG(std::source_location::current(), __VA_ARGS__)
 
-#define KX_SCOPEDLOG_VALUE_AS(name, value)		.Format(#name "=[{}]", (value)).Sep()
-#define KX_SCOPEDLOG_VALUE(value)				KX_SCOPEDLOG_VALUE_AS(value, value)
+#define KXF_SCOPEDLOG_VALUE_AS(name, value)		.Format(#name "=[{}]", (value)).Sep()
+#define KXF_SCOPEDLOG_VALUE(value)				KXF_SCOPEDLOG_VALUE_AS(value, value)

@@ -10,7 +10,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API Label: public RTTI::Implementation<Label, Private::BasicWxWidget<Label, WXUI::Label, ILabelWidget>, IGraphicsRendererAwareWidget>
+	class KXF_API Label: public RTTI::Implementation<Label, Private::BasicWxWidget<Label, WXUI::Label, ILabelWidget>, IGraphicsRendererAwareWidget>
 	{
 		private:
 			std::shared_ptr<IGraphicsRenderer> m_Renderer;

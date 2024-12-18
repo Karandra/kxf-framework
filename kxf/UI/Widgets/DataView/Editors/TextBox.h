@@ -8,7 +8,7 @@ namespace kxf
 
 namespace kxf::DataView
 {
-	class KX_API TextBox: public IDataViewCellEditor
+	class KXF_API TextBox: public IDataViewCellEditor
 	{
 		private:
 			std::shared_ptr<ITextWidget> m_Widget;

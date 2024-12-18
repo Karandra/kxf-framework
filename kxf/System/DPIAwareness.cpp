@@ -1,8 +1,9 @@
 #include "kxf-pch.h"
 #include "DPIAwareness.h"
 #include "NativeAPI.h"
+
 #include <Windows.h>
-#include "UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

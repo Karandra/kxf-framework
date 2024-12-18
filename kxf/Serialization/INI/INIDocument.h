@@ -21,12 +21,12 @@ namespace kxf
 		InlineComments = 1u << 3,
 		IgnoreCase = 1u << 4
 	};
-	KxFlagSet_Declare(INIDocumentOption);
+	kxf_FlagSet_Declare(INIDocumentOption);
 }
 
 namespace kxf
 {
-	class KX_API INIDocumentSection: public XDocument::XNode<INIDocumentSection>
+	class KXF_API INIDocumentSection: public XDocument::XNode<INIDocumentSection>
 	{
 		friend class INIDocument;
 
@@ -142,7 +142,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API INIDocument final: public INIDocumentSection, public IObject
+	class KXF_API INIDocument final: public INIDocumentSection, public IObject
 	{
 		friend class INIDocumentSection;
 		friend class XDocument::XNode<INIDocument>;

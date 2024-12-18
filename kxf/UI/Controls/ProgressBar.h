@@ -19,12 +19,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::ProgressBarStyle);
+	kxf_FlagSet_Declare(UI::ProgressBarStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API ProgressBar: public WindowRefreshScheduler<wxGauge>, public IProgressMeter
+	class KXF_API ProgressBar: public WindowRefreshScheduler<wxGauge>, public IProgressMeter
 	{
 		friend class ProgressBarWrapper;
 
@@ -135,7 +135,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API ProgressBarWrapper: public IProgressMeter
+	class KXF_API ProgressBarWrapper: public IProgressMeter
 	{
 		private:
 			ProgressBar* m_ProgressBar = nullptr;

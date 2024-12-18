@@ -18,7 +18,7 @@ namespace kxf::Async
 
 namespace kxf::Async
 {
-	class KX_API CoroutineTimer final: public GenericTimer
+	class KXF_API CoroutineTimer final: public GenericTimer
 	{
 		private:
 			std::unique_ptr<CoroutineBase> m_Coroutine;
@@ -30,7 +30,7 @@ namespace kxf::Async
 			void Wait(std::unique_ptr<CoroutineBase> coroutine, const TimeSpan& time);
 			std::unique_ptr<CoroutineBase> Relinquish();
 	};
-	class KX_API CoroutineExecutor final: public EventSystem::IndirectInvocationEvent
+	class KXF_API CoroutineExecutor final: public EventSystem::IndirectInvocationEvent
 	{
 		private:
 			std::unique_ptr<CoroutineBase> m_Coroutine;
@@ -52,7 +52,7 @@ namespace kxf::Async
 
 namespace kxf::Async
 {
-	class KX_API CoroutineBase: public wxObject
+	class KXF_API CoroutineBase: public wxObject
 	{
 		friend class CoroutineTimer;
 		friend class CoroutineExecutor;

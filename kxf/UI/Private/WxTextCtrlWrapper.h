@@ -6,7 +6,7 @@ class wxTextCtrl;
 
 namespace kxf::WXUI::Private
 {
-	class KX_API WxTextCtrlWrapper: public WxTextEntryWrapper
+	class KXF_API WxTextCtrlWrapper: public WxTextEntryWrapper
 	{
 		protected:
 			wxTextCtrl* m_TextCtrl = nullptr;

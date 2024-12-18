@@ -44,12 +44,12 @@ namespace kxf
 		SwitchHidden = FlagSetValue<CommandLineParserFlag>(6),
 		SwitchNegatable = FlagSetValue<CommandLineParserFlag>(7)
 	};
-	KxFlagSet_Declare(CommandLineParserFlag);
+	kxf_FlagSet_Declare(CommandLineParserFlag);
 }
 
 namespace kxf
 {
-	class KX_API CommandLineArg final
+	class KXF_API CommandLineArg final
 	{
 		friend class CommandLineParser;
 
@@ -114,7 +114,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API CommandLineParser final
+	class KXF_API CommandLineParser final
 	{
 		private:
 			void MoveFrom(CommandLineParser& other) noexcept;

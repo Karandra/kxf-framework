@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IEncodingConverter: public RTTI::Interface<IEncodingConverter>
+	class KXF_API IEncodingConverter: public RTTI::Interface<IEncodingConverter>
 	{
-		KxRTTI_DeclareIID(IEncodingConverter, {0x31d9a1b0, 0x446e, 0x4569, {0x9f, 0x90, 0x79, 0xe1, 0xef, 0x23, 0xc3, 0x25}});
+		kxf_RTTI_DeclareIID(IEncodingConverter, {0x31d9a1b0, 0x446e, 0x4569, {0x9f, 0x90, 0x79, 0xe1, 0xef, 0x23, 0xc3, 0x25}});
 
 		private:
 			template<class T>
@@ -123,5 +123,5 @@ namespace kxf
 	extern IEncodingConverter& EncodingConverter_UTF32LE;
 	extern IEncodingConverter& EncodingConverter_UTF32BE;
 
-	KX_API std::unique_ptr<IEncodingConverter> GetNativeEncodingConverter(int codePage, FlagSet<uint32_t> flags = {});
+	KXF_API std::unique_ptr<IEncodingConverter> GetNativeEncodingConverter(int codePage, FlagSet<uint32_t> flags = {});
 }

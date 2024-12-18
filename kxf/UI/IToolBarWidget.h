@@ -5,9 +5,9 @@
 
 namespace kxf
 {
-	class KX_API IToolBarWidget: public RTTI::ExtendInterface<IToolBarWidget, IWidget>
+	class KXF_API IToolBarWidget: public RTTI::ExtendInterface<IToolBarWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IToolBarWidget, {0x4c4c6a53, 0x370a, 0x49bd, {0xba, 0x82, 0xe7, 0xf3, 0xa0, 0x9e, 0x60, 0x5b}});
+		kxf_RTTI_DeclareIID(IToolBarWidget, {0x4c4c6a53, 0x370a, 0x49bd, {0xba, 0x82, 0xe7, 0xf3, 0xa0, 0x9e, 0x60, 0x5b}});
 
 		public:
 			using ItemType = IToolBarWidgetItem::ItemType;

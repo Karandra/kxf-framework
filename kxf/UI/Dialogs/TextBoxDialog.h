@@ -18,13 +18,13 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::TextBoxDialogStyle);
-	KxFlagSet_Extend(UI::TextBoxDialogStyle, UI::DialogStyle);
+	kxf_FlagSet_Declare(UI::TextBoxDialogStyle);
+	kxf_FlagSet_Extend(UI::TextBoxDialogStyle, UI::DialogStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API TextBoxDialog: public StdDialog
+	class KXF_API TextBoxDialog: public StdDialog
 	{
 		public:
 			static constexpr FlagSet<TextBoxDialogStyle> DefaultStyle = TextBoxDialogStyle::None|*StdDialog::DefaultStyle;

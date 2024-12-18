@@ -9,9 +9,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IGraphicsObject: public RTTI::Interface<IGraphicsObject>
+	class KXF_API IGraphicsObject: public RTTI::Interface<IGraphicsObject>
 	{
-		KxRTTI_DeclareIID(IGraphicsObject, {0x92c11e79, 0x18c8, 0x4b68, {0x83, 0xf6, 0x3b, 0x55, 0x50, 0xb5, 0x3f, 0x6e}});
+		kxf_RTTI_DeclareIID(IGraphicsObject, {0x92c11e79, 0x18c8, 0x4b68, {0x83, 0xf6, 0x3b, 0x55, 0x50, 0xb5, 0x3f, 0x6e}});
 
 		public:
 			virtual ~IGraphicsObject() = default;

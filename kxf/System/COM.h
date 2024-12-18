@@ -46,21 +46,21 @@ namespace kxf
 		AppContainer = 1 << 16
 	};
 
-	KxFlagSet_Declare(COMInitFlag);
-	KxFlagSet_Declare(COMClassContext);
+	kxf_FlagSet_Declare(COMInitFlag);
+	kxf_FlagSet_Declare(COMClassContext);
 }
 
 namespace kxf::COM
 {
-	KX_API void* AllocateMemory(size_t size) noexcept;
-	KX_API void* ReallocateMemory(void* address, size_t size) noexcept;
-	KX_API void FreeMemory(void* address) noexcept;
+	KXF_API void* AllocateMemory(size_t size) noexcept;
+	KXF_API void* ReallocateMemory(void* address, size_t size) noexcept;
+	KXF_API void FreeMemory(void* address) noexcept;
 
-	KX_API wchar_t* AllocateBSTR(const wchar_t* data) noexcept;
-	KX_API void FreeBSTR(wchar_t* data) noexcept;
+	KXF_API wchar_t* AllocateBSTR(const wchar_t* data) noexcept;
+	KXF_API void FreeBSTR(wchar_t* data) noexcept;
 
-	KX_API ::_GUID ToGUID(const NativeUUID& uuid) noexcept;
-	KX_API NativeUUID FromGUID(const ::_GUID& guid) noexcept;
+	KXF_API ::_GUID ToGUID(const NativeUUID& uuid) noexcept;
+	KXF_API NativeUUID FromGUID(const ::_GUID& guid) noexcept;
 }
 
 namespace kxf::COM
@@ -87,7 +87,7 @@ namespace kxf::COM
 
 namespace kxf::COM
 {
-	KX_API HResult CreateInstance(const NativeUUID& classID, COMClassContext classContext, const NativeUUID& iid, void** result, IUnknown* outer = nullptr) noexcept;
+	KXF_API HResult CreateInstance(const NativeUUID& classID, COMClassContext classContext, const NativeUUID& iid, void** result, IUnknown* outer = nullptr) noexcept;
 	inline HResult CreateInstance(const ::_GUID& classID, COMClassContext classContext, const ::_GUID& iid, void** result, IUnknown* outer = nullptr) noexcept
 	{
 		return CreateInstance(FromGUID(classID), classContext, FromGUID(iid), result, outer);
@@ -102,7 +102,7 @@ namespace kxf::COM
 
 namespace kxf
 {
-	class KX_API COMInitGuard final
+	class KXF_API COMInitGuard final
 	{
 		private:
 			HResult m_Status = HResult::Pending();
@@ -155,7 +155,7 @@ namespace kxf
 			COMInitGuard& operator=(const COMInitGuard&) = delete;
 	};
 
-	class KX_API OLEInitGuard final
+	class KXF_API OLEInitGuard final
 	{
 		private:
 			HResult m_Status = HResult::Pending();

@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IStatusBarWidget: public RTTI::ExtendInterface<IStatusBarWidget, IWidget>
+	class KXF_API IStatusBarWidget: public RTTI::ExtendInterface<IStatusBarWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IStatusBarWidget, {0xbf67357, 0x2d0f, 0x480e, {0xaa, 0xdb, 0x7, 0xf4, 0xd6, 0xe0, 0xf4, 0xd1}});
+		kxf_RTTI_DeclareIID(IStatusBarWidget, {0xbf67357, 0x2d0f, 0x480e, {0xaa, 0xdb, 0x7, 0xf4, 0xd6, 0xe0, 0xf4, 0xd1}});
 
 		public:
 			virtual size_t GetPaneCount() const = 0;

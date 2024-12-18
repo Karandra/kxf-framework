@@ -3,7 +3,7 @@
 #include "kxf/System/SystemWindow.h" 
 
 #include <CommCtrl.h>
-#include "kxf/System/UndefWindows.h" 
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::UI
 {

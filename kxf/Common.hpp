@@ -2,12 +2,12 @@
 
 #ifdef KXF_DYNAMIC_LIBRARY
 	#ifdef KXF_LIBRARY
-		#define KX_API __declspec(dllexport)
+		#define KXF_API __declspec(dllexport)
 	#else
-		#define KX_API __declspec(dllimport)
+		#define KXF_API __declspec(dllimport)
 	#endif
 #elif defined KXF_STATIC_LIBRARY
-	#define KX_API
+	#define KXF_API
 #endif
 
 // Standard library
@@ -47,7 +47,7 @@
 #include "kxf/Core/StdID.h"
 #include "kxf/Core/FlagSet.h"
 #include "kxf/Utility/Literals.h"
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 // Forward declarations for some core classes
 namespace kxf

@@ -2,15 +2,16 @@
 #include "Win32GUIEventLoop.h"
 #include "kxf/Application/ICoreApplication.h"
 
-Kx_MakeWinUnicodeCallWrapper(SendMessage);
+kxf_MakeWinUnicodeCallWrapper(SendMessage);
 #include "wx/msw/private.h"
 #include "wx/evtloop.h"
 #include <Windows.h>
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {
 	// Only the main thread can process Windows messages
-	bool g_HadGUILock = true;
+	std::atomic<bool> g_HadGUILock = true;
 	std::vector<kxf::EventSystem::Private::Win32Message> g_SavedMessages;
 
 	wxWindow* g_CriticalWindow = nullptr;

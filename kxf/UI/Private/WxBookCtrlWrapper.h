@@ -5,7 +5,7 @@ class wxBookCtrlBase;
 
 namespace kxf::WXUI::Private
 {
-	class KX_API WxBookCtrlWrapper
+	class KXF_API WxBookCtrlWrapper
 	{
 		protected:
 			wxBookCtrlBase* m_BookCtrl = nullptr;

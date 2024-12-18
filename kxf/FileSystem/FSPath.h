@@ -12,12 +12,12 @@ namespace kxf
 		None = 0,
 		TrailingSeparator = 1 << 0,
 	};
-	KxFlagSet_Declare(FSPathFormat);
+	kxf_FlagSet_Declare(FSPathFormat);
 }
 
 namespace kxf
 {
-	class KX_API FSPath final
+	class KXF_API FSPath final
 	{
 		friend struct std::hash<FSPath>;
 		friend struct BinarySerializer<FSPath>;
@@ -261,7 +261,7 @@ namespace kxf
 namespace kxf
 {
 	template<>
-	struct KX_API BinarySerializer<FSPath> final
+	struct KXF_API BinarySerializer<FSPath> final
 	{
 		uint64_t Serialize(IOutputStream& stream, const FSPath& value) const;
 		uint64_t Deserialize(IInputStream& stream, FSPath& value) const;

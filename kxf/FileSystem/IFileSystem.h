@@ -20,9 +20,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IFileSystem: public RTTI::Interface<IFileSystem>
+	class KXF_API IFileSystem: public RTTI::Interface<IFileSystem>
 	{
-		KxRTTI_DeclareIID(IFileSystem, {0x950f74ec, 0x6352, 0x47a1, {0xac, 0x8f, 0x43, 0x6a, 0x6, 0x1e, 0x9f, 0x65}});
+		kxf_RTTI_DeclareIID(IFileSystem, {0x950f74ec, 0x6352, 0x47a1, {0xac, 0x8f, 0x43, 0x6a, 0x6, 0x1e, 0x9f, 0x65}});
 
 		public:
 			virtual ~IFileSystem() = default;
@@ -74,9 +74,9 @@ namespace kxf
 			);
 	};
 
-	class KX_API IFileSystemWithID: public RTTI::Interface<IFileSystemWithID>
+	class KXF_API IFileSystemWithID: public RTTI::Interface<IFileSystemWithID>
 	{
-		KxRTTI_DeclareIID(IFileSystemWithID, {0x8a4f7e63, 0x6092, 0x4859, {0xa1, 0x74, 0x25, 0x8, 0x7a, 0x4a, 0x90, 0xcb}});
+		kxf_RTTI_DeclareIID(IFileSystemWithID, {0x8a4f7e63, 0x6092, 0x4859, {0xa1, 0x74, 0x25, 0x8, 0x7a, 0x4a, 0x90, 0xcb}});
 
 		public:
 			virtual ~IFileSystemWithID() = default;
@@ -125,6 +125,6 @@ namespace kxf
 
 namespace kxf::FileSystem
 {
-	KX_API IFileSystem& GetNullFileSystem() noexcept;
-	KX_API IFileSystemWithID& GetNullFileSystemWithID() noexcept;
+	KXF_API IFileSystem& GetNullFileSystem() noexcept;
+	KXF_API IFileSystemWithID& GetNullFileSystemWithID() noexcept;
 }

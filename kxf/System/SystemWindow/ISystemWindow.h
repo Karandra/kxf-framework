@@ -12,9 +12,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ISystemWindow: public RTTI::Interface<ISystemWindow>
+	class KXF_API ISystemWindow: public RTTI::Interface<ISystemWindow>
 	{
-		KxRTTI_DeclareIID(ISystemWindow, {0xc1663541, 0xe5e3, 0x4610, {0x8a, 0x66, 0xab, 0xdc, 0x16, 0x82, 0x58, 0xb7}});
+		kxf_RTTI_DeclareIID(ISystemWindow, {0xc1663541, 0xe5e3, 0x4610, {0x8a, 0x66, 0xab, 0xdc, 0x16, 0x82, 0x58, 0xb7}});
 
 		public:
 			virtual ~ISystemWindow() = default;

@@ -3,7 +3,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API NullRenderer final: public Renderer
+	class KXF_API NullRenderer final: public Renderer
 	{
 		protected:
 			bool SetDisplayValue(Any value) override

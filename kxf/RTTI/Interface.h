@@ -234,7 +234,7 @@ namespace kxf::RTTI
 	};
 }
 
-#define KxRTTI_QueryInterface_Extend(T, TBase)	\
+#define kxf_RTTI_QueryInterface_Extend(T, TBase)	\
 \
 private:	\
 	static inline kxf::RTTI::InterfaceClassInfo<T, TBase> ms_ClassInfo; \
@@ -264,4 +264,4 @@ public:	\
 		return nullptr;	\
 	}
 
-#define KxRTTI_QueryInterface_Base(T)	KxRTTI_QueryInterface_Extend(T)
+#define kxf_RTTI_QueryInterface_Base(T)	kxf_RTTI_QueryInterface_Extend(T)

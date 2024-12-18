@@ -10,7 +10,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API GraphicsPath final: public HandleWrapper<GraphicsPath, GraphicsPathHandle>
+	class KXF_API GraphicsPath final: public HandleWrapper<GraphicsPath, GraphicsPathHandle>
 	{
 		friend class HandleWrapper<GraphicsPath, GraphicsPathHandle>;
 		

@@ -1,7 +1,8 @@
 #include "kxf-pch.h"
 #include "Drawing.h"
+
 #include <Windows.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::Utility
 {

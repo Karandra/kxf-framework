@@ -6,9 +6,9 @@
 
 namespace kxf
 {
-	class KX_API IWidgetItem: public RTTI::ExtendInterface<IWidgetItem, IEvtHandler>, public Private::WidgetDIP<IWidget>, public Private::WidgetDLU<IWidget>
+	class KXF_API IWidgetItem: public RTTI::ExtendInterface<IWidgetItem, IEvtHandler>, public Private::WidgetDIP<IWidget>, public Private::WidgetDLU<IWidget>
 	{
-		KxRTTI_DeclareIID(IWidgetItem, {0x5f189381, 0xfa1, 0x4fe0, {0x9e, 0x1f, 0xdc, 0xb8, 0x94, 0x33, 0xb6, 0x9}});
+		kxf_RTTI_DeclareIID(IWidgetItem, {0x5f189381, 0xfa1, 0x4fe0, {0x9e, 0x1f, 0xdc, 0xb8, 0x94, 0x33, 0xb6, 0x9}});
 
 		public:
 			virtual ~IWidgetItem() = default;

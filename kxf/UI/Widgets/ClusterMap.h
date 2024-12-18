@@ -10,7 +10,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API ClusterMap: public RTTI::Implementation<ClusterMap, Private::BasicWxWidget<ClusterMap, WXUI::ClusterMap, IClusterMapWidget>, IGraphicsRendererAwareWidget>
+	class KXF_API ClusterMap: public RTTI::Implementation<ClusterMap, Private::BasicWxWidget<ClusterMap, WXUI::ClusterMap, IClusterMapWidget>, IGraphicsRendererAwareWidget>
 	{
 		private:
 			std::shared_ptr<IGraphicsRenderer> m_Renderer;

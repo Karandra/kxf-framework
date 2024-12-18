@@ -3,8 +3,9 @@
 #include "kxf/Core/RegEx.h"
 #include "kxf/Utility/String.h"
 #include <wx/filename.h>
+
 #include <shlwapi.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

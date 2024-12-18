@@ -4,11 +4,11 @@
 
 namespace kxf
 {
-	class KX_API ButtonWidgetEvent: public WidgetEvent
+	class KXF_API ButtonWidgetEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(ButtonWidgetEvent, Click);
-			KxEVENT_MEMBER(ButtonWidgetEvent, Dropdown);
+			kxf_EVENT_MEMBER(ButtonWidgetEvent, Click);
+			kxf_EVENT_MEMBER(ButtonWidgetEvent, Dropdown);
 
 		public:
 			ButtonWidgetEvent(IButtonWidget& widget) noexcept

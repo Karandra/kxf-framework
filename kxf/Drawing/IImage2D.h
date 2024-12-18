@@ -15,9 +15,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IImage2D: public RTTI::Interface<IImage2D>
+	class KXF_API IImage2D: public RTTI::Interface<IImage2D>
 	{
-		KxRTTI_DeclareIID_Using(IImage2D, ImageFormat::Any.ToNativeUUID());
+		kxf_RTTI_DeclareIID_Using(IImage2D, ImageFormat::Any.ToNativeUUID());
 
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

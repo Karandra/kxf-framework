@@ -22,12 +22,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::ButtonStyle);
+	kxf_FlagSet_Declare(UI::ButtonStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API Button: public WindowRefreshScheduler<wxSystemThemedControl<wxAnyButton>>//, public WithDropdownMenu
+	class KXF_API Button: public WindowRefreshScheduler<wxSystemThemedControl<wxAnyButton>>//, public WithDropdownMenu
 	{
 		public:
 			static constexpr FlagSet<ButtonStyle> DefaultStyle = ButtonStyle::None;

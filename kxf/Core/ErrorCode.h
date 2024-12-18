@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API ErrorCode final: public RTTI::Implementation<ErrorCode, IErrorCode>
+	class KXF_API ErrorCode final: public RTTI::Implementation<ErrorCode, IErrorCode>
 	{
 		private:
 			IID m_IID;

@@ -8,7 +8,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API IWindowRenderer
+	class KXF_API IWindowRenderer
 	{
 		public:
 			static std::unique_ptr<IWindowRenderer> CreateInstance(WindowRenderer type, Host& host);

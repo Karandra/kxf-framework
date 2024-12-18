@@ -14,10 +14,10 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ActivateEvent: public BasicEvent
+	class KXF_API ActivateEvent: public BasicEvent
 	{
 		public:
-			KxEVENT_MEMBER(ActivateEvent, Activate);
+			kxf_EVENT_MEMBER(ActivateEvent, Activate);
 
 		private:
 			ActivateEventReason m_Reason = ActivateEventReason::Unknown;

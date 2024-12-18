@@ -5,7 +5,7 @@
 
 namespace kxf::UI
 {
-	class KX_API CredentialsDialog: public Dialog
+	class KXF_API CredentialsDialog: public Dialog
 	{
 		private:
 			wxWindow* m_Parent = nullptr;

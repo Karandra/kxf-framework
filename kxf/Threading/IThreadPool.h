@@ -9,9 +9,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IThreadPool: public RTTI::Interface<IThreadPool>
+	class KXF_API IThreadPool: public RTTI::Interface<IThreadPool>
 	{
-		KxRTTI_DeclareIID(IThreadPool, {0x40905495, 0x70f3, 0x42f3, {0xb5, 0xf6, 0x64, 0x57, 0xab, 0x8f, 0x1a, 0xa9}});
+		kxf_RTTI_DeclareIID(IThreadPool, {0x40905495, 0x70f3, 0x42f3, {0xb5, 0xf6, 0x64, 0x57, 0xab, 0x8f, 0x1a, 0xa9}});
 
 		public:
 			virtual void Run() = 0;

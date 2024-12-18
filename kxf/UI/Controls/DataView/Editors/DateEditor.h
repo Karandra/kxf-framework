@@ -16,12 +16,12 @@ namespace kxf::UI::DataView
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::DataView::DateEditorOption);
+	kxf_FlagSet_Declare(UI::DataView::DateEditorOption);
 }
 
 namespace kxf::UI::DataView
 {
-	class KX_API DateTimeValue: public WithOptions<DateEditorOption, DateEditorOption::None>
+	class KXF_API DateTimeValue: public WithOptions<DateEditorOption, DateEditorOption::None>
 	{
 		protected:
 			DateTime m_Value;
@@ -91,7 +91,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API DateEditor: public Editor
+	class KXF_API DateEditor: public Editor
 	{
 		protected:
 			wxWindow* CreateControl(wxWindow& parent, const Rect& cellRect, Any value) override;

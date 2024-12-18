@@ -9,7 +9,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API StatusBarEx: public StatusBar
+	class KXF_API StatusBarEx: public StatusBar
 	{
 		private:
 			std::vector<std::unique_ptr<IImage2D>> m_Icons;

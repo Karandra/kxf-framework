@@ -14,9 +14,9 @@ namespace kxf::Widgets
 
 namespace kxf::Widgets
 {
-	class KX_API ToolBar: public RTTI::DynamicImplementation<ToolBar, Private::BasicWxWidget<ToolBar, WXUI::ToolBar, IToolBarWidget>, IGraphicsRendererAwareWidget>
+	class KXF_API ToolBar: public RTTI::DynamicImplementation<ToolBar, Private::BasicWxWidget<ToolBar, WXUI::ToolBar, IToolBarWidget>, IGraphicsRendererAwareWidget>
 	{
-		KxRTTI_DeclareIID(ToolBar, {0x7caacd52, 0xf264, 0x4877, {0xa1, 0x8e, 0x9e, 0xfa, 0xa0, 0xd2, 0x3b, 0xa}});
+		kxf_RTTI_DeclareIID(ToolBar, {0x7caacd52, 0xf264, 0x4877, {0xa1, 0x8e, 0x9e, 0xfa, 0xa0, 0xd2, 0x3b, 0xa}});
 
 		friend class ToolBarItem;
 

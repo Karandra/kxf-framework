@@ -2,8 +2,9 @@
 #include "ShellLink.h"
 #include "Private/Shell.h"
 #include "kxf/Utility/Memory.h"
+
 #include <ShObjIDL.h>
-#include "UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {

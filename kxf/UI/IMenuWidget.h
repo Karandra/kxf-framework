@@ -6,9 +6,9 @@
 
 namespace kxf
 {
-	class KX_API IMenuWidget: public RTTI::ExtendInterface<IMenuWidget, IWidget>
+	class KXF_API IMenuWidget: public RTTI::ExtendInterface<IMenuWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IMenuWidget, {0x1f082719, 0x1c5e, 0x4253, {0x87, 0xb2, 0x5a, 0x7a, 0xb, 0xb8, 0xf2, 0x6e}});
+		kxf_RTTI_DeclareIID(IMenuWidget, {0x1f082719, 0x1c5e, 0x4253, {0x87, 0xb2, 0x5a, 0x7a, 0xb, 0xb8, 0xf2, 0x6e}});
 
 		public:
 			using ItemType = IMenuWidgetItem::ItemType;

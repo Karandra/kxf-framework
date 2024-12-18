@@ -11,9 +11,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API INativeStream: public RTTI::Interface<INativeStream>
+	class KXF_API INativeStream: public RTTI::Interface<INativeStream>
 	{
-		KxRTTI_DeclareIID(INativeStream, {0x917d1d69, 0x16a3, 0x494d, {0x91, 0x83, 0x35, 0x6c, 0x4d, 0x39, 0x32, 0x7d}});
+		kxf_RTTI_DeclareIID(INativeStream, {0x917d1d69, 0x16a3, 0x494d, {0x91, 0x83, 0x35, 0x6c, 0x4d, 0x39, 0x32, 0x7d}});
 
 		public:
 			INativeStream() noexcept = default;

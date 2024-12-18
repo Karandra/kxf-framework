@@ -7,8 +7,9 @@
 #include "kxf/System/Win32Error.h"
 #include "kxf/Utility/String.h"
 #include "kxf/Utility/Drawing.h"
+
 #include <Windows.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

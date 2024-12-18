@@ -10,7 +10,7 @@ namespace kxf
 
 		ZeroMemory = FlagSetValue<MemoryAllocatorFlag>(0)
 	};
-	KxFlagSet_Declare(MemoryAllocatorFlag);
+	kxf_FlagSet_Declare(MemoryAllocatorFlag);
 
 	enum class MemoryAllocatorCapabilities: uint32_t
 	{
@@ -20,14 +20,14 @@ namespace kxf
 		Alignment = FlagSetValue<MemoryAllocatorCapabilities>(1),
 		AllocationTracking = FlagSetValue<MemoryAllocatorCapabilities>(2)
 	};
-	KxFlagSet_Declare(MemoryAllocatorCapabilities);
+	kxf_FlagSet_Declare(MemoryAllocatorCapabilities);
 }
 
 namespace kxf
 {
-	class KX_API IMemoryAllocator: public RTTI::Interface<IMemoryAllocator>
+	class KXF_API IMemoryAllocator: public RTTI::Interface<IMemoryAllocator>
 	{
-		KxRTTI_DeclareIID(IMemoryAllocator, {0xef410429, 0xfd79, 0x4ecc, {0xb4, 0xa7, 0xad, 0x8c, 0x39, 0xc5, 0xcb, 0x56}});
+		kxf_RTTI_DeclareIID(IMemoryAllocator, {0xef410429, 0xfd79, 0x4ecc, {0xb4, 0xa7, 0xad, 0x8c, 0x39, 0xc5, 0xcb, 0x56}});
 
 		public:
 			struct AllocationInfo
@@ -57,9 +57,9 @@ namespace kxf
 			virtual size_t GetAllocatedBytes() const noexcept = 0;
 	};
 
-	class KX_API IMemoryPoolAllocator: public RTTI::Interface<IMemoryPoolAllocator>
+	class KXF_API IMemoryPoolAllocator: public RTTI::Interface<IMemoryPoolAllocator>
 	{
-		KxRTTI_DeclareIID(IMemoryPoolAllocator, {0xa295e939, 0x101, 0x4224, {0xb3, 0x39, 0x78, 0x7a, 0xa7, 0x71, 0x27, 0xb3}});
+		kxf_RTTI_DeclareIID(IMemoryPoolAllocator, {0xa295e939, 0x101, 0x4224, {0xb3, 0x39, 0x78, 0x7a, 0xa7, 0x71, 0x27, 0xb3}});
 
 		public:
 			virtual void* AllocatePool(size_t size, size_t alignment = 0, FlagSet<MemoryAllocatorFlag> flags = {}) noexcept = 0;

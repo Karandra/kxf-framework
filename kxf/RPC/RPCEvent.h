@@ -14,14 +14,14 @@ namespace kxf
 {
 	class RPCEvent: public BasicEvent
 	{
-		KxRTTI_DeclareIID(RPCEvent, {0x709fe4e1, 0xff7b, 0x4c2f, {0xb4, 0xce, 0xf5, 0xc3, 0x20, 0x7d, 0x55, 0xc9}});
+		kxf_RTTI_DeclareIID(RPCEvent, {0x709fe4e1, 0xff7b, 0x4c2f, {0xb4, 0xce, 0xf5, 0xc3, 0x20, 0x7d, 0x55, 0xc9}});
 
 		public:
-			KxEVENT_MEMBER_UNIQUE_STRING(RPCEvent, ServerStarted, "{709fe4e1-ff7b-4c2f-b4ce-f5c3207d55c9}");
-			KxEVENT_MEMBER_UNIQUE_STRING(RPCEvent, ServerTerminated, "{709fe4e1-ff7b-4c2f-b4ce-f5c3207d55c9}");
+			kxf_EVENT_MEMBER_UNIQUE_STRING(RPCEvent, ServerStarted, "{709fe4e1-ff7b-4c2f-b4ce-f5c3207d55c9}");
+			kxf_EVENT_MEMBER_UNIQUE_STRING(RPCEvent, ServerTerminated, "{709fe4e1-ff7b-4c2f-b4ce-f5c3207d55c9}");
 
-			KxEVENT_MEMBER_UNIQUE_STRING(RPCEvent, ClientConnected, "{709fe4e1-ff7b-4c2f-b4ce-f5c3207d55c9}");
-			KxEVENT_MEMBER_UNIQUE_STRING(RPCEvent, ClientDisconnected, "{709fe4e1-ff7b-4c2f-b4ce-f5c3207d55c9}");
+			kxf_EVENT_MEMBER_UNIQUE_STRING(RPCEvent, ClientConnected, "{709fe4e1-ff7b-4c2f-b4ce-f5c3207d55c9}");
+			kxf_EVENT_MEMBER_UNIQUE_STRING(RPCEvent, ClientDisconnected, "{709fe4e1-ff7b-4c2f-b4ce-f5c3207d55c9}");
 
 		public:
 			RPCEvent() = default;
@@ -56,8 +56,8 @@ namespace kxf
 	};
 }
 
-#define KxRPC_DECLARE_EVENT(name)							extern KX_API const kxf::EventTag<kxf::RPCEvent> name
+#define kxf_RPC_DECLARE_EVENT(name)							extern KXF_API const kxf::EventTag<kxf::RPCEvent> name
 
-#define KxRPC_DEFINE_EVENT_AS(name, ...)					const kxf::EventTag<kxf::RPCEvent> name = (__VA_ARGS__)
-#define KxRPC_DEFINE_EVENT_UUID(name, ...)					KxRPC_DEFINE_EVENT_AS(name, kxf::NativeUUID (__VA_ARGS__))
-#define KxRPC_DEFINE_EVENT_STRING(name)						KxRPC_DEFINE_EVENT_AS(name, #name)
+#define kxf_RPC_DEFINE_EVENT_AS(name, ...)					const kxf::EventTag<kxf::RPCEvent> name = (__VA_ARGS__)
+#define kxf_RPC_DEFINE_EVENT_UUID(name, ...)				kxf_RPC_DEFINE_EVENT_AS(name, kxf::NativeUUID (__VA_ARGS__))
+#define kxf_RPC_DEFINE_EVENT_STRING(name)					kxf_RPC_DEFINE_EVENT_AS(name, #name)

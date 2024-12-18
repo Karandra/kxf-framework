@@ -1,6 +1,5 @@
 #pragma once
 #include "kxf/Utility/Common.h"
-#include "kxf/System/UndefWindows.h"
 
 namespace kxf
 {
@@ -21,7 +20,7 @@ namespace kxf
 		Neutral = 1 << 7,
 		Header = 1 << 8,
 	};
-	KxFlagSet_Declare(StdIcon);
+	kxf_FlagSet_Declare(StdIcon);
 }
 
 namespace kxf::UI

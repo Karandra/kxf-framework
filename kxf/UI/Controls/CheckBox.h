@@ -19,12 +19,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::CheckBoxStyle);
+	kxf_FlagSet_Declare(UI::CheckBoxStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API CheckBox: public wxCheckBox
+	class KXF_API CheckBox: public wxCheckBox
 	{
 		public:
 			static constexpr FlagSet<CheckBoxStyle> DefaultStyle = CheckBoxStyle::TwoState;

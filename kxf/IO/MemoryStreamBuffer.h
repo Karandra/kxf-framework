@@ -12,12 +12,12 @@ namespace kxf
 		OwnStorage = 1 << 0,
 		FixedStorage = 1 << 1
 	};
-	KxFlagSet_Declare(MemoryStreamBufferFlag);
+	kxf_FlagSet_Declare(MemoryStreamBufferFlag);
 }
 
 namespace kxf
 {
-	class KX_API MemoryStreamBuffer final
+	class KXF_API MemoryStreamBuffer final
 	{
 		private:
 			uint8_t* m_BufferStart = nullptr;

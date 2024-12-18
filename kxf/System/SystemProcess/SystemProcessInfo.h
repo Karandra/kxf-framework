@@ -6,7 +6,7 @@
 
 namespace kxf
 {
-	class KX_API SystemProcess: public ISystemProcess
+	class KXF_API SystemProcess: public ISystemProcess
 	{
 		public:
 			static SystemProcess GetCurrentProcess();
@@ -135,7 +135,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API SystemProcessInfo: public ISystemProcess
+	class KXF_API SystemProcessInfo: public ISystemProcess
 	{
 		public:
 			static SystemProcessInfo GetCurrentProcess();

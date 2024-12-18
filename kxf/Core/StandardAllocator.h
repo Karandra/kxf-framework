@@ -35,7 +35,7 @@ namespace kxf
 
 namespace kxf
 {
-	KX_API std::shared_ptr<IMemoryAllocator> GetStandardAllocator(StandardAllocatorKind kind, const StandardAllocatorConfig* config = nullptr);
+	KXF_API std::shared_ptr<IMemoryAllocator> GetStandardAllocator(StandardAllocatorKind kind, const StandardAllocatorConfig* config = nullptr);
 }
 
 namespace kxf

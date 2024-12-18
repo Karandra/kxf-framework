@@ -11,7 +11,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API TabBook: public RTTI::Implementation<TabBook, Private::BasicWxWidget<TabBook, WXUI::TabBook, ITabBookWidget>, IGraphicsRendererAwareWidget>
+	class KXF_API TabBook: public RTTI::Implementation<TabBook, Private::BasicWxWidget<TabBook, WXUI::TabBook, ITabBookWidget>, IGraphicsRendererAwareWidget>
 	{
 		private:
 			std::shared_ptr<IGraphicsRenderer> m_Renderer;

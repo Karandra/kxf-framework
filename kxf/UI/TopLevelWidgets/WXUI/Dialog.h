@@ -5,7 +5,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API Dialog: public EvtHandlerWrapper<Dialog, wxDialog>
+	class KXF_API Dialog: public EvtHandlerWrapper<Dialog, wxDialog>
 	{
 		private:
 			IDalogWidget& m_Widget;

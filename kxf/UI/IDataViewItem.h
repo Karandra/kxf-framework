@@ -8,9 +8,9 @@
 
 namespace kxf
 {
-	class KX_API IDataViewItem: public RTTI::Interface<IDataViewItem>
+	class KXF_API IDataViewItem: public RTTI::Interface<IDataViewItem>
 	{
-		KxRTTI_DeclareIID(IDataViewItem, {0xb36ca63f, 0x4c51, 0x4409, {0x8b, 0x4c, 0xdf, 0xa5, 0x95, 0x59, 0x14, 0xef}});
+		kxf_RTTI_DeclareIID(IDataViewItem, {0xb36ca63f, 0x4c51, 0x4409, {0x8b, 0x4c, 0xdf, 0xa5, 0x95, 0x59, 0x14, 0xef}});
 
 		friend class DataView::Node;
 

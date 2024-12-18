@@ -9,7 +9,8 @@
 #include "kxf/Drawing/IRendererNative.h"
 #include "kxf/Utility/Drawing.h"
 
-Kx_MakeWinUnicodeCallWrapper(SendMessage);
+#include "kxf/Win32/WrapperUnicode.h"
+kxf_MakeWinUnicodeCallWrapper(SendMessage);
 #include <wx/headerctrl.h>
 #include <CommCtrl.h>
 

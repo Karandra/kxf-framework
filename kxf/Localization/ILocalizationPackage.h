@@ -20,14 +20,14 @@ namespace kxf
 {
 	class IInputStream;
 
-	KxFlagSet_Declare(Localization::LoadingScheme);
+	kxf_FlagSet_Declare(Localization::LoadingScheme);
 }
 
 namespace kxf
 {
-	class KX_API ILocalizationPackage: public RTTI::Interface<ILocalizationPackage>
+	class KXF_API ILocalizationPackage: public RTTI::Interface<ILocalizationPackage>
 	{
-		KxRTTI_DeclareIID(ILocalizationPackage, {0xd52888ce, 0x2c58, 0x438e, {0x95, 0x95, 0x20, 0x2, 0x84, 0xd, 0x6a, 0x51}});
+		kxf_RTTI_DeclareIID(ILocalizationPackage, {0xd52888ce, 0x2c58, 0x438e, {0x95, 0x95, 0x20, 0x2, 0x84, 0xd, 0x6a, 0x51}});
 
 		friend class LocalizationItem;
 

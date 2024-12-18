@@ -79,9 +79,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IAsyncTaskExecutor: public RTTI::Interface<IAsyncTaskExecutor>
+	class KXF_API IAsyncTaskExecutor: public RTTI::Interface<IAsyncTaskExecutor>
 	{
-		KxRTTI_DeclareIID(IAsyncTask, {0xef1f966d, 0xd3b9, 0x462c, {0xa2, 0x25, 0x6b, 0xf4, 0x1, 0x6e, 0x50, 0xf2}});
+		kxf_RTTI_DeclareIID(IAsyncTask, {0xef1f966d, 0xd3b9, 0x462c, {0xa2, 0x25, 0x6b, 0xf4, 0x1, 0x6e, 0x50, 0xf2}});
 
 		public:
 			virtual void Run() = 0;

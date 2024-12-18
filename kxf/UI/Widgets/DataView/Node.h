@@ -18,7 +18,7 @@ namespace kxf::DataView
 
 namespace kxf::DataView
 {
-	class KX_API Node
+	class KXF_API Node
 	{
 		friend class RootNode;
 		friend class NodeOperation;

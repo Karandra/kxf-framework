@@ -9,7 +9,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API Check: public RTTI::Implementation<Check, Private::BasicWxWidget<Check, WXUI::Check, ICheckWidget>>
+	class KXF_API Check: public RTTI::Implementation<Check, Private::BasicWxWidget<Check, WXUI::Check, ICheckWidget>>
 	{
 		public:
 			Check();

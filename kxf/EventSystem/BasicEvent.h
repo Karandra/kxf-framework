@@ -36,13 +36,13 @@ namespace kxf::EventSystem
 }
 namespace kxf
 {
-	KxFlagSet_Declare(EventSystem::EventPublicState);
-	KxFlagSet_Declare(EventSystem::EventPrivateState);
+	kxf_FlagSet_Declare(EventSystem::EventPublicState);
+	kxf_FlagSet_Declare(EventSystem::EventPrivateState);
 }
 
 namespace kxf
 {
-	class KX_API BasicEvent: public RTTI::Implementation<BasicEvent, IEvent>, private IEventInternal
+	class KXF_API BasicEvent: public RTTI::Implementation<BasicEvent, IEvent>, private IEventInternal
 	{
 		friend class IObject;
 

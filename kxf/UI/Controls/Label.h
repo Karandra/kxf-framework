@@ -22,12 +22,12 @@ namespace kxf
 {
 	class GDIContext;
 
-	KxFlagSet_Declare(UI::LabelStyle);
+	kxf_FlagSet_Declare(UI::LabelStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API Label: public WindowRefreshScheduler<wxSystemThemedControl<wxStaticText>>
+	class KXF_API Label: public WindowRefreshScheduler<wxSystemThemedControl<wxStaticText>>
 	{
 		public:
 			static constexpr FlagSet<LabelStyle> DefaultStyle = LabelStyle::None;

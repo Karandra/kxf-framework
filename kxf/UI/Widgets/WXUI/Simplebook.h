@@ -5,7 +5,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API Simplebook: public EvtHandlerWrapper<Simplebook, wxSimplebook>
+	class KXF_API Simplebook: public EvtHandlerWrapper<Simplebook, wxSimplebook>
 	{
 		friend class EvtHandlerWrapper;
 

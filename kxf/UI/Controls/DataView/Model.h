@@ -16,9 +16,9 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API Model: public RTTI::Interface<Model>
+	class KXF_API Model: public RTTI::Interface<Model>
 	{
-		KxRTTI_DeclareIID(Model, {0xf9971234, 0xa17b, 0x42bf, {0x84, 0x9a, 0xa9, 0x13, 0xf1, 0x20, 0xc9, 0x35}});
+		kxf_RTTI_DeclareIID(Model, {0xf9971234, 0xa17b, 0x42bf, {0x84, 0x9a, 0xa9, 0x13, 0xf1, 0x20, 0xc9, 0x35}});
 
 		friend class Node;
 		friend class RootNode;

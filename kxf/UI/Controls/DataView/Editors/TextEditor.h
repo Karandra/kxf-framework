@@ -3,7 +3,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API TextEditor: public Editor
+	class KXF_API TextEditor: public Editor
 	{
 		protected:
 			wxWindow* CreateControl(wxWindow& parent, const Rect& cellRect, Any value) override;

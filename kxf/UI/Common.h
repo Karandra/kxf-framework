@@ -20,8 +20,9 @@
 #include "kxf/Drawing/GDIRenderer/GDIIcon.h"
 #include "kxf/EventSystem/Common.h"
 #include "kxf/EventSystem/Event.h"
+
 #include <wx/window.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 class wxObject;
 class wxWindow;
 class wxEvtHandler;
@@ -41,13 +42,13 @@ namespace kxf
 		ScrollHorizontal = FlagSetValue<WidgetStyle>(3),
 		ScrollShowAlways = FlagSetValue<WidgetStyle>(4)
 	};
-	KxFlagSet_Declare(WidgetStyle);
+	kxf_FlagSet_Declare(WidgetStyle);
 
 	enum class WidgetExStyle: uint64_t
 	{
 		None = 0
 	};
-	KxFlagSet_Declare(WidgetExStyle);
+	kxf_FlagSet_Declare(WidgetExStyle);
 
 	enum class WidgetBorder: uint64_t
 	{
@@ -58,7 +59,7 @@ namespace kxf
 		Static,
 		Theme
 	};
-	KxFlagSet_Declare(WidgetBorder);
+	kxf_FlagSet_Declare(WidgetBorder);
 
 	enum class WidgetSizeFlag: uint32_t
 	{
@@ -78,7 +79,7 @@ namespace kxf
 
 		Border = FlagSetValue<WidgetSizeFlag>(9)
 	};
-	KxFlagSet_Declare(WidgetSizeFlag);
+	kxf_FlagSet_Declare(WidgetSizeFlag);
 
 	enum class WidgetColorFlag: uint32_t
 	{
@@ -89,7 +90,7 @@ namespace kxf
 		Border = FlagSetValue<WidgetColorFlag>(2),
 		Text = FlagSetValue<WidgetColorFlag>(3)
 	};
-	KxFlagSet_Declare(WidgetColorFlag);
+	kxf_FlagSet_Declare(WidgetColorFlag);
 
 	enum class WidgetTextFlag: uint32_t
 	{
@@ -97,7 +98,7 @@ namespace kxf
 
 		WithMnemonics = FlagSetValue<WidgetTextFlag>(0)
 	};
-	KxFlagSet_Declare(WidgetTextFlag);
+	kxf_FlagSet_Declare(WidgetTextFlag);
 
 	enum class LayoutDirection
 	{
@@ -156,11 +157,11 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::WindowStyle);
-	KxFlagSet_Declare(UI::WindowExStyle);
+	kxf_FlagSet_Declare(UI::WindowStyle);
+	kxf_FlagSet_Declare(UI::WindowExStyle);
 
-	KxFlagSet_Declare(UI::WindowBorder);
-	KxFlagSet_Extend(UI::WindowBorder, UI::WindowStyle);
+	kxf_FlagSet_Declare(UI::WindowBorder);
+	kxf_FlagSet_Extend(UI::WindowBorder, UI::WindowStyle);
 }
 
 namespace kxf::UI
@@ -168,5 +169,5 @@ namespace kxf::UI
 	// Get any valid HWND for functions that requires parent window in all cases.
 	// Return HWND of windows in following chain:
 	// window -> wxTheApp->GetTopWindow() -> wxGetTopLevelParent(wxGetActiveWindow()) -> ::GetShellWindow()
-	KX_API void* GetOwnerWindowHandle(const wxWindow* window) noexcept;
+	KXF_API void* GetOwnerWindowHandle(const wxWindow* window) noexcept;
 }

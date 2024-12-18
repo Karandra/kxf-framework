@@ -12,7 +12,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API WidgetFactory
+	class KXF_API WidgetFactory
 	{
 		public:
 			static std::unique_ptr<Widget> NewWidget(Host& host, const Element& element, const String& fullyQualifiedClassName);
@@ -68,7 +68,7 @@ namespace kxf::Sciter
 			virtual String GetWidgetStylesheet() const = 0;
 	};
 
-	class KX_API StdWidgetFactory: public WidgetFactory
+	class KXF_API StdWidgetFactory: public WidgetFactory
 	{
 		public:
 			StdWidgetFactory(String className)
@@ -81,7 +81,7 @@ namespace kxf::Sciter
 namespace kxf::Sciter
 {
 	template<class T>
-	class KX_API WidgetFactoryInstance
+	class KXF_API WidgetFactoryInstance
 	{
 		private:
 			inline static bool ms_IsRegistered = false;

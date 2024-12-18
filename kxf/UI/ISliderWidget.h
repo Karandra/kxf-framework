@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API ISliderWidget: public RTTI::ExtendInterface<ISliderWidget, IWidget>
+	class KXF_API ISliderWidget: public RTTI::ExtendInterface<ISliderWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(ISliderWidget, {0x9f0f249a, 0xaf5d, 0x428e, {0x82, 0x71, 0x40, 0x42, 0x3, 0x42, 0x9, 0x3f}});
+		kxf_RTTI_DeclareIID(ISliderWidget, {0x9f0f249a, 0xaf5d, 0x428e, {0x82, 0x71, 0x40, 0x42, 0x3, 0x42, 0x9, 0x3f}});
 
 		public:
 			virtual std::pair<int, int> GetRange() const = 0;

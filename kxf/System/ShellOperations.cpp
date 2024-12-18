@@ -27,7 +27,7 @@
 #include <shlguid.h>
 #include <Shldisp.h>
 #include <KnownFolders.h>
-#include "UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

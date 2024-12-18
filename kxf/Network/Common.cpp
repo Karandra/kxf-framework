@@ -6,7 +6,7 @@
 #include <WinINet.h>
 #include <WinDNS.h>
 #include <ws2tcpip.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::Network
 {

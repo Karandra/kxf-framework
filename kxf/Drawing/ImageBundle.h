@@ -13,14 +13,14 @@ namespace kxf
 		SystemSizeSmall = 1 << 2,
 		NearestLarger = 1 << 3
 	};
-	KxFlagSet_Declare(ImageBundleFlag);
+	kxf_FlagSet_Declare(ImageBundleFlag);
 }
 
 namespace kxf
 {
-	class KX_API ImageBundle: public RTTI::Interface<ImageBundle>
+	class KXF_API ImageBundle: public RTTI::Interface<ImageBundle>
 	{
-		KxRTTI_DeclareIID(ImageBundle, {0x8e7461c, 0x1234, 0x49c0, {0xa0, 0x0, 0xe2, 0x16, 0x4a, 0x75, 0x7d, 0x85}});
+		kxf_RTTI_DeclareIID(ImageBundle, {0x8e7461c, 0x1234, 0x49c0, {0xa0, 0x0, 0xe2, 0x16, 0x4a, 0x75, 0x7d, 0x85}});
 
 		private:
 			std::vector<BitmapImage> m_Items;

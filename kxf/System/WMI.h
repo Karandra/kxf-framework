@@ -26,7 +26,7 @@ namespace kxf
 		SystemOnly = 1 << 2,
 		NonSystemOnly = 1 << 3
 	};
-	KxFlagSet_Declare(WMIClassObjectFlag);
+	kxf_FlagSet_Declare(WMIClassObjectFlag);
 
 	enum class WMIClassObjectComparisonFlag: uint32_t
 	{
@@ -39,12 +39,12 @@ namespace kxf
 		IgnoreClass = 1 << 4,
 		IgnoreCase = 1 << 5
 	};
-	KxFlagSet_Declare(WMIClassObjectComparisonFlag);
+	kxf_FlagSet_Declare(WMIClassObjectComparisonFlag);
 }
 
 namespace kxf
 {
-	class KX_API WMINamespace final
+	class KXF_API WMINamespace final
 	{
 		private:
 			COMPtr<IWbemLocator> m_Locator;
@@ -87,7 +87,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API WMIClassObject final
+	class KXF_API WMIClassObject final
 	{
 		private:
 			COMPtr<IWbemClassObject> m_ClassObject;
@@ -138,7 +138,7 @@ namespace kxf
 }
 namespace kxf
 {
-	class KX_API WMIQualifierSet final
+	class KXF_API WMIQualifierSet final
 	{
 		private:
 			COMPtr<IWbemQualifierSet> m_QualifierSet;

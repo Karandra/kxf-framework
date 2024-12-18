@@ -1,8 +1,9 @@
 #include "kxf-pch.h"
 #include "ComboBox.h"
 #include "../../Events/ComboBoxWidgetEvent.h"
+
 #include <CommCtrl.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::WXUI
 {

@@ -54,7 +54,7 @@ namespace kxf
 
 	void ApplicationInitializer::OnTerminate()
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		if (m_IsCreated)
 		{
@@ -87,48 +87,48 @@ namespace kxf
 			m_CommandLineCount = 0;
 		}
 
-		KX_SCOPEDLOG.SetSuccess();
+		KXF_SCOPEDLOG.SetSuccess();
 	}
 
 	ApplicationInitializer::ApplicationInitializer(ICoreApplication& app)
 		:m_Application(app)
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		RunInitSequence();
 
-		KX_SCOPEDLOG.SetSuccess(IsInitialized());
+		KXF_SCOPEDLOG.SetSuccess(IsInitialized());
 	}
 	ApplicationInitializer::ApplicationInitializer(ICoreApplication& app, int argc, char** argv)
 		:m_Application(app)
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		RunInitSequence(argc, argv);
 
-		KX_SCOPEDLOG.SetSuccess(IsInitialized());
+		KXF_SCOPEDLOG.SetSuccess(IsInitialized());
 	}
 	ApplicationInitializer::ApplicationInitializer(ICoreApplication& app, int argc, wchar_t** argv)
 		:m_Application(app)
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		RunInitSequence(argc, argv);
 
-		KX_SCOPEDLOG.SetSuccess(IsInitialized());
+		KXF_SCOPEDLOG.SetSuccess(IsInitialized());
 	}
 	ApplicationInitializer::~ApplicationInitializer()
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		OnTerminate();
 
-		KX_SCOPEDLOG.SetSuccess();
+		KXF_SCOPEDLOG.SetSuccess();
 	}
 
 	int ApplicationInitializer::Run() noexcept
 	{
-		KX_SCOPEDLOG_FUNC;
+		KXF_SCOPEDLOG_FUNC;
 
 		try
 		{
@@ -144,7 +144,7 @@ namespace kxf
 				// Run the main loop
 				int exitCode = m_Application.OnRun();
 
-				KX_SCOPEDLOG.LogReturn(exitCode);
+				KXF_SCOPEDLOG.LogReturn(exitCode);
 				return exitCode;
 			}
 		}

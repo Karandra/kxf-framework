@@ -17,9 +17,9 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API Column: public RTTI::Interface<Column>, public wxClientDataContainer
+	class KXF_API Column: public RTTI::Interface<Column>, public wxClientDataContainer
 	{
-		KxRTTI_DeclareIID(Column, {0x95e43f36, 0x4b4a, 0x4d43, {0xa9, 0x8, 0xab, 0x1e, 0x25, 0x42, 0x9, 0xfa}});
+		kxf_RTTI_DeclareIID(Column, {0x95e43f36, 0x4b4a, 0x4d43, {0xa9, 0x8, 0xab, 0x1e, 0x25, 0x42, 0x9, 0xfa}});
 
 		friend class View;
 		friend class MainWindow;

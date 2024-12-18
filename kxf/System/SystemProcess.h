@@ -8,7 +8,7 @@
 
 namespace kxf::System
 {
-	KX_API size_t EnumRunningProcesses(std::function<CallbackCommand(SystemProcess)> func);
+	KXF_API size_t EnumRunningProcesses(std::function<CallbackCommand(SystemProcess)> func);
 
-	KX_API std::unique_ptr<ISystemProcess> CreateProcess(const ISystemProcess& info, EvtHandlerDelegate evtHandler = {}, FlagSet<CreateSystemProcessFlag> flags = {});
+	KXF_API std::unique_ptr<ISystemProcess> CreateProcess(const ISystemProcess& info, EvtHandlerDelegate evtHandler = {}, FlagSet<CreateSystemProcessFlag> flags = {});
 }

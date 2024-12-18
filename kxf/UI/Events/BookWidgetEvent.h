@@ -4,29 +4,29 @@
 
 namespace kxf
 {
-	class KX_API BookWidgetEvent: public WidgetEvent
+	class KXF_API BookWidgetEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(BookWidgetEvent, PageChange);
-			KxEVENT_MEMBER(BookWidgetEvent, PageChanged);
+			kxf_EVENT_MEMBER(BookWidgetEvent, PageChange);
+			kxf_EVENT_MEMBER(BookWidgetEvent, PageChanged);
 
-			KxEVENT_MEMBER(BookWidgetEvent, PageClose);
-			KxEVENT_MEMBER(BookWidgetEvent, PageClosed);
+			kxf_EVENT_MEMBER(BookWidgetEvent, PageClose);
+			kxf_EVENT_MEMBER(BookWidgetEvent, PageClosed);
 
-			KxEVENT_MEMBER(BookWidgetEvent, DragAllow);
-			KxEVENT_MEMBER(BookWidgetEvent, DragBegin);
-			KxEVENT_MEMBER(BookWidgetEvent, DragMove);
-			KxEVENT_MEMBER(BookWidgetEvent, DragEnd);
-			KxEVENT_MEMBER(BookWidgetEvent, DragDone);
+			kxf_EVENT_MEMBER(BookWidgetEvent, DragAllow);
+			kxf_EVENT_MEMBER(BookWidgetEvent, DragBegin);
+			kxf_EVENT_MEMBER(BookWidgetEvent, DragMove);
+			kxf_EVENT_MEMBER(BookWidgetEvent, DragEnd);
+			kxf_EVENT_MEMBER(BookWidgetEvent, DragDone);
 
-			KxEVENT_MEMBER(BookWidgetEvent, ButtonMiddleUp);
-			KxEVENT_MEMBER(BookWidgetEvent, ButtonMiddleDown);
+			kxf_EVENT_MEMBER(BookWidgetEvent, ButtonMiddleUp);
+			kxf_EVENT_MEMBER(BookWidgetEvent, ButtonMiddleDown);
 
-			KxEVENT_MEMBER(BookWidgetEvent, ButtonRightUp);
-			KxEVENT_MEMBER(BookWidgetEvent, ButtonRightDown);
+			kxf_EVENT_MEMBER(BookWidgetEvent, ButtonRightUp);
+			kxf_EVENT_MEMBER(BookWidgetEvent, ButtonRightDown);
 
-			KxEVENT_MEMBER(BookWidgetEvent, PageMenu);
-			KxEVENT_MEMBER(BookWidgetEvent, BackgroundDoubleClick);
+			kxf_EVENT_MEMBER(BookWidgetEvent, PageMenu);
+			kxf_EVENT_MEMBER(BookWidgetEvent, BackgroundDoubleClick);
 
 		private:
 			size_t m_OldSelection = IBookWidget::npos;

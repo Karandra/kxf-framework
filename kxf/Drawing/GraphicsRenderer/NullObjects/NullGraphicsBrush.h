@@ -4,7 +4,7 @@
 
 namespace kxf::Drawing
 {
-	class KX_API NullGraphicsBrush final: public IGraphicsBrush
+	class KXF_API NullGraphicsBrush final: public IGraphicsBrush
 	{
 		public:
 			NullGraphicsBrush() noexcept = default;

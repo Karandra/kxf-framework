@@ -28,7 +28,7 @@ namespace kxf::Widgets
 {
 	class MenuWidget: public RTTI::DynamicImplementation<MenuWidget, BasicEvtHandler<MenuWidget, IMenuWidget>, IGraphicsRendererAwareWidget>
 	{
-		KxRTTI_DeclareIID(MenuWidget, {0x3ed24a86, 0xd924, 0x4c39, {0xae, 0x70, 0x40, 0x7b, 0x45, 0x47, 0xea, 0x16}});
+		kxf_RTTI_DeclareIID(MenuWidget, {0x3ed24a86, 0xd924, 0x4c39, {0xae, 0x70, 0x40, 0x7b, 0x45, 0x47, 0xea, 0x16}});
 
 		friend class MenuWidgetItem;
 		friend class BasicEvtHandler<MenuWidget, IMenuWidget>;

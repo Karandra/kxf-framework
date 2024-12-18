@@ -1,14 +1,15 @@
 #pragma once
 #include "ISystemProcessStdIO.h"
+#include "kxf/wxWidgets/StreamWrapper.h"
+
 #include <Windows.h>
 #include <wx/private/pipestream.h>
 #include <wx/private/streamtempinput.h>
-#include "kxf/wxWidgets/StreamWrapper.h"
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {
-	class KX_API RunningSystemProcessStdIO: public ISystemProcessStdIO
+	class KXF_API RunningSystemProcessStdIO: public ISystemProcessStdIO
 	{
 		private:
 			mutable std::optional<wxWidgets::OutputStreamWrapper> m_InStreamWrapper;

@@ -3,7 +3,7 @@
 #include "UniChar.h"
 
 #include <Windows.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {

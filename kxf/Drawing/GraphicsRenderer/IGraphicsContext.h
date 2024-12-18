@@ -54,9 +54,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IGraphicsContext: public RTTI::ExtendInterface<IGraphicsContext, IGraphicsObject>
+	class KXF_API IGraphicsContext: public RTTI::ExtendInterface<IGraphicsContext, IGraphicsObject>
 	{
-		KxRTTI_DeclareIID(IGraphicsContext, {0x7a91357c, 0x87f9, 0x4230, {0x92, 0xf, 0x54, 0xbf, 0xde, 0x42, 0x35, 0xf5}});
+		kxf_RTTI_DeclareIID(IGraphicsContext, {0x7a91357c, 0x87f9, 0x4230, {0x92, 0xf, 0x54, 0xbf, 0xde, 0x42, 0x35, 0xf5}});
 
 		protected:
 			GDIBitmap DrawGDIOnBitmap(const RectF& rect, std::function<void(GDIContext& dc)> func, bool forceAlpha = false);

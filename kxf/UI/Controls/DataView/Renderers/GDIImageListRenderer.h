@@ -5,7 +5,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API GDIImageListValue: public TextValue, public ImageValueBase, public WithImageList
+	class KXF_API GDIImageListValue: public TextValue, public ImageValueBase, public WithImageList
 	{
 		public:
 			GDIImageListValue() = default;
@@ -65,7 +65,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API GDIImageListRenderer: public ImageListRendererBase
+	class KXF_API GDIImageListRenderer: public ImageListRendererBase
 	{
 		private:
 			GDIImageListValue m_Value;

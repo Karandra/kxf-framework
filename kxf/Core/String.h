@@ -1,7 +1,6 @@
 #pragma once
 #include "Common.h"
 #include "UniChar.h"
-#include "kxf/System/UndefWindows.h"
 #include "kxf/Serialization/BinarySerializer.h"
 #include "Private/String.h"
 #include <format>
@@ -15,7 +14,7 @@ namespace kxf
 
 	using XChar = wchar_t;
 	using StringView = std::basic_string_view<XChar>;
-	KX_API extern const String NullString;
+	KXF_API extern const String NullString;
 
 	#define kxS(x)	L ## x
 
@@ -26,7 +25,7 @@ namespace kxf
 		Symmetrical = 1 << 1,
 		FirstMatchOnly = 1 << 2,
 	};
-	KxFlagSet_Declare(StringActionFlag);
+	kxf_FlagSet_Declare(StringActionFlag);
 }
 
 namespace kxf
@@ -80,7 +79,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API String final
+	class KXF_API String final
 	{
 		friend struct std::hash<String>;
 		friend struct BinarySerializer<String>;
@@ -1105,7 +1104,8 @@ namespace kxf
 		return temp;
 	}
 
-	template<class T> requires(std::is_constructible_v<String, T>)
+	template<class T>
+	requires(std::is_constructible_v<String, T>)
 	String operator+(const String& left, T&& right)
 	{
 		String temp = left;
@@ -1115,7 +1115,8 @@ namespace kxf
 	}
 
 	// Conversion
-	template<class T> requires(std::is_arithmetic_v<T>)
+	template<class T>
+	requires(std::is_arithmetic_v<T>)
 	String ToString(T value)
 	{
 		if constexpr(std::is_same_v<XChar, char>)
@@ -1132,7 +1133,8 @@ namespace kxf
 		}
 	}
 
-	template<class T> requires(std::is_enum_v<T>)
+	template<class T>
+	requires(std::is_enum_v<T>)
 	String ToString(T value)
 	{
 		return ToString(static_cast<std::underlying_type_t<T>>(value));
@@ -1181,7 +1183,7 @@ namespace std
 namespace kxf
 {
 	template<>
-	struct KX_API BinarySerializer<String> final
+	struct KXF_API BinarySerializer<String> final
 	{
 		uint64_t Serialize(IOutputStream& stream, const String& value) const;
 		uint64_t Deserialize(IInputStream& stream, String& value) const;

@@ -10,7 +10,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API TextBox: public RTTI::Implementation<TextBox, Private::BasicWxWidget<TextBox, WXUI::TextBox, ITextWidget>>
+	class KXF_API TextBox: public RTTI::Implementation<TextBox, Private::BasicWxWidget<TextBox, WXUI::TextBox, ITextWidget>>
 	{
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

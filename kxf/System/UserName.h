@@ -3,7 +3,7 @@
 
 namespace kxf
 {
-	class KX_API UserName
+	class KXF_API UserName
 	{
 		private:
 			String m_Name;

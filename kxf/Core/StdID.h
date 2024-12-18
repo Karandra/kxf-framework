@@ -1,5 +1,4 @@
 #pragma once
-#include "kxf/System/UndefWindows.h"
 
 namespace kxf
 {

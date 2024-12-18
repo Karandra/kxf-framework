@@ -9,7 +9,7 @@
 
 namespace kxf
 {
-	class KX_API ShellFileTypeInfo final
+	class KXF_API ShellFileTypeInfo final
 	{
 		private:
 			wxFileTypeInfo m_FileTypeInfo;

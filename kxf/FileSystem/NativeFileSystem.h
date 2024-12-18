@@ -13,7 +13,7 @@ namespace kxf::FileSystem::Private
 
 namespace kxf
 {
-	class KX_API NativeFileSystem: public RTTI::Implementation<NativeFileSystem, IFileSystem, IFileSystemWithID>
+	class KXF_API NativeFileSystem: public RTTI::Implementation<NativeFileSystem, IFileSystem, IFileSystemWithID>
 	{
 		private:
 			friend class kxf::FileSystem::Private::PathResolver;

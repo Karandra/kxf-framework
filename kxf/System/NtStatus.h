@@ -11,9 +11,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API NtStatus final: public RTTI::DynamicImplementation<NtStatus, IErrorCode>
+	class KXF_API NtStatus final: public RTTI::DynamicImplementation<NtStatus, IErrorCode>
 	{
-		KxRTTI_DeclareIID(NtStatus, {0xcffef908, 0x7112, 0x4130, {0x91, 0x8c, 0x6c, 0x2, 0xcb, 0x42, 0x94, 0xf1}});
+		kxf_RTTI_DeclareIID(NtStatus, {0xcffef908, 0x7112, 0x4130, {0x91, 0x8c, 0x6c, 0x2, 0xcb, 0x42, 0x94, 0xf1}});
 
 		public:
 			static NtStatus Success() noexcept;

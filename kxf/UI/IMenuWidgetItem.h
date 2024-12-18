@@ -11,9 +11,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IMenuWidgetItem: public RTTI::ExtendInterface<IMenuWidgetItem, IWidgetItem>
+	class KXF_API IMenuWidgetItem: public RTTI::ExtendInterface<IMenuWidgetItem, IWidgetItem>
 	{
-		KxRTTI_DeclareIID(IMenuWidgetItem, {0xb1e0d965, 0x3eec, 0x42d8, {0xa4, 0x4e, 0xd9, 0xce, 0xd7, 0xb7, 0x93, 0x3e}});
+		kxf_RTTI_DeclareIID(IMenuWidgetItem, {0xb1e0d965, 0x3eec, 0x42d8, {0xa4, 0x4e, 0xd9, 0xce, 0xd7, 0xb7, 0x93, 0x3e}});
 
 		public:
 			enum class ItemType

@@ -4,35 +4,35 @@ class wxMouseEvent;
 
 namespace kxf
 {
-	class KX_API WidgetMouseEvent: public WidgetEvent
+	class KXF_API WidgetMouseEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetMouseEvent, LeftUp);
-			KxEVENT_MEMBER(WidgetMouseEvent, LeftDown);
-			KxEVENT_MEMBER(WidgetMouseEvent, LeftDoubleClick);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, LeftUp);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, LeftDown);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, LeftDoubleClick);
 
-			KxEVENT_MEMBER(WidgetMouseEvent, RightUp);
-			KxEVENT_MEMBER(WidgetMouseEvent, RightDown);
-			KxEVENT_MEMBER(WidgetMouseEvent, RightDoubleClick);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, RightUp);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, RightDown);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, RightDoubleClick);
 
-			KxEVENT_MEMBER(WidgetMouseEvent, MiddleUp);
-			KxEVENT_MEMBER(WidgetMouseEvent, MiddleDown);
-			KxEVENT_MEMBER(WidgetMouseEvent, MiddleDoubleClick);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, MiddleUp);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, MiddleDown);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, MiddleDoubleClick);
 
-			KxEVENT_MEMBER(WidgetMouseEvent, Aux1Up);
-			KxEVENT_MEMBER(WidgetMouseEvent, Aux1Down);
-			KxEVENT_MEMBER(WidgetMouseEvent, Aux1DoubleClick);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Aux1Up);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Aux1Down);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Aux1DoubleClick);
 
-			KxEVENT_MEMBER(WidgetMouseEvent, Aux2Up);
-			KxEVENT_MEMBER(WidgetMouseEvent, Aux2Down);
-			KxEVENT_MEMBER(WidgetMouseEvent, Aux2DoubleClick);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Aux2Up);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Aux2Down);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Aux2DoubleClick);
 
-			KxEVENT_MEMBER(WidgetMouseEvent, Move);
-			KxEVENT_MEMBER(WidgetMouseEvent, Wheel);
-			KxEVENT_MEMBER(WidgetMouseEvent, Magnification);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Move);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Wheel);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Magnification);
 
-			KxEVENT_MEMBER(WidgetMouseEvent, Enter);
-			KxEVENT_MEMBER(WidgetMouseEvent, Leave);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Enter);
+			kxf_EVENT_MEMBER(WidgetMouseEvent, Leave);
 
 		private:
 			KeyboardState m_KeyboardState;

@@ -19,7 +19,7 @@ namespace kxf::WXUI::Private
 
 namespace kxf::WXUI
 {
-	class KX_API ToolBar: public EvtHandlerWrapper<ToolBar, UI::WindowRefreshScheduler<wxSystemThemedControl<wxAuiToolBar>>>
+	class KXF_API ToolBar: public EvtHandlerWrapper<ToolBar, UI::WindowRefreshScheduler<wxSystemThemedControl<wxAuiToolBar>>>
 	{
 		friend class EvtHandlerWrapper;
 		friend class Private::ToolBarRenderer;
@@ -101,7 +101,7 @@ namespace kxf::WXUI
 
 namespace kxf::WXUI::Private
 {
-	class KX_API ToolBarRenderer: public wxAuiDefaultToolBarArt
+	class KXF_API ToolBarRenderer: public wxAuiDefaultToolBarArt
 	{
 		private:
 			ToolBar* m_ToolBar = nullptr;

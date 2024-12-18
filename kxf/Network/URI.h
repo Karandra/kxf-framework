@@ -22,12 +22,12 @@ namespace kxf
 		NormalizeBreaks = 1 << 1,
 		DomainRootRelative = 1 << 2
 	};
-	KxFlagSet_Declare(URIFlag);
+	kxf_FlagSet_Declare(URIFlag);
 }
 
 namespace kxf
 {
-	class KX_API URI final
+	class KXF_API URI final
 	{
 		friend class Private::URIObject;
 		friend struct std::hash<URI>;

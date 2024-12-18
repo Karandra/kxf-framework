@@ -66,7 +66,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API TimeZoneOffset final
+	class KXF_API TimeZoneOffset final
 	{
 		private:
 			TimeSpan m_Offset;

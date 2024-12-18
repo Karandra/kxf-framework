@@ -12,9 +12,9 @@
 
 namespace kxf
 {
-	class KX_API GDIGraphicsContext: public RTTI::ExtendInterface<GDIGraphicsContext, IGraphicsContext, IGDIObject>
+	class KXF_API GDIGraphicsContext: public RTTI::ExtendInterface<GDIGraphicsContext, IGraphicsContext, IGDIObject>
 	{
-		KxRTTI_DeclareIID(GDIGraphicsContext, {0x7f0f1843, 0x27b9, 0x40df, {0x8d, 0xdc, 0x27, 0x98, 0x52, 0x44, 0xb7, 0x20}});
+		kxf_RTTI_DeclareIID(GDIGraphicsContext, {0x7f0f1843, 0x27b9, 0x40df, {0x8d, 0xdc, 0x27, 0x98, 0x52, 0x44, 0xb7, 0x20}});
 
 		protected:
 			GDIGraphicsRenderer* m_Renderer = nullptr;
@@ -324,7 +324,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API GDIGraphicsAnyContext: public GDIGraphicsContext
+	class KXF_API GDIGraphicsAnyContext: public GDIGraphicsContext
 	{
 		public:
 			GDIGraphicsAnyContext() noexcept = default;
@@ -342,7 +342,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIGraphicsMemoryContext: public GDIGraphicsContext
+	class KXF_API GDIGraphicsMemoryContext: public GDIGraphicsContext
 	{
 		protected:
 			wxMemoryDC m_MemoryDC;
@@ -382,7 +382,7 @@ namespace kxf
 			std::shared_ptr<IGraphicsTexture> UnselectTexture();
 	};
 
-	class KX_API GDIGraphicsWindowContext: public GDIGraphicsContext
+	class KXF_API GDIGraphicsWindowContext: public GDIGraphicsContext
 	{
 		protected:
 			wxWindowDC m_WindowDC;
@@ -403,7 +403,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIGraphicsWindowClientContext: public GDIGraphicsContext
+	class KXF_API GDIGraphicsWindowClientContext: public GDIGraphicsContext
 	{
 		protected:
 			wxClientDC m_ClientDC;
@@ -424,7 +424,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIGraphicsPaintContext: public GDIGraphicsContext
+	class KXF_API GDIGraphicsPaintContext: public GDIGraphicsContext
 	{
 		protected:
 			wxPaintDC m_PaintDC;
@@ -456,9 +456,9 @@ namespace kxf
 		BufferClientArea = wxBUFFER_CLIENT_AREA,
 		VirtualArea = wxBUFFER_USES_SHARED_BUFFER,
 	};
-	KxFlagSet_Declare(GDIBufferedContextFlag);
+	kxf_FlagSet_Declare(GDIBufferedContextFlag);
 
-	class KX_API GDIGraphicsBufferedContext: public GDIGraphicsContext
+	class KXF_API GDIGraphicsBufferedContext: public GDIGraphicsContext
 	{
 		protected:
 			wxBufferedDC m_BufferedDC;
@@ -499,7 +499,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIGraphicsBufferedPaintContext: public GDIGraphicsContext
+	class KXF_API GDIGraphicsBufferedPaintContext: public GDIGraphicsContext
 	{
 		protected:
 			wxBufferedPaintDC m_BufferedPaintDC;

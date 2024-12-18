@@ -22,7 +22,7 @@ namespace kxf::UI
 }
 namespace kxf::UI
 {
-	class KX_API RichToolTip: public wxObject
+	class KXF_API RichToolTip: public wxObject
 	{
 		public:
 			static constexpr StdIcon DefaultIcon = StdIcon::Information;

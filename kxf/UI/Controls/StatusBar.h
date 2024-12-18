@@ -20,13 +20,13 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::StatusBarStyle);
-	KxFlagSet_Extend(UI::StatusBarStyle, UI::WindowStyle);
+	kxf_FlagSet_Declare(UI::StatusBarStyle);
+	kxf_FlagSet_Extend(UI::StatusBarStyle, UI::WindowStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API StatusBar: public wxSystemThemedControl<WindowRefreshScheduler<wxStatusBar>>
+	class KXF_API StatusBar: public wxSystemThemedControl<WindowRefreshScheduler<wxStatusBar>>
 	{
 		public:
 			static constexpr FlagSet<StatusBarStyle> DefaultStyle = (StatusBarStyle::SizeGrip|StatusBarStyle::ShowTips|StatusBarStyle::EllipsizeEnd)|WindowStyle::FullRepaintOnResize;

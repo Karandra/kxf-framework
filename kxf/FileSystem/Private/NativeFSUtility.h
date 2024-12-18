@@ -6,7 +6,7 @@
 #include "kxf/Utility/Common.h"
 
 #include <Windows.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 struct _WIN32_FIND_DATAW;
 struct _BY_HANDLE_FILE_INFORMATION;
 

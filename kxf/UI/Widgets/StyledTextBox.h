@@ -9,7 +9,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API StyledTextBox: public RTTI::Implementation<StyledTextBox, Private::BasicWxWidget<StyledTextBox, WXUI::StyledTextBox, IStyledTextWidget>>
+	class KXF_API StyledTextBox: public RTTI::Implementation<StyledTextBox, Private::BasicWxWidget<StyledTextBox, WXUI::StyledTextBox, IStyledTextWidget>>
 	{
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

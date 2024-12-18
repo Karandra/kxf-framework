@@ -3,7 +3,7 @@
 
 namespace kxf
 {
-	class KX_API EvtHandlerStack final
+	class KXF_API EvtHandlerStack final
 	{
 		public:
 			enum class Order

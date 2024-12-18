@@ -3,7 +3,7 @@
 
 namespace kxf::Sciter
 {
-	class KX_API MasterStylesheetStorage final: public StylesheetStorage
+	class KXF_API MasterStylesheetStorage final: public StylesheetStorage
 	{
 		public:
 			static MasterStylesheetStorage& GetInstance() noexcept

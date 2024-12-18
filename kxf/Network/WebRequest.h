@@ -20,5 +20,5 @@ namespace kxf
 
 namespace kxf::Network
 {
-	KX_API std::unique_ptr<IWebSession> CreateWebSession(const URI& uri, std::shared_ptr<IAsyncTaskExecutor> taskExecutor = {});
+	KXF_API std::unique_ptr<IWebSession> CreateWebSession(const URI& uri, std::shared_ptr<IAsyncTaskExecutor> taskExecutor = {});
 }

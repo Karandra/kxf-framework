@@ -9,7 +9,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API Button: public EvtHandlerWrapper<Button, UI::WindowRefreshScheduler<wxSystemThemedControl<wxAnyButton>>>
+	class KXF_API Button: public EvtHandlerWrapper<Button, UI::WindowRefreshScheduler<wxSystemThemedControl<wxAnyButton>>>
 	{
 		public:
 			static Size GetDefaultSize();

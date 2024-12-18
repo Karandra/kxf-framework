@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API GDIBrush: public IGDIObject
+	class KXF_API GDIBrush: public IGDIObject
 	{
 		private:
 			wxBrush m_Brush;
@@ -139,5 +139,5 @@ namespace kxf
 
 namespace kxf::Drawing
 {
-	KX_API GDIBrush GetStockGDIBrush(StockBrush brush);
+	KXF_API GDIBrush GetStockGDIBrush(StockBrush brush);
 }

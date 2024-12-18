@@ -3,9 +3,9 @@
 
 namespace kxf
 {
-	class KX_API WidgetEvent: public RTTI::DynamicImplementation<WidgetEvent, BasicEvent, IWidgetEvent>
+	class KXF_API WidgetEvent: public RTTI::DynamicImplementation<WidgetEvent, BasicEvent, IWidgetEvent>
 	{
-		KxRTTI_DeclareIID(WidgetEvent, {0xa7e0c7a2, 0xe2cf, 0x4b11, {0xa4, 0x1b, 0x9, 0x77, 0x47, 0x6a, 0xa7, 0x70}});
+		kxf_RTTI_DeclareIID(WidgetEvent, {0xa7e0c7a2, 0xe2cf, 0x4b11, {0xa4, 0x1b, 0x9, 0x77, 0x47, 0x6a, 0xa7, 0x70}});
 
 		private:
 			std::shared_ptr<IWidget> m_Widget;

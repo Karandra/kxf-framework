@@ -26,7 +26,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ReadWriteLock final
+	class KXF_API ReadWriteLock final
 	{
 		private:
 			AlignedStorage<_RTL_SRWLOCK, sizeof(void*), alignof(void*)> m_Lock;

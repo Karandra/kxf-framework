@@ -16,7 +16,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API Editor
+	class KXF_API Editor
 	{
 		friend class MainWindow;
 		friend class EditorControlHandler;
@@ -117,7 +117,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API EditorControlHandler: public wxEvtHandler
+	class KXF_API EditorControlHandler: public wxEvtHandler
 	{
 		private:
 			Editor* m_Editor = nullptr;

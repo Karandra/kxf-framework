@@ -10,7 +10,7 @@ namespace kxf::Private
 
 namespace kxf
 {
-	class KX_API GenericTimer: public RTTI::DynamicImplementation<GenericTimer, ITimer>
+	class KXF_API GenericTimer: public RTTI::DynamicImplementation<GenericTimer, ITimer>
 	{
 		friend class Private::GenericTimerImpl;
 

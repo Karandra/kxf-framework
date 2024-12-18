@@ -17,7 +17,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API GDIContext: public IGDIObject
+	class KXF_API GDIContext: public IGDIObject
 	{
 		public:
 			template<class T>

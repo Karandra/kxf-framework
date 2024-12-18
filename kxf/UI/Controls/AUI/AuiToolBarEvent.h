@@ -10,14 +10,14 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API AuiToolBarEvent: public wxAuiToolBarEvent
+	class KXF_API AuiToolBarEvent: public wxAuiToolBarEvent
 	{
 		public:
-			KxEVENT_MEMBER(AuiToolBarEvent, ItemClick);
-			KxEVENT_MEMBER(AuiToolBarEvent, ItemRightClick);
-			KxEVENT_MEMBER(AuiToolBarEvent, ItemMiddleClick);
-			KxEVENT_MEMBER(AuiToolBarEvent, ItemDropdown);
-			KxEVENT_MEMBER(AuiToolBarEvent, OverflowClick);
+			kxf_EVENT_MEMBER(AuiToolBarEvent, ItemClick);
+			kxf_EVENT_MEMBER(AuiToolBarEvent, ItemRightClick);
+			kxf_EVENT_MEMBER(AuiToolBarEvent, ItemMiddleClick);
+			kxf_EVENT_MEMBER(AuiToolBarEvent, ItemDropdown);
+			kxf_EVENT_MEMBER(AuiToolBarEvent, OverflowClick);
 
 		private:
 			AuiToolBarItem* m_Item = nullptr;

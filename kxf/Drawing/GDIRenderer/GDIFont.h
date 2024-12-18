@@ -11,9 +11,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API GDIFont: public RTTI::ExtendInterface<GDIFont, IGDIObject>
+	class KXF_API GDIFont: public RTTI::ExtendInterface<GDIFont, IGDIObject>
 	{
-		KxRTTI_DeclareIID(GDIFont, {0xbeb3a65c, 0xf639, 0x4e44, {0x80, 0x3a, 0x1b, 0x53, 0xf6, 0x9c, 0x61, 0xd8}});
+		kxf_RTTI_DeclareIID(GDIFont, {0xbeb3a65c, 0xf639, 0x4e44, {0x80, 0x3a, 0x1b, 0x53, 0xf6, 0x9c, 0x61, 0xd8}});
 
 		public:
 			static FontEncoding GetDefaultEncoding() noexcept

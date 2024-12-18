@@ -3,10 +3,10 @@
 
 namespace kxf::Sciter
 {
-	class KX_API SizeEvent: public SciterEvent
+	class KXF_API SizeEvent: public SciterEvent
 	{
 		public:
-			KxEVENT_MEMBER(SizeEvent, Size);
+			kxf_EVENT_MEMBER(SizeEvent, Size);
 
 		public:
 			SizeEvent(Host& host)
@@ -25,5 +25,5 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SizeEvent, Size);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SizeEvent, Size);
 }

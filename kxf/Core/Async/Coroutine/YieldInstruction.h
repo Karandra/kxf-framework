@@ -26,7 +26,7 @@ namespace kxf::Async
 
 namespace kxf::Async
 {
-	class KX_API YieldInstruction final
+	class KXF_API YieldInstruction final
 	{
 		friend class CoroutineBase;
 		friend class Coroutine;

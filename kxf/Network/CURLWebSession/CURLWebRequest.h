@@ -12,7 +12,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API CURLWebRequest final: public RTTI::Implementation<CURLWebRequest, Private::BasicWebRequest, IWebRequestOptions, IWebRequestAuthOptions, IWebRequestSecurityOptions>
+	class KXF_API CURLWebRequest final: public RTTI::Implementation<CURLWebRequest, Private::BasicWebRequest, IWebRequestOptions, IWebRequestAuthOptions, IWebRequestSecurityOptions>
 	{
 		friend class CURLWebResponse;
 		friend class CURLWebAuthChallenge;

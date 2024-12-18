@@ -14,13 +14,13 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::SplashWindowStyle);
-	KxFlagSet_Extend(UI::SplashWindowStyle, UI::WindowStyle);
+	kxf_FlagSet_Declare(UI::SplashWindowStyle);
+	kxf_FlagSet_Extend(UI::SplashWindowStyle, UI::WindowStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API SplashWindow: public WindowRefreshScheduler<Frame>
+	class KXF_API SplashWindow: public WindowRefreshScheduler<Frame>
 	{
 		public:
 			static constexpr FlagSet<SplashWindowStyle> DefaultStyle = SplashWindowStyle::None;

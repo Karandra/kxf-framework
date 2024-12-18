@@ -8,7 +8,7 @@
 
 namespace kxf::DataView
 {
-	class KX_API CellRendererHelper
+	class KXF_API CellRendererHelper
 	{
 		private:
 			IWidget& m_Widget;

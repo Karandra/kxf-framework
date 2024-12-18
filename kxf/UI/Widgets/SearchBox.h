@@ -10,7 +10,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API SearchBox: public RTTI::Implementation<SearchBox, Private::BasicWxWidget<SearchBox, WXUI::SearchBox, ISearchWidget>>
+	class KXF_API SearchBox: public RTTI::Implementation<SearchBox, Private::BasicWxWidget<SearchBox, WXUI::SearchBox, ISearchWidget>>
 	{
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

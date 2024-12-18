@@ -2,7 +2,6 @@
 #include "Common.h"
 #include "kxf/Core/String.h"
 #include "kxf/Core/DateTime.h"
-#include "kxf/System/UndefWindows.h"
 
 namespace kxf::Localization
 {
@@ -21,7 +20,7 @@ namespace kxf::Localization
 
 namespace kxf
 {
-	class KX_API Locale final
+	class KXF_API Locale final
 	{
 		friend class DateTime;
 

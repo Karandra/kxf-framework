@@ -3,18 +3,18 @@
 
 namespace kxf
 {
-	class KX_API WidgetScrollEvent: public WidgetEvent
+	class KXF_API WidgetScrollEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetScrollEvent, Top);
-			KxEVENT_MEMBER(WidgetScrollEvent, Bottom);
-			KxEVENT_MEMBER(WidgetScrollEvent, LineUp);
-			KxEVENT_MEMBER(WidgetScrollEvent, LineDown);
-			KxEVENT_MEMBER(WidgetScrollEvent, PageUp);
-			KxEVENT_MEMBER(WidgetScrollEvent, PageDown);
+			kxf_EVENT_MEMBER(WidgetScrollEvent, Top);
+			kxf_EVENT_MEMBER(WidgetScrollEvent, Bottom);
+			kxf_EVENT_MEMBER(WidgetScrollEvent, LineUp);
+			kxf_EVENT_MEMBER(WidgetScrollEvent, LineDown);
+			kxf_EVENT_MEMBER(WidgetScrollEvent, PageUp);
+			kxf_EVENT_MEMBER(WidgetScrollEvent, PageDown);
 
-			KxEVENT_MEMBER(WidgetScrollEvent, ThumbTrack);
-			KxEVENT_MEMBER(WidgetScrollEvent, ThumbRelease);
+			kxf_EVENT_MEMBER(WidgetScrollEvent, ThumbTrack);
+			kxf_EVENT_MEMBER(WidgetScrollEvent, ThumbRelease);
 
 		private:
 			Orientation m_Orientation = Orientation::None;

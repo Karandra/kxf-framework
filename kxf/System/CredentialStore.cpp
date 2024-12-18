@@ -1,9 +1,10 @@
 #include "kxf-pch.h"
 #include "CredentialStore.h"
 #include "kxf/Utility/ScopeGuard.h"
+
 #include <Windows.h>
 #include <wincred.h>
-#include "UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {

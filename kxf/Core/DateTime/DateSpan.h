@@ -11,7 +11,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API DateSpan final
+	class KXF_API DateSpan final
 	{
 		public:
 			static constexpr DateSpan Days(int days) noexcept

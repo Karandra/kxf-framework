@@ -5,7 +5,7 @@
 
 namespace kxf
 {
-	class KX_API CombinedVariableCollection final: public RTTI::Implementation<CombinedVariableCollection, IVariableCollection>
+	class KXF_API CombinedVariableCollection final: public RTTI::Implementation<CombinedVariableCollection, IVariableCollection>
 	{
 		private:
 			std::vector<IVariableCollection*> m_Items;

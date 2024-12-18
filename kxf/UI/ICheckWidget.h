@@ -20,9 +20,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ICheckWidget: public RTTI::ExtendInterface<ICheckWidget, IWidget>
+	class KXF_API ICheckWidget: public RTTI::ExtendInterface<ICheckWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(ICheckWidget, {0xffcee75f, 0x809d, 0x417f, {0x96, 0x6d, 0xc4, 0x44, 0x83, 0xaa, 0xc8, 0x6e}});
+		kxf_RTTI_DeclareIID(ICheckWidget, {0xffcee75f, 0x809d, 0x417f, {0x96, 0x6d, 0xc4, 0x44, 0x83, 0xaa, 0xc8, 0x6e}});
 
 		public:
 			virtual String GetLabel(FlagSet<WidgetTextFlag> flags = {}) const = 0;

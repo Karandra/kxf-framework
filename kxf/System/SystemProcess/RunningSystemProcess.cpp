@@ -9,10 +9,11 @@
 #include "kxf/Utility/Common.h"
 #include "kxf/Utility/String.h"
 #include "kxf/Utility/ScopeGuard.h"
+
 #include <Windows.h>
 #include <PsAPI.h>
 #include <WInternl.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

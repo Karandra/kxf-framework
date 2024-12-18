@@ -5,10 +5,8 @@
 #include "kxf/System/Private/BeginIncludeCOM.h"
 namespace
 {
-	Kx_MakeWinUnicodeCallWrapper(FormatMessage);
+	kxf_MakeWinUnicodeCallWrapper(FormatMessage);
 }
-#include <comdef.h>
-#include <comutil.h>
 #include "kxf/System/Private/EndIncludeCOM.h"
 
 namespace kxf::SevenZip::Private

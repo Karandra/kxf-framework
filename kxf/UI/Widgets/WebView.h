@@ -5,7 +5,7 @@ class wxWebView;
 
 namespace kxf::Widgets
 {
-	class KX_API WebView: public RTTI::Implementation<WebView, Private::BasicWxWidget<WebView, wxWebView, IWebViewWidget>>
+	class KXF_API WebView: public RTTI::Implementation<WebView, Private::BasicWxWidget<WebView, wxWebView, IWebViewWidget>>
 	{
 		private:
 			String m_BackendName;

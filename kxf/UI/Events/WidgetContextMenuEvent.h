@@ -3,10 +3,10 @@
 
 namespace kxf
 {
-	class KX_API WidgetContextMenuEvent: public WidgetEvent
+	class KXF_API WidgetContextMenuEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetContextMenuEvent, Show);
+			kxf_EVENT_MEMBER(WidgetContextMenuEvent, Show);
 
 		private:
 			Point m_Position;

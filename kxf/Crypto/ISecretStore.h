@@ -10,9 +10,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ISecretStore: public RTTI::Interface<ISecretStore>
+	class KXF_API ISecretStore: public RTTI::Interface<ISecretStore>
 	{
-		KxRTTI_DeclareIID(ISecretStore, {0xd09a26e9, 0x60c3, 0x405b, {0x84, 0xcb, 0x64, 0x89, 0x38, 0x61, 0x2d, 0x45}});
+		kxf_RTTI_DeclareIID(ISecretStore, {0xd09a26e9, 0x60c3, 0x405b, {0x84, 0xcb, 0x64, 0x89, 0x38, 0x61, 0x2d, 0x45}});
 
 		public:
 			virtual ~ISecretStore() = default;

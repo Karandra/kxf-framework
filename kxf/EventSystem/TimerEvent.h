@@ -10,10 +10,10 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API TimerEvent: public BasicEvent
+	class KXF_API TimerEvent: public BasicEvent
 	{
 		public:
-			KxEVENT_MEMBER(TimerEvent, Notify);
+			kxf_EVENT_MEMBER(TimerEvent, Notify);
 
 		private:
 			std::shared_ptr<ITimer> m_Timer;

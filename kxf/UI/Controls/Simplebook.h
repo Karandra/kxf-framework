@@ -4,7 +4,7 @@
 
 namespace kxf::UI
 {
-	class KX_API Simplebook: public wxSimplebook
+	class KXF_API Simplebook: public wxSimplebook
 	{
 		public:
 			static constexpr long DefaultStyle = 0;

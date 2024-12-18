@@ -8,7 +8,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API ImageView: public EvtHandlerWrapper<ImageView, UI::WindowRefreshScheduler<wxSystemThemedControl<wxControl>>>
+	class KXF_API ImageView: public EvtHandlerWrapper<ImageView, UI::WindowRefreshScheduler<wxSystemThemedControl<wxControl>>>
 	{
 		private:
 			IImageViewWidget& m_Widget;

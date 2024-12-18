@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IComboBoxWidget: public RTTI::ExtendInterface<IComboBoxWidget, IWidget>
+	class KXF_API IComboBoxWidget: public RTTI::ExtendInterface<IComboBoxWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IComboBoxWidget, {0xea5eeb92, 0x2720, 0x4b56, {0x93, 0xb2, 0xa6, 0x81, 0x44, 0x69, 0xeb, 0x5}});
+		kxf_RTTI_DeclareIID(IComboBoxWidget, {0xea5eeb92, 0x2720, 0x4b56, {0x93, 0xb2, 0xa6, 0x81, 0x44, 0x69, 0xeb, 0x5}});
 
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

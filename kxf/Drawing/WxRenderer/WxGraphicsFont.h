@@ -8,9 +8,9 @@
 
 namespace kxf
 {
-	class KX_API WxGraphicsFont: public RTTI::ExtendInterface<WxGraphicsFont, IGraphicsFont>
+	class KXF_API WxGraphicsFont: public RTTI::ExtendInterface<WxGraphicsFont, IGraphicsFont>
 	{
-		KxRTTI_DeclareIID(WxGraphicsFont, {0x8f405c52, 0x6a52, 0x49e5, {0x9a, 0xe8, 0x36, 0x1c, 0xc9, 0x8a, 0xb3, 0x24}});
+		kxf_RTTI_DeclareIID(WxGraphicsFont, {0x8f405c52, 0x6a52, 0x49e5, {0x9a, 0xe8, 0x36, 0x1c, 0xc9, 0x8a, 0xb3, 0x24}});
 
 		protected:
 			WxGraphicsRenderer* m_Renderer = nullptr;

@@ -3,7 +3,7 @@
 
 namespace kxf
 {
-	class KX_API ThreadEvent: public BasicEvent
+	class KXF_API ThreadEvent: public BasicEvent
 	{
 		private:
 			template<class T>
@@ -13,9 +13,9 @@ namespace kxf
 			}
 
 		public:
-			KxEVENT_MEMBER(ThreadEvent, Execute);
-			KxEVENT_MEMBER(ThreadEvent, Started);
-			KxEVENT_MEMBER(ThreadEvent, Finished);
+			kxf_EVENT_MEMBER(ThreadEvent, Execute);
+			kxf_EVENT_MEMBER(ThreadEvent, Started);
+			kxf_EVENT_MEMBER(ThreadEvent, Finished);
 
 		private:
 			void* m_ExitCode = nullptr;

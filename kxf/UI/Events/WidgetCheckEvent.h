@@ -4,10 +4,10 @@
 
 namespace kxf
 {
-	class KX_API WidgetCheckEvent: public WidgetEvent
+	class KXF_API WidgetCheckEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(WidgetCheckEvent, StateChanged);
+			kxf_EVENT_MEMBER(WidgetCheckEvent, StateChanged);
 
 		private:
 			CheckWidgetValue m_Value = CheckWidgetValue::Unchecked;

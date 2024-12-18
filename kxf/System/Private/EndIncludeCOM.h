@@ -1,2 +1,5 @@
+#include <comdef.h>
+#include <comutil.h>
+
 #pragma pop_macro("NULL")
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"

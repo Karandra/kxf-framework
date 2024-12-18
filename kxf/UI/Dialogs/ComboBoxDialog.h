@@ -15,13 +15,13 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::ComboBoxDialogStyle);
-	KxFlagSet_Extend(UI::ComboBoxDialogStyle, UI::DialogStyle);
+	kxf_FlagSet_Declare(UI::ComboBoxDialogStyle);
+	kxf_FlagSet_Extend(UI::ComboBoxDialogStyle, UI::DialogStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API ComboBoxDialog: public StdDialog
+	class KXF_API ComboBoxDialog: public StdDialog
 	{
 		public:
 			static constexpr FlagSet<ComboBoxDialogStyle> DefaultStyle = ComboBoxDialogStyle::ReadOnly|*StdDialog::DefaultStyle;

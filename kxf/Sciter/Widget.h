@@ -22,9 +22,9 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API Widget: public RTTI::ExtendInterface<Widget, IEvtHandler>
+	class KXF_API Widget: public RTTI::ExtendInterface<Widget, IEvtHandler>
 	{
-		KxRTTI_DeclareIID(Widget, {0x45e7dd55, 0x5aa6, 0x417a, {0xae, 0xf6, 0xcb, 0x3b, 0x3b, 0xd1, 0xd9, 0x53}});
+		kxf_RTTI_DeclareIID(Widget, {0x45e7dd55, 0x5aa6, 0x417a, {0xae, 0xf6, 0xcb, 0x3b, 0x3b, 0xd1, 0xd9, 0x53}});
 
 		friend class BasicEventDispatcher;
 		friend class WidgetEventDispatcher;

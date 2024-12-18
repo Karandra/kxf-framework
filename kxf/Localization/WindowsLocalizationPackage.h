@@ -10,7 +10,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API WindowsLocalizationPackage:
+	class KXF_API WindowsLocalizationPackage:
 		public RTTI::DynamicImplementation<WindowsLocalizationPackage, ILocalizationPackage>,
 		private Localization::Private::XMLPackageHelper
 	{

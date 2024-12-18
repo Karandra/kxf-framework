@@ -45,7 +45,7 @@ namespace kxf::UI::DataView
 		Drop = 1 << 1,
 	};
 
-	class KX_API ColumnWidth final
+	class KXF_API ColumnWidth final
 	{
 		public:
 			enum Value: int
@@ -123,10 +123,10 @@ namespace kxf::UI::DataView
 
 namespace kxf
 {
-	KxFlagSet_Declare(UI::DataView::CtrlStyle);
-	KxFlagSet_Extend(UI::DataView::CtrlStyle, UI::WindowStyle);
+	kxf_FlagSet_Declare(UI::DataView::CtrlStyle);
+	kxf_FlagSet_Extend(UI::DataView::CtrlStyle, UI::WindowStyle);
 
-	KxFlagSet_Declare(UI::DataView::CtrlExtraStyle);
-	KxFlagSet_Declare(UI::DataView::ColumnStyle);
-	KxFlagSet_Declare(UI::DataView::DNDOpType);
+	kxf_FlagSet_Declare(UI::DataView::CtrlExtraStyle);
+	kxf_FlagSet_Declare(UI::DataView::ColumnStyle);
+	kxf_FlagSet_Declare(UI::DataView::DNDOpType);
 }

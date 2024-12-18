@@ -4,7 +4,7 @@
 
 namespace kxf::Drawing
 {
-	class KX_API NullGraphicsPath final: public IGraphicsPath
+	class KXF_API NullGraphicsPath final: public IGraphicsPath
 	{
 		public:
 			NullGraphicsPath() noexcept = default;

@@ -11,7 +11,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API ComboBox: public RTTI::Implementation<ComboBox, Private::BasicWxWidget<ComboBox, WXUI::ComboBox, IComboBoxWidget>, ITextEntry>
+	class KXF_API ComboBox: public RTTI::Implementation<ComboBox, Private::BasicWxWidget<ComboBox, WXUI::ComboBox, IComboBoxWidget>, ITextEntry>
 	{
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

@@ -34,7 +34,7 @@ namespace kxf
 
 		OnlyIfRequired = 1 << 0
 	};
-	KxFlagSet_Declare(EventYieldFlag);
+	kxf_FlagSet_Declare(EventYieldFlag);
 }
 namespace kxf::Application
 {
@@ -47,9 +47,9 @@ namespace kxf::wxWidgets
 
 namespace kxf
 {
-	class KX_API IEventLoop: public RTTI::Interface<IEventLoop>
+	class KXF_API IEventLoop: public RTTI::Interface<IEventLoop>
 	{
-		KxRTTI_DeclareIID(IEventLoop, {0x7926acb6, 0x7016, 0x478c, {0x9d, 0xa3, 0x5f, 0x3e, 0xc1, 0xa1, 0xcc, 0xbb}});
+		kxf_RTTI_DeclareIID(IEventLoop, {0x7926acb6, 0x7016, 0x478c, {0x9d, 0xa3, 0x5f, 0x3e, 0xc1, 0xa1, 0xcc, 0xbb}});
 
 		friend class Application::IActiveEventLoop;
 		friend class wxWidgets::EventLoopWrapperWx;

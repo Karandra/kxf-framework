@@ -7,14 +7,14 @@
 
 namespace kxf
 {
-	class KX_API FSActionEvent: public BasicEvent
+	class KXF_API FSActionEvent: public BasicEvent
 	{
 		public:
-			KxEVENT_MEMBER(FSActionEvent, Copy);
-			KxEVENT_MEMBER(FSActionEvent, Move);
-			KxEVENT_MEMBER(FSActionEvent, Rename);
-			KxEVENT_MEMBER(FSActionEvent, Remove);
-			KxEVENT_MEMBER(FSActionEvent, Search);
+			kxf_EVENT_MEMBER(FSActionEvent, Copy);
+			kxf_EVENT_MEMBER(FSActionEvent, Move);
+			kxf_EVENT_MEMBER(FSActionEvent, Rename);
+			kxf_EVENT_MEMBER(FSActionEvent, Remove);
+			kxf_EVENT_MEMBER(FSActionEvent, Search);
 
 		private:
 			String m_String;

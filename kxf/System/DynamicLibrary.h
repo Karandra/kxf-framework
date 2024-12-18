@@ -27,12 +27,12 @@ namespace kxf
 
 		Exclusive = 1 << 16
 	};
-	KxFlagSet_Declare(DynamicLibraryFlag);
+	kxf_FlagSet_Declare(DynamicLibraryFlag);
 }
 
 namespace kxf
 {
-	class KX_API DynamicLibrary final
+	class KXF_API DynamicLibrary final
 	{
 		public:
 			class SearchDirectory;

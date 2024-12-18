@@ -23,6 +23,6 @@ namespace kxf
 
 namespace kxf::Network
 {
-	KX_API bool IsInternetAvailable() noexcept;
-	KX_API String LookupIP(const URI& uri, NetworkHostType ip);
+	KXF_API bool IsInternetAvailable() noexcept;
+	KXF_API String LookupIP(const URI& uri, NetworkHostType ip);
 }

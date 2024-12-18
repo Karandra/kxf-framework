@@ -9,9 +9,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IGraphicsPen: public RTTI::ExtendInterface<IGraphicsPen, IGraphicsObject>
+	class KXF_API IGraphicsPen: public RTTI::ExtendInterface<IGraphicsPen, IGraphicsObject>
 	{
-		KxRTTI_DeclareIID(IGraphicsPen, {0x9dc1310, 0xcc3e, 0x4a6a, {0xb5, 0x35, 0x60, 0x59, 0x45, 0x29, 0x22, 0x5e}});
+		kxf_RTTI_DeclareIID(IGraphicsPen, {0x9dc1310, 0xcc3e, 0x4a6a, {0xb5, 0x35, 0x60, 0x59, 0x45, 0x29, 0x22, 0x5e}});
 
 		public:
 			virtual ~IGraphicsPen() = default;

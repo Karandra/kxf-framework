@@ -31,13 +31,13 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::TaskDialogStyle);
-	KxFlagSet_Extend(UI::TaskDialogStyle, UI::DialogStyle);
+	kxf_FlagSet_Declare(UI::TaskDialogStyle);
+	kxf_FlagSet_Extend(UI::TaskDialogStyle, UI::DialogStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API TaskDialog: public Dialog, public RTTI::Implementation<TaskDialog, IStdDialog, IProgressMeter>
+	class KXF_API TaskDialog: public Dialog, public RTTI::Implementation<TaskDialog, IStdDialog, IProgressMeter>
 	{
 		friend class Private::TaskDialogNativeInfo;
 

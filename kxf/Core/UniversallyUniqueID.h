@@ -20,12 +20,12 @@ namespace kxf
 		HexPrefix = 1 << 8, // 0x123e4567-0xe89b-0x12d3-0xa456-0x426655440000
 		Grouped = 1 << 9 // {0x123e4567, 0xe89b, 0x12d3, {0xa4, 0x56, 0x42, 0x66, 0x55, 0x44, 0x00, 0x00}}
 	};
-	KxFlagSet_Declare(UUIDFormat);
+	kxf_FlagSet_Declare(UUIDFormat);
 }
 
 namespace kxf
 {
-	class KX_API UniversallyUniqueID final
+	class KXF_API UniversallyUniqueID final
 	{
 		friend struct std::hash<UniversallyUniqueID>;
 		friend struct BinarySerializer<UniversallyUniqueID>;

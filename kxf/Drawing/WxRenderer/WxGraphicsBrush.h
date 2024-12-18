@@ -9,9 +9,9 @@
 
 namespace kxf
 {
-	class KX_API WxGraphicsBrush: public RTTI::Interface<WxGraphicsBrush>
+	class KXF_API WxGraphicsBrush: public RTTI::Interface<WxGraphicsBrush>
 	{
-		KxRTTI_DeclareIID(IGraphicsBrush, {0xe86d8ab8, 0xeb26, 0x448c, {0x9b, 0x7d, 0xa7, 0xe2, 0x4e, 0x92, 0x4, 0x2b}});
+		kxf_RTTI_DeclareIID(IGraphicsBrush, {0xe86d8ab8, 0xeb26, 0x448c, {0x9b, 0x7d, 0xa7, 0xe2, 0x4e, 0x92, 0x4, 0x2b}});
 
 		public:
 			WxGraphicsBrush() noexcept = default;
@@ -29,7 +29,7 @@ namespace kxf
 namespace kxf::Drawing::Private
 {
 	template<class TBase>
-	class KX_API WxGraphicsBrushBase: public RTTI::Implementation<WxGraphicsBrushBase<TBase>, TBase, WxGraphicsBrush>
+	class KXF_API WxGraphicsBrushBase: public RTTI::Implementation<WxGraphicsBrushBase<TBase>, TBase, WxGraphicsBrush>
 	{
 		protected:
 			WxGraphicsRenderer* m_Renderer = nullptr;
@@ -151,7 +151,7 @@ namespace kxf::Drawing::Private
 
 namespace kxf
 {
-	class KX_API WxGraphicsSolidBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsSolidBrush>
+	class KXF_API WxGraphicsSolidBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsSolidBrush>
 	{
 		public:
 			WxGraphicsSolidBrush() = default;
@@ -174,7 +174,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API WxGraphicsHatchBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsHatchBrush>
+	class KXF_API WxGraphicsHatchBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsHatchBrush>
 	{
 		private:
 			Color m_BackgroundColor;
@@ -229,7 +229,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API WxGraphicsTextureBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsTextureBrush>
+	class KXF_API WxGraphicsTextureBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsTextureBrush>
 	{
 		private:
 			WrapMode m_WrapMode = WrapMode::None;
@@ -285,7 +285,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API WxGraphicsLinearGradientBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsLinearGradientBrush>
+	class KXF_API WxGraphicsLinearGradientBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsLinearGradientBrush>
 	{
 		private:
 			RectF m_Rect;
@@ -349,7 +349,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API WxGraphicsRadialGradientBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsRadialGradientBrush>
+	class KXF_API WxGraphicsRadialGradientBrush: public Drawing::Private::WxGraphicsBrushBase<IGraphicsRadialGradientBrush>
 	{
 		private:
 			RectF m_Rect;

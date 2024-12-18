@@ -18,7 +18,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API Version final
+	class KXF_API Version final
 	{
 		friend std::strong_ordering Private::Version::Compare(const kxf::Version& left, const kxf::Version& right);
 

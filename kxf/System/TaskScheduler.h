@@ -18,7 +18,7 @@ struct ITaskFolder;
 
 namespace kxf::System
 {
-	class KX_API ScheduledTask final
+	class KXF_API ScheduledTask final
 	{
 		friend class TaskScheduler;
 
@@ -67,7 +67,7 @@ namespace kxf::System
 
 namespace kxf::System
 {
-	class KX_API TaskScheduler final
+	class KXF_API TaskScheduler final
 	{
 		private:
 			COMPtr<ITaskService> m_TaskService;

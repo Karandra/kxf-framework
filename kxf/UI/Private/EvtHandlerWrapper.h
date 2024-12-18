@@ -9,7 +9,7 @@ namespace kxf
 
 namespace kxf::WXUI::Private
 {
-	class KX_API EvtHandlerWrapperBase final
+	class KXF_API EvtHandlerWrapperBase final
 	{
 		private:
 			IWidget& m_Widget;

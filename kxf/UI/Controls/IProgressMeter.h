@@ -4,9 +4,9 @@
 
 namespace kxf::UI
 {
-	class KX_API IProgressMeter: public RTTI::Interface<IProgressMeter>
+	class KXF_API IProgressMeter: public RTTI::Interface<IProgressMeter>
 	{
-		KxRTTI_DeclareIID(IProgressMeter, {0x56b2420b, 0x464, 0x4075, {0x87, 0x5a, 0x53, 0x3c, 0x30, 0xd0, 0x3e, 0x97}});
+		kxf_RTTI_DeclareIID(IProgressMeter, {0x56b2420b, 0x464, 0x4075, {0x87, 0x5a, 0x53, 0x3c, 0x30, 0xd0, 0x3e, 0x97}});
 
 		protected:
 			virtual int DoGetRange() const = 0;

@@ -9,7 +9,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API CellState final
+	class KXF_API CellState final
 	{
 		private:
 			enum class Value: uint32_t

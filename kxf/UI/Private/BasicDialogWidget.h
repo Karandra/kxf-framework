@@ -6,7 +6,7 @@ class wxDialog;
 
 namespace kxf::Private
 {
-	class KX_API BasicDialogWidgetBase: public BasicWindowWidgetBase
+	class KXF_API BasicDialogWidgetBase: public BasicWindowWidgetBase
 	{
 		public:
 			BasicDialogWidgetBase(IWidget& widget) noexcept

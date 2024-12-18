@@ -6,7 +6,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API Slider: public EvtHandlerWrapper<Slider, UI::WindowRefreshScheduler<wxSystemThemedControl<wxSlider>>>
+	class KXF_API Slider: public EvtHandlerWrapper<Slider, UI::WindowRefreshScheduler<wxSystemThemedControl<wxSlider>>>
 	{
 		friend class EvtHandlerWrapper;
 

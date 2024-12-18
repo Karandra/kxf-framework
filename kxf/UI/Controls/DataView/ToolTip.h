@@ -12,7 +12,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ToolTip final
+	class KXF_API ToolTip final
 	{
 		friend class MainWindow;
 

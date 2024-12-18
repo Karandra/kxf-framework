@@ -10,11 +10,11 @@ namespace kxf
 	class WebRequestEvent: public BasicEvent
 	{
 		public:
-			KxEVENT_MEMBER(WebRequestEvent, StateChanged);
-			KxEVENT_MEMBER(WebRequestEvent, HeaderReceived);
+			kxf_EVENT_MEMBER(WebRequestEvent, StateChanged);
+			kxf_EVENT_MEMBER(WebRequestEvent, HeaderReceived);
 
-			KxEVENT_MEMBER(WebRequestEvent, DataSent);
-			KxEVENT_MEMBER(WebRequestEvent, DataReceived);
+			kxf_EVENT_MEMBER(WebRequestEvent, DataSent);
+			kxf_EVENT_MEMBER(WebRequestEvent, DataReceived);
 
 		private:
 			std::shared_ptr<IWebRequest> m_Request;

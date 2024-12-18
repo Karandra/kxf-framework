@@ -3,7 +3,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageValueBase
+	class KXF_API ImageValueBase
 	{
 		protected:
 			Size m_DefaultSize = Size::UnspecifiedSize();
@@ -45,7 +45,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageValue: public ImageValueBase
+	class KXF_API ImageValue: public ImageValueBase
 	{
 		protected:
 			BitmapImage m_Image;
@@ -84,7 +84,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageRenderer: public Renderer
+	class KXF_API ImageRenderer: public Renderer
 	{
 		private:
 			ImageValue m_Value;

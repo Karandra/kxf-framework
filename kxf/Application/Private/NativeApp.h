@@ -6,7 +6,7 @@
 
 namespace kxf::Application::Private
 {
-	class KX_API NativeApp final: public wxWidgets::Application
+	class KXF_API NativeApp final: public wxWidgets::Application
 	{
 		public:
 			static NativeApp* GetInstance()

@@ -14,7 +14,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API EventID final
+	class KXF_API EventID final
 	{
 		friend struct std::hash<EventID>;
 		friend struct BinarySerializer<EventID>;
@@ -293,8 +293,8 @@ namespace kxf
 
 namespace kxf::EventSystem
 {
-	KX_API EventID NewSimpleEventID() noexcept;
-	KX_API EventID NewUniqueEventID() noexcept;
+	KXF_API EventID NewSimpleEventID() noexcept;
+	KXF_API EventID NewUniqueEventID() noexcept;
 }
 
 namespace kxf

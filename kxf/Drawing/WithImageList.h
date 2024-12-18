@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API WithImageList
+	class KXF_API WithImageList
 	{
 		private:
 			GDIImageList* m_ImageList = nullptr;

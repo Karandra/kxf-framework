@@ -12,9 +12,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API WxGraphicsPen: public RTTI::ExtendInterface<WxGraphicsPen, IGraphicsPen>
+	class KXF_API WxGraphicsPen: public RTTI::ExtendInterface<WxGraphicsPen, IGraphicsPen>
 	{
-		KxRTTI_DeclareIID(WxGraphicsPen, {0x5b2d709c, 0x741b, 0x4f1c, {0x90, 0xd2, 0x2c, 0x61, 0x49, 0x31, 0x9, 0xf4}});
+		kxf_RTTI_DeclareIID(WxGraphicsPen, {0x5b2d709c, 0x741b, 0x4f1c, {0x90, 0xd2, 0x2c, 0x61, 0x49, 0x31, 0x9, 0xf4}});
 
 		protected:
 			WxGraphicsRenderer* m_Renderer = nullptr;

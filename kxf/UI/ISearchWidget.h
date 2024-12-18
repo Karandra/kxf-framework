@@ -5,9 +5,9 @@
 
 namespace kxf
 {
-	class KX_API ISearchWidget: public RTTI::ExtendInterface<ISearchWidget, IWidget, ITextEntry>
+	class KXF_API ISearchWidget: public RTTI::ExtendInterface<ISearchWidget, IWidget, ITextEntry>
 	{
-		KxRTTI_DeclareIID(ISearchWidget, {0xa05e773a, 0xda37, 0x460b, {0x98, 0x62, 0x30, 0xa6, 0x67, 0xd7, 0x13, 0x97}});
+		kxf_RTTI_DeclareIID(ISearchWidget, {0xa05e773a, 0xda37, 0x460b, {0x98, 0x62, 0x30, 0xa6, 0x67, 0xd7, 0x13, 0x97}});
 
 		public:
 			virtual ~ISearchWidget() = default;

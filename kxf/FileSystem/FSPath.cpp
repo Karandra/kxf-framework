@@ -11,7 +11,7 @@
 #include <pathcch.h>
 #include <locale>
 #include <shlwapi.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 #pragma warning(disable: 4995) // 'PathCanonicalizeW': name was marked as #pragma deprecated
 
 namespace

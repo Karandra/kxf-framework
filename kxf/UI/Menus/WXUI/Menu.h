@@ -9,7 +9,7 @@ namespace kxf::Widgets
 
 namespace kxf::WXUI
 {
-	class KX_API Menu: public wxMenu
+	class KXF_API Menu: public wxMenu
 	{
 		public:
 			static constexpr uint16_t WxIDToWin(int menuWxID) noexcept

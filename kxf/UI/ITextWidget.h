@@ -15,9 +15,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ITextEntry: public RTTI::Interface<ITextEntry>
+	class KXF_API ITextEntry: public RTTI::Interface<ITextEntry>
 	{
-		KxRTTI_DeclareIID(ITextEntry, {0x42e05214, 0x6cf3, 0x4fd5, {0x95, 0x53, 0x20, 0xc7, 0xdc, 0x95, 0xa, 0x9}});
+		kxf_RTTI_DeclareIID(ITextEntry, {0x42e05214, 0x6cf3, 0x4fd5, {0x95, 0x53, 0x20, 0xc7, 0xdc, 0x95, 0xa, 0x9}});
 
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();
@@ -120,9 +120,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API ITextWidget: public RTTI::ExtendInterface<ITextWidget, IWidget, ITextEntry>
+	class KXF_API ITextWidget: public RTTI::ExtendInterface<ITextWidget, IWidget, ITextEntry>
 	{
-		KxRTTI_DeclareIID(ITextWidget, {0x711b7c3, 0x54cd, 0x4147, {0x9b, 0xdd, 0x2, 0x8, 0x65, 0x6f, 0x61, 0x1}});
+		kxf_RTTI_DeclareIID(ITextWidget, {0x711b7c3, 0x54cd, 0x4147, {0x9b, 0xdd, 0x2, 0x8, 0x65, 0x6f, 0x61, 0x1}});
 
 		public:
 			virtual ~ITextWidget() = default;

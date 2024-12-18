@@ -22,12 +22,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::AuiToolBarStyle);
+	kxf_FlagSet_Declare(UI::AuiToolBarStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API AuiToolBar: public WindowRefreshScheduler<wxAuiToolBar>
+	class KXF_API AuiToolBar: public WindowRefreshScheduler<wxAuiToolBar>
 	{
 		friend class AuiToolBarItem;
 
@@ -162,7 +162,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API AuiToolBarArt: public wxAuiDefaultToolBarArt
+	class KXF_API AuiToolBarArt: public wxAuiDefaultToolBarArt
 	{
 		private:
 			AuiToolBar* m_Instance = nullptr;

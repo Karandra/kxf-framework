@@ -7,9 +7,10 @@
 #include "kxf/FileSystem/NativeFileSystem.h"
 #include "kxf/FileSystem/Private/NativeFSUtility.h"
 #include "kxf/Utility/ScopeGuard.h"
+
 #include <ShlObj.h>
 #include <shlwapi.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

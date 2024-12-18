@@ -5,21 +5,21 @@
 
 namespace kxf
 {
-	class KX_API SciterEvent: public BasicEvent
+	class KXF_API SciterEvent: public BasicEvent
 	{
 		public:
-			KxEVENT_MEMBER(SciterEvent, Attached);
-			KxEVENT_MEMBER(SciterEvent, Detached);
+			kxf_EVENT_MEMBER(SciterEvent, Attached);
+			kxf_EVENT_MEMBER(SciterEvent, Detached);
 
-			KxEVENT_MEMBER(SciterEvent, EngineCreated);
-			KxEVENT_MEMBER(SciterEvent, EngineDestroyed);
+			kxf_EVENT_MEMBER(SciterEvent, EngineCreated);
+			kxf_EVENT_MEMBER(SciterEvent, EngineDestroyed);
 
-			KxEVENT_MEMBER(SciterEvent, Gesture);
-			KxEVENT_MEMBER(SciterEvent, Exchange);
+			kxf_EVENT_MEMBER(SciterEvent, Gesture);
+			kxf_EVENT_MEMBER(SciterEvent, Exchange);
 
-			KxEVENT_MEMBER(SciterEvent, ContentLoaded);
-			KxEVENT_MEMBER(SciterEvent, TIScriptCall);
-			KxEVENT_MEMBER(SciterEvent, ScriptingCall);
+			kxf_EVENT_MEMBER(SciterEvent, ContentLoaded);
+			kxf_EVENT_MEMBER(SciterEvent, TIScriptCall);
+			kxf_EVENT_MEMBER(SciterEvent, ScriptingCall);
 
 		protected:
 			Sciter::Host* m_Host = nullptr;
@@ -75,16 +75,16 @@ namespace kxf
 
 namespace kxf::Sciter
 {
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, Attached);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, Detached);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, Attached);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, Detached);
 
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, EngineCreated);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, EngineDestroyed);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, EngineCreated);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, EngineDestroyed);
 
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, Gesture);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, Exchange);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, Gesture);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, Exchange);
 
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, ContentLoaded);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, TIScriptCall);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, ScriptingCall);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, ContentLoaded);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, TIScriptCall);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(SciterEvent, ScriptingCall);
 }

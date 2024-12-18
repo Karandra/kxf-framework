@@ -3,13 +3,14 @@
 #include "StandardAllocator.h"
 #include "kxf/Log/ScopedLogger.h"
 #include "kxf/Log/Categories.h"
-#include <Windows.h>
-#include <malloc.h>
 #include "kxf/System/COM.h"
 #include "kxf/System/HResult.h"
 #include "kxf/System/Win32Error.h"
-#include "kxf/System/UndefWindows.h"
 #include "kxf/Utility/Common.h"
+
+#include <malloc.h>
+#include <Windows.h>
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::Private::StandardAllocator
 {

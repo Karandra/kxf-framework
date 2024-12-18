@@ -26,16 +26,16 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::DialogStyle);
-	KxFlagSet_Extend(UI::DialogStyle, UI::WindowStyle);
+	kxf_FlagSet_Declare(UI::DialogStyle);
+	kxf_FlagSet_Extend(UI::DialogStyle, UI::WindowStyle);
 
-	KxFlagSet_Declare(UI::DialogExStyle);
-	KxFlagSet_Extend(UI::DialogExStyle, UI::WindowExStyle);
+	kxf_FlagSet_Declare(UI::DialogExStyle);
+	kxf_FlagSet_Extend(UI::DialogExStyle, UI::WindowExStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API Dialog: public TopLevelWindow<wxDialog>
+	class KXF_API Dialog: public TopLevelWindow<wxDialog>
 	{
 		public:
 			static constexpr FlagSet<DialogStyle> DefaultStyle = (DialogStyle::DefaultStyle|DialogStyle::Shaped)|(WindowStyle::None|TopLevelWindowStyle::Resizeable);

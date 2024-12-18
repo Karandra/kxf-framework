@@ -26,12 +26,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::SliderStyle);
+	kxf_FlagSet_Declare(UI::SliderStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API Slider: public wxSlider
+	class KXF_API Slider: public wxSlider
 	{
 		public:
 			static constexpr FlagSet<SliderStyle> DefaultStyle = SliderStyle::Horizontal;

@@ -6,7 +6,7 @@ namespace kxf
 {
 	class IWebRequestAuthOptions: public RTTI::Interface<IWebRequestAuthOptions>
 	{
-		KxRTTI_DeclareIID(IWebRequestAuthOptions, {0x268dd52, 0x8f20, 0x40c0, {0x81, 0x5f, 0xaf, 0x36, 0x93, 0x8, 0x61, 0xac}});
+		kxf_RTTI_DeclareIID(IWebRequestAuthOptions, {0x268dd52, 0x8f20, 0x40c0, {0x81, 0x5f, 0xaf, 0x36, 0x93, 0x8, 0x61, 0xac}});
 
 		public:
 			virtual bool SetAuthMethod(WebRequestAuthMethod method) = 0;

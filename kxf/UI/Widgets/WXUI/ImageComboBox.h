@@ -7,7 +7,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API ImageComboBox: public EvtHandlerWrapper<ImageComboBox, UI::WindowRefreshScheduler<wxSystemThemedControl<wxBitmapComboBox>>>
+	class KXF_API ImageComboBox: public EvtHandlerWrapper<ImageComboBox, UI::WindowRefreshScheduler<wxSystemThemedControl<wxBitmapComboBox>>>
 	{
 		friend class EvtHandlerWrapper;
 

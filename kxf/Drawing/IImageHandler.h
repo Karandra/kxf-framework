@@ -12,9 +12,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IImageHandler: public RTTI::Interface<IImageHandler>
+	class KXF_API IImageHandler: public RTTI::Interface<IImageHandler>
 	{
-		KxRTTI_DeclareIID(IImageHandler, {0xb19d91e1, 0x716d, 0x43b4, {0xba, 0xc5, 0x6f, 0x3e, 0xf3, 0x71, 0x21, 0x15}});
+		kxf_RTTI_DeclareIID(IImageHandler, {0xb19d91e1, 0x716d, 0x43b4, {0xba, 0xc5, 0x6f, 0x3e, 0xf3, 0x71, 0x21, 0x15}});
 
 		public:
 			virtual ~IImageHandler() = default;

@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API ResourceID final
+	class KXF_API ResourceID final
 	{
 		friend struct std::hash<ResourceID>;
 

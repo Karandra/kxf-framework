@@ -98,7 +98,7 @@ namespace kxf::Private
 
 namespace kxf
 {
-	class KX_API InputStreamDelegate: public Private::DelegateStreamBase<IInputStream>
+	class KXF_API InputStreamDelegate: public Private::DelegateStreamBase<IInputStream>
 	{
 		public:
 			InputStreamDelegate() = default;
@@ -158,7 +158,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API OutputStreamDelegate: public Private::DelegateStreamBase<IOutputStream>
+	class KXF_API OutputStreamDelegate: public Private::DelegateStreamBase<IOutputStream>
 	{
 		public:
 			OutputStreamDelegate() = default;

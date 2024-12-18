@@ -37,9 +37,9 @@ namespace kxf::DataView
 }
 namespace kxf
 {
-	KxFlagSet_Declare(DataView::CellStyle);
-	KxFlagSet_Declare(DataView::CellBGStyle);
-	KxFlagSet_Declare(DataView::CellFontStyle);
+	kxf_FlagSet_Declare(DataView::CellStyle);
+	kxf_FlagSet_Declare(DataView::CellBGStyle);
+	kxf_FlagSet_Declare(DataView::CellFontStyle);
 }
 
 namespace kxf::DataView

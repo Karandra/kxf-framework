@@ -18,12 +18,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::SplitterWindowStyle);
+	kxf_FlagSet_Declare(UI::SplitterWindowStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API SplitterWindow: public wxSplitterWindow
+	class KXF_API SplitterWindow: public wxSplitterWindow
 	{
 		public:
 			static constexpr FlagSet<SplitterWindowStyle> DefaultStyle = SplitterWindowStyle::LiveUpdate|SplitterWindowStyle::Sash3D;

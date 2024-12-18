@@ -10,9 +10,9 @@ namespace lunasvg
 
 namespace kxf
 {
-	class KX_API SVGImage final: public RTTI::DynamicImplementation<SVGImage, IVectorImage>
+	class KXF_API SVGImage final: public RTTI::DynamicImplementation<SVGImage, IVectorImage>
 	{
-		KxRTTI_DeclareIID_Using(SVGImage, ImageFormat::SVG.ToNativeUUID());
+		kxf_RTTI_DeclareIID_Using(SVGImage, ImageFormat::SVG.ToNativeUUID());
 		
 		friend struct BinarySerializer<SVGImage>;
 
@@ -99,7 +99,7 @@ namespace kxf
 namespace kxf
 {
 	template<>
-	struct KX_API BinarySerializer<SVGImage> final
+	struct KXF_API BinarySerializer<SVGImage> final
 	{
 		uint64_t Serialize(IOutputStream& stream, const SVGImage& value) const;
 		uint64_t Deserialize(IInputStream& stream, SVGImage& value) const;

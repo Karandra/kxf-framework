@@ -3,10 +3,10 @@
 
 namespace kxf::Sciter
 {
-	class KX_API TimerEvent: public SciterEvent
+	class KXF_API TimerEvent: public SciterEvent
 	{
 		public:
-			KxEVENT_MEMBER(TimerEvent, Timer);
+			kxf_EVENT_MEMBER(TimerEvent, Timer);
 
 		protected:
 			uintptr_t m_TimerID = 0;
@@ -42,5 +42,5 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(TimerEvent, Timer);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(TimerEvent, Timer);
 }

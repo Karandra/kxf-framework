@@ -14,7 +14,7 @@ namespace kxf::Widgets
 
 namespace kxf::WXUI
 {
-	class KX_API MenuItem: public wxMenuItem
+	class KXF_API MenuItem: public wxMenuItem
 	{
 		private:
 			std::shared_ptr<IMenuWidget> m_SubMenu;

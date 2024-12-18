@@ -6,7 +6,7 @@
 
 namespace kxf
 {
-	class KX_API Any final
+	class KXF_API Any final
 	{
 		private:
 			std::any m_Any;

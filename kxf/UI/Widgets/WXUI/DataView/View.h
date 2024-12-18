@@ -39,7 +39,7 @@ namespace kxf::WXUI::DataView
 
 namespace kxf::WXUI::DataView
 {
-	class KX_API View: public EvtHandlerWrapper<View, UI::WindowRefreshScheduler<wxSystemThemedControl<wxScrolled<wxWindow>>>>
+	class KXF_API View: public EvtHandlerWrapper<View, UI::WindowRefreshScheduler<wxSystemThemedControl<wxScrolled<wxWindow>>>>
 	{
 		friend class Widgets::DataView;
 		friend class DV::Column;

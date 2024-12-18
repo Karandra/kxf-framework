@@ -3,8 +3,9 @@
 #include "kxf/System/NativeAPI.h"
 #include "kxf/System/SystemWindow.h" 
 #include "kxf/Drawing/BitmapImage.h"
+
 #include <DWMAPI.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 #undef DWMAPI
 
 namespace kxf::UI::Private

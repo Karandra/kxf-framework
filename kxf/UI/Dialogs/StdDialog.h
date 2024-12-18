@@ -14,7 +14,7 @@
 
 namespace kxf::UI
 {
-	class KX_API StdDialogControl final
+	class KXF_API StdDialogControl final
 	{
 		public:
 			enum class Type
@@ -89,20 +89,20 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API IStdDialog: public RTTI::Interface<IStdDialog>
+	class KXF_API IStdDialog: public RTTI::Interface<IStdDialog>
 	{
-		KxRTTI_DeclareIID(IStdDialog, {0x432d41e4, 0x2a7d, 0x44a0, {0x8f, 0x26, 0x49, 0x64, 0xdd, 0x31, 0x7a, 0x9f}});
+		kxf_RTTI_DeclareIID(IStdDialog, {0x432d41e4, 0x2a7d, 0x44a0, {0x8f, 0x26, 0x49, 0x64, 0xdd, 0x31, 0x7a, 0x9f}});
 
 		public:
 			static constexpr StdIcon DefaultIconID = StdIcon::Information;
 			static constexpr FlagSet<StdButton> DefaultButtons = StdButton::OK|StdButton::Cancel;
 
-			KxEVENT_MEMBER(wxNotifyEvent, Button);
-			KxEVENT_MEMBER(wxNotifyEvent, Navigate);
-			KxEVENT_MEMBER(wxNotifyEvent, Navigating);
-			KxEVENT_MEMBER(wxNotifyEvent, Overwrite);
-			KxEVENT_MEMBER(wxNotifyEvent, Select);
-			KxEVENT_MEMBER(wxNotifyEvent, TypeChanged);
+			kxf_EVENT_MEMBER(wxNotifyEvent, Button);
+			kxf_EVENT_MEMBER(wxNotifyEvent, Navigate);
+			kxf_EVENT_MEMBER(wxNotifyEvent, Navigating);
+			kxf_EVENT_MEMBER(wxNotifyEvent, Overwrite);
+			kxf_EVENT_MEMBER(wxNotifyEvent, Select);
+			kxf_EVENT_MEMBER(wxNotifyEvent, TypeChanged);
 
 		protected:
 			bool ShowNativeWindow(wxDialog* window, bool show); // Will show/hide window if GetHandle() != nullptr and call ShowModal() otherwise
@@ -132,7 +132,7 @@ namespace kxf::UI
 namespace kxf::UI
 {
 	// This is probably the most broken class of them all...
-	class KX_API StdDialog: public Dialog, public IStdDialog
+	class KXF_API StdDialog: public Dialog, public IStdDialog
 	{
 		public:
 			using StdButtonsIDs = std::vector<WidgetID>;

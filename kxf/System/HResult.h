@@ -13,9 +13,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API HResult final: public RTTI::DynamicImplementation<HResult, IErrorCode>
+	class KXF_API HResult final: public RTTI::DynamicImplementation<HResult, IErrorCode>
 	{
-		KxRTTI_DeclareIID(HResult, {0xfcb86dbc, 0xa3f9, 0x4385, {0x83, 0x72, 0x9, 0x15, 0x36, 0x5c, 0xb, 0x29}});
+		kxf_RTTI_DeclareIID(HResult, {0xfcb86dbc, 0xa3f9, 0x4385, {0x83, 0x72, 0x9, 0x15, 0x36, 0x5c, 0xb, 0x29}});
 
 		public:
 			static HResult Success() noexcept;

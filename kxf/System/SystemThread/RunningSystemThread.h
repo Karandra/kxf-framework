@@ -3,7 +3,7 @@
 
 namespace kxf
 {
-	class KX_API RunningSystemThread: public ISystemThread
+	class KXF_API RunningSystemThread: public ISystemThread
 	{
 		public:
 			static RunningSystemThread GetCurrentThread();

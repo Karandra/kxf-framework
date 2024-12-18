@@ -10,9 +10,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IWidgetEvent: public RTTI::Interface<IWidgetEvent>
+	class KXF_API IWidgetEvent: public RTTI::Interface<IWidgetEvent>
 	{
-		KxRTTI_DeclareIID(IWidgetEvent, {0x4552fa23, 0xb7da, 0x44c5, {0x86, 0x93, 0x30, 0x40, 0x87, 0x31, 0x33, 0x72}});
+		kxf_RTTI_DeclareIID(IWidgetEvent, {0x4552fa23, 0xb7da, 0x44c5, {0x86, 0x93, 0x30, 0x40, 0x87, 0x31, 0x33, 0x72}});
 
 		public:
 			struct PropagationLevel final

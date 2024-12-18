@@ -4,7 +4,7 @@
 
 namespace kxf::Drawing
 {
-	class KX_API NullGraphicsPen final: public IGraphicsPen
+	class KXF_API NullGraphicsPen final: public IGraphicsPen
 	{
 		public:
 			NullGraphicsPen() noexcept = default;

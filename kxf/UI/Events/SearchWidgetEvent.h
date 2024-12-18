@@ -4,12 +4,12 @@
 
 namespace kxf
 {
-	class KX_API SearchWidgetEvent: public WidgetEvent
+	class KXF_API SearchWidgetEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(SearchWidgetEvent, Search);
-			KxEVENT_MEMBER(SearchWidgetEvent, Cancel);
-			KxEVENT_MEMBER(SearchWidgetEvent, Dropdown);
+			kxf_EVENT_MEMBER(SearchWidgetEvent, Search);
+			kxf_EVENT_MEMBER(SearchWidgetEvent, Cancel);
+			kxf_EVENT_MEMBER(SearchWidgetEvent, Dropdown);
 
 		private:
 			String m_SearchQuery;

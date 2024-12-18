@@ -6,7 +6,7 @@
 
 namespace kxf::Drawing
 {
-	class KX_API GDIMemoryContextBase: public GDIContext
+	class KXF_API GDIMemoryContextBase: public GDIContext
 	{
 		protected:
 			GDIBitmap* m_SelectedBitmap = nullptr;
@@ -66,7 +66,7 @@ namespace kxf::Drawing
 			GDIContext& operator=(const GDIContext&) = delete;
 	};
 
-	class KX_API GDIBufferedContextBase: public GDIMemoryContextBase
+	class KXF_API GDIBufferedContextBase: public GDIMemoryContextBase
 	{
 		protected:
 			const wxBufferedDC& GetBufferedDC() const noexcept
@@ -117,7 +117,7 @@ namespace kxf::Drawing
 
 namespace kxf
 {
-	class KX_API GDIMemoryContext final: public Drawing::GDIMemoryContextBase
+	class KXF_API GDIMemoryContext final: public Drawing::GDIMemoryContextBase
 	{
 		private:
 			wxMemoryDC m_DC;
@@ -142,7 +142,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIBufferedContext final: public Drawing::GDIBufferedContextBase
+	class KXF_API GDIBufferedContext final: public Drawing::GDIBufferedContextBase
 	{
 		private:
 			wxBufferedDC m_DC;
@@ -158,7 +158,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIBufferedPaintContext final: public Drawing::GDIBufferedContextBase
+	class KXF_API GDIBufferedPaintContext final: public Drawing::GDIBufferedContextBase
 	{
 		private:
 			wxBufferedPaintDC m_DC;
@@ -184,7 +184,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIAutoBufferedPaintContext final: public Drawing::GDIBufferedContextBase
+	class KXF_API GDIAutoBufferedPaintContext final: public Drawing::GDIBufferedContextBase
 	{
 		private:
 			wxAutoBufferedPaintDC m_DC;

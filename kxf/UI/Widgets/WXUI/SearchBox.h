@@ -6,7 +6,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API SearchBox: public EvtHandlerWrapper<SearchBox, UI::WindowRefreshScheduler<wxSearchCtrl>>
+	class KXF_API SearchBox: public EvtHandlerWrapper<SearchBox, UI::WindowRefreshScheduler<wxSearchCtrl>>
 	{
 		friend class EvtHandlerWrapper;
 

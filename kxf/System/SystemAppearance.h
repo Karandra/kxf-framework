@@ -1,10 +1,9 @@
 #pragma once
 #include "Common.h"
-#include "UndefWindows.h"
 
 namespace kxf::SystemAppearance
 {
-	KX_API String GetName();
-	KX_API bool IsDark();
-	KX_API bool IsUsingDarkBackground();
+	KXF_API String GetName();
+	KXF_API bool IsDark();
+	KXF_API bool IsUsingDarkBackground();
 };

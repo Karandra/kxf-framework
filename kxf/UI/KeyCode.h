@@ -202,7 +202,7 @@ namespace kxf
 
 		AltGR = Alt|Ctrl
 	};
-	KxFlagSet_Declare(KeyModifier);
+	kxf_FlagSet_Declare(KeyModifier);
 
 	enum class MouseButton: uint32_t
 	{
@@ -215,7 +215,7 @@ namespace kxf
 		Aux1 = FlagSetValue<KeyModifier>(3),
 		Aux2 = FlagSetValue<KeyModifier>(4)
 	};
-	KxFlagSet_Declare(MouseButton);
+	kxf_FlagSet_Declare(MouseButton);
 
 	enum class KeyCategory: uint32_t
 	{
@@ -229,7 +229,7 @@ namespace kxf
 
 		Navigation = Arrow|Paging|Jump
 	};
-	KxFlagSet_Declare(KeyCategory);
+	kxf_FlagSet_Declare(KeyCategory);
 }
 
 namespace kxf::Private

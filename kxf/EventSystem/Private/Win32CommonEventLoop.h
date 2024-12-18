@@ -4,11 +4,11 @@
 #include "kxf/Core/DateTime/TimeSpan.h"
 #include "kxf/Drawing/Geometry.h"
 #include "kxf/Threading/SynchronizedCondition.h"
-#include "kxf/System/UndefWindows.h"
 struct tagMSG;
 
 // Required by wxWidgets' 'ClassRegistrar'
-Kx_MakeWinUnicodeCallWrapper(RegisterClass);
+#include "kxf/Win32/WrapperUnicode.h"
+kxf_MakeWinUnicodeCallWrapper(RegisterClass);
 
 namespace kxf::EventSystem::Private
 {
@@ -25,7 +25,7 @@ namespace kxf::EventSystem::Private
 
 namespace kxf::EventSystem::Private
 {
-	class KX_API Win32CommonEventLoop: public CommonEventLoop
+	class KXF_API Win32CommonEventLoop: public CommonEventLoop
 	{
 		public:
 			static Win32Message FromNativeMessage(const tagMSG& msg) noexcept;
@@ -53,7 +53,7 @@ namespace kxf::EventSystem::Private
 			// Process a single message: calls 'PreProcessMessage' before dispatching it
 			virtual void ProcessMessage(Win32Message& message) = 0;
 
-			// Pre-process a message, return true if processed (i.e. no further dispatching required).
+			// Preprocess a message, return true if processed (i.e. no further dispatching required).
 			virtual bool PreProcessMessage(Win32Message& message) = 0;
 
 		public:

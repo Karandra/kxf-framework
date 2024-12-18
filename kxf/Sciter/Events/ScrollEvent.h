@@ -3,23 +3,23 @@
 
 namespace kxf::Sciter
 {
-	class KX_API ScrollEvent: public SciterEvent
+	class KXF_API ScrollEvent: public SciterEvent
 	{
 		public:
-			KxEVENT_MEMBER(ScrollEvent, ScrollHome);
-			KxEVENT_MEMBER(ScrollEvent, ScrollEnd);
-			KxEVENT_MEMBER(ScrollEvent, ScrollPosition);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollHome);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollEnd);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollPosition);
 
-			KxEVENT_MEMBER(ScrollEvent, ScrollStepPlus);
-			KxEVENT_MEMBER(ScrollEvent, ScrollStepMinus);
-			KxEVENT_MEMBER(ScrollEvent, ScrollPagePlus);
-			KxEVENT_MEMBER(ScrollEvent, ScrollPageMinus);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollStepPlus);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollStepMinus);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollPagePlus);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollPageMinus);
 
-			KxEVENT_MEMBER(ScrollEvent, ScrollSliderPressed);
-			KxEVENT_MEMBER(ScrollEvent, ScrollSliderReleased);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollSliderPressed);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollSliderReleased);
 
-			KxEVENT_MEMBER(ScrollEvent, ScrollCornerPressed);
-			KxEVENT_MEMBER(ScrollEvent, ScrollCornerReleased);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollCornerPressed);
+			kxf_EVENT_MEMBER(ScrollEvent, ScrollCornerReleased);
 
 		protected:
 			Orientation m_Orientation = Orientation::Vertical;
@@ -71,18 +71,18 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollHome);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollEnd);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollPosition);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollHome);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollEnd);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollPosition);
 
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollStepPlus);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollStepMinus);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollPagePlus);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollPageMinus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollStepPlus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollStepMinus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollPagePlus);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollPageMinus);
 
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollSliderPressed);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollSliderReleased);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollSliderPressed);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollSliderReleased);
 
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollCornerPressed);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollCornerReleased);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollCornerPressed);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(ScrollEvent, ScrollCornerReleased);
 }

@@ -10,11 +10,11 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API DynamicLibraryEvent: public BasicEvent
+	class KXF_API DynamicLibraryEvent: public BasicEvent
 	{
 		public:
-			KxEVENT_MEMBER(DynamicLibraryEvent, Loaded);
-			KxEVENT_MEMBER(DynamicLibraryEvent, Unloaded);
+			kxf_EVENT_MEMBER(DynamicLibraryEvent, Loaded);
+			kxf_EVENT_MEMBER(DynamicLibraryEvent, Unloaded);
 
 		private:
 			void* m_Handle = nullptr;

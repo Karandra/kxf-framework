@@ -10,7 +10,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API Button: public RTTI::Implementation<Button, Private::BasicWxWidget<Button, WXUI::Button, IButtonWidget>, IGraphicsRendererAwareWidget>
+	class KXF_API Button: public RTTI::Implementation<Button, Private::BasicWxWidget<Button, WXUI::Button, IButtonWidget>, IGraphicsRendererAwareWidget>
 	{
 		private:
 			std::shared_ptr<IGraphicsRenderer> m_Renderer;

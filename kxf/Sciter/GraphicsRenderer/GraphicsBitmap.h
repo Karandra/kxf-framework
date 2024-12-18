@@ -13,7 +13,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API GraphicsBitmap final: public HandleWrapper<GraphicsBitmap, GraphicsBitmapHandle>
+	class KXF_API GraphicsBitmap final: public HandleWrapper<GraphicsBitmap, GraphicsBitmapHandle>
 	{
 		friend class HandleWrapper<GraphicsBitmap, GraphicsBitmapHandle>;
 

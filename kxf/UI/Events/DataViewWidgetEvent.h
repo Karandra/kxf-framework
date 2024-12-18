@@ -7,38 +7,38 @@
 
 namespace kxf
 {
-	class KX_API DataViewWidgetEvent: public WidgetEvent
+	class KXF_API DataViewWidgetEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemSelected);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemHovered);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemActivated);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemCollapsed);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemExpanded);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemCollapsing);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemExpanding);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemContextMenu);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemValueChanged);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemSelected);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemHovered);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemActivated);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemCollapsed);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemExpanded);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemCollapsing);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemExpanding);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemContextMenu);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemValueChanged);
 
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemEditStarted);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemEditFinished);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ItemEditCanceled);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemEditStarted);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemEditFinished);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ItemEditCanceled);
 
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderClick);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderRClick);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderMenuItem);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderSeparatorDClick);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderWidthFit);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnDropdown);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnToggle);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnSorted);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnMoved);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderClick);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderRClick);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderMenuItem);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderSeparatorDClick);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnHeaderWidthFit);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnDropdown);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnToggle);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnSorted);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnMoved);
 
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnBeginResize);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnResize);
-			KxEVENT_MEMBER(DataViewWidgetEvent, ColumnEndResize);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnBeginResize);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnResize);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ColumnEndResize);
 
-			KxEVENT_MEMBER(DataViewWidgetEvent, ViewCacheHint);
+			kxf_EVENT_MEMBER(DataViewWidgetEvent, ViewCacheHint);
 
 		private:
 			DataView::Node* m_Node = nullptr;
@@ -194,12 +194,12 @@ namespace kxf
 #if 0
 namespace kxf::DataView
 {
-	class KX_API DragDropEvent: public DataViewWidgetEvent
+	class KXF_API DragDropEvent: public DataViewWidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(DragDropEvent, ItemDrag);
-			KxEVENT_MEMBER(DragDropEvent, ItemDrop);
-			KxEVENT_MEMBER(DragDropEvent, ItemDropPossible);
+			kxf_EVENT_MEMBER(DragDropEvent, ItemDrag);
+			kxf_EVENT_MEMBER(DragDropEvent, ItemDrop);
+			kxf_EVENT_MEMBER(DragDropEvent, ItemDropPossible);
 
 		private:
 			wxDataObjectSimple* m_DataObject = nullptr;

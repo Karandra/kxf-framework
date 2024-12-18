@@ -1,7 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "UndefWindows.h"
-#include <array>
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {
@@ -30,7 +29,7 @@ namespace kxf::NativeAPI::Private
 
 namespace kxf
 {
-	class KX_API NativeAPILoader final
+	class KXF_API NativeAPILoader final
 	{
 		friend class NativeAPI::Private::InitializationModule;
 
@@ -96,9 +95,9 @@ namespace kxf
 	};
 }
 
-#define Kx_NativeAPI	__stdcall
+#define kxf_NativeAPI	__stdcall
 
-#define Kx_NativeAPI_DeclateFunc(ret_type, call_conv, name, ...)	\
+#define kxf_NativeAPI_DeclateFunc(ret_type, call_conv, name, ...)	\
 	using T##name = ret_type (call_conv*)(__VA_ARGS__);	\
 	extern T##name name
 
@@ -130,79 +129,79 @@ namespace kxf::NativeAPI
 		using IID = ::_GUID;
 
 		using LDR_DLL_NOTIFICATION_DATA = void;
-		using LDR_DLL_NOTIFICATION_FUNCTION = void(Kx_NativeAPI*)(ULONG reason, const LDR_DLL_NOTIFICATION_DATA* data, void* context);
+		using LDR_DLL_NOTIFICATION_FUNCTION = void(kxf_NativeAPI*)(ULONG reason, const LDR_DLL_NOTIFICATION_DATA* data, void* context);
 	}
 
 	namespace NtDLL
 	{
-		Kx_NativeAPI_DeclateFunc(NTSTATUS, Kx_NativeAPI, RtlGetVersion, RTL_OSVERSIONINFOEXW*);
-		Kx_NativeAPI_DeclateFunc(NTSTATUS, Kx_NativeAPI, NtQueryInformationProcess, HANDLE, int, void*, ULONG, ULONG*);
-		Kx_NativeAPI_DeclateFunc(NTSTATUS, Kx_NativeAPI, RtlGetLastNtStatus);
-		Kx_NativeAPI_DeclateFunc(void, Kx_NativeAPI, RtlSetLastWin32ErrorAndNtStatusFromNtStatus, NTSTATUS);
-		Kx_NativeAPI_DeclateFunc(ULONG, Kx_NativeAPI, RtlNtStatusToDosError, ULONG);
-		Kx_NativeAPI_DeclateFunc(LONG, Kx_NativeAPI, NtSuspendProcess, HANDLE);
-		Kx_NativeAPI_DeclateFunc(LONG, Kx_NativeAPI, NtResumeProcess, HANDLE);
-		Kx_NativeAPI_DeclateFunc(NTSTATUS, Kx_NativeAPI, LdrRegisterDllNotification, ULONG, LDR_DLL_NOTIFICATION_FUNCTION, void*, void**);
-		Kx_NativeAPI_DeclateFunc(NTSTATUS, Kx_NativeAPI, LdrUnregisterDllNotification, void*);
+		kxf_NativeAPI_DeclateFunc(NTSTATUS, kxf_NativeAPI, RtlGetVersion, RTL_OSVERSIONINFOEXW*);
+		kxf_NativeAPI_DeclateFunc(NTSTATUS, kxf_NativeAPI, NtQueryInformationProcess, HANDLE, int, void*, ULONG, ULONG*);
+		kxf_NativeAPI_DeclateFunc(NTSTATUS, kxf_NativeAPI, RtlGetLastNtStatus);
+		kxf_NativeAPI_DeclateFunc(void, kxf_NativeAPI, RtlSetLastWin32ErrorAndNtStatusFromNtStatus, NTSTATUS);
+		kxf_NativeAPI_DeclateFunc(ULONG, kxf_NativeAPI, RtlNtStatusToDosError, ULONG);
+		kxf_NativeAPI_DeclateFunc(LONG, kxf_NativeAPI, NtSuspendProcess, HANDLE);
+		kxf_NativeAPI_DeclateFunc(LONG, kxf_NativeAPI, NtResumeProcess, HANDLE);
+		kxf_NativeAPI_DeclateFunc(NTSTATUS, kxf_NativeAPI, LdrRegisterDllNotification, ULONG, LDR_DLL_NOTIFICATION_FUNCTION, void*, void**);
+		kxf_NativeAPI_DeclateFunc(NTSTATUS, kxf_NativeAPI, LdrUnregisterDllNotification, void*);
 	}
 	namespace Kernel32
 	{
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, Wow64DisableWow64FsRedirection, void**);
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, Wow64RevertWow64FsRedirection, void*);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, Wow64DisableWow64FsRedirection, void**);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, Wow64RevertWow64FsRedirection, void*);
 
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, IsWow64Process, HANDLE, BOOL*);
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, IsWow64Process2, HANDLE, uint16_t*, uint16_t*);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, IsWow64Process, HANDLE, BOOL*);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, IsWow64Process2, HANDLE, uint16_t*, uint16_t*);
 
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, SetDefaultDllDirectories, DWORD);
-		Kx_NativeAPI_DeclateFunc(DLL_DIRECTORY_COOKIE, Kx_NativeAPI, AddDllDirectory, const wchar_t*);
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, RemoveDllDirectory, DLL_DIRECTORY_COOKIE);
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, SetDllDirectoryW, const wchar_t*);
-		Kx_NativeAPI_DeclateFunc(DWORD, Kx_NativeAPI, GetDllDirectoryW, DWORD, wchar_t*);
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, GetThreadDescription, HANDLE, wchar_t**);
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, SetThreadDescription, HANDLE, const wchar_t*);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, SetDefaultDllDirectories, DWORD);
+		kxf_NativeAPI_DeclateFunc(DLL_DIRECTORY_COOKIE, kxf_NativeAPI, AddDllDirectory, const wchar_t*);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, RemoveDllDirectory, DLL_DIRECTORY_COOKIE);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, SetDllDirectoryW, const wchar_t*);
+		kxf_NativeAPI_DeclateFunc(DWORD, kxf_NativeAPI, GetDllDirectoryW, DWORD, wchar_t*);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, GetThreadDescription, HANDLE, wchar_t**);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, SetThreadDescription, HANDLE, const wchar_t*);
 
-		Kx_NativeAPI_DeclateFunc(void*, Kx_NativeAPI, VirtualAlloc2, HANDLE, void*, SIZE_T, ULONG, ULONG, void*, ULONG);
+		kxf_NativeAPI_DeclateFunc(void*, kxf_NativeAPI, VirtualAlloc2, HANDLE, void*, SIZE_T, ULONG, ULONG, void*, ULONG);
 	}
 	namespace KernelBase
 	{
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, PathCchCanonicalizeEx, wchar_t*, size_t, const wchar_t*, ULONG);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, PathCchCanonicalizeEx, wchar_t*, size_t, const wchar_t*, ULONG);
 	}
 	namespace User32
 	{
-		Kx_NativeAPI_DeclateFunc(UINT, Kx_NativeAPI, GetDpiForSystem);
-		Kx_NativeAPI_DeclateFunc(UINT, Kx_NativeAPI, GetDpiForWindow, HWND);
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, EnableNonClientDpiScaling, HWND);
-		Kx_NativeAPI_DeclateFunc(DPI_AWARENESS_CONTEXT, Kx_NativeAPI, SetThreadDpiAwarenessContext, DPI_AWARENESS_CONTEXT);
+		kxf_NativeAPI_DeclateFunc(UINT, kxf_NativeAPI, GetDpiForSystem);
+		kxf_NativeAPI_DeclateFunc(UINT, kxf_NativeAPI, GetDpiForWindow, HWND);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, EnableNonClientDpiScaling, HWND);
+		kxf_NativeAPI_DeclateFunc(DPI_AWARENESS_CONTEXT, kxf_NativeAPI, SetThreadDpiAwarenessContext, DPI_AWARENESS_CONTEXT);
 	}
 	namespace ShlWAPI
 	{
-		Kx_NativeAPI_DeclateFunc(BOOL, Kx_NativeAPI, PathCanonicalizeW, wchar_t*, const wchar_t*);
+		kxf_NativeAPI_DeclateFunc(BOOL, kxf_NativeAPI, PathCanonicalizeW, wchar_t*, const wchar_t*);
 	}
 	namespace DWMAPI
 	{
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, DwmIsCompositionEnabled, BOOL*);
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, DwmGetColorizationColor, DWORD*, BOOL*);
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, DwmExtendFrameIntoClientArea, HWND, const MARGINS*);
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, DwmEnableBlurBehindWindow, HWND, const DWM_BLURBEHIND*);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, DwmIsCompositionEnabled, BOOL*);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, DwmGetColorizationColor, DWORD*, BOOL*);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, DwmExtendFrameIntoClientArea, HWND, const MARGINS*);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, DwmEnableBlurBehindWindow, HWND, const DWM_BLURBEHIND*);
 	}
 	namespace DbgHelp
 	{
-		Kx_NativeAPI_DeclateFunc(IMAGE_NT_HEADERS*, Kx_NativeAPI, ImageNtHeader, void*);
+		kxf_NativeAPI_DeclateFunc(IMAGE_NT_HEADERS*, kxf_NativeAPI, ImageNtHeader, void*);
 	}
 	namespace OleAcc
 	{
-		Kx_NativeAPI_DeclateFunc(HANDLE, Kx_NativeAPI, GetProcessHandleFromHwnd, HWND);
+		kxf_NativeAPI_DeclateFunc(HANDLE, kxf_NativeAPI, GetProcessHandleFromHwnd, HWND);
 	}
 	namespace DXGI
 	{
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, CreateDXGIFactory1, const ::IID&, void**);
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, CreateDXGIFactory2, UINT, const ::IID&, void**);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, CreateDXGIFactory1, const ::IID&, void**);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, CreateDXGIFactory2, UINT, const ::IID&, void**);
 	}
 	namespace DComp
 	{
-		Kx_NativeAPI_DeclateFunc(HRESULT, Kx_NativeAPI, DCompositionCreateDevice, IDXGIDevice*, const ::IID&, void**);
+		kxf_NativeAPI_DeclateFunc(HRESULT, kxf_NativeAPI, DCompositionCreateDevice, IDXGIDevice*, const ::IID&, void**);
 	}
 }
 
-#undef Kx_NativeAPI
-#undef Kx_NativeAPI_DeclateFunc
+#undef kxf_NativeAPI
+#undef kxf_NativeAPI_DeclateFunc

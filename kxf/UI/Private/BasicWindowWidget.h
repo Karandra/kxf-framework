@@ -6,7 +6,7 @@ class wxTopLevelWindow;
 
 namespace kxf::Private
 {
-	class KX_API BasicWindowWidgetBase: public BasicWxWidgetBase
+	class KXF_API BasicWindowWidgetBase: public BasicWxWidgetBase
 	{
 		private:
 			bool m_PreventApplicationExit = true;

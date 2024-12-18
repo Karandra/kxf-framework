@@ -20,12 +20,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::AuiToolBarItemOption);
+	kxf_FlagSet_Declare(UI::AuiToolBarItemOption);
 }
 
 namespace kxf::UI
 {
-	class KX_API AuiToolBarItem: public wxEvtHandler, public WithOptions<AuiToolBarItemOption>//, public WithDropdownMenu
+	class KXF_API AuiToolBarItem: public wxEvtHandler, public WithOptions<AuiToolBarItemOption>//, public WithDropdownMenu
 	{
 		friend class AuiToolBar;
 

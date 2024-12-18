@@ -6,7 +6,7 @@
 
 namespace kxf::SevenZip
 {
-	class KX_API Library final: public Singleton<Library>
+	class KXF_API Library final: public Singleton<Library>
 	{
 		friend class Singleton<Library>;
 		

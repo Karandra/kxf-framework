@@ -8,9 +8,9 @@
 
 namespace kxf
 {
-	class KX_API WxGraphicsTexture: public RTTI::DynamicImplementation<WxGraphicsTexture, IGraphicsTexture>
+	class KXF_API WxGraphicsTexture: public RTTI::DynamicImplementation<WxGraphicsTexture, IGraphicsTexture>
 	{
-		KxRTTI_DeclareIID(WxGraphicsTexture, {0x4c8a8b87, 0x9696, 0x4682, {0xb1, 0x8f, 0xc9, 0x55, 0x1f, 0xaa, 0xc, 0xd2}});
+		kxf_RTTI_DeclareIID(WxGraphicsTexture, {0x4c8a8b87, 0x9696, 0x4682, {0xb1, 0x8f, 0xc9, 0x55, 0x1f, 0xaa, 0xc, 0xd2}});
 
 		protected:
 			WxGraphicsRenderer* m_Renderer = nullptr;
@@ -177,9 +177,9 @@ namespace kxf
 			}
 	};
 
-	class KX_API WxGraphicsVectorTexture: public RTTI::DynamicImplementation<WxGraphicsVectorTexture, IGraphicsTexture>
+	class KXF_API WxGraphicsVectorTexture: public RTTI::DynamicImplementation<WxGraphicsVectorTexture, IGraphicsTexture>
 	{
-		KxRTTI_DeclareIID(WxGraphicsVectorTexture, {0xe067b8fd, 0x2be6, 0x48b4, {0x8d, 0x7c, 0xd1, 0x27, 0x85, 0xa8, 0x99, 0x25}});
+		kxf_RTTI_DeclareIID(WxGraphicsVectorTexture, {0xe067b8fd, 0x2be6, 0x48b4, {0x8d, 0x7c, 0xd1, 0x27, 0x85, 0xa8, 0x99, 0x25}});
 
 		protected:
 			WxGraphicsRenderer* m_Renderer = nullptr;

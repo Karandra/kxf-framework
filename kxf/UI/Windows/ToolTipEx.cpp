@@ -3,9 +3,10 @@
 #include "kxf/System/Registry.h"
 #include "kxf/System/SystemInformation.h"
 #include "kxf/Drawing/ArtProvider.h"
-#include <CommCtrl.h>
+
 #include <wx/artprov.h>
-#include "kxf/System/UndefWindows.h"
+#include <CommCtrl.h>
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

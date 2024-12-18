@@ -54,5 +54,5 @@ namespace kxf
 		CoalesceComma = 1 << 16,
 		CoalesceSemicolon = 1 << 17
 	};
-	KxFlagSet_Declare(WebRequestHeaderFlag);
+	kxf_FlagSet_Declare(WebRequestHeaderFlag);
 }

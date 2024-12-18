@@ -744,6 +744,9 @@
     <ClInclude Include="kxf\Utility\Literals.h" />
     <ClInclude Include="kxf\Utility\RecursiveCollectionEnumerator.h" />
     <ClInclude Include="kxf\Utility\SoftwareLicenseDB.h" />
+    <ClInclude Include="kxf\Win32\WrapperMemory.h" />
+    <ClInclude Include="kxf\Win32\UndefMacros.h" />
+    <ClInclude Include="kxf\Win32\WrapperUnicode.h" />
     <ClInclude Include="kxf\wxWidgets\Application.h" />
     <ClInclude Include="kxf\wxWidgets\ClientObject.h" />
     <ClInclude Include="kxf\wxWidgets\Common.h" />
@@ -877,7 +880,6 @@
     <ClInclude Include="kxf\System\SystemInformation.h" />
     <ClInclude Include="kxf\System\SystemInformationDefines.h" />
     <ClInclude Include="kxf\System\TaskScheduler.h" />
-    <ClInclude Include="kxf\System\UndefWindows.h" />
     <ClInclude Include="kxf\System\WOW64FSRedirection.h" />
     <ClInclude Include="kxf\Threading.hpp" />
     <ClInclude Include="kxf\Threading\Common.h" />

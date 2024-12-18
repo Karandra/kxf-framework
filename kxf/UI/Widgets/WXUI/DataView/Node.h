@@ -4,9 +4,9 @@
 
 namespace kxf::DataView
 {
-	class KX_API RootNode final: public Node
+	class KXF_API RootNode final: public Node
 	{
-		KxRTTI_DeclareIID(RootNode, {0xe57d0d6b, 0xdea1, 0x43d9, {0xb3, 0xf2, 0x75, 0xd1, 0xce, 0xc2, 0x32, 0x59}});
+		kxf_RTTI_DeclareIID(RootNode, {0xe57d0d6b, 0xdea1, 0x43d9, {0xb3, 0xf2, 0x75, 0xd1, 0xce, 0xc2, 0x32, 0x59}});
 		
 		friend class Node;
 		friend class WXUI::DataView::View;
@@ -34,7 +34,7 @@ namespace kxf::DataView
 
 namespace kxf::DataView
 {
-	class KX_API NodeOperation
+	class KXF_API NodeOperation
 	{
 		protected:
 			// The return value control how the tree-walker traverses the tree
@@ -64,7 +64,7 @@ namespace kxf::DataView
 
 namespace kxf::DataView
 {
-	class KX_API RowToNodeOperation final: public NodeOperation
+	class KXF_API RowToNodeOperation final: public NodeOperation
 	{
 		private:
 			const intptr_t m_Row = -1;

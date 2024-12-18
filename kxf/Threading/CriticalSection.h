@@ -6,7 +6,7 @@ struct _RTL_CRITICAL_SECTION;
 
 namespace kxf
 {
-	class KX_API CriticalSection final
+	class KXF_API CriticalSection final
 	{
 		private:
 			struct CritSec final

@@ -17,7 +17,7 @@
 #include <Windows.h>
 #include <DbgHelp.h>
 #include <cwchar>
-#include "UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 #pragma comment(lib, "DbgHelp.lib")
 
 namespace

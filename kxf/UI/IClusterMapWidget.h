@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IClusterMapWidget: public RTTI::ExtendInterface<IClusterMapWidget, IWidget>
+	class KXF_API IClusterMapWidget: public RTTI::ExtendInterface<IClusterMapWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IClusterMapWidget, {0x18940418, 0xd84b, 0x4fd4, {0xa8, 0x5f, 0x9d, 0xd2, 0xbe, 0xaf, 0xd3, 0x6f}});
+		kxf_RTTI_DeclareIID(IClusterMapWidget, {0x18940418, 0xd84b, 0x4fd4, {0xa8, 0x5f, 0x9d, 0xd2, 0xbe, 0xaf, 0xd3, 0x6f}});
 
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

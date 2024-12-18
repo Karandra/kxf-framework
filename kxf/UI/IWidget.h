@@ -6,9 +6,9 @@
 
 namespace kxf
 {
-	class KX_API IWidget: public RTTI::ExtendInterface<IWidget, IEvtHandler>, public Private::WidgetDIP<IWidget>, public Private::WidgetDLU<IWidget>
+	class KXF_API IWidget: public RTTI::ExtendInterface<IWidget, IEvtHandler>, public Private::WidgetDIP<IWidget>, public Private::WidgetDLU<IWidget>
 	{
-		KxRTTI_DeclareIID(IWidget, {0xd5a7bb64, 0x7a68, 0x4906, {0x91, 0x3d, 0x7d, 0x3e, 0x3f, 0x84, 0xdf, 0xa0}});
+		kxf_RTTI_DeclareIID(IWidget, {0xd5a7bb64, 0x7a68, 0x4906, {0x91, 0x3d, 0x7d, 0x3e, 0x3f, 0x84, 0xdf, 0xa0}});
 
 		template<std::derived_from<IWidget> TWidget>
 		friend std::shared_ptr<TWidget> NewWidget();

@@ -2,7 +2,6 @@
 #include "SharedMemory.h"
 #include <Windows.h>
 #include "kxf/System/Private/System.h"
-#include "kxf/System/UndefWindows.h"
 #include "kxf/Utility/Memory.h"
 
 namespace

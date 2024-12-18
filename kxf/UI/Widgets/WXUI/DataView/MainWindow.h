@@ -35,7 +35,7 @@ namespace kxf::WXUI::DataView
 
 namespace kxf::WXUI::DataView
 {
-	class KX_API MainWindow
+	class KXF_API MainWindow
 	{
 		friend class Widgets::DataView;
 		friend class DV::Node;

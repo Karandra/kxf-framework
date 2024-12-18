@@ -4,12 +4,12 @@
 
 namespace kxf
 {
-	class KX_API ComboBoxWidgetEvent: public WidgetEvent
+	class KXF_API ComboBoxWidgetEvent: public WidgetEvent
 	{
 		public:
-			KxEVENT_MEMBER(ComboBoxWidgetEvent, ItemSelected);
-			KxEVENT_MEMBER(ComboBoxWidgetEvent, DropdownShow);
-			KxEVENT_MEMBER(ComboBoxWidgetEvent, DropdownDismiss);
+			kxf_EVENT_MEMBER(ComboBoxWidgetEvent, ItemSelected);
+			kxf_EVENT_MEMBER(ComboBoxWidgetEvent, DropdownShow);
+			kxf_EVENT_MEMBER(ComboBoxWidgetEvent, DropdownDismiss);
 
 		private:
 			size_t m_Index = std::numeric_limits<size_t>::max();

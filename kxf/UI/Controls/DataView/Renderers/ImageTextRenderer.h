@@ -12,7 +12,7 @@ namespace kxf::UI::DataView
 		VCenterText = 1 << 0
 	};
 
-	class KX_API ImageTextValue: public TextValue, public ImageValue, public WithOptions<ImageTextValueOption, ImageTextValueOption::VCenterText>
+	class KXF_API ImageTextValue: public TextValue, public ImageValue, public WithOptions<ImageTextValueOption, ImageTextValueOption::VCenterText>
 	{
 		public:
 			using Options = ImageTextValueOption;
@@ -38,12 +38,12 @@ namespace kxf::UI::DataView
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::DataView::ImageTextValueOption);
+	kxf_FlagSet_Declare(UI::DataView::ImageTextValueOption);
 }
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageTextRenderer: public Renderer
+	class KXF_API ImageTextRenderer: public Renderer
 	{
 		private:
 			ImageTextValue m_Value;

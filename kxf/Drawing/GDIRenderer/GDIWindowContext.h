@@ -4,7 +4,7 @@
 
 namespace kxf::Drawing
 {
-	class KX_API GDIWindowContextBase: public GDIContext
+	class KXF_API GDIWindowContextBase: public GDIContext
 	{
 		protected:
 			const wxWindowDC& GetWindowDC() const noexcept
@@ -41,7 +41,7 @@ namespace kxf::Drawing
 
 namespace kxf
 {
-	class KX_API GDIWindowContext final: public Drawing::GDIWindowContextBase
+	class KXF_API GDIWindowContext final: public Drawing::GDIWindowContextBase
 	{
 		private:
 			wxWindowDC m_DC;
@@ -54,7 +54,7 @@ namespace kxf
 
 	};
 
-	class KX_API GDIClientContext final: public Drawing::GDIWindowContextBase
+	class KXF_API GDIClientContext final: public Drawing::GDIWindowContextBase
 	{
 		private:
 			wxClientDC m_DC;
@@ -76,7 +76,7 @@ namespace kxf
 			}
 	};
 
-	class KX_API GDIPaintContext final: public Drawing::GDIWindowContextBase
+	class KXF_API GDIPaintContext final: public Drawing::GDIWindowContextBase
 	{
 		private:
 			wxPaintDC m_DC;

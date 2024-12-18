@@ -20,7 +20,7 @@ namespace kxf::Private
 
 namespace kxf
 {
-	class KX_API TimeSpan final
+	class KXF_API TimeSpan final
 	{
 		public:
 			static constexpr TimeSpan Milliseconds(int64_t milliseconds) noexcept

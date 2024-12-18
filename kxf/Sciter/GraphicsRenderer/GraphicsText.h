@@ -11,7 +11,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API GraphicsText final: public HandleWrapper<GraphicsText, GraphicsTextHandle>
+	class KXF_API GraphicsText final: public HandleWrapper<GraphicsText, GraphicsTextHandle>
 	{
 		friend class HandleWrapper<GraphicsText, GraphicsTextHandle>;
 		

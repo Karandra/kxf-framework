@@ -24,9 +24,9 @@ namespace kxf::WXUI::DataView
 
 namespace kxf
 {
-	class KX_API IDataViewCellRenderer: public RTTI::Interface<IDataViewCellRenderer>
+	class KXF_API IDataViewCellRenderer: public RTTI::Interface<IDataViewCellRenderer>
 	{
-		KxRTTI_DeclareIID(IDataViewCellRenderer, {0xa9538cec, 0x83d5, 0x46b9, {0x9a, 0x9c, 0x1, 0x49, 0x86, 0x67, 0x21, 0x5e}});
+		kxf_RTTI_DeclareIID(IDataViewCellRenderer, {0xa9538cec, 0x83d5, 0x46b9, {0x9a, 0x9c, 0x1, 0x49, 0x86, 0x67, 0x21, 0x5e}});
 
 		friend class DataView::CellRenderer;
 
@@ -86,7 +86,7 @@ namespace kxf
 
 namespace kxf::DataView
 {
-	class KX_API CellRenderer final
+	class KXF_API CellRenderer final
 	{
 		friend class WXUI::DataView::MainWindow;
 		friend class WXUI::DataView::MaxWidthCalculator;

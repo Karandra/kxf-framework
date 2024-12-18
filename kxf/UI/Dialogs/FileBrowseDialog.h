@@ -51,13 +51,13 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::FileBrowseDialogStyle);
-	KxFlagSet_Extend(UI::FileBrowseDialogStyle, UI::DialogStyle);
+	kxf_FlagSet_Declare(UI::FileBrowseDialogStyle);
+	kxf_FlagSet_Extend(UI::FileBrowseDialogStyle, UI::DialogStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API FileBrowseDialog: public Dialog, public IStdDialog
+	class KXF_API FileBrowseDialog: public Dialog, public IStdDialog
 	{
 		friend class Private::FileBrowseDialogEvents;
 

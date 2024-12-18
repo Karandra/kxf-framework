@@ -3,8 +3,9 @@
 #include "NativeFileSystem.h"
 #include "kxf/System/ShellOperations.h"
 #include "kxf/Utility/Common.h"
+
 #include <shellapi.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

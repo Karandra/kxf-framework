@@ -9,7 +9,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API ProgressBar: public EvtHandlerWrapper<ProgressBar, UI::WindowRefreshScheduler<wxSystemThemedControl<wxGauge>>>
+	class KXF_API ProgressBar: public EvtHandlerWrapper<ProgressBar, UI::WindowRefreshScheduler<wxSystemThemedControl<wxGauge>>>
 	{
 		private:
 			IProgressMeterWidget& m_Widget;

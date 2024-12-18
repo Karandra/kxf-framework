@@ -4,7 +4,7 @@
 
 namespace kxf::UI
 {
-	class KX_API SearchBox: public wxSearchCtrl
+	class KXF_API SearchBox: public wxSearchCtrl
 	{
 		public:
 			static constexpr long DefaultStyle = wxTE_LEFT|wxTE_PROCESS_ENTER|wxTE_NOHIDESEL;

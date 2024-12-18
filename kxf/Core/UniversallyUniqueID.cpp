@@ -8,7 +8,7 @@
 
 #include <Windows.h>
 #include <rpcdce.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

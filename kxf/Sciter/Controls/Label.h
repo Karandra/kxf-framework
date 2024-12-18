@@ -4,7 +4,7 @@
 
 namespace kxf::Sciter
 {
-	class KX_API Label: public WindowWrapper<wxControl>
+	class KXF_API Label: public WindowWrapper<wxControl>
 	{
 		public:
 			Label() = default;

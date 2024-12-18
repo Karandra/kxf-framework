@@ -5,7 +5,7 @@ class wxWindow;
 
 namespace kxf::EventSystem::Private
 {
-	class KX_API Win32GUIEventLoop: public Win32CommonEventLoop
+	class KXF_API Win32GUIEventLoop: public Win32CommonEventLoop
 	{
 		public:
 			// Set the critical window: this is the window such that all the events except those

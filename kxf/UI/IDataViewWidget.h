@@ -13,9 +13,9 @@
 
 namespace kxf
 {
-	class KX_API IDataViewWidget: public RTTI::ExtendInterface<IDataViewWidget, IWidget>
+	class KXF_API IDataViewWidget: public RTTI::ExtendInterface<IDataViewWidget, IWidget>
 	{
-		KxRTTI_DeclareIID(IDataViewWidget, {0x5ed1aeb0, 0x5b17, 0x4207, {0xb6, 0xa8, 0xd, 0x82, 0xba, 0xcb, 0xad, 0x73}});
+		kxf_RTTI_DeclareIID(IDataViewWidget, {0x5ed1aeb0, 0x5b17, 0x4207, {0xb6, 0xa8, 0xd, 0x82, 0xba, 0xcb, 0xad, 0x73}});
 
 		public:
 			using WidgetStyle = DataView::WidgetStyle;

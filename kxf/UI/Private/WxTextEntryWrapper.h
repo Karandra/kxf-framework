@@ -5,7 +5,7 @@ class wxTextCtrlIface;
 
 namespace kxf::WXUI::Private
 {
-	class KX_API WxTextEntryWrapper
+	class KXF_API WxTextEntryWrapper
 	{
 		public:
 			static constexpr size_t npos = std::numeric_limits<size_t>::max();

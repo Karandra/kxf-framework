@@ -9,7 +9,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API StylesheetStorage
+	class KXF_API StylesheetStorage
 	{
 		private:
 			std::vector<String> m_Items;

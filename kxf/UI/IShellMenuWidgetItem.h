@@ -10,9 +10,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IShellMenuWidgetItem: public RTTI::Interface<IShellMenuWidgetItem>
+	class KXF_API IShellMenuWidgetItem: public RTTI::Interface<IShellMenuWidgetItem>
 	{
-		KxRTTI_DeclareIID(IShellMenuWidgetItem, {0xf8079dff, 0xa14f, 0x4e98, {0x89, 0x7b, 0xa2, 0x99, 0x5f, 0xa1, 0xce, 0x6c}});
+		kxf_RTTI_DeclareIID(IShellMenuWidgetItem, {0xf8079dff, 0xa14f, 0x4e98, {0x89, 0x7b, 0xa2, 0x99, 0x5f, 0xa1, 0xce, 0x6c}});
 
 		public:
 			virtual String GetIconString() const = 0;

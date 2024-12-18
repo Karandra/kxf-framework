@@ -26,9 +26,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IGraphicsRenderer: public RTTI::Interface<IGraphicsRenderer>
+	class KXF_API IGraphicsRenderer: public RTTI::Interface<IGraphicsRenderer>
 	{
-		KxRTTI_DeclareIID(IGraphicsRenderer, {0xf8abb3f6, 0xee8d, 0x49d0, {0x96, 0xe5, 0x2f, 0xd6, 0xaa, 0x3c, 0x5d, 0x6f}});
+		kxf_RTTI_DeclareIID(IGraphicsRenderer, {0xf8abb3f6, 0xee8d, 0x49d0, {0x96, 0xe5, 0x2f, 0xd6, 0xaa, 0x3c, 0x5d, 0x6f}});
 
 		public:
 			virtual ~IGraphicsRenderer() = default;

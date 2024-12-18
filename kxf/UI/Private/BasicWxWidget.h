@@ -12,7 +12,7 @@ class wxWindowDestroyEvent;
 
 namespace kxf::Private
 {
-	class KX_API BasicWxWidgetBase
+	class KXF_API BasicWxWidgetBase
 	{
 		private:
 			IWidget& m_Widget;

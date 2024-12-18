@@ -5,7 +5,7 @@
 
 namespace kxf::Drawing
 {
-	class KX_API NullGraphicsFont final: public IGraphicsFont
+	class KXF_API NullGraphicsFont final: public IGraphicsFont
 	{
 		public:
 			NullGraphicsFont() noexcept = default;

@@ -9,7 +9,7 @@ namespace kxf::WXUI
 
 namespace kxf::Widgets
 {
-	class KX_API Dialog: public RTTI::Implementation<Dialog, Private::BasicWindowWidget<Dialog, WXUI::Dialog, IDalogWidget>>
+	class KXF_API Dialog: public RTTI::Implementation<Dialog, Private::BasicWindowWidget<Dialog, WXUI::Dialog, IDalogWidget>>
 	{
 		public:
 			Dialog();

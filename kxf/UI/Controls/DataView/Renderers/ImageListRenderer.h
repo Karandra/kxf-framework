@@ -5,7 +5,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageListValue: public TextValue, public ImageValueBase
+	class KXF_API ImageListValue: public TextValue, public ImageValueBase
 	{
 		private:
 			std::vector<BitmapImage> m_Images;
@@ -59,7 +59,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageListRendererBase: public Renderer
+	class KXF_API ImageListRendererBase: public Renderer
 	{
 		private:
 			TextValue& m_TextValue;
@@ -83,7 +83,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageListRenderer: public ImageListRendererBase
+	class KXF_API ImageListRenderer: public ImageListRendererBase
 	{
 		private:
 			ImageListValue m_Value;

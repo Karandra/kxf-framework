@@ -6,7 +6,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageTextToggleValue: public ImageTextValue, public ToggleValue
+	class KXF_API ImageTextToggleValue: public ImageTextValue, public ToggleValue
 	{
 		public:
 			ImageTextToggleValue(String text = {},
@@ -44,7 +44,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ImageTextToggleRenderer: public Renderer, public ToggleRendererBase
+	class KXF_API ImageTextToggleRenderer: public Renderer, public ToggleRendererBase
 	{
 		private:
 			ImageTextToggleValue m_Value;

@@ -6,8 +6,9 @@
 #include "kxf/System/DynamicLibrary.h"
 #include "kxf/Drawing/ArtProvider.h"
 #include "kxf/Utility/Memory.h"
+
 #include <CommCtrl.h>
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 #pragma warning(disable: 4302) // 'reinterpret_cast': truncation from 'void *' to 'int'
 #pragma warning(disable: 4311) // 'reinterpret_cast': pointer truncation from 'void *' to 'int'

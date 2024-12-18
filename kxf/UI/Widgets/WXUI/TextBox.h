@@ -6,7 +6,7 @@
 
 namespace kxf::WXUI
 {
-	class KX_API TextBox: public EvtHandlerWrapper<TextBox, UI::WindowRefreshScheduler<wxTextCtrl>>
+	class KXF_API TextBox: public EvtHandlerWrapper<TextBox, UI::WindowRefreshScheduler<wxTextCtrl>>
 	{
 		friend class EvtHandlerWrapper;
 

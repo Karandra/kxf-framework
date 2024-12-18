@@ -15,18 +15,18 @@
 
 namespace kxf::Sciter
 {
-	KX_API String GetLibraryName();
-	KX_API Version GetLibraryVersion();
+	KXF_API String GetLibraryName();
+	KXF_API Version GetLibraryVersion();
 
-	KX_API bool IsLibraryLoaded();
-	KX_API void* LoadLibrary(const FSPath& path);
-	KX_API void FreeLibrary();
+	KXF_API bool IsLibraryLoaded();
+	KXF_API void* LoadLibrary(const FSPath& path);
+	KXF_API void FreeLibrary();
 }
 
 namespace kxf::Sciter
 {
-	KX_API String SizeUnitToString(SizeUnit unit);
+	KXF_API String SizeUnitToString(SizeUnit unit);
 
-	KX_API CornerAlignment MapCornerAlignment(FlagSet<Alignment> alignment);
-	KX_API FlagSet<Alignment> MapCornerAlignment(CornerAlignment alignment);
+	KXF_API CornerAlignment MapCornerAlignment(FlagSet<Alignment> alignment);
+	KXF_API FlagSet<Alignment> MapCornerAlignment(CornerAlignment alignment);
 }

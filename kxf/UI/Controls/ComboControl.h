@@ -9,7 +9,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API ComboControl: public wxComboCtrl
+	class KXF_API ComboControl: public wxComboCtrl
 	{
 		public:
 			enum class DrawFocus

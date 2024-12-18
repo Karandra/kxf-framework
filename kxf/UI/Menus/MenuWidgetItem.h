@@ -26,7 +26,7 @@ namespace kxf::Widgets
 {
 	class MenuWidgetItem: public RTTI::DynamicImplementation<MenuWidgetItem, BasicEvtHandler<MenuWidgetItem, IMenuWidgetItem>>
 	{
-		KxRTTI_DeclareIID(MenuWidgetItem, {0x56983711, 0xc1a4, 0x48ec, {0x97, 0xfd, 0x61, 0x4b, 0x53, 0x2f, 0xc0, 0x44}});
+		kxf_RTTI_DeclareIID(MenuWidgetItem, {0x56983711, 0xc1a4, 0x48ec, {0x97, 0xfd, 0x61, 0x4b, 0x53, 0x2f, 0xc0, 0x44}});
 
 		friend class MenuWidget;
 		friend class WXUI::MenuItem;

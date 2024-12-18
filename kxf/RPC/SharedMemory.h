@@ -13,7 +13,7 @@ namespace kxf::IPC
 
 namespace kxf
 {
-	class KX_API SharedMemoryBuffer final
+	class KXF_API SharedMemoryBuffer final
 	{
 		private:
 			void* m_Handle = nullptr;

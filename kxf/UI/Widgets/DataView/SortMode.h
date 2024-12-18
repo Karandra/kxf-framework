@@ -8,7 +8,7 @@ namespace kxf
 
 namespace kxf::DataView
 {
-	class KX_API SortMode final
+	class KXF_API SortMode final
 	{
 		private:
 			enum class SortWhat

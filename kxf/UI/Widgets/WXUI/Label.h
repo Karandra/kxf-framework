@@ -24,12 +24,12 @@ namespace kxf::WXUI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(WXUI::LabelStyle);
+	kxf_FlagSet_Declare(WXUI::LabelStyle);
 }
 
 namespace kxf::WXUI
 {
-	class KX_API Label: public EvtHandlerWrapper<Label, UI::WindowRefreshScheduler<wxSystemThemedControl<wxStaticText>>>
+	class KXF_API Label: public EvtHandlerWrapper<Label, UI::WindowRefreshScheduler<wxSystemThemedControl<wxStaticText>>>
 	{
 		private:
 			wxEvtHandler m_EvtHandler;

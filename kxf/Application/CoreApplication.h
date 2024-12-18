@@ -40,7 +40,7 @@ namespace kxf::Private
 
 namespace kxf
 {
-	class KX_API CoreApplication: public RTTI::Implementation<CoreApplication, ICoreApplication>
+	class KXF_API CoreApplication: public RTTI::Implementation<CoreApplication, ICoreApplication>
 	{
 		friend class Private::CoreApplicationEvtHandler;
 

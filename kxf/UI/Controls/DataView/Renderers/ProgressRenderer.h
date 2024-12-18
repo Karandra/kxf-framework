@@ -10,7 +10,7 @@ namespace kxf::UI::DataView
 		Fit = -2,
 	};
 
-	class KX_API ProgressMeterValueBase
+	class KXF_API ProgressMeterValueBase
 	{
 		public:
 			using State = ProgressMeterState;
@@ -123,7 +123,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ProgressMeterValue: public TextValue, public ProgressMeterValueBase
+	class KXF_API ProgressMeterValue: public TextValue, public ProgressMeterValueBase
 	{
 		public:
 			ProgressMeterValue() = default;
@@ -147,7 +147,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API ProgressMeterRenderer: public Renderer
+	class KXF_API ProgressMeterRenderer: public Renderer
 	{
 		private:
 			ProgressMeterValue m_Value;

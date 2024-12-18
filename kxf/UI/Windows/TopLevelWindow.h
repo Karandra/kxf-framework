@@ -21,17 +21,17 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::TopLevelWindowStyle);
-	KxFlagSet_Extend(UI::TopLevelWindowStyle, UI::WindowStyle);
+	kxf_FlagSet_Declare(UI::TopLevelWindowStyle);
+	kxf_FlagSet_Extend(UI::TopLevelWindowStyle, UI::WindowStyle);
 }
 
 namespace kxf::UI::Private
 {
-	class KX_API TopLevelWindowBase final
+	class KXF_API TopLevelWindowBase final
 	{
 		public:
-			KxEVENT_MEMBER(wxNotifyEvent, DWMGlassColorChanged);
-			KxEVENT_MEMBER(wxNotifyEvent, DWMCompositionChanged);
+			kxf_EVENT_MEMBER(wxNotifyEvent, DWMGlassColorChanged);
+			kxf_EVENT_MEMBER(wxNotifyEvent, DWMCompositionChanged);
 
 		public:
 			static bool DWMIsCompositionEnabled();

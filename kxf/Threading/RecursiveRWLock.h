@@ -7,7 +7,7 @@ namespace kxf
 	// Using 'CriticalSection' for now until better solution is found (to just change the implementation later).
 	// Worth trying: https://www.puredevsoftware.com/blog/2018/08/23/adding-recursion-to-a-readwrite-lock/
 
-	class KX_API RecursiveRWLock final
+	class KXF_API RecursiveRWLock final
 	{
 		private:
 			CriticalSection m_Lock;

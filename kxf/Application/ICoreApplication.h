@@ -18,9 +18,9 @@ namespace kxf
 
 namespace kxf::Application
 {
-	class KX_API IBasicInfo: public RTTI::Interface<IBasicInfo>
+	class KXF_API IBasicInfo: public RTTI::Interface<IBasicInfo>
 	{
-		KxRTTI_DeclareIID(IBasicInfo, {0x2604f989, 0xb6d1, 0x4eb7, {0x8b, 0x2a, 0xd2, 0x70, 0x6, 0x96, 0x4c, 0x21}});
+		kxf_RTTI_DeclareIID(IBasicInfo, {0x2604f989, 0xb6d1, 0x4eb7, {0x8b, 0x2a, 0xd2, 0x70, 0x6, 0x96, 0x4c, 0x21}});
 
 		public:
 			virtual ~IBasicInfo() = default;
@@ -45,9 +45,9 @@ namespace kxf::Application
 			virtual void SetClassName(const String& name) = 0;
 	};
 
-	class KX_API IMainEventLoop: public RTTI::Interface<IMainEventLoop>
+	class KXF_API IMainEventLoop: public RTTI::Interface<IMainEventLoop>
 	{
-		KxRTTI_DeclareIID(IMainEventLoop, {0x537d4221, 0xb942, 0x4536, {0x91, 0xf0, 0xb, 0xd9, 0x56, 0x38, 0x59, 0x19}});
+		kxf_RTTI_DeclareIID(IMainEventLoop, {0x537d4221, 0xb942, 0x4536, {0x91, 0xf0, 0xb, 0xd9, 0x56, 0x38, 0x59, 0x19}});
 
 		public:
 			virtual ~IMainEventLoop() = default;
@@ -61,9 +61,9 @@ namespace kxf::Application
 			virtual void OnEventLoopExit(IEventLoop& loop) = 0;
 	};
 
-	class KX_API IActiveEventLoop: public RTTI::Interface<IActiveEventLoop>
+	class KXF_API IActiveEventLoop: public RTTI::Interface<IActiveEventLoop>
 	{
-		KxRTTI_DeclareIID(IActiveEventLoop, {0xd27bff03, 0x58d1, 0x471b, {0x83, 0x67, 0x3c, 0xde, 0xfd, 0x4c, 0x77, 0xb0}});
+		kxf_RTTI_DeclareIID(IActiveEventLoop, {0xd27bff03, 0x58d1, 0x471b, {0x83, 0x67, 0x3c, 0xde, 0xfd, 0x4c, 0x77, 0xb0}});
 
 		protected:
 			static void CallOnEnterEventLoop(IEventLoop& eventLoop);
@@ -83,9 +83,9 @@ namespace kxf::Application
 			virtual bool Yield(FlagSet<EventYieldFlag> flags) = 0;
 	};
 
-	class KX_API IPendingEvents: public RTTI::Interface<IPendingEvents>
+	class KXF_API IPendingEvents: public RTTI::Interface<IPendingEvents>
 	{
-		KxRTTI_DeclareIID(IPendingEvents, {0xf3c249fd, 0xf2ca, 0x41af, {0x85, 0x31, 0x5a, 0x74, 0x3d, 0x78, 0x34, 0xb7}});
+		kxf_RTTI_DeclareIID(IPendingEvents, {0xf3c249fd, 0xf2ca, 0x41af, {0x85, 0x31, 0x5a, 0x74, 0x3d, 0x78, 0x34, 0xb7}});
 
 		protected:
 			virtual bool OnPendingEventHandlerProcess(IEvtHandler& evtHandler)
@@ -116,9 +116,9 @@ namespace kxf::Application
 			virtual void FinalizeScheduledForDestruction() = 0;
 	};
 
-	class KX_API IExceptionHandler: public RTTI::Interface<IExceptionHandler>
+	class KXF_API IExceptionHandler: public RTTI::Interface<IExceptionHandler>
 	{
-		KxRTTI_DeclareIID(IExceptionHandler, {0x924de29c, 0xfa90, 0x4ebe, {0xba, 0xbc, 0x33, 0x0, 0x10, 0x5, 0x9d, 0xa5}});
+		kxf_RTTI_DeclareIID(IExceptionHandler, {0x924de29c, 0xfa90, 0x4ebe, {0xba, 0xbc, 0x33, 0x0, 0x10, 0x5, 0x9d, 0xa5}});
 
 		public:
 			virtual ~IExceptionHandler() = default;
@@ -132,9 +132,9 @@ namespace kxf::Application
 			virtual void RethrowStoredException() = 0;
 	};
 
-	class KX_API IDebugHandler: public RTTI::Interface<IDebugHandler>
+	class KXF_API IDebugHandler: public RTTI::Interface<IDebugHandler>
 	{
-		KxRTTI_DeclareIID(IDebugHandler, {0x2165d85c, 0xe7ae, 0x4cc6, {0x88, 0x6f, 0x3f, 0x93, 0x8d, 0x9a, 0x1d, 0x7}});
+		kxf_RTTI_DeclareIID(IDebugHandler, {0x2165d85c, 0xe7ae, 0x4cc6, {0x88, 0x6f, 0x3f, 0x93, 0x8d, 0x9a, 0x1d, 0x7}});
 
 		public:
 			virtual ~IDebugHandler() = default;
@@ -143,9 +143,9 @@ namespace kxf::Application
 			virtual void OnAssertFailure(const String& file, int line, const String& function, const String& condition, const String& message) = 0;
 	};
 
-	class KX_API ICommandLine: public RTTI::Interface<ICommandLine>
+	class KXF_API ICommandLine: public RTTI::Interface<ICommandLine>
 	{
-		KxRTTI_DeclareIID(ICommandLine, {0xbf92c139, 0xff8f, 0x4840, {0xa8, 0x9e, 0x9f, 0xd, 0x97, 0x3d, 0x8b, 0xf}});
+		kxf_RTTI_DeclareIID(ICommandLine, {0xbf92c139, 0xff8f, 0x4840, {0xa8, 0x9e, 0x9f, 0xd, 0x97, 0x3d, 0x8b, 0xf}});
 
 		public:
 			virtual ~ICommandLine() = default;
@@ -164,7 +164,7 @@ namespace kxf::Application
 
 namespace kxf
 {
-	class KX_API ICoreApplication: public RTTI::ExtendInterface
+	class KXF_API ICoreApplication: public RTTI::ExtendInterface
 		<
 			ICoreApplication,
 			IEvtHandler,
@@ -177,11 +177,11 @@ namespace kxf
 			Application::ICommandLine
 		>
 	{
-		KxRTTI_DeclareIID(ICoreApplication, {0x2db9e5b5, 0x29cb, 0x4e8a, {0xb4, 0x59, 0x16, 0xee, 0xb, 0xad, 0x92, 0xdf}});
+		kxf_RTTI_DeclareIID(ICoreApplication, {0x2db9e5b5, 0x29cb, 0x4e8a, {0xb4, 0x59, 0x16, 0xee, 0xb, 0xad, 0x92, 0xdf}});
 
 		public:
-			KxEVENT_MEMBER(ActivateEvent, Activated);
-			KxEVENT_MEMBER(FSActionEvent, ExecutingModuleWorkingDirectoryChanged);
+			kxf_EVENT_MEMBER(ActivateEvent, Activated);
+			kxf_EVENT_MEMBER(FSActionEvent, ExecutingModuleWorkingDirectoryChanged);
 
 		public:
 			static ICoreApplication* GetInstance() noexcept;

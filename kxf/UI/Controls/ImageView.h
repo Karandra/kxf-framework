@@ -21,7 +21,7 @@ namespace kxf::UI
 
 namespace kxf::UI
 {
-	class KX_API ImageView: public WindowRefreshScheduler<wxSystemThemedControl<wxControl>>
+	class KXF_API ImageView: public WindowRefreshScheduler<wxSystemThemedControl<wxControl>>
 	{
 		public:
 			static constexpr FlagSet<WindowStyle> DefaultStyle = WindowStyle::None|WindowBorder::Theme;

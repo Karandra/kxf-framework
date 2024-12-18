@@ -9,13 +9,13 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API PaintEvent: public SciterEvent
+	class KXF_API PaintEvent: public SciterEvent
 	{
 		public:
-			KxEVENT_MEMBER(PaintEvent, PaintBackground);
-			KxEVENT_MEMBER(PaintEvent, PaintForeground);
-			KxEVENT_MEMBER(PaintEvent, PaintOutline);
-			KxEVENT_MEMBER(PaintEvent, PaintContent);
+			kxf_EVENT_MEMBER(PaintEvent, PaintBackground);
+			kxf_EVENT_MEMBER(PaintEvent, PaintForeground);
+			kxf_EVENT_MEMBER(PaintEvent, PaintOutline);
+			kxf_EVENT_MEMBER(PaintEvent, PaintContent);
 
 		protected:
 			GraphicsContextHandle* m_GraphicsContext = nullptr;
@@ -51,8 +51,8 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(PaintEvent, PaintBackground);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(PaintEvent, PaintForeground);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(PaintEvent, PaintOutline);
-	KxEVENT_DECLARE_ALIAS_TO_MEMBER(PaintEvent, PaintContent);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(PaintEvent, PaintBackground);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(PaintEvent, PaintForeground);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(PaintEvent, PaintOutline);
+	kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(PaintEvent, PaintContent);
 }

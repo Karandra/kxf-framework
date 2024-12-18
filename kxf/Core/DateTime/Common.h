@@ -13,7 +13,7 @@ namespace kxf
 		YearMonth = 1 << 1,
 		MonthDay = 1 << 2,
 	};
-	KxFlagSet_Declare(DateFormatFlag);
+	kxf_FlagSet_Declare(DateFormatFlag);
 
 	enum class TimeFormatFlag: uint32_t
 	{
@@ -24,7 +24,7 @@ namespace kxf
 		NoTimeMarker = 1 << 2,
 		Force24Hour = 1 << 3
 	};
-	KxFlagSet_Declare(TimeFormatFlag);
+	kxf_FlagSet_Declare(TimeFormatFlag);
 
 	enum class Month
 	{

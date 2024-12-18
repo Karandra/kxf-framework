@@ -2,15 +2,16 @@
 #include "RunningSystemProcess.h"
 #include "RunningSystemProcessStdIO.h"
 #include "kxf/System/SystemThread.h"
+#include "kxf/EventSystem/EvtHandlerDelegate.h"
+
 #include <wx/thread.h>
 #include <wx/stream.h>
 #include <Windows.h>
-#include "kxf/EventSystem/EvtHandlerDelegate.h"
-#include "kxf/System/UndefWindows.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::System
 {
-	class KX_API ProcessPipe final
+	class KXF_API ProcessPipe final
 	{
 		public:
 			enum Direction
@@ -53,7 +54,7 @@ namespace kxf::System
 
 namespace kxf::System
 {
-	class KX_API CreateProcessExecutor: public RTTI::Implementation<CreateProcessExecutor, RunningSystemProcess, RunningSystemProcessStdIO>, public wxThread
+	class KXF_API CreateProcessExecutor: public RTTI::Implementation<CreateProcessExecutor, RunningSystemProcess, RunningSystemProcessStdIO>, public wxThread
 	{
 		private:
 			EvtHandlerDelegate m_EvtHandler;

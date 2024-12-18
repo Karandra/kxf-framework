@@ -14,7 +14,7 @@ namespace kxf::Async
 
 namespace kxf
 {
-	class KX_API Coroutine: public Async::CoroutineBase
+	class KXF_API Coroutine: public Async::CoroutineBase
 	{
 		private:
 			static Coroutine* DoRun(std::unique_ptr<Coroutine> coroutine)

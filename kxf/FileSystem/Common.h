@@ -3,7 +3,6 @@
 #include "kxf/IO/Common.h"
 #include "kxf/Core/String.h"
 #include "kxf/Core/DateTime.h"
-#include "kxf/System/UndefWindows.h"
 
 namespace kxf
 {
@@ -45,7 +44,7 @@ namespace kxf
 		QueryUniqueID = 1 << 7,
 		CreateDirectoryTree = 1 << 8
 	};
-	KxFlagSet_Declare(FSActionFlag);
+	kxf_FlagSet_Declare(FSActionFlag);
 
 	enum class FileSystemFeature: uint32_t
 	{
@@ -72,7 +71,7 @@ namespace kxf
 		VolumeQuotas = 1 << 19,
 		LongFileNames = 1 << 20
 	};
-	KxFlagSet_Declare(FileSystemFeature);
+	kxf_FlagSet_Declare(FileSystemFeature);
 
 	enum class FileAttribute: uint32_t
 	{
@@ -96,7 +95,7 @@ namespace kxf
 
 		Normal = std::numeric_limits<uint32_t>::max() >> 1,
 	};
-	KxFlagSet_Declare(FileAttribute);
+	kxf_FlagSet_Declare(FileAttribute);
 
 	enum class ReparsePointTag: uint32_t
 	{
@@ -105,10 +104,10 @@ namespace kxf
 		MountPoint = 1 << 0,
 		SymLink = 1 << 1
 	};
-	KxFlagSet_Declare(ReparsePointTag);
+	kxf_FlagSet_Declare(ReparsePointTag);
 }
 
 namespace kxf::FileSystem
 {
-	KX_API StringView GetNamespaceString(FSPathNamespace type);
+	KXF_API StringView GetNamespaceString(FSPathNamespace type);
 }

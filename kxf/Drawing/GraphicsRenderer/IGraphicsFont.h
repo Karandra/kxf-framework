@@ -4,9 +4,9 @@
 
 namespace kxf
 {
-	class KX_API IGraphicsFont: public RTTI::ExtendInterface<IGraphicsFont, IGraphicsObject>
+	class KXF_API IGraphicsFont: public RTTI::ExtendInterface<IGraphicsFont, IGraphicsObject>
 	{
-		KxRTTI_DeclareIID(IGraphicsFont, {0x392daaa5, 0xfc8a, 0x4868, {0xab, 0xa9, 0xfe, 0x6c, 0xd9, 0xda, 0xb1, 0x17}});
+		kxf_RTTI_DeclareIID(IGraphicsFont, {0x392daaa5, 0xfc8a, 0x4868, {0xab, 0xa9, 0xfe, 0x6c, 0xd9, 0xda, 0xb1, 0x17}});
 
 		public:
 			virtual ~IGraphicsFont() = default;

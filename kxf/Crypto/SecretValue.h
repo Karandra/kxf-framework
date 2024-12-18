@@ -6,7 +6,7 @@
 
 namespace kxf
 {
-	class KX_API SecretValue final
+	class KXF_API SecretValue final
 	{
 		private:
 			std::vector<std::byte> m_Storage;

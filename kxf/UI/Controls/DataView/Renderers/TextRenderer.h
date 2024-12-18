@@ -3,7 +3,7 @@
 
 namespace kxf::UI::DataView
 {
-	class KX_API TextValue
+	class KXF_API TextValue
 	{
 		protected:
 			String m_Text;
@@ -42,7 +42,7 @@ namespace kxf::UI::DataView
 
 namespace kxf::UI::DataView
 {
-	class KX_API TextRenderer: public Renderer
+	class KXF_API TextRenderer: public Renderer
 	{
 		private:
 			TextValue m_Value;

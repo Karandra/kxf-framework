@@ -4,7 +4,7 @@
 
 namespace kxf
 {
-	class KX_API AttachedApplication: public RTTI::Implementation<AttachedApplication, CoreApplication>
+	class KXF_API AttachedApplication: public RTTI::Implementation<AttachedApplication, CoreApplication>
 	{
 		public:
 			AttachedApplication();

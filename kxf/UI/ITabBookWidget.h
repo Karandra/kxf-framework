@@ -5,9 +5,9 @@
 
 namespace kxf
 {
-	class KX_API ITabBookWidget: public RTTI::ExtendInterface<ITabBookWidget, IBookWidget>
+	class KXF_API ITabBookWidget: public RTTI::ExtendInterface<ITabBookWidget, IBookWidget>
 	{
-		KxRTTI_DeclareIID(ITabBookWidget, {0xe2c6a242, 0xcb3e, 0x4d73, {0xa6, 0xaf, 0x54, 0x11, 0x84, 0xb6, 0xe6, 0xab}});
+		kxf_RTTI_DeclareIID(ITabBookWidget, {0xe2c6a242, 0xcb3e, 0x4d73, {0xa6, 0xaf, 0x54, 0x11, 0x84, 0xb6, 0xe6, 0xab}});
 
 		public:
 			virtual Direction GetTabPosition() const = 0;

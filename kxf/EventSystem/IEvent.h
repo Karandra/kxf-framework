@@ -17,9 +17,9 @@ namespace kxf::EventSystem
 
 namespace kxf
 {
-	class KX_API IEvent: public RTTI::Interface<IEvent>
+	class KXF_API IEvent: public RTTI::Interface<IEvent>
 	{
-		KxRTTI_DeclareIID(IEvent, {0x61df394f, 0x8d5c, 0x43ef, {0xbd, 0x9f, 0xfb, 0xeb, 0xbf, 0x1e, 0x97, 0xa5}});
+		kxf_RTTI_DeclareIID(IEvent, {0x61df394f, 0x8d5c, 0x43ef, {0xbd, 0x9f, 0xfb, 0xeb, 0xbf, 0x1e, 0x97, 0xa5}});
 
 		friend class EventSystem::EventAccessor;
 
@@ -48,9 +48,9 @@ namespace kxf
 			virtual void Allow(bool allow = true) = 0;
 	};
 
-	class KX_API IEventInternal: public RTTI::Interface<IEventInternal>
+	class KXF_API IEventInternal: public RTTI::Interface<IEventInternal>
 	{
-		KxRTTI_DeclareIID(IEventInternal, {0x117da075, 0xb7e4, 0x45bb, {0xba, 0x33, 0x51, 0xa9, 0x57, 0x4c, 0xcc, 0x6f}});
+		kxf_RTTI_DeclareIID(IEventInternal, {0x117da075, 0xb7e4, 0x45bb, {0xba, 0x33, 0x51, 0xa9, 0x57, 0x4c, 0xcc, 0x6f}});
 
 		public:
 			virtual ~IEventInternal() = default;
@@ -74,9 +74,9 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IIndirectInvocationEvent: public RTTI::Interface<IIndirectInvocationEvent>
+	class KXF_API IIndirectInvocationEvent: public RTTI::Interface<IIndirectInvocationEvent>
 	{
-		KxRTTI_DeclareIID(IIndirectInvocationEvent, {0xb0046b41, 0xecd9, 0x4b46, {0xb1, 0xb5, 0xd6, 0x7d, 0xa, 0x77, 0x5c, 0xbe}});
+		kxf_RTTI_DeclareIID(IIndirectInvocationEvent, {0xb0046b41, 0xecd9, 0x4b46, {0xb1, 0xb5, 0xd6, 0x7d, 0xa, 0x77, 0x5c, 0xbe}});
 
 		public:
 			static inline const EventTag<IEvent> EvtIndirectInvocation = -2;
@@ -88,9 +88,9 @@ namespace kxf
 			virtual void Execute() = 0;
 	};
 
-	class KX_API ISignalInvocationEvent: public RTTI::Interface<ISignalInvocationEvent>
+	class KXF_API ISignalInvocationEvent: public RTTI::Interface<ISignalInvocationEvent>
 	{
-		KxRTTI_DeclareIID(ISignalInvocationEvent, {0xb3ad1ef2, 0x96ee, 0x4ebf, {0x93, 0xac, 0x6, 0xf8, 0x5b, 0x2e, 0xe5, 0xc5}});
+		kxf_RTTI_DeclareIID(ISignalInvocationEvent, {0xb3ad1ef2, 0x96ee, 0x4ebf, {0x93, 0xac, 0x6, 0xf8, 0x5b, 0x2e, 0xe5, 0xc5}});
 
 		public:
 			virtual ~ISignalInvocationEvent() = default;
@@ -112,24 +112,24 @@ namespace kxf
 // Event declaration macros
 
 // For global event IDs
-#define KxEVENT_DECLARE_GLOBAL(type, name)							extern const KX_API kxf::EventTag<type> KxEVT_##name
-#define KxEVENT_DEFINE_GLOBAL(type, name)							const kxf::EventTag<type> KxEVT_##name = kxf::EventSystem::NewSimpleEventID()
-#define KxEVENT_DEFINE_GLOBAL_AS(type, name, other)					const kxf::EventTag<type> KxEVT_##name = static_cast<kxf::EventID>(other)
+#define kxf_EVENT_DECLARE_GLOBAL(type, name)						extern const KXF_API kxf::EventTag<type> KxEVT_##name
+#define kxf_EVENT_DEFINE_GLOBAL(type, name)							const kxf::EventTag<type> KxEVT_##name = kxf::EventSystem::NewSimpleEventID()
+#define kxf_EVENT_DEFINE_GLOBAL_AS(type, name, other)				const kxf::EventTag<type> KxEVT_##name = static_cast<kxf::EventID>(other)
 
 // For local scope (namespace, function, etc)
-#define KxEVENT_DECLARE_LOCAL(type, name)							extern KX_API const kxf::EventTag<type> Evt##name
-#define KxEVENT_DEFINE_LOCAL(type, name)							const kxf::EventTag<type> Evt##name = kxf::EventSystem::NewSimpleEventID()
-#define KxEVENT_DEFINE_LOCAL_AS(type, name, other)					const kxf::EventTag<type> Evt##name = static_cast<kxf::EventID>(other)
+#define kxf_EVENT_DECLARE_LOCAL(type, name)							extern KXF_API const kxf::EventTag<type> Evt##name
+#define kxf_EVENT_DEFINE_LOCAL(type, name)							const kxf::EventTag<type> Evt##name = kxf::EventSystem::NewSimpleEventID()
+#define kxf_EVENT_DEFINE_LOCAL_AS(type, name, other)				const kxf::EventTag<type> Evt##name = static_cast<kxf::EventID>(other)
 
 // As static member of an event class
-#define KxEVENT_DECLARE_MEMBER(type, name)							static const kxf::EventTag<type> Evt##name
-#define KxEVENT_DEFINE_MEMBER(type, className, name)				const kxf::EventTag<type> className::Evt##name = kxf::EventSystem::NewSimpleEventID()
-#define KxEVENT_DEFINE_MEMBER_AS(type, className, name, other)		const kxf::EventTag<type> className::Evt##name = static_cast<kxf::EventID>(other)
-#define KxEVENT_DECLARE_ALIAS_TO_MEMBER(type, name)					inline const kxf::EventTag<type> Evt##name = type::Evt##name
-#define KxEVENT_DECLARE_ALIAS_TO_MEMBER_AS(type, name, other)		inline const kxf::EventTag<type> Evt##name = type::Evt##other
+#define kxf_EVENT_DECLARE_MEMBER(type, name)						static const kxf::EventTag<type> Evt##name
+#define kxf_EVENT_DEFINE_MEMBER(type, className, name)				const kxf::EventTag<type> className::Evt##name = kxf::EventSystem::NewSimpleEventID()
+#define kxf_EVENT_DEFINE_MEMBER_AS(type, className, name, other)	const kxf::EventTag<type> className::Evt##name = static_cast<kxf::EventID>(other)
+#define kxf_EVENT_DECLARE_ALIAS_TO_MEMBER(type, name)				inline const kxf::EventTag<type> Evt##name = type::Evt##name
+#define kxf_EVENT_DECLARE_ALIAS_TO_MEMBER_AS(type, name, other)		inline const kxf::EventTag<type> Evt##name = type::Evt##other
 
 // As inline static member of an event class
-#define KxEVENT_MEMBER(type, name)									inline static const kxf::EventTag<type> Evt##name = kxf::EventSystem::NewSimpleEventID()
-#define KxEVENT_MEMBER_AS(type, name, other)						inline static const kxf::EventTag<type> Evt##name = static_cast<kxf::EventID>(other)
-#define KxEVENT_MEMBER_STRING(type, name)							inline static const kxf::EventTag<type> Evt##name = "kxf::" #type "::" #name
-#define KxEVENT_MEMBER_UNIQUE_STRING(type, name, uniqueID)			inline static const kxf::EventTag<type> Evt##name = "kxf::" #type "::" #name "-" uniqueID
+#define kxf_EVENT_MEMBER(type, name)								inline static const kxf::EventTag<type> Evt##name = kxf::EventSystem::NewSimpleEventID()
+#define kxf_EVENT_MEMBER_AS(type, name, other)						inline static const kxf::EventTag<type> Evt##name = static_cast<kxf::EventID>(other)
+#define kxf_EVENT_MEMBER_STRING(type, name)							inline static const kxf::EventTag<type> Evt##name = "kxf::" #type "::" #name
+#define kxf_EVENT_MEMBER_UNIQUE_STRING(type, name, uniqueID)		inline static const kxf::EventTag<type> Evt##name = "kxf::" #type "::" #name "-" uniqueID

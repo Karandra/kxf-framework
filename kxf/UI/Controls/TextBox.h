@@ -32,12 +32,12 @@ namespace kxf::UI
 }
 namespace kxf
 {
-	KxFlagSet_Declare(UI::TextBoxStyle);
+	kxf_FlagSet_Declare(UI::TextBoxStyle);
 }
 
 namespace kxf::UI
 {
-	class KX_API TextBox: public WindowRefreshScheduler<wxTextCtrl>
+	class KXF_API TextBox: public WindowRefreshScheduler<wxTextCtrl>
 	{
 		public:
 			static constexpr FlagSet<TextBoxStyle> DefaultStyle = TextBoxStyle::AlignLeft;

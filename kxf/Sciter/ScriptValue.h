@@ -34,7 +34,7 @@ namespace kxf::Sciter
 
 namespace kxf::Sciter
 {
-	class KX_API ScriptValue final
+	class KXF_API ScriptValue final
 	{
 		public:
 			using TFunction = std::function<ScriptValue(const ScriptValue* arguments, size_t count)>;

@@ -5,7 +5,7 @@ class wxHtmlDCRenderer;
 
 namespace kxf::UI::DataView
 {
-	class KX_API HTMLTextRenderer: public Renderer
+	class KXF_API HTMLTextRenderer: public Renderer
 	{
 		private:
 			TextValue m_Value;

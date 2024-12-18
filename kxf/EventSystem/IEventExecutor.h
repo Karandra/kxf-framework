@@ -9,7 +9,7 @@ namespace kxf
 
 namespace kxf
 {
-	class KX_API IEventExecutor
+	class KXF_API IEventExecutor
 	{
 		public:
 			virtual ~IEventExecutor() = default;
