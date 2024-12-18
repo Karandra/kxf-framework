@@ -2511,6 +2511,30 @@
     <ClInclude Include="kxf\Win32\UndefMacros.h">
       <Filter>kxf\Win32</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\Win32\LinkLibs-DirectX.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\LinkLibs-Media.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\LinkLibs-System.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\LinkLibs-GUI.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\LinkLibs-Network.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\LinkLibs-Crypto.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\Include-DirectX.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\LinkLibs-COM.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">

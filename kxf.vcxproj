@@ -744,6 +744,14 @@
     <ClInclude Include="kxf\Utility\Literals.h" />
     <ClInclude Include="kxf\Utility\RecursiveCollectionEnumerator.h" />
     <ClInclude Include="kxf\Utility\SoftwareLicenseDB.h" />
+    <ClInclude Include="kxf\Win32\Include-DirectX.h" />
+    <ClInclude Include="kxf\Win32\LinkLibs-COM.h" />
+    <ClInclude Include="kxf\Win32\LinkLibs-Crypto.h" />
+    <ClInclude Include="kxf\Win32\LinkLibs-DirectX.h" />
+    <ClInclude Include="kxf\Win32\LinkLibs-GUI.h" />
+    <ClInclude Include="kxf\Win32\LinkLibs-Media.h" />
+    <ClInclude Include="kxf\Win32\LinkLibs-Network.h" />
+    <ClInclude Include="kxf\Win32\LinkLibs-System.h" />
     <ClInclude Include="kxf\Win32\WrapperMemory.h" />
     <ClInclude Include="kxf\Win32\UndefMacros.h" />
     <ClInclude Include="kxf\Win32\WrapperUnicode.h" />

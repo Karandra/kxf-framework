@@ -6,6 +6,7 @@
 
 #include <Shlobj.h>
 #include <commoncontrols.h>
+#include "kxf/Win32/LinkLibs-GUI.h"
 #include "kxf/Win32/UndefMacros.h"
 
 namespace

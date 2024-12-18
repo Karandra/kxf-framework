@@ -1,10 +1,13 @@
 #include "kxf-pch.h"
 #include "Common.h"
 #include "IWidget.h"
+
 #include <wx/event.h>
 #include <wx/object.h>
 #include <wx/window.h>
 #include <wx/control.h>
+#include "kxf/Win32/LinkLibs-GUI.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::Widgets
 {

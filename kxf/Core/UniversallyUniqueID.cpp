@@ -8,6 +8,7 @@
 
 #include <Windows.h>
 #include <rpcdce.h>
+#include "kxf/Win32/LinkLibs-System.h"
 #include "kxf/Win32/UndefMacros.h"
 
 namespace

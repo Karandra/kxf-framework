@@ -4,13 +4,10 @@
 #include "kxf/Sciter/Host.h"
 #include "kxf/Core/ErrorCode.h"
 #include "kxf/System/NativeAPI.h"
+
+#include "kxf/Win32/LinkLibs-DirectX.h"
 #include <thread>
 #include <chrono>
-
-#pragma comment(lib, "dxgi.lib")
-#pragma comment(lib, "d3d11.lib")
-#pragma comment(lib, "d2d1.lib")
-#pragma comment(lib, "dcomp.lib")
 
 namespace
 {

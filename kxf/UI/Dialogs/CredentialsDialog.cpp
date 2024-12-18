@@ -4,8 +4,10 @@
 #include "kxf/Utility/ScopeGuard.h"
 #include "kxf/System/COM.h"
 #include "kxf/System/Win32Error.h"
+
 #include <wincred.h>
-#pragma comment(lib, "CredUI.lib")
+#include "kxf/Win32/LinkLibs-System.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

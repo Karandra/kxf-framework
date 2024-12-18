@@ -3,9 +3,8 @@
 
 #include <taskschd.h>
 #include <wincred.h>
-#pragma comment(lib, "taskschd.lib")
-#pragma comment(lib, "comsupp.lib")
-#pragma comment(lib, "credui.lib")
+#include "kxf/Win32/LinkLibs-COM.h"
+#include "kxf/Win32/LinkLibs-System.h"
 
 #include "Private/BeginIncludeCOM.h"
 namespace

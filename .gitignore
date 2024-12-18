@@ -3,6 +3,7 @@
 *.vcxproj.user
 *.aps
 cpp.hint
+ClassDiagram.cd
 kxf/+Resources/RC*
 
 # Output and intermediate build files

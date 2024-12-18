@@ -16,13 +16,8 @@
 
 #include <Windows.h>
 #include <SDDL.h>
-
-#include <d3d11.h>
-#include <dxgi1_3.h>
-#include <d3d11_2.h>
-#include <d2d1_2.h>
-#include <d2d1_2helper.h>
-#pragma comment(lib, "dxgi.lib")
+#include "kxf/Win32/Include-DirectX.h"
+#include "kxf/Win32/LinkLibs-DirectX.h"
 #include "kxf/Win32/UndefMacros.h"
 
 namespace

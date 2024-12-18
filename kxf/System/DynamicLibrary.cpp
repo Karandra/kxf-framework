@@ -14,11 +14,11 @@
 #include "kxf/Utility/String.h"
 #include "kxf/Utility/ScopeGuard.h"
 
+#include <cwchar>
 #include <Windows.h>
 #include <DbgHelp.h>
-#include <cwchar>
+#include "kxf/Win32/LinkLibs-System.h"
 #include "kxf/Win32/UndefMacros.h"
-#pragma comment(lib, "DbgHelp.lib")
 
 namespace
 {

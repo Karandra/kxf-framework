@@ -1,7 +1,9 @@
 #include "kxf-pch.h"
 #include "Common.h"
 #include "kxf/Core/RegEx.h"
+
 #include "OpenSSL/opensslv.h"
+#include "kxf/Win32/LinkLibs-Crypto.h"
 
 namespace kxf::Crypto
 {

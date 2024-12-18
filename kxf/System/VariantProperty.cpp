@@ -4,9 +4,11 @@
 #include "kxf/IO/IStream.h"
 #include "kxf/Core/Any.h"
 #include "kxf/Utility/ScopeGuard.h"
+
 #include <propvarutil.h>
 #include <propidlbase.h>
-#pragma comment(lib, "Propsys.lib")
+#include "kxf/Win32/LinkLibs-COM.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

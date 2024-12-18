@@ -6,7 +6,7 @@
 
 #include <Windows.h>
 #include <wbemcli.h>
-#pragma comment(lib, "wbemuuid.lib")
+#include "kxf/Win32/LinkLibs-COM.h"
 
 #include "Private/BeginIncludeCOM.h"
 namespace
