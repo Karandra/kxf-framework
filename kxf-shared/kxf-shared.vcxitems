@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{39004f32-fbce-4091-862a-d29848625d1f}</ItemsProjectGuid>
+    <ItemsRootNamespace>kxf</ItemsRootNamespace>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)..\.editorconfig" />
+    <None Include="$(MSBuildThisFileDirectory)..\.gitattributes" />
+    <None Include="$(MSBuildThisFileDirectory)..\.gitignore" />
+    <None Include="$(MSBuildThisFileDirectory)..\cpp.hint" />
+    <None Include="$(MSBuildThisFileDirectory)..\LICENSE" />
+    <None Include="$(MSBuildThisFileDirectory)..\README.md" />
+    <None Include="$(MSBuildThisFileDirectory)..\vcpkg.json" />
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\ports\kxframework\CONTROL" />
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\ports\kxframework\portfile.cmake" />
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\ports\kxframework\vcpkg.targets" />
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\triplets\community\kxf-default-x64.cmake" />
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\triplets\community\kxf-default-x86.cmake" />
+  </ItemGroup>
+</Project>

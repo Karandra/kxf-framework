@@ -91,21 +91,6 @@
     <Filter Include="kxf\UI\Controls\AUI">
       <UniqueIdentifier>{51ba4e52-464f-4d32-a8b4-d68239db9572}</UniqueIdentifier>
     </Filter>
-    <Filter Include="VCPkg">
-      <UniqueIdentifier>{cca4e5fe-4a6a-4c71-9b15-0192dbe9f56a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="VCPkg\ports">
-      <UniqueIdentifier>{ae77cf63-eee5-4ec9-a5ff-ec2a598f59a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="VCPkg\ports\kxframework">
-      <UniqueIdentifier>{f9a22f03-a441-4cbc-86b4-ef8ad6849955}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="VCPkg\triplets">
-      <UniqueIdentifier>{b1c52d0b-84cd-499f-a89c-93d979873dfd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="VCPkg\triplets\community">
-      <UniqueIdentifier>{7962b0c5-a73a-435e-81c8-d700627df6f1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="kxf\UI\Controls\DataView\Editors">
       <UniqueIdentifier>{88feb086-33ff-447b-9a97-120aa1397e12}</UniqueIdentifier>
     </Filter>
@@ -163,9 +148,6 @@
     <Filter Include="kxf\Serialization\XML\Private">
       <UniqueIdentifier>{47ee576b-53f3-4dcb-9ad0-30fad244c27d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf/Modules">
-      <UniqueIdentifier>{916829f1-4a51-4891-9918-1b9723789c5a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="kxf\EventSystem\Private">
       <UniqueIdentifier>{e7c63a0b-034c-4708-8a62-fc4a638ddd39}</UniqueIdentifier>
     </Filter>
@@ -183,10 +165,6 @@
     </Filter>
     <Filter Include="kxf\Sciter\Widgets\Native">
       <UniqueIdentifier>{a7015761-4f49-4b33-99bd-265506c83557}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="kxf\Log">
       <UniqueIdentifier>{3e786109-f51a-4653-8566-c33d43e122c7}</UniqueIdentifier>
@@ -220,9 +198,6 @@
     </Filter>
     <Filter Include="kxf\Network\WebRequest">
       <UniqueIdentifier>{d232eef0-6ea2-41d3-93ee-3ac028409b02}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\SoftwareLicenseDB">
-      <UniqueIdentifier>{755ed2b5-50b4-4e83-bfc6-0dc4845abdd3}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\Network\Private">
       <UniqueIdentifier>{3ed4aa7f-83d3-4b24-8e42-244d3ab51af7}</UniqueIdentifier>
@@ -328,6 +303,18 @@
     </Filter>
     <Filter Include="kxf\Core\Async\Coroutine">
       <UniqueIdentifier>{5af1a9f7-b496-4a12-82b1-164394d2a34c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf/&lt;Modules&gt;">
+      <UniqueIdentifier>{916829f1-4a51-4891-9918-1b9723789c5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf/+PCH">
+      <UniqueIdentifier>{41eede33-8691-4162-8bf6-d3e5c13b4a89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf/+Resources">
+      <UniqueIdentifier>{0ca53471-4645-42d9-a8a6-7201d33f4451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf/+Resources\SoftwareLicenseDB">
+      <UniqueIdentifier>{09f70c3f-0b6b-49ae-afff-9f9e5b894dc5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -620,46 +607,46 @@
       <Filter>kxf\Core</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Compression.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Crypto.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Drawing.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\EventSystem.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\FileSystem.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Core.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Localization.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Network.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\RTTI.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Sciter.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\System.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Threading.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\UI.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Utility.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\System\Private\Shell.h">
       <Filter>kxf\System\Private</Filter>
@@ -673,7 +660,6 @@
     <ClInclude Include="kxf\System\Private\KnownDirectoryGUID.h">
       <Filter>kxf\System\Private</Filter>
     </ClInclude>
-    <ClInclude Include="KxfPCH.h" />
     <ClInclude Include="kxf\wxWidgets\RTTI.h">
       <Filter>kxf\wxWidgets</Filter>
     </ClInclude>
@@ -1092,7 +1078,7 @@
       <Filter>kxf\IO</Filter>
     </ClInclude>
     <ClInclude Include="kxf\IO.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\IO\MemoryStream.h">
       <Filter>kxf\IO</Filter>
@@ -1152,7 +1138,7 @@
       <Filter>kxf\Serialization\XML\Private</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Serialization.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Compression\SevenZip.h">
       <Filter>kxf\Compression</Filter>
@@ -1221,7 +1207,7 @@
       <Filter>kxf\EventSystem\&lt;Events&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Application.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Application\Common.h">
       <Filter>kxf\Application</Filter>
@@ -1383,7 +1369,7 @@
       <Filter>kxf\Localization</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Log.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Log\Common.h">
       <Filter>kxf\Log</Filter>
@@ -1697,7 +1683,6 @@
     <ClInclude Include="kxf\Utility\RecursiveCollectionEnumerator.h">
       <Filter>kxf\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="kxfResources.h" />
     <ClInclude Include="kxf\Core\ILibraryInfo.h">
       <Filter>kxf\Core</Filter>
     </ClInclude>
@@ -2401,7 +2386,7 @@
       <Filter>kxf\RPC\SystemWindowRPC</Filter>
     </ClInclude>
     <ClInclude Include="kxf\RPC.hpp">
-      <Filter>kxf/Modules</Filter>
+      <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\System\HResult.h">
       <Filter>kxf\System\&lt;ErrorCode&gt;</Filter>
@@ -2510,6 +2495,12 @@
     </ClInclude>
     <ClInclude Include="kxf\wxWidgets\StandardLocalization.h">
       <Filter>kxf\wxWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\+PCH\kxf-pch.h">
+      <Filter>kxf/+PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\+Resources\kxf-resources.h">
+      <Filter>kxf/+Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2678,7 +2669,6 @@
     <ClCompile Include="kxf\System\TaskScheduler.cpp">
       <Filter>kxf\System</Filter>
     </ClCompile>
-    <ClCompile Include="KxfPCH.cpp" />
     <ClCompile Include="kxf\System\DynamicLibrary.cpp">
       <Filter>kxf\System</Filter>
     </ClCompile>
@@ -3801,34 +3791,13 @@
     <ClCompile Include="kxf\Core\CallbackFunction.cpp">
       <Filter>kxf\Core</Filter>
     </ClCompile>
+    <ClCompile Include="kxf\+PCH\kxf-pch.cpp">
+      <Filter>kxf/+PCH</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="kxf\System\Private\ErrorCodeNtStatus.i">
       <Filter>kxf\System\Private</Filter>
-    </None>
-    <None Include=".gitattributes">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include=".gitignore">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="LICENSE">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="README.md">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="cpp.hint">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="VCPkg\ports\kxframework\portfile.cmake">
-      <Filter>VCPkg\ports\kxframework</Filter>
-    </None>
-    <None Include="VCPkg\ports\kxframework\vcpkg.targets">
-      <Filter>VCPkg\ports\kxframework</Filter>
-    </None>
-    <None Include="VCPkg\ports\kxframework\CONTROL">
-      <Filter>VCPkg\ports\kxframework</Filter>
     </None>
     <None Include="kxf\Sciter\Widgets\Native\TextBoxWidget.css">
       <Filter>kxf\Sciter\Widgets\Native</Filter>
@@ -3839,12 +3808,6 @@
     <None Include="kxf\Sciter\Widgets\TextBoxWidget.css">
       <Filter>kxf\Sciter\Widgets</Filter>
     </None>
-    <None Include="VCPkg\triplets\community\kxf-default-x64.cmake">
-      <Filter>VCPkg\triplets\community</Filter>
-    </None>
-    <None Include="VCPkg\triplets\community\kxf-default-x86.cmake">
-      <Filter>VCPkg\triplets\community</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="kxf\Drawing\Color.natvis">
@@ -3852,21 +3815,21 @@
     </Natvis>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="kxf.rc">
-      <Filter>Resources</Filter>
+    <ResourceCompile Include="kxf\+Resources\kxf-resources.rc">
+      <Filter>kxf/+Resources</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="Resources\Compatibility [WinVista-Win10].manifest">
-      <Filter>Resources</Filter>
+    <Manifest Include="kxf\+Resources\Compatibility.manifest">
+      <Filter>kxf/+Resources</Filter>
     </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Resources\SoftwareLicenseDB\GNU_GPLv3.txt">
-      <Filter>Resources\SoftwareLicenseDB</Filter>
+    <Text Include="kxf\+Resources\SoftwareLicenseDB\GNU_GPLv3.txt">
+      <Filter>kxf/+Resources\SoftwareLicenseDB</Filter>
     </Text>
-    <Text Include="Resources\SoftwareLicenseDB\GNU_LGPLv3.txt">
-      <Filter>Resources\SoftwareLicenseDB</Filter>
+    <Text Include="kxf\+Resources\SoftwareLicenseDB\GNU_LGPLv3.txt">
+      <Filter>kxf/+Resources\SoftwareLicenseDB</Filter>
     </Text>
   </ItemGroup>
 </Project>

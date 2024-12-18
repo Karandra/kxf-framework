@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="&lt;git&gt;">
+      <UniqueIdentifier>{7a954aee-e74f-4950-8c48-888f63947ce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="&lt;VisualStudio&gt;">
+      <UniqueIdentifier>{51d894cb-2413-4d14-b9c7-c1b493a81ad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VCPkg">
+      <UniqueIdentifier>{1c0cd571-68b6-4d08-9ec4-de18e60236f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VCPkg\ports">
+      <UniqueIdentifier>{fbf5a213-4996-441f-9b2d-3e2b586e2a8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VCPkg\ports\kxframework">
+      <UniqueIdentifier>{663bdf26-b54b-4d09-8508-97b5dffdc504}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VCPkg\triplets">
+      <UniqueIdentifier>{f0b83851-4084-47fb-8289-8531b1576227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VCPkg\triplets\community">
+      <UniqueIdentifier>{6ee37bad-e7bc-4eac-a976-cb0d0133d130}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\ports\kxframework\CONTROL">
+      <Filter>VCPkg\ports\kxframework</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\ports\kxframework\portfile.cmake">
+      <Filter>VCPkg\ports\kxframework</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\ports\kxframework\vcpkg.targets">
+      <Filter>VCPkg\ports\kxframework</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\triplets\community\kxf-default-x64.cmake">
+      <Filter>VCPkg\triplets\community</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\VCPkg\triplets\community\kxf-default-x86.cmake">
+      <Filter>VCPkg\triplets\community</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\LICENSE" />
+    <None Include="$(MSBuildThisFileDirectory)..\README.md" />
+    <None Include="$(MSBuildThisFileDirectory)..\vcpkg.json">
+      <Filter>VCPkg</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\.gitattributes">
+      <Filter>&lt;git&gt;</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\.gitignore">
+      <Filter>&lt;git&gt;</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\cpp.hint">
+      <Filter>&lt;VisualStudio&gt;</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)..\.editorconfig">
+      <Filter>&lt;VisualStudio&gt;</Filter>
+    </None>
+  </ItemGroup>
+</Project>

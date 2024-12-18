@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf", "kxf.vcxproj", "{157DA1E6-2B05-4203-8284-9A9EDD0F1235}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf-shared", "kxf-shared\kxf-shared.vcxitems", "{39004F32-FBCE-4091-862A-D29848625D1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

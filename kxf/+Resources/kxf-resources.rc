@@ -1,6 +1,6 @@
 // Microsoft Visual C++ generated resource script.
 //
-#include "kxfResources.h"
+#include "kxf-resources.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -17,7 +17,7 @@
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
 LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
-#pragma code_page(1251)
+#pragma code_page(65001)
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -62,11 +62,11 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Russian (Russia) resources
+// Neutral (Default) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
-LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
-#pragma code_page(1251)
+LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+#pragma code_page(65001)
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -76,7 +76,7 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 
 1 TEXTINCLUDE 
 BEGIN
-    "kxfResources.h\0"
+    "kxf-resources.rch\0"
 END
 
 2 TEXTINCLUDE 
@@ -93,7 +93,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Russian (Russia) resources
+#endif    // Neutral (Default) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -101,17 +101,17 @@ END
 // English (Neutral) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-LANGUAGE LANG_ENGLISH, SUBLANG_NEUTRAL
-#pragma code_page(1252)
+LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+#pragma code_page(65001)
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // SOFTWARELICENSEDB
 //
 
-GNU_GPLv3               SOFTWARELICENSEDB       "Resources\\SoftwareLicenseDB\\GNU_GPLv3.txt"
+GNU_GPLv3               SOFTWARELICENSEDB       "SoftwareLicenseDB\\GNU_GPLv3.txt"
 
-GNU_LGPLv3              SOFTWARELICENSEDB       "Resources\\SoftwareLicenseDB\\GNU_LGPLv3.txt"
+GNU_LGPLv3              SOFTWARELICENSEDB       "SoftwareLicenseDB\\GNU_LGPLv3.txt"
 
 #endif    // English (Neutral) resources
 /////////////////////////////////////////////////////////////////////////////
@@ -127,4 +127,3 @@ GNU_LGPLv3              SOFTWARELICENSEDB       "Resources\\SoftwareLicenseDB\\G
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-

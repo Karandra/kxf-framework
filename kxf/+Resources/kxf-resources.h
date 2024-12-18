@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by kxf.rc
+// Used by kxf-resources.rc
 //
 #define GNU_GPLv3                       101
 #define GNU_LGPLv3                      102

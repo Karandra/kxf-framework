@@ -29,7 +29,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{157DA1E6-2B05-4203-8284-9A9EDD0F1235}</ProjectGuid>
-    <RootNamespace>KxFramework</RootNamespace>
+    <RootNamespace>kxf</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <OverrideVcpkgTriplet>false</OverrideVcpkgTriplet>
     <OverrideVcpkgTripletName>none</OverrideVcpkgTripletName>
@@ -101,8 +101,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>KxfPCH.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>kxf-pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)kxf\+PCH\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -127,6 +127,14 @@
     <Link>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Release MT'">
     <ClCompile>
@@ -137,6 +145,14 @@
     <Link>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
@@ -147,9 +163,18 @@
     <Link>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="kxfResources.h" />
+    <ClInclude Include="kxf\+PCH\kxf-pch.h" />
+    <ClInclude Include="kxf\+Resources\kxf-resources.h" />
     <ClInclude Include="kxf\Application.hpp" />
     <ClInclude Include="kxf\Application\ApplicationInitializer.h" />
     <ClInclude Include="kxf\Application\AttachedApplication.h" />
@@ -733,7 +758,6 @@
     <ClInclude Include="kxf\wxWidgets\String.h" />
     <ClInclude Include="kxf\wxWidgets\StringFormatters.h" />
     <ClInclude Include="kxf\wxWidgets\SystemOptions.h" />
-    <ClInclude Include="KxfPCH.h" />
     <ClInclude Include="kxf\Common.hpp" />
     <ClInclude Include="kxf\Compression.hpp" />
     <ClInclude Include="kxf\Compression\ArchiveEvent.h" />
@@ -878,6 +902,20 @@
     <ClInclude Include="kxf\wxWidgets\WithImageList.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="kxf\+PCH\kxf-pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">kxf-pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">kxf-pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">kxf-pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kxf-pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">kxf-pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kxf-pch.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="kxf\Application\ApplicationInitializer.cpp" />
     <ClCompile Include="kxf\Application\AttachedApplication.cpp" />
     <ClCompile Include="kxf\Application\CommandLineParser.cpp" />
@@ -1239,9 +1277,6 @@
     <ClCompile Include="kxf\Utility\SoftwareLicenseDB.cpp" />
     <ClCompile Include="kxf\wxWidgets\StandardLocalization.cpp" />
     <ClCompile Include="kxf\wxWidgets\StreamWrapper.cpp" />
-    <ClCompile Include="KxfPCH.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="kxf\Compression\LZ4Stream.cpp" />
     <ClCompile Include="kxf\Compression\ZLibStream.cpp" />
     <ClCompile Include="kxf\Crypto\Common.cpp" />
@@ -1312,33 +1347,23 @@
     <ClCompile Include="kxf\System\ShellOperations.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
-    <None Include="cpp.hint" />
     <None Include="kxf\Sciter\Stylesheets\MasterStylesheet.css" />
     <None Include="kxf\Sciter\Widgets\Native\TextBoxWidget.css" />
     <None Include="kxf\Sciter\Widgets\TextBoxWidget.css" />
     <None Include="kxf\System\Private\ErrorCodeNtStatus.i" />
-    <None Include="LICENSE" />
-    <None Include="README.md" />
-    <None Include="VCPkg\ports\kxframework\CONTROL" />
-    <None Include="VCPkg\ports\kxframework\portfile.cmake" />
-    <None Include="VCPkg\ports\kxframework\vcpkg.targets" />
-    <None Include="VCPkg\triplets\community\kxf-default-x64.cmake" />
-    <None Include="VCPkg\triplets\community\kxf-default-x86.cmake" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="kxf\Drawing\Color.natvis" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="kxf.rc" />
+    <ResourceCompile Include="kxf\+Resources\kxf-resources.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="Resources\Compatibility [WinVista-Win10].manifest" />
+    <Manifest Include="kxf\+Resources\Compatibility.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Resources\SoftwareLicenseDB\GNU_GPLv3.txt" />
-    <Text Include="Resources\SoftwareLicenseDB\GNU_LGPLv3.txt" />
+    <Text Include="kxf\+Resources\SoftwareLicenseDB\GNU_GPLv3.txt" />
+    <Text Include="kxf\+Resources\SoftwareLicenseDB\GNU_LGPLv3.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
