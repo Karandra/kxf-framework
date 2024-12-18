@@ -10,7 +10,7 @@
 #include "kxf/Drawing/Angle.h"
 #include "kxf/FileSystem/FSPath.h"
 #include "kxf/Network/URI.h"
-#include "kxf/Widgets/Common.h"
+#include "kxf-gui/Widgets/Common.h"
 #include "CommonDefs.h"
 
 namespace kxf::Sciter

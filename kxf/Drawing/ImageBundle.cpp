@@ -4,7 +4,7 @@
 #include "kxf/IO/IStream.h"
 #include "kxf/System/SystemInformation.h"
 #include "kxf/Application/IGUIApplication.h"
-#include "kxf/Widgets/ITopLevelWidget.h"
+#include "kxf-gui/Widgets/ITopLevelWidget.h"
 #include <wx/iconbndl.h>
 
 namespace

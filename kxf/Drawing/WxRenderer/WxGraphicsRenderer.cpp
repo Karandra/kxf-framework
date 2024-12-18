@@ -6,9 +6,9 @@
 #include "WxGraphicsPen.h"
 #include "WxGraphicsFont.h"
 #include "WxGraphicsPath.h"
-#include "kxf/Widgets/IWidget.h"
 #include "../SVGImage.h"
 #include "../BitmapImage.h"
+#include "kxf-gui/Widgets/IWidget.h"
 #include <wx/graphics.h>
 
 namespace kxf

@@ -5,10 +5,10 @@
 #include "GDIGraphicsBrush.h"
 #include "GDIGraphicsPen.h"
 #include "GDIGraphicsFont.h"
-#include "kxf/Widgets/IWidget.h"
-#include "kxf/Utility/Container.h"
 #include "../SVGImage.h"
 #include "../BitmapImage.h"
+#include "kxf/Utility/Container.h"
+#include "kxf-gui/Widgets/IWidget.h"
 
 namespace kxf
 {

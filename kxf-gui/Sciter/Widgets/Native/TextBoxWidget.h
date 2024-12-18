@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Widgets/Controls/TextBox.h"
+#include "kxf-gui/Widgets/Controls/TextBox.h"
 
 namespace kxf::Sciter
 {

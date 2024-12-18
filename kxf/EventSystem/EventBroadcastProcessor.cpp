@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "EventBroadcastProcessor.h"
 #include "kxf/Core/Enumerator.h"
-#include "kxf/Widgets/IWidgetEvent.h"
+#include "kxf-gui/Widgets/IWidgetEvent.h"
 
 namespace kxf::EventSystem
 {

@@ -11,12 +11,12 @@
 #include "kxf/System/NtStatus.h"
 #include "kxf/System/DynamicLibrary.h"
 #include "kxf/System/DynamicLibraryEvent.h"
-#include "kxf/Widgets/IWidget.h"
 #include "kxf/Utility/Container.h"
 #include "kxf/Utility/ScopeGuard.h"
 #include "kxf/wxWidgets/Application.h"
 #include "kxf/wxWidgets/EvtHandlerWrapper.h"
 #include "kxf/wxWidgets/Setup.h"
+#include "kxf-gui/Widgets/IWidget.h"
 
 namespace
 {

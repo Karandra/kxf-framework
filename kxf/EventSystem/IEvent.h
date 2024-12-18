@@ -4,7 +4,6 @@
 #include "kxf/RTTI/RTTI.h"
 #include "kxf/Core/UniversallyUniqueID.h"
 #include "kxf/Core/DateTime/TimeSpan.h"
-#include "kxf/Widgets/WidgetID.h"
 
 namespace kxf
 {
