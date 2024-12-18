@@ -4,7 +4,7 @@
 
 namespace
 {
-	constexpr kxf::XChar g_MnemonicSuffix[] = kxS("_MM");
+	constexpr kxf::XChar g_MnemonicSuffix[] = kxfS("_MM");
 
 	std::optional<kxf::String> DoGetLocalizedString(kxf::String id, kxf::FlagSet<wxStockLabelQueryFlag> flags)
 	{

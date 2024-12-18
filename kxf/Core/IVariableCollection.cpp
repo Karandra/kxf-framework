@@ -13,18 +13,18 @@ namespace
 
 		return ExpandVariables(source, [&](const String& ns, const String& id) -> String
 		{
-			if (ns == kxS("LCIT"))
+			if (ns == kxfS("LCIT"))
 			{
 				if (auto app = ICoreApplication::GetInstance())
 				{
 					return app->GetLocalizationPackage().GetItem(id).GetString();
 				}
 			}
-			else if (ns == kxS("ENV"))
+			else if (ns == kxfS("ENV"))
 			{
 				return System::GetEnvironmentVariable(id);
 			}
-			else if (ns == kxS("SHDir"))
+			else if (ns == kxfS("SHDir"))
 			{
 				KnownDirectoryID desiredDirectoryID = KnownDirectoryID::None;
 				Shell::EnumKnownDirectories([&](KnownDirectoryID directoryID, String directoryName)

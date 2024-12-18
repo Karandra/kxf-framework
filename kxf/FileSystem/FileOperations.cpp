@@ -89,10 +89,10 @@ namespace kxf::FileSystem
 				// https://blog.codinghorror.com/shortening-long-file-paths/
 
 				String source = path.GetFullPath();
-				RegEx regEx(kxS(R"((\w+:\\|)([^\\]+[^\\]+).*\\([^\\]+))"));
+				RegEx regEx(kxfS(R"((\w+:\\|)([^\\]+[^\\]+).*\\([^\\]+))"));
 				if (regEx.Matches(source))
 				{
-					regEx.ReplaceAll(source, kxS(R"(\1\2\\...\\\3)"));
+					regEx.ReplaceAll(source, kxfS(R"(\1\2\\...\\\3)"));
 				}
 
 				// If it's still longer, just truncate it and add ellipsis

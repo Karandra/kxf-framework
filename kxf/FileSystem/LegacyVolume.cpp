@@ -59,7 +59,7 @@ namespace kxf
 	{
 		if (IsValid())
 		{
-			XChar disk[] = kxS("\0:\\");
+			XChar disk[] = kxfS("\0:\\");
 			disk[0] = m_Drive;
 
 			return disk;

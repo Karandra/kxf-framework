@@ -11,7 +11,7 @@
 
 namespace
 {
-	constexpr kxf::XChar g_SharedPrefix[] = kxS("kxf::SystemWindowRPCExchanger");
+	constexpr kxf::XChar g_SharedPrefix[] = kxfS("kxf::SystemWindowRPCExchanger");
 }
 
 namespace kxf

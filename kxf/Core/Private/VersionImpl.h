@@ -41,7 +41,7 @@ namespace kxf::Private::Version
 			{
 				if (!str)
 				{
-					str = kxS("");
+					str = kxfS("");
 					count = 0;
 				}
 				std::char_traits<XChar>::copy(m_String, str, std::min(ItemCount, count));

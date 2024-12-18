@@ -168,7 +168,7 @@ namespace kxf
 			void Init()
 			{
 				m_TimeStamp = DateTime::Now();
-				m_Separator.assign(kxS(", "));
+				m_Separator.assign(kxfS(", "));
 			}
 			void Reset()
 			{

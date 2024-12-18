@@ -13,8 +13,8 @@
 
 namespace
 {
-	constexpr kxf::XChar g_DefaultSeparator[] = kxS("-");
-	constexpr kxf::XChar g_RFC_URN[] = kxS("urn:uuid:");
+	constexpr kxf::XChar g_DefaultSeparator[] = kxfS("-");
+	constexpr kxf::XChar g_RFC_URN[] = kxfS("urn:uuid:");
 
 	template<class T, class TUUID>
 	auto CastAs(TUUID&& uuid)

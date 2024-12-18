@@ -4,20 +4,20 @@
 
 namespace kxf::ImageOption
 {
-	const XChar* FileName = kxS("FileName");
-	const XChar* Quality = kxS("quality");
+	const XChar* FileName = kxfS("FileName");
+	const XChar* Quality = kxfS("quality");
 
-	const XChar* DPI = kxS("DPI");
-	const XChar* Resolution = kxS("Resolution");
-	const XChar* ResolutionX = kxS("ResolutionX");
-	const XChar* ResolutionY = kxS("ResolutionY");
-	const XChar* ResolutionUnit = kxS("ResolutionUnit");
+	const XChar* DPI = kxfS("DPI");
+	const XChar* Resolution = kxfS("Resolution");
+	const XChar* ResolutionX = kxfS("ResolutionX");
+	const XChar* ResolutionY = kxfS("ResolutionY");
+	const XChar* ResolutionUnit = kxfS("ResolutionUnit");
 
-	const XChar* DesiredWidth = kxS("MaxWidth");
-	const XChar* DesiredHeight = kxS("MaxHeight");
+	const XChar* DesiredWidth = kxfS("MaxWidth");
+	const XChar* DesiredHeight = kxfS("MaxHeight");
 
-	const XChar* OriginalWidth = kxS("OriginalWidth");
-	const XChar* OriginalHeight = kxS("OriginalHeight");
+	const XChar* OriginalWidth = kxfS("OriginalWidth");
+	const XChar* OriginalHeight = kxfS("OriginalHeight");
 
 	namespace PNG
 	{
@@ -39,17 +39,17 @@ namespace kxf::ImageOption
 	}
 	namespace SVG
 	{
-		const XChar* CurrentTime = kxS("CurrentTime");
-		const XChar* HasAnimation = kxS("HasAnimation");
-		const XChar* AnimationDuration = kxS("AnimationDuration");
+		const XChar* CurrentTime = kxfS("CurrentTime");
+		const XChar* HasAnimation = kxfS("HasAnimation");
+		const XChar* AnimationDuration = kxfS("AnimationDuration");
 	}
 	namespace TIFF
 	{
-		const XChar* BitsPerSample = kxS("BitsPerSample");
-		const XChar* SamplesPerPixel = kxS("SamplesPerPixel");
-		const XChar* Compression = kxS("Compression");
-		const XChar* Photometric = kxS("Photometric");
-		const XChar* ImageDescriptor = kxS("ImageDescriptor");
+		const XChar* BitsPerSample = kxfS("BitsPerSample");
+		const XChar* SamplesPerPixel = kxfS("SamplesPerPixel");
+		const XChar* Compression = kxfS("Compression");
+		const XChar* Photometric = kxfS("Photometric");
+		const XChar* ImageDescriptor = kxfS("ImageDescriptor");
 	}
 	namespace Cursor
 	{

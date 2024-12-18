@@ -121,7 +121,7 @@ namespace kxf
 		{
 			if (driveLetter <= g_LastLegacyVolume)
 			{
-				XChar disk[] = kxS("\0:\\");
+				XChar disk[] = kxfS("\0:\\");
 				disk[0] = driveLetter++;
 
 				XChar volumeGuidPath[64] = {};
@@ -154,7 +154,7 @@ namespace kxf
 	{
 		if (volume)
 		{
-			XChar disk[] = kxS("\0:\\");
+			XChar disk[] = kxfS("\0:\\");
 			disk[0] = volume.GetChar();
 
 			return ::DeleteVolumeMountPointW(disk);
@@ -360,7 +360,7 @@ namespace kxf
 	{
 		if (volume)
 		{
-			XChar disk[] = kxS("\0:\\");
+			XChar disk[] = kxfS("\0:\\");
 			disk[0] = volume.GetChar();
 
 			return ::SetVolumeMountPointW(disk, m_Path);

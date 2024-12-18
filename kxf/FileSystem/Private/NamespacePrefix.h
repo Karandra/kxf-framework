@@ -3,18 +3,18 @@
 
 namespace kxf::FileSystem::Private::NamespacePrefix
 {
-	constexpr XChar NT[] = kxS("\\");
-	constexpr XChar Win32File[] = kxS("\\\\?\\");
-	constexpr XChar Win32FileUNC[] = kxS("\\\\?\\UNC\\");
-	constexpr XChar Win32Device[] = kxS("\\\\.\\");
-	constexpr XChar Network[] = kxS("\\\\");
-	constexpr XChar NetworkUNC[] = kxS("\\\\?\\UNC\\");
+	constexpr XChar NT[] = kxfS("\\");
+	constexpr XChar Win32File[] = kxfS("\\\\?\\");
+	constexpr XChar Win32FileUNC[] = kxfS("\\\\?\\UNC\\");
+	constexpr XChar Win32Device[] = kxfS("\\\\.\\");
+	constexpr XChar Network[] = kxfS("\\\\");
+	constexpr XChar NetworkUNC[] = kxfS("\\\\?\\UNC\\");
 
 	// Not strictly namespaces, but useful
-	constexpr XChar DotRelative1[] = kxS(".\\");
-	constexpr XChar DotRelative2[] = kxS("..\\");
-	constexpr XChar DotRelative3[] = kxS("./");
-	constexpr XChar DotRelative4[] = kxS("..//");
-	constexpr XChar DotRelative5[] = kxS("\\.");
-	constexpr XChar DotRelative6[] = kxS("..");
+	constexpr XChar DotRelative1[] = kxfS(".\\");
+	constexpr XChar DotRelative2[] = kxfS("..\\");
+	constexpr XChar DotRelative3[] = kxfS("./");
+	constexpr XChar DotRelative4[] = kxfS("..//");
+	constexpr XChar DotRelative5[] = kxfS("\\.");
+	constexpr XChar DotRelative6[] = kxfS("..");
 }

@@ -416,7 +416,7 @@ namespace kxf
 				{
 					// We need also to expand tabs to properly calc their size.
 					// Windows natively expands the TABs to 6 spaces. Do the same.
-					currentLine += kxS("      ");
+					currentLine += kxfS("      ");
 				}
 				else
 				{

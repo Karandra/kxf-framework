@@ -20,8 +20,8 @@ namespace
 	constexpr size_t g_VolumePathPrefixLength = 6;
 	constexpr size_t g_VolumePathTotalLength = g_VolumePathPrefixLength + g_GUIDLength + 2;
 
-	constexpr auto g_PathSeparatorForward = kxS('/');
-	constexpr auto g_PathSeparatorBackward = kxS('\\');
+	constexpr auto g_PathSeparatorForward = kxfS('/');
+	constexpr auto g_PathSeparatorBackward = kxfS('\\');
 }
 namespace
 {

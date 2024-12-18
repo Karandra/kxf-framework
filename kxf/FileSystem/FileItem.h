@@ -72,7 +72,7 @@ namespace kxf
 				if (m_Path.GetLength() >= 1 && m_Path.GetLength() <= 2)
 				{
 					const String name = m_Path.GetName();
-					return name == kxS("..") || name == kxS('.');
+					return name == kxfS("..") || name == kxfS('.');
 				}
 				return false;
 			}

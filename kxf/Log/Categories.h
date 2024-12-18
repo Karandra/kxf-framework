@@ -1,8 +1,8 @@
 #pragma once
 #include "Common.h"
 
-#define KX_DefineLogCategory(name)						constexpr kxf::StringView name = kxS(#name)
-#define KX_DefineLogModuleCategory(module, name)		constexpr kxf::StringView module##_##name = kxS(#module "/" #name)
+#define KX_DefineLogCategory(name)						constexpr kxf::StringView name = kxfS(#name)
+#define KX_DefineLogModuleCategory(module, name)		constexpr kxf::StringView module##_##name = kxfS(#module "/" #name)
 
 namespace kxf::LogCategory
 {

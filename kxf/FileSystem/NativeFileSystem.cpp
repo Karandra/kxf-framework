@@ -170,7 +170,7 @@ namespace kxf::FileSystem::Private
 				}
 				else
 				{
-					return (directory / kxS("*")).GetFullPathTryNS(FSPathNamespace::Win32File);
+					return (directory / kxfS("*")).GetFullPathTryNS(FSPathNamespace::Win32File);
 				}
 			}
 			std::optional<FileItem> DoItem(IEnumerator& enumerator, WIN32_FIND_DATAW& findInfo, const FSPath& directory, std::vector<FSPath>& childDirectories)

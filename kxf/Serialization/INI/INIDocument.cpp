@@ -363,7 +363,7 @@ namespace kxf
 		}
 		if (index == npos)
 		{
-			index = value.ReverseFind(kxS("//"));
+			index = value.ReverseFind(kxfS("//"));
 			length = 2;
 		}
 
