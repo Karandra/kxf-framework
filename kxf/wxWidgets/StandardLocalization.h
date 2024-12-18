@@ -1,5 +1,6 @@
 #pragma once
 #include "Common.h"
+#include "kxf/Core/StdID.h"
 #include <wx/stockitem.h>
 
 namespace kxf::wxWidgets

@@ -1,8 +1,8 @@
 #pragma once
 #include "Common.h"
 #include "IArtProvider.h"
+#include "kxf/Core/StdIcon.h"
 #include "kxf/Core/OptionalPtr.h"
-#include "kxf/Widgets/StdIcon.h"
 
 namespace kxf
 {

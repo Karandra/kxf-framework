@@ -1,14 +1,18 @@
 #pragma once
 #include "Common.h"
-#include "kxf/System/DynamicLibrary.h"
-#include "kxf/Core/Singleton.h"
 #include "kxf/System/COM.h"
+#include "kxf/System/DynamicLibrary.h"
 
 namespace kxf::SevenZip
 {
-	class KXF_API Library final: public Singleton<Library>
+	class KXF_API Library final
 	{
-		friend class Singleton<Library>;
+		public:
+			static Library& GetInstance()
+			{
+				static Library instance;
+				return instance;
+			}
 		
 		private:
 			DynamicLibrary m_Library;
@@ -37,11 +41,9 @@ namespace kxf::SevenZip
 
 			bool CreateObject(const NativeUUID& classID, const NativeUUID& interfaceID, void** object) const;
 
-			template<class T>
+			template<std::derived_from<IUnknown> T>
 			COMPtr<T> CreateObject(const NativeUUID& classID, const NativeUUID& interfaceID) const
 			{
-				static_assert(std::is_base_of_v<IUnknown, T>, "Must be COM class");
-
 				COMPtr<T> object;
 				if (CreateObject(classID, interfaceID, object.GetAddress()))
 				{

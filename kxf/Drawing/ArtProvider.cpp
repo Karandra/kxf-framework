@@ -4,6 +4,7 @@
 #include "GDIRenderer/GDIIcon.h"
 #include "BitmapImage.h"
 #include "ImageBundle.h"
+#include "kxf/wxWidgets/ConstantsMapping.h"
 #include "kxf/Utility/Container.h"
 #include <wx/artprov.h>
 
@@ -93,10 +94,10 @@ namespace kxf::ArtProvider
 
 	ResourceID GetMessageBoxResourceIDs(StdIcon iconID)
 	{
-		return String(wxArtProvider::GetMessageBoxIconId(*UI::ToWxStdIcon(iconID)));
+		return String(wxArtProvider::GetMessageBoxIconId(*wxWidgets::MapStdIcon(iconID)));
 	}
 	BitmapImage GetMessageBoxResource(StdIcon iconID)
 	{
-		return GDIIcon(wxArtProvider::GetMessageBoxIcon(*UI::ToWxStdIcon(iconID))).ToBitmapImage();
+		return GDIIcon(wxArtProvider::GetMessageBoxIcon(*wxWidgets::MapStdIcon(iconID))).ToBitmapImage();
 	}
 }

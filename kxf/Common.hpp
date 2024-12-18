@@ -44,7 +44,6 @@
 
 // Essential headers
 #include "kxf/wxWidgets/Setup.h"
-#include "kxf/Core/StdID.h"
 #include "kxf/Core/FlagSet.h"
 #include "kxf/Utility/Literals.h"
 #include "kxf/Win32/UndefMacros.h"

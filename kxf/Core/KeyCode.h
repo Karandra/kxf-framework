@@ -1,8 +1,5 @@
 #pragma once
-#include "kxf/Common.hpp"
-enum wxKeyCode;
-enum wxKeyModifier;
-enum wxKeyCategoryFlags;
+#include "Common.h"
 
 namespace kxf
 {
@@ -75,16 +72,16 @@ namespace kxf
 		Snapshot,
 		Insert,
 		Help,
-		NumPad0,
-		NumPad1,
-		NumPad2,
-		NumPad3,
-		NumPad4,
-		NumPad5,
-		NumPad6,
-		NumPad7,
-		NumPad8,
-		NumPad9,
+		NumPad_0,
+		NumPad_1,
+		NumPad_2,
+		NumPad_3,
+		NumPad_4,
+		NumPad_5,
+		NumPad_6,
+		NumPad_7,
+		NumPad_8,
+		NumPad_9,
 		Multiply,
 		Add,
 		Separator,
@@ -119,31 +116,31 @@ namespace kxf
 		Scroll,
 		PageUp,
 		PageDown,
-		NumPadSpace,
-		NumPadTab,
-		NumPadEnter,
-		NumPadF1,
-		NumPadF2,
-		NumPadF3,
-		NumPadF4,
-		NumPadHome,
-		NumPadLeft,
-		NumPadUp,
-		NumPadRight,
-		NumPadDown,
-		NumPadPageUp,
-		NumPadPageDown,
-		NumPadEnd,
-		NumPadBegin,
-		NumPadInsert,
-		NumPadDelete,
-		NumPadEqual,
-		NumPadMultiply,
-		NumPadAdd,
-		NumPadSeparator,
-		NumPadSubtract,
-		NumPadDecimal,
-		NumPadDivide,
+		NumPad_Space,
+		NumPad_Tab,
+		NumPad_Enter,
+		NumPad_F1,
+		NumPad_F2,
+		NumPad_F3,
+		NumPad_F4,
+		NumPad_Home,
+		NumPad_Left,
+		NumPad_Up,
+		NumPad_Right,
+		NumPad_Down,
+		NumPad_PageUp,
+		NumPad_PageDown,
+		NumPad_End,
+		NumPad_Begin,
+		NumPad_Insert,
+		NumPad_Delete,
+		NumPad_Equal,
+		NumPad_Multiply,
+		NumPad_Add,
+		NumPad_Separator,
+		NumPad_Subtract,
+		NumPad_Decimal,
+		NumPad_Divide,
 
 		MetaLeft,
 		MetaRight,
@@ -230,16 +227,4 @@ namespace kxf
 		Navigation = Arrow|Paging|Jump
 	};
 	kxf_FlagSet_Declare(KeyCategory);
-}
-
-namespace kxf::Private
-{
-	wxKeyCode MapKeyCode(KeyCode code) noexcept;
-	KeyCode MapKeyCode(wxKeyCode code) noexcept;
-
-	FlagSet<KeyModifier> MapKeyModifier(FlagSet<wxKeyModifier> keyModifier) noexcept;
-	FlagSet<wxKeyModifier> MapKeyModifier(FlagSet<KeyModifier> keyModifier) noexcept;
-
-	FlagSet<KeyCategory> MapKeyCategory(FlagSet<wxKeyCategoryFlags> keyCategory) noexcept;
-	FlagSet<wxKeyCategoryFlags> MapKeyCategory(FlagSet<KeyCategory> keyCategory) noexcept;
 }

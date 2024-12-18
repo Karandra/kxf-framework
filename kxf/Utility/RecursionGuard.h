@@ -1,8 +1,7 @@
 #pragma once
 #include "Common.h"
-#include <atomic>
 
-namespace kxf
+namespace kxf::Utility
 {
 	class RecursionGuardFlag final
 	{
@@ -33,7 +32,7 @@ namespace kxf
 	};
 }
 
-namespace kxf
+namespace kxf::Utility
 {
 	class RecursionGuard final
 	{

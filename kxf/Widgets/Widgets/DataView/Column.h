@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Core/RecursionGuard.h"
+#include "kxf/Utility/RecursionGuard.h"
 
 namespace kxf::WXUI::DataView
 {
@@ -47,7 +47,7 @@ namespace kxf::DataView
 			int m_Width = -1;
 			int m_MinWidth = GetAbsMinColumnWidth();
 			mutable int m_BestWidth = -1;
-			mutable RecursionGuardFlag m_BestWidthRG;
+			mutable Utility::RecursionGuardFlag m_BestWidthRG;
 
 			bool m_IsDirty = true;
 			bool m_IsVisible = true;
@@ -176,7 +176,7 @@ namespace kxf::DataView
 				if (m_BestWidth < 0)
 				{
 					// Recursion guard for calling from user code
-					if (RecursionGuard guard(m_BestWidthRG); !guard.IsInside())
+					if (Utility::RecursionGuard guard(m_BestWidthRG); !guard.IsInside())
 					{
 						m_BestWidth = std::clamp(CalcBestWidth(), GetAbsMinColumnWidth(), GetAbsMaxColumnWidth());
 					}

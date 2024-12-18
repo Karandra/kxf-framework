@@ -1,7 +1,76 @@
 #include "kxf-pch.h"
-#include "KeyCode.h"
+#include "ConstantsMapping.h"
+#include <wx/defs.h>
+#include <wx/event.h>
 
-namespace kxf::Private
+namespace kxf
+{
+	static_assert(ToInt(StdID::WX_AUTO_LOWEST) == wxID_AUTO_LOWEST);
+	static_assert(ToInt(StdID::WX_AUTO_HIGHEST) == wxID_AUTO_HIGHEST);
+	static_assert(ToInt(StdID::WX_LOWEST) == wxID_LOWEST);
+	static_assert(ToInt(StdID::WX_HIGHEST) == wxID_HIGHEST);
+
+	static_assert(ToInt(StdID::None) == wxID_NONE);
+	static_assert(ToInt(StdID::Separator) == wxID_SEPARATOR);
+	static_assert(ToInt(StdID::Any) == wxID_ANY);
+	static_assert(ToInt(StdID::Open) == wxID_OPEN);
+	static_assert(ToInt(StdID::Edit) == wxID_EDIT);
+
+	static_assert(ToInt(StdID::OK) == wxID_OK);
+	static_assert(ToInt(StdID::SystemMenu) == wxID_SYSTEM_MENU);
+	static_assert(ToInt(StdID::MDIWindowFirst) == wxID_MDI_WINDOW_FIRST);
+	static_assert(ToInt(StdID::MDIWindowLast) == wxID_MDI_WINDOW_LAST);
+
+	static_assert(ToInt(StdID::FileDialog) == wxID_FILEDLGG);
+	static_assert(ToInt(StdID::FileControl) == wxID_FILECTRL);
+	static_assert(ToInt(StdID::KX_LOWEST) == wxID_HIGHEST + 1);
+}
+
+namespace kxf::wxWidgets
+{
+	StdID MapStdID(wxStandardID id) noexcept
+	{
+		return static_cast<StdID>(id);
+	}
+	wxStandardID MapStdID(StdID id) noexcept
+	{
+		return static_cast<wxStandardID>(id);
+	}
+
+	FlagSet<StdIcon> MapStdIcon(uint32_t stdWxIcon) noexcept
+	{
+		FlagSet<StdIcon> stdIcon;
+		stdIcon.Add(StdIcon::Error, stdWxIcon & wxICON_ERROR);
+		stdIcon.Add(StdIcon::Warning, stdWxIcon & wxICON_WARNING);
+		stdIcon.Add(StdIcon::Question, stdWxIcon & wxICON_QUESTION);
+		stdIcon.Add(StdIcon::Information, stdWxIcon & wxICON_INFORMATION);
+		stdIcon.Add(StdIcon::Authentication, stdWxIcon & wxICON_AUTH_NEEDED);
+
+		return stdIcon;
+	}
+	FlagSet<uint32_t> MapStdIcon(FlagSet<StdIcon> stdIcon) noexcept
+	{
+		FlagSet<uint32_t> wxStdIcon = wxICON_NONE;
+		wxStdIcon.Add(wxICON_ERROR, stdIcon & StdIcon::Error);
+		wxStdIcon.Add(wxICON_WARNING, stdIcon & StdIcon::Warning);
+		wxStdIcon.Add(wxICON_QUESTION, stdIcon & StdIcon::Question);
+		wxStdIcon.Add(wxICON_INFORMATION, stdIcon & StdIcon::Information);
+		wxStdIcon.Add(wxICON_AUTH_NEEDED, stdIcon & StdIcon::Authentication);
+
+		return wxStdIcon;
+	}
+
+	StdButton MapStdButton(uint32_t stdWxButton) noexcept
+	{
+		return FromInt<StdButton>(stdWxButton);
+	}
+	uint32_t MapStdButton(StdButton stdButton) noexcept
+	{
+		return ToInt(stdButton);
+	}
+}
+
+namespace kxf::wxWidgets
 {
 	wxKeyCode MapKeyCode(KeyCode code) noexcept
 	{

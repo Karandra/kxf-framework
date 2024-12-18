@@ -5,8 +5,6 @@
 #include "kxf/Widgets/Controls/Label.h"
 #include "kxf/Widgets/Controls/Button.h"
 #include "kxf/Widgets/Windows/Panel.h"
-#include "kxf/Widgets/StdIcon.h"
-#include "kxf/Widgets/StdButton.h"
 #include <wx/nativewin.h>
 #include <wx/artprov.h>
 #include <wx/statbmp.h>

@@ -1,5 +1,5 @@
 #pragma once
-#include "kxf/Utility/Common.h"
+#include "Common.h"
 
 namespace kxf
 {
@@ -21,10 +21,4 @@ namespace kxf
 		Header = 1 << 8,
 	};
 	kxf_FlagSet_Declare(StdIcon);
-}
-
-namespace kxf::UI
-{
-	FlagSet<StdIcon> FromWxStdIcon(int stdWxIcon) noexcept;
-	FlagSet<int> ToWxStdIcon(FlagSet<StdIcon> stdIcon) noexcept;
 }

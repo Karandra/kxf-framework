@@ -465,9 +465,6 @@
     <ClInclude Include="kxf\FileSystem\NativeFileSystem.h">
       <Filter>kxf\FileSystem</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Core\Singleton.h">
-      <Filter>kxf\Core</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\FileSystem\LegacyVolume.h">
       <Filter>kxf\FileSystem</Filter>
     </ClInclude>
@@ -2112,9 +2109,6 @@
     <ClInclude Include="kxf\Widgets\Widgets\DataView.h">
       <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Core\RecursionGuard.h">
-      <Filter>kxf\Core</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Sciter\Private\Conversion.h">
       <Filter>kxf\Sciter\Private</Filter>
     </ClInclude>
@@ -2517,23 +2511,29 @@
     <ClInclude Include="kxf\Widgets\IWidgetItem.h">
       <Filter>kxf\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Widgets\KeyboardState.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\KeyCode.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\MouseState.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\StdButton.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\StdIcon.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Widgets\WidgetID.h">
       <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\StdIcon.h">
+      <Filter>kxf\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\wxWidgets\ConstantsMapping.h">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\StdButton.h">
+      <Filter>kxf\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\KeyCode.h">
+      <Filter>kxf\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\MouseState.h">
+      <Filter>kxf\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Core\KeyboardState.h">
+      <Filter>kxf\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Utility\RecursionGuard.h">
+      <Filter>kxf\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -3404,9 +3404,6 @@
     <ClCompile Include="kxf\Network\WebRequest.cpp">
       <Filter>kxf\Network</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Core\StdID.cpp">
-      <Filter>kxf\Core</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Drawing\Geometry.cpp">
       <Filter>kxf\Drawing</Filter>
     </ClCompile>
@@ -3815,17 +3812,14 @@
     <ClCompile Include="kxf\Widgets\IWidget.cpp">
       <Filter>kxf\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Widgets\KeyboardState.cpp">
-      <Filter>kxf\Widgets</Filter>
+    <ClCompile Include="kxf\wxWidgets\ConstantsMapping.cpp">
+      <Filter>kxf\wxWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Widgets\KeyCode.cpp">
-      <Filter>kxf\Widgets</Filter>
+    <ClCompile Include="kxf\Core\KeyboardState.cpp">
+      <Filter>kxf\Core</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Widgets\MouseState.cpp">
-      <Filter>kxf\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Widgets\StdIcon.cpp">
-      <Filter>kxf\Widgets</Filter>
+    <ClCompile Include="kxf\Core\MouseState.cpp">
+      <Filter>kxf\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

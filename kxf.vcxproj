@@ -214,6 +214,9 @@
     <ClInclude Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.h" />
     <ClInclude Include="kxf\Core\IAsyncTask.h" />
     <ClInclude Include="kxf\Core\IAsyncTaskExecutor.h" />
+    <ClInclude Include="kxf\Core\KeyboardState.h" />
+    <ClInclude Include="kxf\Core\KeyCode.h" />
+    <ClInclude Include="kxf\Core\MouseState.h" />
     <ClInclude Include="kxf\Core\Private\ErrorCode.h" />
     <ClInclude Include="kxf\Core\Private\Format.h" />
     <ClInclude Include="kxf\Core\Private\FormatQtStyle.h" />
@@ -221,6 +224,8 @@
     <ClInclude Include="kxf\Core\Private\String.h" />
     <ClInclude Include="kxf\Core\Private\StringFormatters.h" />
     <ClInclude Include="kxf\Core\StandardAllocator.h" />
+    <ClInclude Include="kxf\Core\StdButton.h" />
+    <ClInclude Include="kxf\Core\StdIcon.h" />
     <ClInclude Include="kxf\Crypto\UserCredentials.h" />
     <ClInclude Include="kxf\Drawing\AffineMatrix.h" />
     <ClInclude Include="kxf\Drawing\Angle.h" />
@@ -351,7 +356,6 @@
     <ClInclude Include="kxf\Core\NullVariableCollection.h" />
     <ClInclude Include="kxf\Core\OptionalPtr.h" />
     <ClInclude Include="kxf\Core\OptionalRef.h" />
-    <ClInclude Include="kxf\Core\RecursionGuard.h" />
     <ClInclude Include="kxf\Core\RegEx.h" />
     <ClInclude Include="kxf\Core\ResourceID.h" />
     <ClInclude Include="kxf\Core\StaticVariableCollection.h" />
@@ -499,6 +503,7 @@
     <ClInclude Include="kxf\Threading\ThreadEvent.h" />
     <ClInclude Include="kxf\Threading\LockGuard.h" />
     <ClInclude Include="kxf\Threading\ThreadLocalSlot.h" />
+    <ClInclude Include="kxf\Utility\RecursionGuard.h" />
     <ClInclude Include="kxf\Widgets\Controls\AUI.h" />
     <ClInclude Include="kxf\Widgets\Controls\AUI\AuiNotebook.h" />
     <ClInclude Include="kxf\Widgets\Controls\AUI\AuiToolBar.h" />
@@ -633,8 +638,6 @@
     <ClInclude Include="kxf\Widgets\IWidget.h" />
     <ClInclude Include="kxf\Widgets\IWidgetEvent.h" />
     <ClInclude Include="kxf\Widgets\IWidgetItem.h" />
-    <ClInclude Include="kxf\Widgets\KeyboardState.h" />
-    <ClInclude Include="kxf\Widgets\KeyCode.h" />
     <ClInclude Include="kxf\Widgets\Menus\Common.h" />
     <ClInclude Include="kxf\Widgets\Menus\MenuWidget.h" />
     <ClInclude Include="kxf\Widgets\Menus\MenuWidgetItem.h" />
@@ -643,7 +646,6 @@
     <ClInclude Include="kxf\Widgets\Menus\ShellMenuWidgetItem.h" />
     <ClInclude Include="kxf\Widgets\Menus\WXUI\Menu.h" />
     <ClInclude Include="kxf\Widgets\Menus\WXUI\MenuItem.h" />
-    <ClInclude Include="kxf\Widgets\MouseState.h" />
     <ClInclude Include="kxf\Widgets\Private\AnonymousNativeWindow.h" />
     <ClInclude Include="kxf\Widgets\Private\BasicDialogWidget.h" />
     <ClInclude Include="kxf\Widgets\Private\BasicWindowWidget.h" />
@@ -758,6 +760,7 @@
     <ClInclude Include="kxf\wxWidgets\Application.h" />
     <ClInclude Include="kxf\wxWidgets\ClientObject.h" />
     <ClInclude Include="kxf\wxWidgets\Common.h" />
+    <ClInclude Include="kxf\wxWidgets\ConstantsMapping.h" />
     <ClInclude Include="kxf\wxWidgets\EventLoopWrapper.h" />
     <ClInclude Include="kxf\wxWidgets\EventTagRef.h" />
     <ClInclude Include="kxf\wxWidgets\EventWrapper.h" />
@@ -815,7 +818,6 @@
     <ClInclude Include="kxf\Core\StdID.h" />
     <ClInclude Include="kxf\Core\NativeUUID.h" />
     <ClInclude Include="kxf\Core\Private\VersionImpl.h" />
-    <ClInclude Include="kxf\Core\Singleton.h" />
     <ClInclude Include="kxf\Core\String.h" />
     <ClInclude Include="kxf\Core\UniversallyUniqueID.h" />
     <ClInclude Include="kxf\Core\Version.h" />
@@ -892,9 +894,7 @@
     <ClInclude Include="kxf\Threading.hpp" />
     <ClInclude Include="kxf\Threading\Common.h" />
     <ClInclude Include="kxf\Widgets\Common.h" />
-    <ClInclude Include="kxf\Widgets\StdButton.h" />
     <ClInclude Include="kxf\Widgets\StdDialogButtonSizer.h" />
-    <ClInclude Include="kxf\Widgets\StdIcon.h" />
     <ClInclude Include="kxf\Widgets\Validator.h" />
     <ClInclude Include="kxf\Widgets\WindowRefreshScheduler.h" />
     <ClInclude Include="kxf\Widgets\WindowUpdateLocker.h" />
@@ -949,6 +949,8 @@
     <ClCompile Include="kxf\Core\EncodingConverter\NativeEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\EncodingConverter\WhateverWorksEncodingConverter.cpp" />
     <ClCompile Include="kxf\Core\IEncodingConverter.cpp" />
+    <ClCompile Include="kxf\Core\KeyboardState.cpp" />
+    <ClCompile Include="kxf\Core\MouseState.cpp" />
     <ClCompile Include="kxf\Core\Private\ErrorCode.cpp" />
     <ClCompile Include="kxf\Core\Private\Format.cpp" />
     <ClCompile Include="kxf\Core\Private\Mapping.cpp" />
@@ -1018,7 +1020,6 @@
     <ClCompile Include="kxf\Core\RegEx.cpp" />
     <ClCompile Include="kxf\Core\ResourceID.cpp" />
     <ClCompile Include="kxf\Core\StaticVariableCollection.cpp" />
-    <ClCompile Include="kxf\Core\StdID.cpp" />
     <ClCompile Include="kxf\Core\StupidMemoryAllocator.cpp" />
     <ClCompile Include="kxf\IO\Common.cpp" />
     <ClCompile Include="kxf\IO\MemoryStreamBuffer.cpp" />
@@ -1191,15 +1192,12 @@
     <ClCompile Include="kxf\Widgets\IScrollableWidget.cpp" />
     <ClCompile Include="kxf\Widgets\IToolBarWidgetItem.cpp" />
     <ClCompile Include="kxf\Widgets\IWidget.cpp" />
-    <ClCompile Include="kxf\Widgets\KeyboardState.cpp" />
-    <ClCompile Include="kxf\Widgets\KeyCode.cpp" />
     <ClCompile Include="kxf\Widgets\Menus\MenuWidget.cpp" />
     <ClCompile Include="kxf\Widgets\Menus\MenuWidgetItem.cpp" />
     <ClCompile Include="kxf\Widgets\Menus\ShellMenuWidget.cpp" />
     <ClCompile Include="kxf\Widgets\Menus\ShellMenuWidgetItem.cpp" />
     <ClCompile Include="kxf\Widgets\Menus\WXUI\Menu.cpp" />
     <ClCompile Include="kxf\Widgets\Menus\WXUI\MenuItem.cpp" />
-    <ClCompile Include="kxf\Widgets\MouseState.cpp" />
     <ClCompile Include="kxf\Widgets\Private\AnonymousNativeWindow.cpp" />
     <ClCompile Include="kxf\Widgets\Private\BasicDialogWidget.cpp" />
     <ClCompile Include="kxf\Widgets\Private\BasicWindowWidget.cpp" />
@@ -1210,7 +1208,6 @@
     <ClCompile Include="kxf\Widgets\Private\WxScrolledWrapper.cpp" />
     <ClCompile Include="kxf\Widgets\Private\WxTextCtrlWrapper.cpp" />
     <ClCompile Include="kxf\Widgets\Private\WxTextEntryWrapper.cpp" />
-    <ClCompile Include="kxf\Widgets\StdIcon.cpp" />
     <ClCompile Include="kxf\Widgets\TopLevelWidgets\Dialog.cpp" />
     <ClCompile Include="kxf\Widgets\TopLevelWidgets\Window.cpp" />
     <ClCompile Include="kxf\Widgets\TopLevelWidgets\WXUI\Dialog.cpp" />
@@ -1284,6 +1281,7 @@
     <ClCompile Include="kxf\Utility\Drawing.cpp" />
     <ClCompile Include="kxf\Utility\Memory.cpp" />
     <ClCompile Include="kxf\Utility\SoftwareLicenseDB.cpp" />
+    <ClCompile Include="kxf\wxWidgets\ConstantsMapping.cpp" />
     <ClCompile Include="kxf\wxWidgets\StandardLocalization.cpp" />
     <ClCompile Include="kxf\wxWidgets\StreamWrapper.cpp" />
     <ClCompile Include="kxf\Compression\LZ4Stream.cpp" />

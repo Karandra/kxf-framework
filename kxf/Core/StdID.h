@@ -1,4 +1,5 @@
 #pragma once
+#include "Common.h"
 
 namespace kxf
 {
@@ -183,10 +184,4 @@ namespace kxf
 
 		KX_HIGHEST
 	};
-}
-
-namespace kxf
-{
-	StdID FromWxStdID(int id) noexcept;
-	int ToWxStdID(StdID id) noexcept;
 }

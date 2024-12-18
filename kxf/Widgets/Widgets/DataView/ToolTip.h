@@ -1,6 +1,5 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Widgets/StdIcon.h"
 
 namespace kxf
 {

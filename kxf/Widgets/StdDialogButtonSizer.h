@@ -1,6 +1,5 @@
 #pragma once
 #include "Common.h"
-#include "StdButton.h"
 #include "WidgetID.h"
 #include <wx/sizer.h>
 #include <wx/anybutton.h>

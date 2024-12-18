@@ -2,6 +2,7 @@
 #include "kxf/Widgets/Common.h"
 #include "kxf/Drawing/GDIRenderer/GDIFont.h"
 #include "kxf/Drawing/GDIRenderer/GDIIcon.h"
+#include "kxf/wxWidgets/ConstantsMapping.h"
 #include "kxf/Utility/Common.h"
 #include <wx/richtooltip.h>
 
@@ -119,12 +120,7 @@ namespace kxf::UI
 				m_IconID = StdIcon::None;
 				m_ToolTip.SetIcon(icon.ToWxIcon());
 			}
-			void SetIcon(StdIcon iconID)
-			{
-				m_Icon = wxNullIcon;
-				m_IconID = iconID;
-				m_ToolTip.SetIcon(*UI::ToWxStdIcon(iconID));
-			}
+			void SetIcon(StdIcon iconID);
 
 			// Animation
 			TimeSpan GetTimeout() const

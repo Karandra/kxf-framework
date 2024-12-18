@@ -1,6 +1,7 @@
 #include "kxf-pch.h"
 #include "WidgetKeyEvent.h"
 #include "kxf/Utility/Numeric.h"
+#include "kxf/wxWidgets/ConstantsMapping.h"
 #include <wx/event.h>
 
 namespace kxf
@@ -9,7 +10,7 @@ namespace kxf
 		:WidgetEvent(widget), m_KeyboardState(keyEventWX)
 	{
 		m_Position = {keyEventWX.GetX(), keyEventWX.GetY()};
-		m_KeyCode = Private::MapKeyCode(static_cast<wxKeyCode>(keyEventWX.GetKeyCode()));
+		m_KeyCode = wxWidgets::MapKeyCode(static_cast<wxKeyCode>(keyEventWX.GetKeyCode()));
 		m_UnicodeKey = keyEventWX.GetUnicodeKey();
 		m_NativeKeyCode = keyEventWX.GetRawKeyCode();
 		m_NativeKeyFlags = keyEventWX.GetRawKeyFlags();
@@ -48,39 +49,39 @@ namespace kxf
 			case KeyCode::Right:
 			case KeyCode::Up:
 			case KeyCode::Down:
-			case KeyCode::NumPadLeft:
-			case KeyCode::NumPadRight:
-			case KeyCode::NumPadUp:
-			case KeyCode::NumPadDown:
+			case KeyCode::NumPad_Left:
+			case KeyCode::NumPad_Right:
+			case KeyCode::NumPad_Up:
+			case KeyCode::NumPad_Down:
 			{
 				return category.Contains(KeyCategory::Arrow);
 			}
 
 			case KeyCode::PageDown:
 			case KeyCode::PageUp:
-			case KeyCode::NumPadPageUp:
-			case KeyCode::NumPadPageDown:
+			case KeyCode::NumPad_PageUp:
+			case KeyCode::NumPad_PageDown:
 			{
 				return category.Contains(KeyCategory::Paging);
 			}
 
 			case KeyCode::Home:
 			case KeyCode::End:
-			case KeyCode::NumPadHome:
-			case KeyCode::NumPadEnd:
+			case KeyCode::NumPad_Home:
+			case KeyCode::NumPad_End:
 			{
 				return category.Contains(KeyCategory::Jump);
 			}
 
 			case KeyCode::Tab:
-			case KeyCode::NumPadTab:
+			case KeyCode::NumPad_Tab:
 			{
 				return category.Contains(KeyCategory::Tab);
 			}
 
 			case KeyCode::Delete:
 			case KeyCode::Backspace:
-			case KeyCode::NumPadDelete:
+			case KeyCode::NumPad_Delete:
 			{
 				return category.Contains(KeyCategory::Delete);
 			}

@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Widgets/StdIcon.h"
+#include "kxf/Core/StdIcon.h"
 
 namespace kxf::UI::DataView
 {

@@ -37,7 +37,7 @@ namespace kxf::Localization
 	{
 		return wxWidgets::LocalizeLabelString(id);
 	}
-	String GetStandardString(WidgetID id)
+	String GetStandardString(const WidgetID& id)
 	{
 		return wxWidgets::LocalizeLabelString(id.GetValue());
 	}

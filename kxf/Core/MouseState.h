@@ -1,7 +1,7 @@
 #pragma once
-#include "kxf/Common.hpp"
-#include "kxf/Drawing/Geometry.h"
+#include "Common.h"
 #include "KeyCode.h"
+#include "kxf/Drawing/Geometry.h"
 class wxMouseState;
 
 namespace kxf

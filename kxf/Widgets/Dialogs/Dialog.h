@@ -2,7 +2,6 @@
 #include "kxf/Widgets/Common.h"
 #include "kxf/Widgets/Windows/TopLevelWindow.h"
 #include "kxf/Widgets/StdDialogButtonSizer.h"
-#include "kxf/Widgets/StdButton.h"
 #include <wx/dialog.h>
 
 namespace kxf::UI
