@@ -94,6 +94,14 @@ namespace kxf
 	};
 	kxf_FlagSet_Declare(Direction);
 
+	enum class LayoutDirection
+	{
+		Default = -1,
+
+		LeftToRight,
+		RightToLeft
+	};
+
 	enum class LineBreakFormat
 	{
 		None = -1,

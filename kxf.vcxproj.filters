@@ -49,7 +49,7 @@
     <Filter Include="kxf\Compression">
       <UniqueIdentifier>{1ffb3494-f392-4267-b778-6c908ff721ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI">
+    <Filter Include="kxf\Widgets">
       <UniqueIdentifier>{d35e1c06-a587-42a8-897d-b06fd84ea9cf}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\FileSystem\Private">
@@ -57,9 +57,6 @@
     </Filter>
     <Filter Include="kxf\Core\Private">
       <UniqueIdentifier>{9bddb8ad-b98d-4558-90ae-2b5b7048b860}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\wxWidgets">
-      <UniqueIdentifier>{025a1a1a-8594-467f-b759-9e5ca71ddd88}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\Crypto">
       <UniqueIdentifier>{a22e20b9-4de3-47e4-ace6-bcc7101c470c}</UniqueIdentifier>
@@ -73,34 +70,34 @@
     <Filter Include="kxf\Drawing\Private">
       <UniqueIdentifier>{d0521874-4a25-4cdf-b542-c5159ced03de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Windows">
+    <Filter Include="kxf\Widgets\Windows">
       <UniqueIdentifier>{9450c2a9-a27f-432e-b708-f3e989d2763e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Menus">
+    <Filter Include="kxf\Widgets\Menus">
       <UniqueIdentifier>{c3edb610-29df-482b-bdff-75b57ad747ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Dialogs">
+    <Filter Include="kxf\Widgets\Dialogs">
       <UniqueIdentifier>{9a1c22ff-1e4f-4029-a1a7-eb61d618611e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Controls">
+    <Filter Include="kxf\Widgets\Controls">
       <UniqueIdentifier>{10404d08-ff3e-46e1-a037-fafea63e7a3f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Controls\DataView">
+    <Filter Include="kxf\Widgets\Controls\DataView">
       <UniqueIdentifier>{f9fe5111-7aa9-4688-9f65-1c21caf83ac0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Controls\AUI">
+    <Filter Include="kxf\Widgets\Controls\AUI">
       <UniqueIdentifier>{51ba4e52-464f-4d32-a8b4-d68239db9572}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Controls\DataView\Editors">
+    <Filter Include="kxf\Widgets\Controls\DataView\Editors">
       <UniqueIdentifier>{88feb086-33ff-447b-9a97-120aa1397e12}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Controls\DataView\Renderers">
+    <Filter Include="kxf\Widgets\Controls\DataView\Renderers">
       <UniqueIdentifier>{687104a4-b178-491f-9bbd-4786d1510946}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Controls\&lt;Controls&gt;">
+    <Filter Include="kxf\Widgets\Controls\&lt;Controls&gt;">
       <UniqueIdentifier>{8d89f944-d9f8-4f7c-b28d-82616536aae2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\&lt;UI&gt;">
+    <Filter Include="kxf\Widgets\&lt;UI&gt;">
       <UniqueIdentifier>{e51dc976-b3e3-4424-aac5-de85a4e6e3c5}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\Core\DateTime">
@@ -214,43 +211,43 @@
     <Filter Include="kxf\Log\Private">
       <UniqueIdentifier>{3cb0f35f-aa0a-4fd7-a98d-2a50367f82d8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Widgets">
+    <Filter Include="kxf\Widgets\Widgets">
       <UniqueIdentifier>{9885b6ce-bc89-43ff-9df4-e9cae60f59e8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\TopLevelWidgets">
+    <Filter Include="kxf\Widgets\TopLevelWidgets">
       <UniqueIdentifier>{eab5dd30-179b-4551-a34c-23e716095026}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\TopLevelWidgets\WXUI">
+    <Filter Include="kxf\Widgets\TopLevelWidgets\WXUI">
       <UniqueIdentifier>{21c585d2-d563-4e99-b3ce-86d0391d8255}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Events">
+    <Filter Include="kxf\Widgets\Events">
       <UniqueIdentifier>{8e507d6e-0d9b-4f09-b274-a6878a4d71c9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Menus\WXUI">
+    <Filter Include="kxf\Widgets\Menus\WXUI">
       <UniqueIdentifier>{0aa287b3-3ebc-4774-b17c-e1e3202db0bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Widgets\WXUI">
+    <Filter Include="kxf\Widgets\Widgets\WXUI">
       <UniqueIdentifier>{d7e87a57-f65e-49cd-afb0-126278f00f7f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Dialogs\Private">
+    <Filter Include="kxf\Widgets\Dialogs\Private">
       <UniqueIdentifier>{8748a1a3-30f0-4977-9c4b-3fffaf785b0e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Private">
+    <Filter Include="kxf\Widgets\Private">
       <UniqueIdentifier>{033972eb-2a62-4706-a4e8-26049721ba7f}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\Sciter\Private">
       <UniqueIdentifier>{b0ab3bd5-4e6f-4296-a285-093c14d4f95b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Widgets\WXUI\DataView">
+    <Filter Include="kxf\Widgets\Widgets\WXUI\DataView">
       <UniqueIdentifier>{281218eb-fa59-41b4-a3f6-efd6ff75528d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Widgets\DataView">
+    <Filter Include="kxf\Widgets\Widgets\DataView">
       <UniqueIdentifier>{9ddf748e-69aa-4b36-bf69-59a5c5ba75e1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Widgets\DataView\Renderers">
+    <Filter Include="kxf\Widgets\Widgets\DataView\Renderers">
       <UniqueIdentifier>{1df71acb-a783-475f-a3cf-b0e14072aad1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\UI\Widgets\DataView\Editors">
+    <Filter Include="kxf\Widgets\Widgets\DataView\Editors">
       <UniqueIdentifier>{e4e18639-5e2f-4e27-b95d-dfd0be9a48a5}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\Localization">
@@ -315,6 +312,12 @@
     </Filter>
     <Filter Include="kxf/+Resources\SoftwareLicenseDB">
       <UniqueIdentifier>{09f70c3f-0b6b-49ae-afff-9f9e5b894dc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\Widgets">
+      <UniqueIdentifier>{04e275a4-9abe-4a92-abca-c9b0b278bf56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\wxWidgets">
+      <UniqueIdentifier>{025a1a1a-8594-467f-b759-9e5ca71ddd88}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\Win32">
       <UniqueIdentifier>{f222d3d1-6cba-4032-8f79-16757a424297}</UniqueIdentifier>
@@ -642,9 +645,6 @@
     <ClInclude Include="kxf\Threading.hpp">
       <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI.hpp">
-      <Filter>kxf/&lt;Modules&gt;</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Utility.hpp">
       <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
@@ -696,254 +696,254 @@
     <ClInclude Include="kxf\System\SystemProcess\CreateProcessExecutor.h">
       <Filter>kxf\System\SystemProcess</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\SplashWindow.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\SplashWindow.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\SplitterWindow.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\SplitterWindow.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\ToolTipEx.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\ToolTipEx.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\RichToolTip.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\RichToolTip.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\CollapsiblePane.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\CollapsiblePane.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\Panel.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\Panel.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\DrawablePanel.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\DrawablePanel.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\Frame.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\Frame.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\AUI\AuiNotebook.h">
-      <Filter>kxf\UI\Controls\AUI</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\AUI\AuiNotebook.h">
+      <Filter>kxf\Widgets\Controls\AUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\AUI\AuiToolBar.h">
-      <Filter>kxf\UI\Controls\AUI</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\AUI\AuiToolBar.h">
+      <Filter>kxf\Widgets\Controls\AUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\AUI\AuiToolBarEvent.h">
-      <Filter>kxf\UI\Controls\AUI</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\AUI\AuiToolBarEvent.h">
+      <Filter>kxf\Widgets\Controls\AUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\AUI\AuiToolBarItem.h">
-      <Filter>kxf\UI\Controls\AUI</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\AUI\AuiToolBarItem.h">
+      <Filter>kxf\Widgets\Controls\AUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\Dialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\Dialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\StdDialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\StdDialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\ComboBoxDialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\ComboBoxDialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\SimpleStdDialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\SimpleStdDialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\TextBoxDialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\TextBoxDialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\ProgressDialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\ProgressDialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\CredentialsDialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\CredentialsDialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\FileBrowseDialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\FileBrowseDialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\Private\FileBrowseDialogEvents.h">
-      <Filter>kxf\UI\Dialogs\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\Private\FileBrowseDialogEvents.h">
+      <Filter>kxf\Widgets\Dialogs\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\TaskDialog.h">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\TaskDialog.h">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClInclude>
     <ClInclude Include="kxf\System\Private\COM.h">
       <Filter>kxf\System\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Dialogs\Private\TaskDialogNativeInfo.h">
-      <Filter>kxf\UI\Dialogs\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Dialogs\Private\TaskDialogNativeInfo.h">
+      <Filter>kxf\Widgets\Dialogs\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\CellState.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\CellState.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Column.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Column.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\ColumnID.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\ColumnID.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Common.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Common.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\DragAndDrop.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\DragAndDrop.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Editor.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Editor.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Event.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Event.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\HeaderCtrl.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\HeaderCtrl.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\HeaderCtrl2.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\HeaderCtrl2.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\MainWindow.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\MainWindow.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Model.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Model.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Node.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Node.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\RenderEngine.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\RenderEngine.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderer.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderer.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Row.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Row.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\ToolTip.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\ToolTip.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\View.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\View.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\CellAttributeOptions.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\CellAttributeOptions.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Editors\ColorEditor.h">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Editors\ColorEditor.h">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Editors\ComboBoxEditor.h">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Editors\ComboBoxEditor.h">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Editors\DateEditor.h">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Editors\DateEditor.h">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Editors\SpinEditor.h">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Editors\SpinEditor.h">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Editors\TextEditor.h">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Editors\TextEditor.h">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Editors\TimeEditor.h">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Editors\TimeEditor.h">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\NullRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\NullRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\ProgressRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\ProgressRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\TextRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\TextRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\ToggleRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\ToggleRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\BitmapComboBox.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\BitmapComboBox.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\Button.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\Button.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\CheckBox.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\CheckBox.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\ClusterMap.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\ClusterMap.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\ComboBox.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\ComboBox.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\ComboControl.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\ComboControl.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\ComboPopup.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\ComboPopup.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataViewComboBox.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataViewComboBox.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\HTMLWindow.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\HTMLWindow.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\ImageView.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\ImageView.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\IProgressMeter.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\IProgressMeter.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\Label.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\Label.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\Notebook.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\Notebook.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\ProgressBar.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\ProgressBar.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\RadioButton.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\RadioButton.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\SearchBox.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\SearchBox.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\Simplebook.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\Simplebook.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\Slider.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\Slider.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\StaticBitmap.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\StaticBitmap.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\StaticText.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\StaticText.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\StatusBar.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\StatusBar.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\StatusBarEx.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\StatusBarEx.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\StyledTextBox.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\StyledTextBox.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\TextBox.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\TextBox.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\ThumbView.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\ThumbView.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\WebView.h">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\WebView.h">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\StdDialogButtonSizer.h">
-      <Filter>kxf\UI\&lt;UI&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\StdDialogButtonSizer.h">
+      <Filter>kxf\Widgets\&lt;UI&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Validator.h">
-      <Filter>kxf\UI\&lt;UI&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\Validator.h">
+      <Filter>kxf\Widgets\&lt;UI&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\WindowRefreshScheduler.h">
-      <Filter>kxf\UI\&lt;UI&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\WindowRefreshScheduler.h">
+      <Filter>kxf\Widgets\&lt;UI&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\WindowUpdateLocker.h">
-      <Filter>kxf\UI\&lt;UI&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\WindowUpdateLocker.h">
+      <Filter>kxf\Widgets\&lt;UI&gt;</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\CellAttributes.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\CellAttributes.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
     <ClInclude Include="kxf\System\Private\SystemInformationDefinesMapping.h">
       <Filter>kxf\System\Private</Filter>
@@ -990,14 +990,14 @@
     <ClInclude Include="kxf\Threading\ThreadEvent.h">
       <Filter>kxf\Threading</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\DataView.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\DataView.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView.h">
-      <Filter>kxf\UI\Controls</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView.h">
+      <Filter>kxf\Widgets\Controls</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\AUI.h">
-      <Filter>kxf\UI\Controls</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\AUI.h">
+      <Filter>kxf\Widgets\Controls</Filter>
     </ClInclude>
     <ClInclude Include="kxf\wxWidgets\SystemOptions.h">
       <Filter>kxf\wxWidgets</Filter>
@@ -1011,14 +1011,11 @@
     <ClInclude Include="kxf\Drawing\Geometry.h">
       <Filter>kxf\Drawing</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Common.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Core\FlagSet.h">
       <Filter>kxf\Core</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\WindowWithStyles.h">
-      <Filter>kxf\UI\&lt;UI&gt;</Filter>
+    <ClInclude Include="kxf\Widgets\WindowWithStyles.h">
+      <Filter>kxf\Widgets\&lt;UI&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\System\DynamicLibraryEvent.h">
       <Filter>kxf\System</Filter>
@@ -1575,26 +1572,26 @@
     <ClInclude Include="kxf\Drawing\SVGImage.h">
       <Filter>kxf\Drawing</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\GDIImageListRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\GDIImageListRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\ImageListRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\ImageListRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\ImageRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\ImageRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\ImageTextRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\ImageTextRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\ImageTextToggleRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\ImageTextToggleRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\Renderers\HTMLTextRenderer.h">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\Renderers\HTMLTextRenderer.h">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Controls\DataView\SortMode.h">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Controls\DataView\SortMode.h">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Drawing\IImageHandler.h">
       <Filter>kxf\Drawing</Filter>
@@ -1842,395 +1839,278 @@
     <ClInclude Include="kxf\Log\Private\WxOverride.h">
       <Filter>kxf\Log\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IGraphicsRendererAwareWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Private\BasicWxWidget.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Private\Common.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\BasicWxWidget.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\TopLevelWidgets\Common.h">
+      <Filter>kxf\Widgets\TopLevelWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\Common.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\TopLevelWidgets\WXUI\Frame.h">
+      <Filter>kxf\Widgets\TopLevelWidgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\ITopLevelWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\TopLevelWidgets\Window.h">
+      <Filter>kxf\Widgets\TopLevelWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\TopLevelWidgets\Common.h">
-      <Filter>kxf\UI\TopLevelWidgets</Filter>
+    <ClInclude Include="kxf\Widgets\Private\BasicWindowWidget.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\TopLevelWidgets\WXUI\Frame.h">
-      <Filter>kxf\UI\TopLevelWidgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Private\BasicDialogWidget.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\TopLevelWidgets\Window.h">
-      <Filter>kxf\UI\TopLevelWidgets</Filter>
+    <ClInclude Include="kxf\Widgets\TopLevelWidgets\WXUI\Dialog.h">
+      <Filter>kxf\Widgets\TopLevelWidgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\BasicWindowWidget.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Windows\TopLevelWindow.h">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\INativeWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\TopLevelWidgets\Dialog.h">
+      <Filter>kxf\Widgets\TopLevelWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IScrollableWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IDalogWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\Common.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\BasicDialogWidget.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Events\MenuWidgetEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\TopLevelWidgets\WXUI\Dialog.h">
-      <Filter>kxf\UI\TopLevelWidgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Menus\MenuWidget.h">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Windows\TopLevelWindow.h">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClInclude Include="kxf\Widgets\Menus\Common.h">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\TopLevelWidgets\Dialog.h">
-      <Filter>kxf\UI\TopLevelWidgets</Filter>
+    <ClInclude Include="kxf\Widgets\Private\WidgetFreezeHandler.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\WidgetID.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Private\AnonymousNativeWindow.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\StdButton.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Menus\MenuWidgetItem.h">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\StdIcon.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Menus\WXUI\Menu.h">
+      <Filter>kxf\Widgets\Menus\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Menus\WXUI\MenuItem.h">
+      <Filter>kxf\Widgets\Menus\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\Common.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Menus\ShellMenuWidget.h">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\MenuWidgetEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Menus\ShellMenuWidgetItem.h">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IMenuWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\ButtonWidgetEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IMenuWidgetItem.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\Button.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Menus\MenuWidget.h">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClInclude Include="kxf\Widgets\Private\EvtHandlerWrapper.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Menus\Common.h">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClInclude Include="kxf\Widgets\TopLevelWidgets\WXUI\Common.h">
+      <Filter>kxf\Widgets\TopLevelWidgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\WidgetFreezeHandler.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\Common.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\AnonymousNativeWindow.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetLifetimeEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IWidgetEvent.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetSizeEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Menus\MenuWidgetItem.h">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetDrawEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Menus\WXUI\Menu.h">
-      <Filter>kxf\UI\Menus\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetContextMenuEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Menus\WXUI\MenuItem.h">
-      <Filter>kxf\UI\Menus\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetFocusEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IShellMenuWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetKeyEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IShellMenuWidgetItem.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetMouseEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Menus\ShellMenuWidget.h">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetCheckEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Menus\ShellMenuWidgetItem.h">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\RadioCheck.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\ButtonWidgetEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\Check.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IButtonWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\Label.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\Button.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetTextEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\EvtHandlerWrapper.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\ImageComboBox.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\TopLevelWidgets\WXUI\Common.h">
-      <Filter>kxf\UI\TopLevelWidgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\ComboBox.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\Common.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Private\WxTextEntryWrapper.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetLifetimeEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Events\ComboBoxWidgetEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetSizeEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\ProgressBar.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetDrawEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Private\WxTextCtrlWrapper.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetContextMenuEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\TextBox.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetFocusEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\StyledTextBox.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetKeyEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\ClusterMap.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\KeyCode.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Private\WidgetUtility.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\KeyboardState.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetItemEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\MouseState.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\ImageView.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetMouseEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\SearchBox.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\ICheckWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\SearchWidgetEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetCheckEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\HTMLBox.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\ILabelWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Private\WxScrolledWrapper.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\RadioCheck.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\WidgetScrollEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\Check.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\Slider.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\Label.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\StatusBarEx.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetTextEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\StatusBar.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IComboBoxWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\ImageGallery.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\ITextWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\Simplebook.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IImageComboBoxWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Private\WxBookCtrlWrapper.h">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\ImageComboBox.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Events\BookWidgetEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\ComboBox.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\TabBook.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\WxTextEntryWrapper.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\ToolBar.h">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\ComboBoxWidgetEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Events\ToolBarWidgetEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IProgressMeterWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\Button.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\ProgressBar.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\Check.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\WxTextCtrlWrapper.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\ClusterMap.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\TextBox.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\ComboBox.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\StyledTextBox.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\Common.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IStyledTextWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\HTMLBox.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\ClusterMap.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\ImageComboBox.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IClusterMapWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\ImageGallery.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IWidgetItem.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\ImageView.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\WidgetUtility.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\Label.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetItemEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\ProgressBar.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\ImageView.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\RadioCheck.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IImageViewWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\SearchBox.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\SearchBox.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\Simplebook.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\ISearchWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\Slider.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\SearchWidgetEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\StatusBar.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\HTMLBox.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\StyledTextBox.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IHTMLWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\TabBook.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Private\WxScrolledWrapper.h">
-      <Filter>kxf\UI\Private</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\TextBox.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Events\WidgetScrollEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\ToolBar.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\ISliderWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\ToolBarItem.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\Slider.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WebView.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IStatusBarWidget.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\DataView\View.h">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\StatusBarEx.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\DataView\Common.h">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\StatusBar.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\ImageGallery.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\IImageGalleryWidget.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\IWebViewWidget.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\IBookWidget.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\Simplebook.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Private\WxBookCtrlWrapper.h">
-      <Filter>kxf\UI\Private</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Events\BookWidgetEvent.h">
-      <Filter>kxf\UI\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\TabBook.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\ITabBookWidget.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\IToolBarWidget.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\IToolBarWidgetItem.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\ToolBar.h">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Events\ToolBarWidgetEvent.h">
-      <Filter>kxf\UI\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\IDataViewWidget.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\Button.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\Check.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\ClusterMap.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\ComboBox.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\Common.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\HTMLBox.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\ImageComboBox.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\ImageGallery.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\ImageView.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\Label.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\ProgressBar.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\RadioCheck.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\SearchBox.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\Simplebook.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\Slider.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\StatusBar.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\StyledTextBox.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\TabBook.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\TextBox.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\ToolBar.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\ToolBarItem.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WebView.h">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\DataView\View.h">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\DataView\Common.h">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView.h">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView.h">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Core\RecursionGuard.h">
       <Filter>kxf\Core</Filter>
@@ -2238,17 +2118,11 @@
     <ClInclude Include="kxf\Sciter\Private\Conversion.h">
       <Filter>kxf\Sciter\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IDataViewItem.h">
-      <Filter>kxf\UI</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\DataView\HeaderCtrl.h">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\IDataViewModel.h">
-      <Filter>kxf\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\DataView\HeaderCtrl.h">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\UI\Events\DataViewWidgetEvent.h">
-      <Filter>kxf\UI\Events</Filter>
+    <ClInclude Include="kxf\Widgets\Events\DataViewWidgetEvent.h">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Core\IMemoryAllocator.h">
       <Filter>kxf\Core</Filter>
@@ -2259,59 +2133,59 @@
     <ClInclude Include="kxf\Sciter\Private\Conversion.h">
       <Filter>kxf\Sciter\Private</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\DataView\MainWindow.h">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\DataView\MainWindow.h">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\WXUI\DataView\Node.h">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\WXUI\DataView\Node.h">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\CellAttributes.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\CellAttributes.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\CellEditor.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\CellEditor.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\CellRenderer.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\CellRenderer.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\CellRendererHelper.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\CellRendererHelper.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\CellState.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\CellState.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\Column.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\Column.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\Common.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\Common.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\Node.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\Node.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\Row.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\Row.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\SortMode.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\SortMode.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\ToolTip.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\ToolTip.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\CellAttributeOptions.h">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\CellAttributeOptions.h">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\Renderers\Common.h">
-      <Filter>kxf\UI\Widgets\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\Renderers\Common.h">
+      <Filter>kxf\Widgets\Widgets\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\Renderers\TextRenderer.h">
-      <Filter>kxf\UI\Widgets\DataView\Renderers</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\Renderers\TextRenderer.h">
+      <Filter>kxf\Widgets\Widgets\DataView\Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\Editors\TextBox.h">
-      <Filter>kxf\UI\Widgets\DataView\Editors</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\Editors\TextBox.h">
+      <Filter>kxf\Widgets\Widgets\DataView\Editors</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\UI\Widgets\DataView\Editors\Common.h">
-      <Filter>kxf\UI\Widgets\DataView\Editors</Filter>
+    <ClInclude Include="kxf\Widgets\Widgets\DataView\Editors\Common.h">
+      <Filter>kxf\Widgets\Widgets\DataView\Editors</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Log\ScopedLogger.h">
       <Filter>kxf\Log</Filter>
@@ -2535,6 +2409,132 @@
     <ClInclude Include="kxf\Win32\LinkLibs-COM.h">
       <Filter>kxf\Win32</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\Widgets\Common.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IBookWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IButtonWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ICheckWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IClusterMapWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IComboBoxWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IDalogWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IDataViewItem.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IDataViewModel.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IDataViewWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IGraphicsRendererAwareWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IHTMLWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IImageComboBoxWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IImageGalleryWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IImageViewWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ILabelWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IMenuWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IMenuWidgetItem.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\INativeWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IProgressMeterWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IScrollableWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ISearchWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IShellMenuWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IShellMenuWidgetItem.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ISliderWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IStatusBarWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IStyledTextWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ITabBookWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ITextWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IToolBarWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IToolBarWidgetItem.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ITopLevelWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IWebViewWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IWidget.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IWidgetEvent.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IWidgetItem.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\KeyboardState.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\KeyCode.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\MouseState.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\StdButton.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\StdIcon.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\WidgetID.h">
+      <Filter>kxf\Widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">
@@ -2723,230 +2723,230 @@
     <ClCompile Include="kxf\System\SystemProcess\CreateProcessExecutor.cpp">
       <Filter>kxf\System\SystemProcess</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\SplashWindow.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\SplashWindow.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\SplitterWindow.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\SplitterWindow.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\ToolTipEx.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\ToolTipEx.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\RichToolTip.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\RichToolTip.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\CollapsiblePane.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\CollapsiblePane.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\Panel.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\Panel.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\DrawablePanel.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\DrawablePanel.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\Frame.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\Frame.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\AUI\AuiNotebook.cpp">
-      <Filter>kxf\UI\Controls\AUI</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\AUI\AuiNotebook.cpp">
+      <Filter>kxf\Widgets\Controls\AUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\AUI\AuiToolBarEvent.cpp">
-      <Filter>kxf\UI\Controls\AUI</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\AUI\AuiToolBarEvent.cpp">
+      <Filter>kxf\Widgets\Controls\AUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\AUI\AuiToolBarItem.cpp">
-      <Filter>kxf\UI\Controls\AUI</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\AUI\AuiToolBarItem.cpp">
+      <Filter>kxf\Widgets\Controls\AUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\AUI\AuiToolBar.cpp">
-      <Filter>kxf\UI\Controls\AUI</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\AUI\AuiToolBar.cpp">
+      <Filter>kxf\Widgets\Controls\AUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\Dialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\Dialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\StdDialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\StdDialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\ComboBoxDialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\ComboBoxDialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\SimpleStdDialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\SimpleStdDialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\TextBoxDialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\TextBoxDialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\ProgressDialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\ProgressDialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\CredentialsDialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\CredentialsDialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Utility\Memory.cpp">
       <Filter>kxf\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\FileBrowseDialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\FileBrowseDialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\Private\FileBrowseDialogEvents.cpp">
-      <Filter>kxf\UI\Dialogs\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\Private\FileBrowseDialogEvents.cpp">
+      <Filter>kxf\Widgets\Dialogs\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\TaskDialog.cpp">
-      <Filter>kxf\UI\Dialogs</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\TaskDialog.cpp">
+      <Filter>kxf\Widgets\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Dialogs\Private\TaskDialogNativeInfo.cpp">
-      <Filter>kxf\UI\Dialogs\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Dialogs\Private\TaskDialogNativeInfo.cpp">
+      <Filter>kxf\Widgets\Dialogs\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\CellState.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\CellState.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Column.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Column.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Common.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Common.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\DragAndDrop.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\DragAndDrop.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Editor.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Editor.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Event.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Event.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\HeaderCtrl.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\HeaderCtrl.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\HeaderCtrl2.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\HeaderCtrl2.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\MainWindow.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\MainWindow.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Model.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Model.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Node.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Node.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\RenderEngine.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\RenderEngine.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderer.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\ToolTip.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\ToolTip.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\View.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\View.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Editors\ColorEditor.cpp">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Editors\ColorEditor.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Editors\ComboBoxEditor.cpp">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Editors\ComboBoxEditor.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Editors\DateEditor.cpp">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Editors\DateEditor.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Editors\SpinEditor.cpp">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Editors\SpinEditor.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Editors\TextEditor.cpp">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Editors\TextEditor.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Editors\TimeEditor.cpp">
-      <Filter>kxf\UI\Controls\DataView\Editors</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Editors\TimeEditor.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Editors</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\ProgressRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\ProgressRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\TextRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\TextRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\ToggleRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\ToggleRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\BitmapComboBox.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\BitmapComboBox.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\Button.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\Button.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\CheckBox.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\CheckBox.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\ClusterMap.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\ClusterMap.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\ComboBox.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\ComboBox.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\ComboControl.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\ComboControl.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataViewComboBox.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataViewComboBox.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\HTMLWindow.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\HTMLWindow.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\ImageView.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\ImageView.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\Label.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\Label.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\Notebook.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\Notebook.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\ProgressBar.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\ProgressBar.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\RadioButton.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\RadioButton.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\SearchBox.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\SearchBox.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\Simplebook.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\Simplebook.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\Slider.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\Slider.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\StaticBitmap.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\StaticBitmap.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\StaticText.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\StaticText.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\StatusBar.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\StatusBar.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\StatusBarEx.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\StatusBarEx.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\StyledTextBox.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\StyledTextBox.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\TextBox.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\TextBox.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\ThumbView.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\ThumbView.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\WebView.cpp">
-      <Filter>kxf\UI\Controls\&lt;Controls&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\WebView.cpp">
+      <Filter>kxf\Widgets\Controls\&lt;Controls&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\StdDialogButtonSizer.cpp">
-      <Filter>kxf\UI\&lt;UI&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\StdDialogButtonSizer.cpp">
+      <Filter>kxf\Widgets\&lt;UI&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Validator.cpp">
-      <Filter>kxf\UI\&lt;UI&gt;</Filter>
+    <ClCompile Include="kxf\Widgets\Validator.cpp">
+      <Filter>kxf\Widgets\&lt;UI&gt;</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\CellAttributes.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\CellAttributes.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Utility\Drawing.cpp">
       <Filter>kxf\Utility</Filter>
@@ -2971,9 +2971,6 @@
     </ClCompile>
     <ClCompile Include="kxf\System\SystemAppearance.cpp">
       <Filter>kxf\System</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Common.cpp">
-      <Filter>kxf\UI</Filter>
     </ClCompile>
     <ClCompile Include="kxf\System\DynamicLibraryEvent.cpp">
       <Filter>kxf\System</Filter>
@@ -3251,26 +3248,26 @@
     <ClCompile Include="kxf\Drawing\SVGImage.cpp">
       <Filter>kxf\Drawing</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\GDIImageListRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\GDIImageListRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\ImageListRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\ImageListRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\ImageRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\ImageRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\ImageTextRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\ImageTextRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\ImageTextToggleRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\ImageTextToggleRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\Renderers\HTMLTextRenderer.cpp">
-      <Filter>kxf\UI\Controls\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\Renderers\HTMLTextRenderer.cpp">
+      <Filter>kxf\Widgets\Controls\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Controls\DataView\SortMode.cpp">
-      <Filter>kxf\UI\Controls\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Controls\DataView\SortMode.cpp">
+      <Filter>kxf\Widgets\Controls\DataView</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Core\ErrorCode.cpp">
       <Filter>kxf\Core</Filter>
@@ -3413,287 +3410,257 @@
     <ClCompile Include="kxf\Drawing\Geometry.cpp">
       <Filter>kxf\Drawing</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\IWidget.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\TopLevelWidgets\WXUI\Frame.cpp">
+      <Filter>kxf\Widgets\TopLevelWidgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\TopLevelWidgets\WXUI\Frame.cpp">
-      <Filter>kxf\UI\TopLevelWidgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\TopLevelWidgets\Window.cpp">
+      <Filter>kxf\Widgets\TopLevelWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\TopLevelWidgets\Window.cpp">
-      <Filter>kxf\UI\TopLevelWidgets</Filter>
+    <ClCompile Include="kxf\Widgets\Private\BasicWxWidget.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\BasicWxWidget.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Private\BasicWindowWidget.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\BasicWindowWidget.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Private\BasicDialogWidget.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\IScrollableWidget.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\TopLevelWidgets\WXUI\Dialog.cpp">
+      <Filter>kxf\Widgets\TopLevelWidgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\BasicDialogWidget.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Windows\TopLevelWindow.cpp">
+      <Filter>kxf\Widgets\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\TopLevelWidgets\WXUI\Dialog.cpp">
-      <Filter>kxf\UI\TopLevelWidgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\TopLevelWidgets\Dialog.cpp">
+      <Filter>kxf\Widgets\TopLevelWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Windows\TopLevelWindow.cpp">
-      <Filter>kxf\UI\Windows</Filter>
+    <ClCompile Include="kxf\Widgets\Menus\MenuWidget.cpp">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\TopLevelWidgets\Dialog.cpp">
-      <Filter>kxf\UI\TopLevelWidgets</Filter>
+    <ClCompile Include="kxf\Widgets\Private\Common.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\StdIcon.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\Private\AnonymousNativeWindow.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Menus\MenuWidget.cpp">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClCompile Include="kxf\Widgets\Events\WidgetEvent.cpp">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\Common.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Menus\MenuWidgetItem.cpp">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\AnonymousNativeWindow.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Menus\WXUI\Menu.cpp">
+      <Filter>kxf\Widgets\Menus\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Events\WidgetEvent.cpp">
-      <Filter>kxf\UI\Events</Filter>
+    <ClCompile Include="kxf\Widgets\Menus\WXUI\MenuItem.cpp">
+      <Filter>kxf\Widgets\Menus\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Menus\MenuWidgetItem.cpp">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClCompile Include="kxf\Widgets\Menus\ShellMenuWidget.cpp">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Menus\WXUI\Menu.cpp">
-      <Filter>kxf\UI\Menus\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Menus\ShellMenuWidgetItem.cpp">
+      <Filter>kxf\Widgets\Menus</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Menus\WXUI\MenuItem.cpp">
-      <Filter>kxf\UI\Menus\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\Button.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Menus\ShellMenuWidget.cpp">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClCompile Include="kxf\Widgets\Private\EvtHandlerWrapper.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Menus\ShellMenuWidgetItem.cpp">
-      <Filter>kxf\UI\Menus</Filter>
+    <ClCompile Include="kxf\Widgets\Events\WidgetKeyEvent.cpp">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\INativeWidget.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\Events\WidgetMouseEvent.cpp">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\Button.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\Check.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\EvtHandlerWrapper.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\RadioCheck.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\KeyCode.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\Label.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Events\WidgetKeyEvent.cpp">
-      <Filter>kxf\UI\Events</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\ImageComboBox.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\KeyboardState.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\ComboBox.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\MouseState.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\Private\WxTextEntryWrapper.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Events\WidgetMouseEvent.cpp">
-      <Filter>kxf\UI\Events</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\ProgressBar.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\Check.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Private\WxTextCtrlWrapper.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\RadioCheck.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\TextBox.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\Label.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\StyledTextBox.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\ImageComboBox.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\ClusterMap.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\ComboBox.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\ImageView.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\WxTextEntryWrapper.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\SearchBox.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\ProgressBar.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\HTMLBox.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\WxTextCtrlWrapper.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Private\WxScrolledWrapper.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\TextBox.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\Slider.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\StyledTextBox.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\StatusBarEx.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\ClusterMap.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\StatusBar.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\IMenuWidgetItem.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\ImageGallery.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\ImageView.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\Simplebook.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\SearchBox.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Private\WxBookCtrlWrapper.cpp">
+      <Filter>kxf\Widgets\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\HTMLBox.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\TabBook.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\WxScrolledWrapper.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\ToolBar.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\Slider.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\Button.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\StatusBarEx.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\Check.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\StatusBar.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\ClusterMap.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\ImageGallery.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\ComboBox.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\Simplebook.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\HTMLBox.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Private\WxBookCtrlWrapper.cpp">
-      <Filter>kxf\UI\Private</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\ImageComboBox.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\TabBook.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\ImageGallery.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\IToolBarWidgetItem.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\ImageView.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\ToolBar.cpp">
-      <Filter>kxf\UI\Widgets\WXUI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\Label.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\Button.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\ProgressBar.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\Check.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\RadioCheck.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\ClusterMap.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\SearchBox.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\ComboBox.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\Simplebook.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\HTMLBox.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\Slider.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\ImageComboBox.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\StatusBar.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\ImageGallery.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\StyledTextBox.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\ImageView.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\TabBook.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\Label.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\TextBox.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\ProgressBar.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\ToolBar.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\RadioCheck.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\SearchBox.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\Simplebook.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\Slider.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\StatusBar.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\StyledTextBox.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\TabBook.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\TextBox.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\ToolBar.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\ToolBarItem.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\ToolBarItem.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Core\StupidMemoryAllocator.cpp">
       <Filter>kxf\Core</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WebView.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WebView.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\DataView\View.cpp">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\DataView\View.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView.cpp">
-      <Filter>kxf\UI\Widgets</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView.cpp">
+      <Filter>kxf\Widgets\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\DataView\HeaderCtrl.cpp">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\DataView\HeaderCtrl.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Events\DataViewWidgetEvent.cpp">
-      <Filter>kxf\UI\Events</Filter>
+    <ClCompile Include="kxf\Widgets\Events\DataViewWidgetEvent.cpp">
+      <Filter>kxf\Widgets\Events</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\DataView\MainWindow.cpp">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\DataView\MainWindow.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\WXUI\DataView\Node.cpp">
-      <Filter>kxf\UI\Widgets\WXUI\DataView</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\UI\IDataViewModel.cpp">
-      <Filter>kxf\UI</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\WXUI\DataView\Node.cpp">
+      <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Sciter\Private\Conversion.cpp">
       <Filter>kxf\Sciter\Private</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\CellEditor.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\CellEditor.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\CellRenderer.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\CellRenderer.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\CellRendererHelper.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\CellRendererHelper.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\CellState.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\CellState.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\Column.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\Column.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\Node.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\Node.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\SortMode.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\SortMode.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\ToolTip.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\ToolTip.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\CellAttributes.cpp">
-      <Filter>kxf\UI\Widgets\DataView</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\CellAttributes.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\Renderers\TextRenderer.cpp">
-      <Filter>kxf\UI\Widgets\DataView\Renderers</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\Renderers\TextRenderer.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\UI\Widgets\DataView\Editors\TextBox.cpp">
-      <Filter>kxf\UI\Widgets\DataView\Editors</Filter>
+    <ClCompile Include="kxf\Widgets\Widgets\DataView\Editors\TextBox.cpp">
+      <Filter>kxf\Widgets\Widgets\DataView\Editors</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Log\ScopedLogger.cpp">
       <Filter>kxf\Log</Filter>
@@ -3826,6 +3793,39 @@
     </ClCompile>
     <ClCompile Include="kxf\+PCH\kxf-pch.cpp">
       <Filter>kxf/+PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\Common.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IDataViewModel.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IMenuWidgetItem.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\INativeWidget.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IScrollableWidget.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IToolBarWidgetItem.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IWidget.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\KeyboardState.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\KeyCode.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\MouseState.cpp">
+      <Filter>kxf\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\StdIcon.cpp">
+      <Filter>kxf\Widgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

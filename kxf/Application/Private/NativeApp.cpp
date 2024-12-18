@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "NativeApp.h"
-#include "kxf/UI/ITopLevelWidget.h"
-#include "kxf/UI/Private/Common.h"
+#include "kxf/Widgets/ITopLevelWidget.h"
+#include "kxf/Widgets/Private/Common.h"
 
 namespace kxf::Application::Private
 {

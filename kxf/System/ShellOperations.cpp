@@ -12,7 +12,7 @@
 #include "kxf/Core/Any.h"
 #include "kxf/Network/URI.h"
 #include "kxf/Drawing/GDIRenderer/GDIIcon.h"
-#include "kxf/UI/Common.h"
+#include "kxf/Widgets/Common.h"
 #include "kxf/Utility/Common.h"
 #include "kxf/Utility/String.h"
 #include "kxf/Utility/ScopeGuard.h"

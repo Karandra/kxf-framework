@@ -6,8 +6,8 @@
 #include "kxf/System/SystemInformation.h"
 #include "kxf/System/SystemAppearance.h"
 #include "kxf/wxWidgets/Application.h"
-#include "kxf/UI/ITopLevelWidget.h"
-#include "kxf/UI/Private/Common.h"
+#include "kxf/Widgets/ITopLevelWidget.h"
+#include "kxf/Widgets/Private/Common.h"
 #include "kxf/Utility/Container.h"
 #include <uxtheme.h>
 

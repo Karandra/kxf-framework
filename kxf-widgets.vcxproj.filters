@@ -13,6 +13,12 @@
     <Filter Include="kxf-widgets/+PCH">
       <UniqueIdentifier>{41eede33-8691-4162-8bf6-d3e5c13b4a89}</UniqueIdentifier>
     </Filter>
+    <Filter Include="kxf">
+      <UniqueIdentifier>{812f2850-62b2-4811-8e4b-38c01a243edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\Widgets">
+      <UniqueIdentifier>{2755de8f-e362-42c8-9f87-08c3dcde4972}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kxf-widgets\pch.hpp">

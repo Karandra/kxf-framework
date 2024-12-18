@@ -4,7 +4,7 @@
 #include "GDIBrush.h"
 #include "Private/GDI.h"
 #include "kxf/Core/Private/Mapping.h"
-#include "kxf/UI/Common.h"
+#include "kxf/Widgets/Common.h"
 #include "../AffineMatrix.h"
 #include "../Private/Common.h"
 #include <wx/dc.h>

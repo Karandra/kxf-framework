@@ -8,4 +8,3 @@
 #include "kxf/EventSystem/IEventLoop.h"
 #include "kxf/EventSystem/IEventFilter.h"
 #include "kxf/RTTI/RTTI.h"
-#include "kxf/UI/Common.h"

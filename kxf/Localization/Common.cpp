@@ -2,7 +2,7 @@
 #include "Common.h"
 #include "Locale.h"
 #include "ILocalizationPackage.h"
-#include "kxf/UI/WidgetID.h"
+#include "kxf/Widgets/WidgetID.h"
 #include "kxf/Core/Enumerator.h"
 #include "kxf/System/DynamicLibrary.h"
 #include "kxf/wxWidgets/StandardLocalization.h"
