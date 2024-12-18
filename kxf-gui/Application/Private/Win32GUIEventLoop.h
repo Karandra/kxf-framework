@@ -1,6 +1,6 @@
 #pragma once
 #include "../Common.h"
-#include "Win32CommonEventLoop.h"
+#include "kxf/Application/Private/Win32CommonEventLoop.h"
 class wxWindow;
 
 namespace kxf::EventSystem::Private

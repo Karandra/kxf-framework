@@ -1,6 +1,7 @@
 #pragma once
 #include "../Common.h"
 #include "kxf/Utility/Container.h"
+class wxWindow;
 
 namespace kxf::Application::Private
 {
@@ -14,7 +15,7 @@ namespace kxf::Application::Private
 namespace kxf::Application::Private
 {
 	template<class TContainer>
-	bool IsWindowInContainer(const TContainer& container, wxWindow& window)
+	bool IsWindowInContainer(const TContainer& container, wxWindow& window) noexcept
 	{
 		return kxf::Utility::Container::Contains(container, [&](const auto& item)
 		{

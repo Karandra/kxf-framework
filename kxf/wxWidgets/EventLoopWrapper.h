@@ -1,7 +1,7 @@
 #pragma once
-#include "kxf/EventSystem/IEventLoop.h"
-#include "kxf/RTTI/RTTI.h"
+#include "kxf/Application/IEventLoop.h"
 #include "kxf/Core/OptionalPtr.h"
+#include "kxf/RTTI/RTTI.h"
 #include <wx/evtloop.h>
 
 namespace kxf::wxWidgets

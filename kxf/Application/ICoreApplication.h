@@ -1,9 +1,9 @@
 #pragma once
 #include "Common.h"
+#include "IEventLoop.h"
 #include "kxf/EventSystem/IEvtHandler.h"
 #include "kxf/FileSystem/FSActionEvent.h"
 #include "kxf/Localization/ILocalizationPackage.h"
-class wxCmdLineParser;
 
 namespace kxf
 {

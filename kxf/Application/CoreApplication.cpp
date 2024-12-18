@@ -1,12 +1,12 @@
 #include "kxf-pch.h"
 #include "CoreApplication.h"
-#include "Private/NativeApp.h"
 #include "Private/Utility.h"
+#include "Private/NativeApp.h"
+#include "Private/Win32ConsoleEventLoop.h"
+#include "kxf/Core/Enumerator.h"
 #include "kxf/Log/ScopedLogger.h"
-#include "kxf/EventSystem/Private/Win32ConsoleEventLoop.h"
 #include "kxf/EventSystem/IEventExecutor.h"
 #include "kxf/EventSystem/IdleEvent.h"
-#include "kxf/Core/Enumerator.h"
 #include "kxf/System/NativeAPI.h"
 #include "kxf/System/NtStatus.h"
 #include "kxf/System/DynamicLibrary.h"
@@ -448,7 +448,7 @@ namespace kxf
 		m_ActiveEventLoop = eventLoop;
 		if (eventLoop)
 		{
-			wxEventLoopBase::SetActive(&eventLoop->GetWxLoop());
+			wxEventLoopBase::SetActive(static_cast<wxEventLoopBase*>(eventLoop->GetHandle()));
 			IActiveEventLoop::CallOnEnterEventLoop(*eventLoop);
 		}
 	}

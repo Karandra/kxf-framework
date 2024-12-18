@@ -4,7 +4,7 @@
 
 namespace
 {
-	size_t g_EventLoopCount = 0;
+	std::atomic<size_t> g_EventLoopCount = 0;
 }
 
 namespace kxf

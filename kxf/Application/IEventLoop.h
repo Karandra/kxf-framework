@@ -2,7 +2,6 @@
 #include "Common.h"
 #include "kxf/RTTI/RTTI.h"
 #include "kxf/Core/DateTime/TimeSpan.h"
-class wxEventLoopBase;
 
 /*
 	NOTE ABOUT IEventLoop::YieldFor LOGIC
@@ -82,8 +81,7 @@ namespace kxf
 		public:
 			bool IsMain() const;
 			bool IsRunning() const;
-
-			virtual wxEventLoopBase& GetWxLoop() = 0;
+			virtual void* GetHandle() const = 0;
 
 			virtual int Run() = 0;
 			virtual void Exit(int exitCode = 0) = 0;

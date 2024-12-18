@@ -1,6 +1,8 @@
 #include "kxf-pch.h"
 #include "Win32ConsoleEventLoop.h"
+
 #include <Windows.h>
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::EventSystem::Private
 {

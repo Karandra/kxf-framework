@@ -1,6 +1,6 @@
 #pragma once
-#include "Common.h"
-#include "IEventLoop.h"
+#include "../Common.h"
+#include "kxf/Application/IEventLoop.h"
 #include "kxf/wxWidgets/EventLoopWrapper.h"
 
 namespace kxf
@@ -49,9 +49,9 @@ namespace kxf
 			}
 
 			// IEventLoop
-			wxEventLoopBase& GetWxLoop() override
+			void* GetHandle() const override
 			{
-				return m_WxEventLoop;
+				return static_cast<wxEventLoopBase*>(&m_WxEventLoop);
 			}
 
 			int Run() override;
@@ -59,7 +59,6 @@ namespace kxf
 			void ScheduleExit(int exitCode = 0) override;
 
 			bool DispatchIdle() override;
-
 			bool IsYielding() const override
 			{
 				return m_YieldLevel != 0;

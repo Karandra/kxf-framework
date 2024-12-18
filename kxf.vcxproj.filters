@@ -1053,26 +1053,11 @@
     <ClInclude Include="kxf\EventSystem\EvtHandlerDelegate.h">
       <Filter>kxf\EventSystem</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\EventSystem\IEventLoop.h">
-      <Filter>kxf\EventSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\EventSystem\CommonEventLoop.h">
-      <Filter>kxf\EventSystem</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Threading\SynchronizedCondition.h">
       <Filter>kxf\Threading</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\EventSystem\Private\Win32GUIEventLoop.h">
-      <Filter>kxf\EventSystem\Private</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\wxWidgets\EventLoopWrapper.h">
       <Filter>kxf\wxWidgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\EventSystem\Private\Win32ConsoleEventLoop.h">
-      <Filter>kxf\EventSystem\Private</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\EventSystem\Private\Win32CommonEventLoop.h">
-      <Filter>kxf\EventSystem\Private</Filter>
     </ClInclude>
     <ClInclude Include="kxf\EventSystem\ActivateEvent.h">
       <Filter>kxf\EventSystem\&lt;Events&gt;</Filter>
@@ -1090,9 +1075,6 @@
       <Filter>kxf\Application</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Application\CoreApplication.h">
-      <Filter>kxf\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Application\GUIApplication.h">
       <Filter>kxf\Application</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Application\ICoreApplication.h">
@@ -1977,9 +1959,6 @@
     <ClInclude Include="kxf\Core\StupidMemoryAllocator.h">
       <Filter>kxf\Core</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Sciter\Private\Conversion.h">
-      <Filter>kxf\Sciter\Private</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Widgets\Widgets\WXUI\DataView\MainWindow.h">
       <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClInclude>
@@ -2387,6 +2366,18 @@
     </ClInclude>
     <ClInclude Include="kxf\Widgets\IWidgetItem.h">
       <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Application\Private\Win32CommonEventLoop.h">
+      <Filter>kxf\Application\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Application\Private\Win32ConsoleEventLoop.h">
+      <Filter>kxf\Application\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Application\Private\CommonEventLoop.h">
+      <Filter>kxf\Application\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Application\IEventLoop.h">
+      <Filter>kxf\Application</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2864,31 +2855,13 @@
     <ClCompile Include="kxf\Threading\Common.cpp">
       <Filter>kxf\Threading</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\EventSystem\IEventLoop.cpp">
-      <Filter>kxf\EventSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\EventSystem\CommonEventLoop.cpp">
-      <Filter>kxf\EventSystem</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Threading\SynchronizedCondition.cpp">
       <Filter>kxf\Threading</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\EventSystem\Private\Win32GUIEventLoop.cpp">
-      <Filter>kxf\EventSystem\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\EventSystem\Private\Win32ConsoleEventLoop.cpp">
-      <Filter>kxf\EventSystem\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\EventSystem\Private\Win32CommonEventLoop.cpp">
-      <Filter>kxf\EventSystem\Private</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Application\ApplicationInitializer.cpp">
       <Filter>kxf\Application</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Application\CoreApplication.cpp">
-      <Filter>kxf\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Application\GUIApplication.cpp">
       <Filter>kxf\Application</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Application\ICoreApplication.cpp">
@@ -3598,6 +3571,18 @@
     </ClCompile>
     <ClCompile Include="kxf\Widgets\IWidget.cpp">
       <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Application\Private\Win32CommonEventLoop.cpp">
+      <Filter>kxf\Application\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Application\Private\Win32ConsoleEventLoop.cpp">
+      <Filter>kxf\Application\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Application\Private\CommonEventLoop.cpp">
+      <Filter>kxf\Application\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Application\IEventLoop.cpp">
+      <Filter>kxf\Application</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

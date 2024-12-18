@@ -55,6 +55,12 @@
     <Filter Include="kxf-gui/&lt;Modules&gt;">
       <UniqueIdentifier>{916829f1-4a51-4891-9918-1b9723789c5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="kxf-gui\Application">
+      <UniqueIdentifier>{13f57d0a-8330-4569-b8bf-03bb07e12281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Application\Private">
+      <UniqueIdentifier>{880b094e-6512-4b1f-9dc2-d4d2059a3fcb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kxf-gui\pch.hpp">
@@ -186,6 +192,15 @@
     <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\Common.h">
       <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
     </ClInclude>
+    <ClInclude Include="kxf-gui\Application\GUIApplication.h">
+      <Filter>kxf-gui\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Application\Common.h">
+      <Filter>kxf-gui\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Application\Private\Win32GUIEventLoop.h">
+      <Filter>kxf-gui\Application\Private</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf-gui\+PCH\kxf-pch.cpp">
@@ -265,6 +280,12 @@
     </ClCompile>
     <ClCompile Include="kxf-gui\Sciter\Private\Conversion.cpp">
       <Filter>kxf-gui\Sciter\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Application\GUIApplication.cpp">
+      <Filter>kxf-gui\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Application\Private\Win32GUIEventLoop.cpp">
+      <Filter>kxf-gui\Application\Private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

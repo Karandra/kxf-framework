@@ -174,6 +174,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="kxf-gui\+PCH\kxf-pch.h" />
+    <ClInclude Include="kxf-gui\Application\Common.h" />
+    <ClInclude Include="kxf-gui\Application\GUIApplication.h" />
+    <ClInclude Include="kxf-gui\Application\Private\Win32GUIEventLoop.h" />
     <ClInclude Include="kxf-gui\Common.hpp" />
     <ClInclude Include="kxf-gui\pch.hpp" />
     <ClInclude Include="kxf-gui\Sciter\Common.h" />
@@ -226,6 +229,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="kxf-gui\Application\GUIApplication.cpp" />
+    <ClCompile Include="kxf-gui\Application\Private\Win32GUIEventLoop.cpp" />
     <ClCompile Include="kxf-gui\Sciter\Common.cpp" />
     <ClCompile Include="kxf-gui\Sciter\Controls\Label.cpp" />
     <ClCompile Include="kxf-gui\Sciter\Element.cpp" />

@@ -1,14 +1,14 @@
 #include "kxf-pch.h"
 #include "GUIApplication.h"
-#include "Private/Utility.h"
-#include "Private/NativeApp.h"
-#include "kxf/EventSystem/Private/Win32GUIEventLoop.h"
+#include "kxf/Application/Private/Utility.h"
+#include "kxf/Application/Private/NativeApp.h"
 #include "kxf/System/SystemInformation.h"
 #include "kxf/System/SystemAppearance.h"
 #include "kxf/wxWidgets/Application.h"
 #include "kxf/Widgets/ITopLevelWidget.h"
 #include "kxf/Widgets/Private/Common.h"
 #include "kxf/Utility/Container.h"
+#include "Private/Win32GUIEventLoop.h"
 #include <uxtheme.h>
 
 namespace kxf
