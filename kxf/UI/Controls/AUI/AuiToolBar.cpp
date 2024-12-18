@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "AuiToolBar.h"
 #include <wx/wupdlock.h>
 #include <wx/dc.h>

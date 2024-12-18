@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "IToolBarWidgetItem.h"
 #include "IToolBarWidget.h"
 

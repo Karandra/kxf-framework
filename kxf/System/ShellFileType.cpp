@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "ShellFileType.h"
 #include "ShellFileTypeManager.h"
 #include "Registry.h"

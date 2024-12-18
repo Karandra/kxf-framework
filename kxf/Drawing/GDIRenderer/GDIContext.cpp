@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "GDIContext.h"
 #include <wx/msw/dc.h>
 

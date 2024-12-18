@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "SearchBox.h"
 #include "../../Events/SearchWidgetEvent.h"
 

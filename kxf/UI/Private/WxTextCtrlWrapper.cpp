@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "WxTextCtrlWrapper.h"
 #include <wx/textctrl.h>
 #include <CommCtrl.h>

@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "EventID.h"
 #include <wx/event.h>
 

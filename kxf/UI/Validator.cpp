@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "Validator.h"
 #include <wx/spinctrl.h>
 #include "kxf/System/UndefWindows.h"

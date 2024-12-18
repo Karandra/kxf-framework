@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "SVGImageHandler.h"
 #include "../SVGImage.h"
 #include "../BitmapImage.h"

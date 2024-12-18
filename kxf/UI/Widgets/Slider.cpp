@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "Slider.h"
 #include "WXUI/Slider.h"
 

@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "KeyboardState.h"
 #include <wx/kbdstate.h>
 #include <wx/utils.h>

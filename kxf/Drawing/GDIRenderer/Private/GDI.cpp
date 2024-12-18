@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "GDI.h"
 #include "../GDIBitmap.h"
 #include <Windows.h>

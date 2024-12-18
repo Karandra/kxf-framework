@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "StatusBarEx.h"
 #include "kxf/Drawing/GDIRenderer/UxTheme.h"
 #include "kxf/Drawing/GDIRenderer/Private/UxThemeDefines.h"

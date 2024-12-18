@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "StdIcon.h"
 #include <wx/defs.h>
 

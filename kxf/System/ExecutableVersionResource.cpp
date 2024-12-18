@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "ExecutableVersionResource.h"
 #include <Windows.h>
 #include "UndefWindows.h"

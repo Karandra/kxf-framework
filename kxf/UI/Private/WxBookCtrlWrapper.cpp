@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "WxBookCtrlWrapper.h"
 #include "../IWidget.h"
 #include <wx/bookctrl.h>

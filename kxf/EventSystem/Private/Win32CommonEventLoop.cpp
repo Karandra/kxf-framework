@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "Win32CommonEventLoop.h"
 #include "kxf/Application/ICoreApplication.h"
 #include "kxf/Log/ScopedLogger.h"

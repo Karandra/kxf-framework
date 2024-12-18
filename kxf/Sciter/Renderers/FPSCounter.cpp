@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "FPSCounter.h"
 
 namespace kxf::Sciter

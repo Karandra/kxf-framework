@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "BasicWindowWidget.h"
 #include "kxf/Drawing/GDIRenderer/GDIIcon.h"
 #include <wx/window.h>

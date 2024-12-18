@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "WxTextEntryWrapper.h"
 #include <wx/textentry.h>
 

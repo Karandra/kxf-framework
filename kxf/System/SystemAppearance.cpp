@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "SystemAppearance.h"
 #include <wx/settings.h>
 

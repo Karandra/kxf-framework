@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "BitmapComboBox.h"
 #include <CommCtrl.h>
 #include "kxf/System/UndefWindows.h"

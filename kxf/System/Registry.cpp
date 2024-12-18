@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "Registry.h"
 #include "kxf/Utility/Common.h"
 #include "kxf/Utility/String.h"

@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "Common.h"
 #include "../ImageDefines.h"
 #include <wx/pen.h>

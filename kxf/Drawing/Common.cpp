@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "Common.h"
 #include "IImageHandler.h"
 #include "BitmapImage.h"

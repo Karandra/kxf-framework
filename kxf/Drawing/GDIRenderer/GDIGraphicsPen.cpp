@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "GDIGraphicsPen.h"
 #include "../BitmapImage.h"
 #include "../GraphicsRenderer/IGraphicsBrush.h"

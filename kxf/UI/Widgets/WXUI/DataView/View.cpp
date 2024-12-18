@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "View.h"
 #include "HeaderCtrl.h"
 #include "MainWindow.h"

@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "StreamReaderWriter.h"
 #include <wx/string.h>
 #include <wx/ustring.h>

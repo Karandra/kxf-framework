@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "Geometry.h"
 #include <wx/gdicmn.h>
 #include <wx/geometry.h>

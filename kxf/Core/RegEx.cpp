@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "RegEx.h"
 #include "kxf/wxWidgets/String.h"
 #include <wx/regex.h>

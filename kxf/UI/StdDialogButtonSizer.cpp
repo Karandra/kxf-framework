@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "StdDialogButtonSizer.h"
 #include "kxf/Localization/Common.h"
 #include "kxf/Core/Private/Mapping.h"

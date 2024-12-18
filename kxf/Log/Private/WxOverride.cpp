@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "WxOverride.h"
 #include "../Categories.h"
 #include "kxf/Application/ICoreApplication.h"

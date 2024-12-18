@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "StyledTextBox.h"
 #include <Scintilla\Scintilla.h>
 #include <Scintilla\Sci_Position.h>

@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "StatusBar.h"
 #include "WXUI/StatusBarEx.h"
 #include "kxf/Drawing/GraphicsRenderer.h"

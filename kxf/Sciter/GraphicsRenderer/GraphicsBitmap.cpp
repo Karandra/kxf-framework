@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "GraphicsBitmap.h"
 #include "GraphicsContext.h"
 #include "kxf/Sciter/ScriptValue.h"

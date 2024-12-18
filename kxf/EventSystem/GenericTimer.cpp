@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "GenericTimer.h"
 #include <wx/timer.h>
 

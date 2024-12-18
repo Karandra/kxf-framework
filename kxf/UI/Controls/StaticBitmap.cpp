@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "StaticBitmap.h"
 #include "kxf/Drawing/BitmapImage.h"
 #include "kxf/Drawing/GDIRenderer/UxTheme.h"

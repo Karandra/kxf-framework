@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "UxTheme.h"
 #include "GDIContext.h"
 #include "GDIAction.h"

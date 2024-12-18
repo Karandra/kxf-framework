@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "AuiToolBarItem.h"
 #include "AuiToolBar.h"
 #include "kxf/Utility/Common.h"

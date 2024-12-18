@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "DPIAwareness.h"
 #include "NativeAPI.h"
 #include <Windows.h>

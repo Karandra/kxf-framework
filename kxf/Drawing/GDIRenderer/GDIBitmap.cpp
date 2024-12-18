@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "GDIBitmap.h"
 #include "GDICursor.h"
 #include "GDIIcon.h"

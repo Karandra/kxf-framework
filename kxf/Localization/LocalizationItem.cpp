@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "LocalizationItem.h"
 #include "ILocalizationPackage.h"
 #include "Locale.h"

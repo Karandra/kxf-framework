@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "SplashWindow.h"
 #include "kxf/System/SystemWindow.h" 
 #include "kxf/Drawing/GDIRenderer/GDIMemoryContext.h"

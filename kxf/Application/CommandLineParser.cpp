@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "CommandLineParser.h"
 #include "kxf/Utility/Enumerator.h"
 #include "kxf/wxWidgets/Setup.h"

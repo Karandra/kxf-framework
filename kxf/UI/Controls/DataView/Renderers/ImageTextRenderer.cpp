@@ -1,4 +1,4 @@
-#include "KxfPCH.h"
+#include "kxf-pch.h"
 #include "ImageTextRenderer.h"
 #include "TextRenderer.h"
 #include "ImageRenderer.h"
