@@ -3,3 +3,4 @@
 #include <d3d11_2.h>
 #include <d2d1_2.h>
 #include <d2d1_2helper.h>
+#include <dcomp.h>

@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="kxf">
+      <UniqueIdentifier>{812f2850-62b2-4811-8e4b-38c01a243edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\Widgets">
+      <UniqueIdentifier>{2755de8f-e362-42c8-9f87-08c3dcde4972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui">
+      <UniqueIdentifier>{b754c7f1-7cfc-4648-b498-fd9750d8b242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter">
+      <UniqueIdentifier>{0cf734de-67c8-4fe1-9e88-c766c531833e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Windows">
+      <UniqueIdentifier>{85b95b57-0a22-4538-9d9f-8975a75e50bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Controls">
+      <UniqueIdentifier>{18ebb7b1-36c3-485d-89d2-bbe020454403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Events">
+      <UniqueIdentifier>{bcba1f1c-bc0c-436e-871d-b7c7eddf2bf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Renderers">
+      <UniqueIdentifier>{8f2eb50c-b50a-48ab-92c0-a063885e0742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Widgets">
+      <UniqueIdentifier>{ca6c3369-614f-463a-ab7e-5624991cebf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Widgets\Native">
+      <UniqueIdentifier>{85f9a038-298f-4e3a-99a4-d683e24411eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\GraphicsRenderer">
+      <UniqueIdentifier>{5a4a796d-8bda-4beb-9cee-d4309c868f24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Utility">
+      <UniqueIdentifier>{a03e6b8a-de2d-48bb-90ad-5e4c0a9e17e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Stylesheets">
+      <UniqueIdentifier>{b133c335-1cbe-4479-87de-0b2f047bdbaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Sciter\Private">
+      <UniqueIdentifier>{45440e6a-b6da-4d73-a229-ea5e6bb77fc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui\Widgets">
+      <UniqueIdentifier>{c0770dea-ef81-44d9-a317-8a8ca014630c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui/+PCH">
+      <UniqueIdentifier>{41eede33-8691-4162-8bf6-d3e5c13b4a89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui/+Resources">
+      <UniqueIdentifier>{0ca53471-4645-42d9-a8a6-7201d33f4451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-gui/&lt;Modules&gt;">
+      <UniqueIdentifier>{916829f1-4a51-4891-9918-1b9723789c5a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kxf-gui\pch.hpp">
+      <Filter>kxf-gui</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Common.hpp">
+      <Filter>kxf-gui</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\+PCH\kxf-pch.h">
+      <Filter>kxf-gui/+PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Common.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\CommonDefs.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Element.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\EventDispatcher.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\IWindowRenderer.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\SciterAPI.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Host.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Node.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\ScriptValue.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Widget.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\WidgetFactory.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\WrapperWindow.h">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Controls\Label.h">
+      <Filter>kxf-gui\Sciter\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\BehaviorEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\SciterEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\FocusEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\KeyEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\MouseEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\PaintEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\ScrollEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\SizeEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Events\TimerEvent.h">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Renderers\DirectX.h">
+      <Filter>kxf-gui\Sciter\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Renderers\FPSCounter.h">
+      <Filter>kxf-gui\Sciter\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Widgets\Common.h">
+      <Filter>kxf-gui\Sciter\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Widgets\NativeWidget.h">
+      <Filter>kxf-gui\Sciter\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Widgets\TextBoxWidget.h">
+      <Filter>kxf-gui\Sciter\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Widgets\Native\Common.h">
+      <Filter>kxf-gui\Sciter\Widgets\Native</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Widgets\Native\TextBoxWidget.h">
+      <Filter>kxf-gui\Sciter\Widgets\Native</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsBitmap.h">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsContext.h">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsPath.h">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsText.h">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Utility\HandleWrapper.h">
+      <Filter>kxf-gui\Sciter\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Stylesheets\MasterStylesheetStorage.h">
+      <Filter>kxf-gui\Sciter\Stylesheets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Stylesheets\StylesheetStorage.h">
+      <Filter>kxf-gui\Sciter\Stylesheets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Private\Conversion.h">
+      <Filter>kxf-gui\Sciter\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\Controls\Common.h">
+      <Filter>kxf-gui\Sciter\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\Common.h">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="kxf-gui\+PCH\kxf-pch.cpp">
+      <Filter>kxf-gui/+PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Common.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Element.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\EventDispatcher.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Host.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\IWindowRenderer.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Node.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\SciterAPI.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\ScriptValue.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Widget.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\WidgetFactory.cpp">
+      <Filter>kxf-gui\Sciter</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Controls\Label.cpp">
+      <Filter>kxf-gui\Sciter\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Events\SciterEvent.cpp">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Events\PaintEvent.cpp">
+      <Filter>kxf-gui\Sciter\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Renderers\DirectX.cpp">
+      <Filter>kxf-gui\Sciter\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Renderers\FPSCounter.cpp">
+      <Filter>kxf-gui\Sciter\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Widgets\NativeWidget.cpp">
+      <Filter>kxf-gui\Sciter\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Widgets\TextBoxWidget.cpp">
+      <Filter>kxf-gui\Sciter\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Widgets\Native\TextBoxWidget.cpp">
+      <Filter>kxf-gui\Sciter\Widgets\Native</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsBitmap.cpp">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsContext.cpp">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsPath.cpp">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsText.cpp">
+      <Filter>kxf-gui\Sciter\GraphicsRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Stylesheets\MasterStylesheetStorage.cpp">
+      <Filter>kxf-gui\Sciter\Stylesheets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Stylesheets\StylesheetStorage.cpp">
+      <Filter>kxf-gui\Sciter\Stylesheets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Private\Conversion.cpp">
+      <Filter>kxf-gui\Sciter\Private</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kxf-gui\Sciter\Widgets\TextBoxWidget.css">
+      <Filter>kxf-gui\Sciter\Widgets</Filter>
+    </None>
+    <None Include="kxf-gui\Sciter\Widgets\Native\TextBoxWidget.css">
+      <Filter>kxf-gui\Sciter\Widgets\Native</Filter>
+    </None>
+    <None Include="kxf-gui\Sciter\Stylesheets\MasterStylesheet.css">
+      <Filter>kxf-gui\Sciter\Stylesheets</Filter>
+    </None>
+  </ItemGroup>
+</Project>

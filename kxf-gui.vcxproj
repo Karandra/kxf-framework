@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release MT|Win32">
+      <Configuration>Release MT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release MT|x64">
+      <Configuration>Release MT</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{4DA13401-93D5-4E1F-980D-3E1746D44131}</ProjectGuid>
+    <RootNamespace>kxf</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <OverrideVcpkgTriplet>false</OverrideVcpkgTriplet>
+    <OverrideVcpkgTripletName>none</OverrideVcpkgTripletName>
+    <ProjectName>kxf-gui</ProjectName>
+    <EnableStdModules>false</EnableStdModules>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)'=='Debug'">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)'=='Release'">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release MT'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IntDir>$(ProjectDir)Junk\[$(ProjectName)] $(Configuration) $(Platform)\</IntDir>
+    <OutDir>$(ProjectDir)Build\$(Configuration) $(Platform)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>true</VcpkgEnabled>
+    <VcpkgEnableManifest>false</VcpkgEnableManifest>
+  </PropertyGroup>
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+    <ClCompile>
+      <PreprocessorDefinitions>KXF_DYNAMIC_LIBRARY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(ConfigurationType)'=='StaticLibrary'">
+    <ClCompile>
+      <PreprocessorDefinitions>KXF_STATIC_LIBRARY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>kxf-pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)kxf-gui\+PCH\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;KXF_LIBRARY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <SetChecksum>true</SetChecksum>
+      <ShowProgress>NotSet</ShowProgress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release MT'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="kxf-gui\+PCH\kxf-pch.h" />
+    <ClInclude Include="kxf-gui\Common.hpp" />
+    <ClInclude Include="kxf-gui\pch.hpp" />
+    <ClInclude Include="kxf-gui\Sciter\Common.h" />
+    <ClInclude Include="kxf-gui\Sciter\CommonDefs.h" />
+    <ClInclude Include="kxf-gui\Sciter\Controls\Common.h" />
+    <ClInclude Include="kxf-gui\Sciter\Controls\Label.h" />
+    <ClInclude Include="kxf-gui\Sciter\Element.h" />
+    <ClInclude Include="kxf-gui\Sciter\EventDispatcher.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\BehaviorEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\FocusEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\KeyEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\MouseEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\PaintEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\SciterEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\ScrollEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\SizeEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\Events\TimerEvent.h" />
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\Common.h" />
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsBitmap.h" />
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsContext.h" />
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsPath.h" />
+    <ClInclude Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsText.h" />
+    <ClInclude Include="kxf-gui\Sciter\Host.h" />
+    <ClInclude Include="kxf-gui\Sciter\IWindowRenderer.h" />
+    <ClInclude Include="kxf-gui\Sciter\Node.h" />
+    <ClInclude Include="kxf-gui\Sciter\Private\Conversion.h" />
+    <ClInclude Include="kxf-gui\Sciter\Renderers\DirectX.h" />
+    <ClInclude Include="kxf-gui\Sciter\Renderers\FPSCounter.h" />
+    <ClInclude Include="kxf-gui\Sciter\SciterAPI.h" />
+    <ClInclude Include="kxf-gui\Sciter\ScriptValue.h" />
+    <ClInclude Include="kxf-gui\Sciter\Stylesheets\MasterStylesheetStorage.h" />
+    <ClInclude Include="kxf-gui\Sciter\Stylesheets\StylesheetStorage.h" />
+    <ClInclude Include="kxf-gui\Sciter\Utility\HandleWrapper.h" />
+    <ClInclude Include="kxf-gui\Sciter\Widget.h" />
+    <ClInclude Include="kxf-gui\Sciter\WidgetFactory.h" />
+    <ClInclude Include="kxf-gui\Sciter\Widgets\Common.h" />
+    <ClInclude Include="kxf-gui\Sciter\Widgets\NativeWidget.h" />
+    <ClInclude Include="kxf-gui\Sciter\Widgets\Native\Common.h" />
+    <ClInclude Include="kxf-gui\Sciter\Widgets\Native\TextBoxWidget.h" />
+    <ClInclude Include="kxf-gui\Sciter\Widgets\TextBoxWidget.h" />
+    <ClInclude Include="kxf-gui\Sciter\WrapperWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="kxf-gui\+PCH\kxf-pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\Sciter\Common.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Controls\Label.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Element.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\EventDispatcher.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Events\PaintEvent.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Events\SciterEvent.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsBitmap.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsContext.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsPath.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\GraphicsRenderer\GraphicsText.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Host.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\IWindowRenderer.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Node.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Private\Conversion.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Renderers\DirectX.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Renderers\FPSCounter.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\SciterAPI.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\ScriptValue.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Stylesheets\MasterStylesheetStorage.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Stylesheets\StylesheetStorage.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Widget.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\WidgetFactory.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Widgets\NativeWidget.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Widgets\Native\TextBoxWidget.cpp" />
+    <ClCompile Include="kxf-gui\Sciter\Widgets\TextBoxWidget.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kxf-gui\Sciter\Stylesheets\MasterStylesheet.css" />
+    <None Include="kxf-gui\Sciter\Widgets\Native\TextBoxWidget.css" />
+    <None Include="kxf-gui\Sciter\Widgets\TextBoxWidget.css" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

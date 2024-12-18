@@ -16,30 +16,6 @@
     <Filter Include="kxf\RTTI">
       <UniqueIdentifier>{9f4d2d8d-8aa1-4b1f-a11f-51ca03f6bba8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\Sciter">
-      <UniqueIdentifier>{d52584cf-315c-4912-80d6-95b031065ed1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\Windows">
-      <UniqueIdentifier>{651bbcaa-5289-4581-90c4-73dc49119514}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\Controls">
-      <UniqueIdentifier>{aacb0ec0-4f97-43ee-a76e-16f29cea9351}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\Events">
-      <UniqueIdentifier>{49eb5c51-d7e1-45ec-9167-7e05b2a547ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\Renderers">
-      <UniqueIdentifier>{79730e57-63ef-4d10-a119-9ef02463b0b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\Widgets">
-      <UniqueIdentifier>{7a7710b7-f10d-4cdd-aab6-3deb50927777}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\GraphicsRenderer">
-      <UniqueIdentifier>{d79eb026-949d-4566-8c1b-6a403a1f46f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\Utility">
-      <UniqueIdentifier>{8e318e71-b1be-4b4e-9f7b-d62888b30ea5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="kxf\FileSystem">
       <UniqueIdentifier>{a95e1a0b-7728-4fee-bdea-a3a34c440c70}</UniqueIdentifier>
     </Filter>
@@ -157,12 +133,6 @@
     <Filter Include="kxf\Application\Private">
       <UniqueIdentifier>{3db6fd7c-0ce9-430a-951d-f57a0c9b7fad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\Sciter\Stylesheets">
-      <UniqueIdentifier>{5c5f8f81-ece7-4b8a-96cd-53b99fc483d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\Widgets\Native">
-      <UniqueIdentifier>{a7015761-4f49-4b33-99bd-265506c83557}</UniqueIdentifier>
-    </Filter>
     <Filter Include="kxf\Log">
       <UniqueIdentifier>{3e786109-f51a-4653-8566-c33d43e122c7}</UniqueIdentifier>
     </Filter>
@@ -234,9 +204,6 @@
     </Filter>
     <Filter Include="kxf\Widgets\Private">
       <UniqueIdentifier>{033972eb-2a62-4706-a4e8-26049721ba7f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Sciter\Private">
-      <UniqueIdentifier>{b0ab3bd5-4e6f-4296-a285-093c14d4f95b}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\Widgets\Widgets\WXUI\DataView">
       <UniqueIdentifier>{281218eb-fa59-41b4-a3f6-efd6ff75528d}</UniqueIdentifier>
@@ -322,6 +289,9 @@
     <Filter Include="kxf\Win32">
       <UniqueIdentifier>{f222d3d1-6cba-4032-8f79-16757a424297}</UniqueIdentifier>
     </Filter>
+    <Filter Include="kxf\Widgets\&lt;Interfaces&gt;">
+      <UniqueIdentifier>{785ae21c-967e-4234-b341-9a3ea8b2f2f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kxf\Threading\Common.h">
@@ -348,95 +318,8 @@
     <ClInclude Include="kxf\RTTI\Common.h">
       <Filter>kxf\RTTI</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Sciter\Common.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Node.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Element.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Controls\Label.h">
-      <Filter>kxf\Sciter\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Host.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\WrapperWindow.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\SciterAPI.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\KeyEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\MouseEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\FocusEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\TimerEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\SizeEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\ScrollEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\PaintEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\BehaviorEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\IWindowRenderer.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Renderers\DirectX.h">
-      <Filter>kxf\Sciter\Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Renderers\FPSCounter.h">
-      <Filter>kxf\Sciter\Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Widget.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\EventSystem\EventHandlerStack.h">
       <Filter>kxf\EventSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\EventDispatcher.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\CommonDefs.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\WidgetFactory.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\ScriptValue.h">
-      <Filter>kxf\Sciter</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\GraphicsRenderer\GraphicsBitmap.h">
-      <Filter>kxf\Sciter\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\GraphicsRenderer\GraphicsText.h">
-      <Filter>kxf\Sciter\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Utility\HandleWrapper.h">
-      <Filter>kxf\Sciter\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\GraphicsRenderer\GraphicsPath.h">
-      <Filter>kxf\Sciter\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\GraphicsRenderer\GraphicsContext.h">
-      <Filter>kxf\Sciter\GraphicsRenderer</Filter>
     </ClInclude>
     <ClInclude Include="kxf\FileSystem\FSPath.h">
       <Filter>kxf\FileSystem</Filter>
@@ -631,9 +514,6 @@
       <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\RTTI.hpp">
-      <Filter>kxf/&lt;Modules&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter.hpp">
       <Filter>kxf/&lt;Modules&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\System.hpp">
@@ -1299,32 +1179,8 @@
     <ClInclude Include="kxf\Localization\WindowsLocalizationPackage.h">
       <Filter>kxf\Localization</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Sciter\Events\SciterEvent.h">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Widgets\NativeWidget.h">
-      <Filter>kxf\Sciter\Widgets</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Core\OptionalPtr.h">
       <Filter>kxf\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Widgets\Native\TextBoxWidget.h">
-      <Filter>kxf\Sciter\Widgets\Native</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Widgets\Native\Common.h">
-      <Filter>kxf\Sciter\Widgets\Native</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Stylesheets\StylesheetStorage.h">
-      <Filter>kxf\Sciter\Stylesheets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Stylesheets\MasterStylesheetStorage.h">
-      <Filter>kxf\Sciter\Stylesheets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Widgets\TextBoxWidget.h">
-      <Filter>kxf\Sciter\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Sciter\Widgets\Common.h">
-      <Filter>kxf\Sciter\Widgets</Filter>
     </ClInclude>
     <ClInclude Include="kxf\RTTI\IID.h">
       <Filter>kxf\RTTI</Filter>
@@ -2109,9 +1965,6 @@
     <ClInclude Include="kxf\Widgets\Widgets\DataView.h">
       <Filter>kxf\Widgets\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Sciter\Private\Conversion.h">
-      <Filter>kxf\Sciter\Private</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Widgets\Widgets\WXUI\DataView\HeaderCtrl.h">
       <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClInclude>
@@ -2406,111 +2259,6 @@
     <ClInclude Include="kxf\Widgets\Common.h">
       <Filter>kxf\Widgets</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Widgets\IBookWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IButtonWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\ICheckWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IClusterMapWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IComboBoxWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IDalogWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IDataViewItem.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IDataViewModel.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IDataViewWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IGraphicsRendererAwareWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IHTMLWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IImageComboBoxWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IImageGalleryWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IImageViewWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\ILabelWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IMenuWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IMenuWidgetItem.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\INativeWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IProgressMeterWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IScrollableWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\ISearchWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IShellMenuWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IShellMenuWidgetItem.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\ISliderWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IStatusBarWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IStyledTextWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\ITabBookWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\ITextWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IToolBarWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IToolBarWidgetItem.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\ITopLevelWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IWebViewWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IWidget.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IWidgetEvent.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Widgets\IWidgetItem.h">
-      <Filter>kxf\Widgets</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Widgets\WidgetID.h">
       <Filter>kxf\Widgets</Filter>
     </ClInclude>
@@ -2535,67 +2283,118 @@
     <ClInclude Include="kxf\Utility\RecursionGuard.h">
       <Filter>kxf\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\Widgets\IBookWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IButtonWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ICheckWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IClusterMapWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IComboBoxWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IDalogWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IDataViewItem.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IDataViewModel.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IDataViewWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IGraphicsRendererAwareWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IHTMLWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IImageComboBoxWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IImageGalleryWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IImageViewWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ILabelWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IMenuWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IMenuWidgetItem.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\INativeWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IProgressMeterWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IScrollableWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ISearchWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IShellMenuWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IShellMenuWidgetItem.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ISliderWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IStatusBarWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IStyledTextWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ITabBookWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ITextWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IToolBarWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IToolBarWidgetItem.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\ITopLevelWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IWebViewWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IWidget.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IWidgetEvent.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Widgets\IWidgetItem.h">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">
       <Filter>kxf\EventSystem</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Sciter\Node.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Element.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Controls\Label.cpp">
-      <Filter>kxf\Sciter\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Host.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Common.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\SciterAPI.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\IWindowRenderer.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Renderers\DirectX.cpp">
-      <Filter>kxf\Sciter\Renderers</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Renderers\FPSCounter.cpp">
-      <Filter>kxf\Sciter\Renderers</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Widget.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\EventSystem\EventHandlerStack.cpp">
       <Filter>kxf\EventSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\EventDispatcher.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\WidgetFactory.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\ScriptValue.cpp">
-      <Filter>kxf\Sciter</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\GraphicsRenderer\GraphicsBitmap.cpp">
-      <Filter>kxf\Sciter\GraphicsRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\GraphicsRenderer\GraphicsText.cpp">
-      <Filter>kxf\Sciter\GraphicsRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\GraphicsRenderer\GraphicsPath.cpp">
-      <Filter>kxf\Sciter\GraphicsRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\GraphicsRenderer\GraphicsContext.cpp">
-      <Filter>kxf\Sciter\GraphicsRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Events\PaintEvent.cpp">
-      <Filter>kxf\Sciter\Events</Filter>
     </ClCompile>
     <ClCompile Include="kxf\FileSystem\FSPath.cpp">
       <Filter>kxf\FileSystem</Filter>
@@ -3119,24 +2918,6 @@
     <ClCompile Include="kxf\Localization\ILocalizationPackage.cpp">
       <Filter>kxf\Localization</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Sciter\Events\SciterEvent.cpp">
-      <Filter>kxf\Sciter\Events</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Widgets\NativeWidget.cpp">
-      <Filter>kxf\Sciter\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Widgets\Native\TextBoxWidget.cpp">
-      <Filter>kxf\Sciter\Widgets\Native</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Stylesheets\StylesheetStorage.cpp">
-      <Filter>kxf\Sciter\Stylesheets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Stylesheets\MasterStylesheetStorage.cpp">
-      <Filter>kxf\Sciter\Stylesheets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Sciter\Widgets\TextBoxWidget.cpp">
-      <Filter>kxf\Sciter\Widgets</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\IO\IStream.cpp">
       <Filter>kxf\IO</Filter>
     </ClCompile>
@@ -3623,9 +3404,6 @@
     <ClCompile Include="kxf\Widgets\Widgets\WXUI\DataView\Node.cpp">
       <Filter>kxf\Widgets\Widgets\WXUI\DataView</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Sciter\Private\Conversion.cpp">
-      <Filter>kxf\Sciter\Private</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Widgets\Widgets\DataView\CellEditor.cpp">
       <Filter>kxf\Widgets\Widgets\DataView</Filter>
     </ClCompile>
@@ -3794,24 +3572,6 @@
     <ClCompile Include="kxf\Widgets\Common.cpp">
       <Filter>kxf\Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Widgets\IDataViewModel.cpp">
-      <Filter>kxf\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Widgets\IMenuWidgetItem.cpp">
-      <Filter>kxf\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Widgets\INativeWidget.cpp">
-      <Filter>kxf\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Widgets\IScrollableWidget.cpp">
-      <Filter>kxf\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Widgets\IToolBarWidgetItem.cpp">
-      <Filter>kxf\Widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Widgets\IWidget.cpp">
-      <Filter>kxf\Widgets</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\wxWidgets\ConstantsMapping.cpp">
       <Filter>kxf\wxWidgets</Filter>
     </ClCompile>
@@ -3821,19 +3581,28 @@
     <ClCompile Include="kxf\Core\MouseState.cpp">
       <Filter>kxf\Core</Filter>
     </ClCompile>
+    <ClCompile Include="kxf\Widgets\IDataViewModel.cpp">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IMenuWidgetItem.cpp">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\INativeWidget.cpp">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IScrollableWidget.cpp">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IToolBarWidgetItem.cpp">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Widgets\IWidget.cpp">
+      <Filter>kxf\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="kxf\System\Private\ErrorCodeNtStatus.i">
       <Filter>kxf\System\Private</Filter>
-    </None>
-    <None Include="kxf\Sciter\Widgets\Native\TextBoxWidget.css">
-      <Filter>kxf\Sciter\Widgets\Native</Filter>
-    </None>
-    <None Include="kxf\Sciter\Stylesheets\MasterStylesheet.css">
-      <Filter>kxf\Sciter\Stylesheets</Filter>
-    </None>
-    <None Include="kxf\Sciter\Widgets\TextBoxWidget.css">
-      <Filter>kxf\Sciter\Widgets</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

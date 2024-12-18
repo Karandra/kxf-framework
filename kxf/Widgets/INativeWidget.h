@@ -28,6 +28,7 @@ namespace kxf
 		kxf_RTTI_DeclareIID(INativeWidget, {0xffedb80, 0x1a2e, 0x48e7, {0xbe, 0x29, 0x98, 0x16, 0x65, 0x5b, 0x32, 0xb}});
 
 		public:
+			// Signals
 			void OnMessageProcessed(void* handle, uint32_t messageID, intptr_t result);
 
 		public:

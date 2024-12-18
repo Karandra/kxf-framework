@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf", "kxf.vcxproj", "{157D
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf-shared", "kxf-shared\kxf-shared.vcxitems", "{39004F32-FBCE-4091-862A-D29848625D1F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf-widgets", "kxf-widgets.vcxproj", "{4DA13401-93D5-4E1F-980D-3E1746D44131}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf-gui", "kxf-gui.vcxproj", "{4DA13401-93D5-4E1F-980D-3E1746D44131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
