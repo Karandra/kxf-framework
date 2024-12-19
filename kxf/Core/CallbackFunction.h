@@ -20,6 +20,9 @@ namespace kxf
 		template<class... Args_>
 		friend class CallbackFunction;
 
+		template<class T>
+		friend class CallbackResult;
+
 		private:
 			std::array<size_t, 3> m_Counters;
 			CallbackCommand m_LastCommand = CallbackCommand::None;
@@ -75,6 +78,11 @@ namespace kxf
 
 		public:
 			CallbackResult() noexcept = default;
+			CallbackResult(CallbackCommand command, T result)
+				:m_Result(std::move(result))
+			{
+				m_State.UpdateWith(command);
+			}
 			CallbackResult(CallbackFunctionState state, T result)
 				:m_State(std::move(state)), m_Result(std::move(result))
 			{
@@ -93,6 +101,10 @@ namespace kxf
 			CallbackFunctionState GetState() const noexcept
 			{
 				return m_State;
+			}
+			CallbackCommand GetLastCommand() const noexcept
+			{
+				return m_State.m_LastCommand;
 			}
 			size_t GetCount() const noexcept
 			{
@@ -127,6 +139,10 @@ namespace kxf
 
 		public:
 			CallbackResult() noexcept = default;
+			CallbackResult(CallbackCommand command)
+			{
+				m_State.UpdateWith(command);
+			}
 			CallbackResult(CallbackFunctionState state) noexcept
 				:m_State(std::move(state))
 			{
@@ -141,6 +157,10 @@ namespace kxf
 			CallbackFunctionState GetState() const noexcept
 			{
 				return m_State;
+			}
+			CallbackCommand GetLastCommand() const noexcept
+			{
+				return m_State.m_LastCommand;
 			}
 			size_t GetCount() const noexcept
 			{
