@@ -1,9 +1,9 @@
 #pragma once
 #include "Common.h"
-#include "../BitmapImage.h"
 #include "IGDIObject.h"
 #include "GDIBitmap.h"
 #include "GDIIcon.h"
+#include "../BitmapImage.h"
 #include "kxf/System/COM.h"
 #include <wx/imaglist.h>
 struct IImageList2;
@@ -53,7 +53,7 @@ namespace kxf
 			// IGDIObject
 			bool IsNull() const override;
 			bool IsSameAs(const IGDIObject& other) const override;
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override;
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override;
 
 			void* GetHandle() const override;
 			void* DetachHandle() override;

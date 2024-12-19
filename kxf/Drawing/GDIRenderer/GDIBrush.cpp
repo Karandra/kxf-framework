@@ -1,7 +1,8 @@
 #include "kxf-pch.h"
 #include "GDIBrush.h"
+#include "GDIBitmap.h"
 #include "Private/GDI.h"
-#include "../Private/Common.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 
 namespace
 {
@@ -26,6 +27,11 @@ namespace
 
 namespace kxf
 {
+	GDIBrush::GDIBrush(const GDIBitmap& stippleBitmap)
+		:m_Brush(stippleBitmap.ToWxBitmap())
+	{
+	}
+
 	// IGDIObject
 	void* GDIBrush::GetHandle() const
 	{
@@ -108,7 +114,7 @@ namespace kxf
 							refData->m_colour = Color::FromCOLORREF(brushInfo.lbColor);
 							if (brushInfo.lbStyle == BS_HATCHED)
 							{
-								refData->m_style = static_cast<wxBrushStyle>(Drawing::Private::MapNativeHatchStyle(static_cast<int>(brushInfo.lbHatch)));
+								refData->m_style = static_cast<wxBrushStyle>(wxWidgets::MapNativeHatchStyle(static_cast<int>(brushInfo.lbHatch)));
 							}
 							else
 							{
@@ -129,6 +135,31 @@ namespace kxf
 			// Delete the handle if we can't attach it
 			::DeleteObject(handle);
 		}
+	}
+
+	// GDIBrush
+	GDIBitmap GDIBrush::GetStipple() const
+	{
+		const wxBitmap* stipple = m_Brush.GetStipple();
+		if (stipple && stipple->IsOk())
+		{
+			return *stipple;
+		}
+		return {};
+	}
+	void GDIBrush::SetStipple(const GDIBitmap& stipple)
+	{
+		m_Brush.SetStipple(stipple.ToWxBitmap());
+		m_Brush.SetStyle(wxBRUSHSTYLE_STIPPLE);
+	}
+
+	HatchStyle GDIBrush::GetHatchStyle() const
+	{
+		return wxWidgets::MapHatchStyle(static_cast<wxHatchStyle>(m_Brush.GetStyle()));
+	}
+	void GDIBrush::SetHatchStyle(HatchStyle style)
+	{
+		m_Brush.SetStyle(static_cast<wxBrushStyle>(wxWidgets::MapHatchStyle(style)));
 	}
 }
 

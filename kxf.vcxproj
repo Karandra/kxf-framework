@@ -228,7 +228,6 @@
     <ClInclude Include="kxf\Core\Private\ErrorCode.h" />
     <ClInclude Include="kxf\Core\Private\Format.h" />
     <ClInclude Include="kxf\Core\Private\FormatQtStyle.h" />
-    <ClInclude Include="kxf\Core\Private\Mapping.h" />
     <ClInclude Include="kxf\Core\Private\String.h" />
     <ClInclude Include="kxf\Core\Private\StringFormatters.h" />
     <ClInclude Include="kxf\Core\StandardAllocator.h" />
@@ -276,7 +275,6 @@
     <ClInclude Include="kxf\Drawing\GDIRenderer\GDIPen.h" />
     <ClInclude Include="kxf\Drawing\GDIRenderer\IGDIObject.h" />
     <ClInclude Include="kxf\Drawing\GDIRenderer\Private\GDI.h" />
-    <ClInclude Include="kxf\Drawing\GDIRenderer\Private\UxThemeDefines.h" />
     <ClInclude Include="kxf\Drawing\GDIRenderer\UxTheme.h" />
     <ClInclude Include="kxf\Drawing\Geometry.h" />
     <ClInclude Include="kxf\Drawing\GradientStops.h" />
@@ -307,8 +305,6 @@
     <ClInclude Include="kxf\Drawing\ImageDefines.h" />
     <ClInclude Include="kxf\Drawing\IBitmapImage.h" />
     <ClInclude Include="kxf\Drawing\IRendererNative.h" />
-    <ClInclude Include="kxf\Drawing\Private\Common.h" />
-    <ClInclude Include="kxf\Drawing\Private\Defines.h" />
     <ClInclude Include="kxf\Drawing\Private\SVGImageHandler.h" />
     <ClInclude Include="kxf\Drawing\SizeRatio.h" />
     <ClInclude Include="kxf\Drawing\IVectorImage.h" />
@@ -506,6 +502,7 @@
     <ClInclude Include="kxf\Utility\SoftwareLicenseDB.h" />
     <ClInclude Include="kxf\Win32\Include-DirectX.h" />
     <ClInclude Include="kxf\Win32\Include-Shell.h" />
+    <ClInclude Include="kxf\Win32\Include-GUI.h" />
     <ClInclude Include="kxf\Win32\LinkLibs-COM.h" />
     <ClInclude Include="kxf\Win32\LinkLibs-Crypto.h" />
     <ClInclude Include="kxf\Win32\LinkLibs-DirectX.h" />
@@ -526,7 +523,9 @@
     <ClInclude Include="kxf\wxWidgets\EventWrapper.h" />
     <ClInclude Include="kxf\wxWidgets\EvtHandlerWrapper.h" />
     <ClInclude Include="kxf\wxWidgets\IWithEvent.h" />
+    <ClInclude Include="kxf\wxWidgets\MapCore.h" />
     <ClInclude Include="kxf\wxWidgets\MapDateTime.h" />
+    <ClInclude Include="kxf\wxWidgets\MapDrawing.h" />
     <ClInclude Include="kxf\wxWidgets\RTTI.h" />
     <ClInclude Include="kxf\wxWidgets\StandardLocalization.h" />
     <ClInclude Include="kxf\wxWidgets\StreamWrapper.h" />
@@ -680,7 +679,6 @@
     <ClCompile Include="kxf\Core\MouseState.cpp" />
     <ClCompile Include="kxf\Core\Private\ErrorCode.cpp" />
     <ClCompile Include="kxf\Core\Private\Format.cpp" />
-    <ClCompile Include="kxf\Core\Private\Mapping.cpp" />
     <ClCompile Include="kxf\Core\StandardAllocator.cpp" />
     <ClCompile Include="kxf\Core\UniChar.cpp" />
     <ClCompile Include="kxf\Crypto\HashValue.cpp" />
@@ -690,11 +688,9 @@
     <ClCompile Include="kxf\DateTime\TimeClock.cpp" />
     <ClCompile Include="kxf\DateTime\TimeSpan.cpp" />
     <ClCompile Include="kxf\DateTime\TimeZone.cpp" />
-    <ClCompile Include="kxf\Drawing\AffineMatrix.cpp" />
     <ClCompile Include="kxf\Drawing\ArtProvider.cpp" />
     <ClCompile Include="kxf\Drawing\Color.cpp" />
     <ClCompile Include="kxf\Drawing\Font.cpp" />
-    <ClCompile Include="kxf\Drawing\FontMetrics.cpp" />
     <ClCompile Include="kxf\Drawing\GDIRenderer\GDIBitmap.cpp" />
     <ClCompile Include="kxf\Drawing\GDIRenderer\GDIBrush.cpp" />
     <ClCompile Include="kxf\Drawing\GDIRenderer\GDIAction.cpp" />
@@ -721,12 +717,12 @@
     <ClCompile Include="kxf\Drawing\ImageBundle.cpp" />
     <ClCompile Include="kxf\Drawing\ImageDefines.cpp" />
     <ClCompile Include="kxf\Drawing\IRendererNative.cpp" />
-    <ClCompile Include="kxf\Drawing\Private\Common.cpp" />
     <ClCompile Include="kxf\Drawing\Private\SVGImageHandler.cpp" />
     <ClCompile Include="kxf\Drawing\SizeRatio.cpp" />
     <ClCompile Include="kxf\Drawing\SVGImage.cpp" />
     <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsContext.cpp" />
     <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsFont.cpp" />
+    <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsPath.cpp" />
     <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsPen.cpp" />
     <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsRenderer.cpp" />
     <ClCompile Include="kxf\EventSystem\BasicEvent.cpp" />
@@ -833,6 +829,8 @@
     <ClCompile Include="kxf\Utility\Memory.cpp" />
     <ClCompile Include="kxf\Utility\SoftwareLicenseDB.cpp" />
     <ClCompile Include="kxf\wxWidgets\MapConstants.cpp" />
+    <ClCompile Include="kxf\wxWidgets\MapCore.cpp" />
+    <ClCompile Include="kxf\wxWidgets\MapDrawing.cpp" />
     <ClCompile Include="kxf\wxWidgets\StandardLocalization.cpp" />
     <ClCompile Include="kxf\wxWidgets\StreamWrapper.cpp" />
     <ClCompile Include="kxf\Compression\LZ4Stream.cpp" />

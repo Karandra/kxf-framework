@@ -152,9 +152,9 @@ namespace kxf
 
 		public:
 			// IGDIObject
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIGraphicsSolidBrush>(*this);
+				return std::make_shared<GDIGraphicsSolidBrush>(*this);
 			}
 
 			// IGraphicsObject
@@ -183,9 +183,9 @@ namespace kxf
 
 		public:
 			// IGDIObject
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIGraphicsHatchBrush>(*this);
+				return std::make_shared<GDIGraphicsHatchBrush>(*this);
 			}
 
 			// IGraphicsObject
@@ -246,9 +246,9 @@ namespace kxf
 
 		public:
 			// IGDIObject
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIGraphicsTextureBrush>(*this);
+				return std::make_shared<GDIGraphicsTextureBrush>(*this);
 			}
 
 			// IGraphicsObject
@@ -305,9 +305,9 @@ namespace kxf
 
 		public:
 			// IGDIObject
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIGraphicsLinearGradientBrush>(*this);
+				return std::make_shared<GDIGraphicsLinearGradientBrush>(*this);
 			}
 
 			// IGraphicsObject
@@ -375,9 +375,9 @@ namespace kxf
 
 		public:
 			// IGDIObject
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIGraphicsRadialGradientBrush>(*this);
+				return std::make_shared<GDIGraphicsRadialGradientBrush>(*this);
 			}
 
 			// IGraphicsObject

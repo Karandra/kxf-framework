@@ -906,9 +906,6 @@
     <ClInclude Include="kxf\Drawing\FontMetrics.h">
       <Filter>kxf\Drawing</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Drawing\Private\Common.h">
-      <Filter>kxf\Drawing\Private</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Drawing\GDIRenderer\GDIAction.h">
       <Filter>kxf\Drawing\GDIRenderer</Filter>
     </ClInclude>
@@ -1049,9 +1046,6 @@
     </ClInclude>
     <ClInclude Include="kxf\Drawing\IImageHandler.h">
       <Filter>kxf\Drawing</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\Private\Defines.h">
-      <Filter>kxf\Drawing\Private</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Utility\ScopeGuard.h">
       <Filter>kxf\Utility</Filter>
@@ -1275,9 +1269,6 @@
     <ClInclude Include="kxf\Drawing\GDIRenderer\UxTheme.h">
       <Filter>kxf\Drawing\GDIRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\Private\UxThemeDefines.h">
-      <Filter>kxf\Drawing\GDIRenderer\Private</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Drawing\IRendererNative.h">
       <Filter>kxf\Drawing</Filter>
     </ClInclude>
@@ -1424,9 +1415,6 @@
     </ClInclude>
     <ClInclude Include="kxf\wxWidgets\StringFormatters.h">
       <Filter>kxf\wxWidgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Core\Private\Mapping.h">
-      <Filter>kxf\Core\Private</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Core\Async\Coroutine.h">
       <Filter>kxf\Core\Async</Filter>
@@ -1585,6 +1573,15 @@
       <Filter>kxf\wxWidgets</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Win32\Include-Shell.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\wxWidgets\MapDrawing.h">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\wxWidgets\MapCore.h">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\Include-GUI.h">
       <Filter>kxf\Win32</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1892,9 +1889,6 @@
     <ClCompile Include="kxf\Drawing\ArtProvider.cpp">
       <Filter>kxf\Drawing</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Drawing\Private\Common.cpp">
-      <Filter>kxf\Drawing\Private</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Drawing\GDIRenderer\GDIAction.cpp">
       <Filter>kxf\Drawing\GDIRenderer</Filter>
     </ClCompile>
@@ -2084,12 +2078,6 @@
     <ClCompile Include="kxf\Application\CommandLineParser.cpp">
       <Filter>kxf\Application</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Drawing\AffineMatrix.cpp">
-      <Filter>kxf\Drawing</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\FontMetrics.cpp">
-      <Filter>kxf\Drawing</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Drawing\GDIRenderer\UxTheme.cpp">
       <Filter>kxf\Drawing\GDIRenderer</Filter>
     </ClCompile>
@@ -2216,9 +2204,6 @@
     <ClCompile Include="kxf\System\SystemWindow\SystemWindow.cpp">
       <Filter>kxf\System\SystemWindow</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Core\Private\Mapping.cpp">
-      <Filter>kxf\Core\Private</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Drawing\ImageDefines.cpp">
       <Filter>kxf\Drawing</Filter>
     </ClCompile>
@@ -2284,6 +2269,15 @@
     </ClCompile>
     <ClCompile Include="kxf\System\SystemWindow\AnonymousSystemWindow.cpp">
       <Filter>kxf\System\SystemWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\wxWidgets\MapDrawing.cpp">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\wxWidgets\MapCore.cpp">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsPath.cpp">
+      <Filter>kxf\Drawing\WxRenderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

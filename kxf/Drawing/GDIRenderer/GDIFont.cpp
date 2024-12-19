@@ -1,6 +1,7 @@
 #include "kxf-pch.h"
 #include "GDIFont.h"
 #include "../Font.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 #include <wx/fontutil.h>
 
 namespace
@@ -16,14 +17,27 @@ namespace
 
 namespace kxf
 {
+	FontEncoding GDIFont::GetDefaultEncoding() noexcept
+	{
+		return wxWidgets::MapFontEncoding(wxFont::GetDefaultEncoding());
+	}
+	void GDIFont::SetDefaultEncoding(FontEncoding encoding) noexcept
+	{
+		wxFont::SetDefaultEncoding(wxWidgets::MapFontEncoding(encoding));
+	}
+	int GDIFont::GetNumericWeightOf(FontWeight weight) noexcept
+	{
+		return wxFont::GetNumericWeightOf(wxWidgets::MapFontWeight(weight));
+	}
+
 	GDIFont::GDIFont(const Font& other)
 		:m_Font(other.GetPointSize(),
-				Drawing::Private::MapFontFamily(other.GetFamily()),
-				Drawing::Private::MapFontStyle(other.GetStyle()),
-				Drawing::Private::MapFontWeight(other.GetWeight()),
+				wxWidgets::MapFontFamily(other.GetFamily()),
+				wxWidgets::MapFontStyle(other.GetStyle()),
+				wxWidgets::MapFontWeight(other.GetWeight()),
 				other.GetStyle().Contains(FontStyle::Underline),
 				other.GetFaceName(),
-				Drawing::Private::MapFontEncoding(other.GetEncoding())
+				wxWidgets::MapFontEncoding(other.GetEncoding())
 		)
 	{
 		m_Font.SetFractionalPointSize(other.GetPointSize());

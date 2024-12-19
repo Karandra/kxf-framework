@@ -1,8 +1,8 @@
 #pragma once
 #include "Common.h"
 #include "IGDIObject.h"
-#include "../Private/Common.h"
 #include <wx/font.h>
+#include "kxf/wxWidgets/MapDrawing.h"
 
 namespace kxf
 {
@@ -16,19 +16,10 @@ namespace kxf
 		kxf_RTTI_DeclareIID(GDIFont, {0xbeb3a65c, 0xf639, 0x4e44, {0x80, 0x3a, 0x1b, 0x53, 0xf6, 0x9c, 0x61, 0xd8}});
 
 		public:
-			static FontEncoding GetDefaultEncoding() noexcept
-			{
-				return Drawing::Private::MapFontEncoding(wxFont::GetDefaultEncoding());
-			}
-			static void SetDefaultEncoding(FontEncoding encoding) noexcept
-			{
-				wxFont::SetDefaultEncoding(Drawing::Private::MapFontEncoding(encoding));
-			}
+			static FontEncoding GetDefaultEncoding() noexcept;
+			static void SetDefaultEncoding(FontEncoding encoding) noexcept;
 
-			static int GetNumericWeightOf(FontWeight weight) noexcept
-			{
-				return wxFont::GetNumericWeightOf(Drawing::Private::MapFontWeight(weight));
-			}
+			static int GetNumericWeightOf(FontWeight weight) noexcept;
 
 		private:
 			wxFont m_Font;
@@ -46,13 +37,13 @@ namespace kxf
 			}
 
 			GDIFont(float pointSize, FontFamily family, FlagSet<FontStyle> style, FontWeight weight, const String& faceName = {}, FontEncoding encoding = FontEncoding::Default)
-				:m_Font(static_cast<int>(pointSize), Drawing::Private::MapFontFamily(family), Drawing::Private::MapFontStyle(style), Drawing::Private::MapFontWeight(weight), style.Contains(FontStyle::Underline), faceName, Drawing::Private::MapFontEncoding(encoding))
+				:m_Font(static_cast<int>(pointSize), wxWidgets::MapFontFamily(family), wxWidgets::MapFontStyle(style), wxWidgets::MapFontWeight(weight), style.Contains(FontStyle::Underline), faceName, wxWidgets::MapFontEncoding(encoding))
 			{
 				m_Font.SetFractionalPointSize(static_cast<double>(pointSize));
 				m_Font.SetStrikethrough(style.Contains(FontStyle::Strikethrough));
 			}
 			GDIFont(const Size& pixelSize, FontFamily family, FlagSet<FontStyle> style, FontWeight weight, const String& faceName = {}, FontEncoding encoding = FontEncoding::Default)
-				:m_Font(pixelSize, Drawing::Private::MapFontFamily(family), Drawing::Private::MapFontStyle(style), Drawing::Private::MapFontWeight(weight), style.Contains(FontStyle::Underline), faceName, Drawing::Private::MapFontEncoding(encoding))
+				:m_Font(pixelSize, wxWidgets::MapFontFamily(family), wxWidgets::MapFontStyle(style), wxWidgets::MapFontWeight(weight), style.Contains(FontStyle::Underline), faceName, wxWidgets::MapFontEncoding(encoding))
 			{
 				m_Font.SetStrikethrough(style.Contains(FontStyle::Strikethrough));
 			}
@@ -77,9 +68,9 @@ namespace kxf
 				}
 				return false;
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIFont>(m_Font);
+				return std::make_shared<GDIFont>(m_Font);
 			}
 
 			void* GetHandle() const override;
@@ -143,11 +134,11 @@ namespace kxf
 
 			void SetSymbolicSize(FontSymbolicSize size)
 			{
-				m_Font.SetSymbolicSize(Drawing::Private::MapFontSymbolicSize(size));
+				m_Font.SetSymbolicSize(wxWidgets::MapFontSymbolicSize(size));
 			}
 			void SetSymbolicSizeRelativeTo(FontSymbolicSize size, int base)
 			{
-				m_Font.SetSymbolicSizeRelativeTo(Drawing::Private::MapFontSymbolicSize(size), base);
+				m_Font.SetSymbolicSizeRelativeTo(wxWidgets::MapFontSymbolicSize(size), base);
 			}
 			void ScaleSzie(double scale)
 			{
@@ -156,25 +147,25 @@ namespace kxf
 
 			FontEncoding GetEncoding() const
 			{
-				return Drawing::Private::MapFontEncoding(m_Font.GetEncoding());
+				return wxWidgets::MapFontEncoding(m_Font.GetEncoding());
 			}
 			void SetEncoding(FontEncoding encoding)
 			{
-				m_Font.SetEncoding(Drawing::Private::MapFontEncoding(encoding));
+				m_Font.SetEncoding(wxWidgets::MapFontEncoding(encoding));
 			}
 
 			FontFamily GetFamily() const
 			{
-				return Drawing::Private::MapFontFamily(m_Font.GetFamily());
+				return wxWidgets::MapFontFamily(m_Font.GetFamily());
 			}
 			void SetFamily(FontFamily family)
 			{
-				m_Font.SetFamily(Drawing::Private::MapFontFamily(family));
+				m_Font.SetFamily(wxWidgets::MapFontFamily(family));
 			}
 
 			FlagSet<FontStyle> GetStyle() const
 			{
-				auto style = Drawing::Private::MapFontStyle(m_Font.GetStyle());
+				auto style = wxWidgets::MapFontStyle(m_Font.GetStyle());
 				style.Add(FontStyle::Underline, m_Font.GetUnderlined());
 				style.Add(FontStyle::Strikethrough, m_Font.GetStrikethrough());
 
@@ -182,7 +173,7 @@ namespace kxf
 			}
 			void SetStyle(FlagSet<FontStyle> style)
 			{
-				m_Font.SetStyle(Drawing::Private::MapFontStyle(style));
+				m_Font.SetStyle(wxWidgets::MapFontStyle(style));
 				m_Font.SetUnderlined(style.Contains(FontStyle::Underline));
 				m_Font.SetStrikethrough(style.Contains(FontStyle::Strikethrough));
 			}
@@ -197,11 +188,11 @@ namespace kxf
 
 			FontWeight GetWeight() const
 			{
-				return Drawing::Private::MapFontWeight(m_Font.GetWeight());
+				return wxWidgets::MapFontWeight(m_Font.GetWeight());
 			}
 			void SetWeight(FontWeight weight)
 			{
-				m_Font.SetWeight(Drawing::Private::MapFontWeight(weight));
+				m_Font.SetWeight(wxWidgets::MapFontWeight(weight));
 			}
 			int GetNumericWeight() const
 			{

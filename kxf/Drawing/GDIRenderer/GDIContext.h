@@ -2,17 +2,17 @@
 #include "Common.h"
 #include "GDIPen.h"
 #include "GDIBrush.h"
+#include "GDIIcon.h"
+#include "GDICursor.h"
+#include "GDIBitmap.h"
+#include "GDIRegion.h"
+#include "GDIFont.h"
+#include "IGDIObject.h"
 #include "Private/GDI.h"
-#include "kxf/Core/Private/Mapping.h"
-#include "../AffineMatrix.h"
-#include "../Private/Common.h"
+#include "kxf/Drawing/ImageDefines.h"
+#include "kxf/Drawing/AffineMatrix.h"
 #include <wx/dc.h>
 #include <wx/graphics.h>
-
-namespace kxf
-{
-	class IGraphicsContext;
-}
 
 namespace kxf
 {
@@ -57,7 +57,7 @@ namespace kxf
 				}
 				return false;
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
 				return nullptr;
 			}
@@ -382,20 +382,8 @@ namespace kxf
 			{
 				m_DC->DrawRotatedText(text, pos, angle.ToDegrees());
 			}
-			Rect DrawLabel(const String& text, const Rect& rect, const GDIBitmap& bitmap, FlagSet<Alignment> alignment = Alignment::Left|Alignment::Top, size_t acceleratorIndex = String::npos)
-			{
-				wxRect boundingBox;
-				m_DC->DrawLabel(text, bitmap.ToWxBitmap(), rect, *Private::MapAlignment(alignment), acceleratorIndex != String::npos ? static_cast<int>(acceleratorIndex) : -1, &boundingBox);
-
-				return Rect(boundingBox);
-			}
-			Rect DrawLabel(const String& text, const Rect& rect, FlagSet<Alignment> alignment = Alignment::Left|Alignment::Top, size_t acceleratorIndex = String::npos)
-			{
-				wxRect boundingBox;
-				m_DC->DrawLabel(text, wxNullBitmap, rect, *Private::MapAlignment(alignment), acceleratorIndex != String::npos ? static_cast<int>(acceleratorIndex) : -1, &boundingBox);
-
-				return Rect(boundingBox);
-			}
+			Rect DrawLabel(const String& text, const Rect& rect, const GDIBitmap& bitmap, FlagSet<Alignment> alignment = Alignment::Left|Alignment::Top, size_t acceleratorIndex = String::npos);
+			Rect DrawLabel(const String& text, const Rect& rect, FlagSet<Alignment> alignment = Alignment::Left|Alignment::Top, size_t acceleratorIndex = String::npos);
 
 			bool CanDrawBitmap() const
 			{
@@ -410,19 +398,10 @@ namespace kxf
 				m_DC->DrawBitmap(bitmap.ToWxBitmap(), pos, false);
 			}
 
-			void FloodFill(const Point& pos, const Color& color, FloodFill fillMode)
-			{
-				if (auto modeWx = Drawing::Private::MapFloodFill(fillMode))
-				{
-					m_DC->FloodFill(pos, color, *modeWx);
-				}
-			}
+			void FloodFill(const Point& pos, const Color& color, FloodFillMode fillMode);
 
 			// Clipping region functions
-			void ClipRegion(const GDIRegion& region)
-			{
-				m_DC->SetDeviceClippingRegion(region.ToWxRegion());
-			}
+			void ClipRegion(const GDIRegion& region);
 			void ClipBoxRegion(const Rect& rect)
 			{
 				m_DC->SetClippingRegion(rect);
@@ -459,10 +438,7 @@ namespace kxf
 			{
 				return m_DC->GetCharHeight();
 			}
-			FontMetrics GetFontMetrics() const
-			{
-				return Private::FromWxFontMetrics(m_DC->GetFontMetrics());
-			}
+			FontMetrics GetFontMetrics() const;
 
 			Size GetTextExtent(const String& text) const
 			{
@@ -659,14 +635,8 @@ namespace kxf
 			{
 				return m_DC->CanUseTransformMatrix();
 			}
-			AffineMatrix GetTransformMatrix() const
-			{
-				return Private::FromWxAffineMatrix(m_DC->GetTransformMatrix());
-			}
-			bool SetTransformMatrix(const AffineMatrix& transform)
-			{
-				return m_DC->SetTransformMatrix(Private::ToWxAffineMatrix(transform));
-			}
+			AffineMatrix GetTransformMatrix() const;
+			bool SetTransformMatrix(const AffineMatrix& transform);
 			void ResetTransformMatrix()
 			{
 				m_DC->ResetTransformMatrix();

@@ -34,7 +34,7 @@ namespace kxf::Drawing
 			}
 
 			// IGraphicsPath
-			bool ContainsPoint(const PointF& point, PolygonFill fill = PolygonFill::OddEvenRule) const override
+			bool ContainsPoint(const PointF& point, PolygonFillMode fill = PolygonFillMode::OddEvenRule) const override
 			{
 				return false;
 			}

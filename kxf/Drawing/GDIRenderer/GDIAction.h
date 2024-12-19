@@ -1,6 +1,9 @@
 #pragma once
 #include "Common.h"
 #include "GDIContext.h"
+#include "GDIPen.h"
+#include "GDIBrush.h"
+#include "GDIFont.h"
 
 namespace kxf::Drawing
 {

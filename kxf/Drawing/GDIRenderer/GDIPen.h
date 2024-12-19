@@ -1,7 +1,13 @@
 #pragma once
 #include "Common.h"
-#include "../Private/Common.h"
+#include "IGDIObject.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 #include <wx/brush.h>
+
+namespace kxf
+{
+	class GDIBitmap;
+}
 
 namespace kxf
 {
@@ -39,11 +45,7 @@ namespace kxf
 			{
 				Initialize();
 			}
-			GDIPen(const GDIBitmap& stippleBitmap, int width = 1)
-				:m_Pen(stippleBitmap.ToWxBitmap(), width)
-			{
-				Initialize();
-			}
+			GDIPen(const GDIBitmap& stippleBitmap, int width = 1);
 			virtual ~GDIPen()
 			{
 				m_Pen.SetDashes(0, nullptr);
@@ -59,9 +61,9 @@ namespace kxf
 			{
 				return this == &other || GetHandle() == other.GetHandle();
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIPen>(m_Pen);
+				return std::make_shared<GDIPen>(m_Pen);
 			}
 
 			void* GetHandle() const override;
@@ -114,54 +116,39 @@ namespace kxf
 			{
 				if (IsHatch())
 				{
-					return Drawing::Private::MapHatchStyle(static_cast<wxHatchStyle>(m_Pen.GetStyle()));
+					return wxWidgets::MapHatchStyle(static_cast<wxHatchStyle>(m_Pen.GetStyle()));
 				}
 				return HatchStyle::None;
 			}
 			void SetHatchStyle(HatchStyle style)
 			{
-				m_Pen.SetStyle(static_cast<wxPenStyle>(Drawing::Private::MapHatchStyle(style)));
+				m_Pen.SetStyle(static_cast<wxPenStyle>(wxWidgets::MapHatchStyle(style)));
 			}
 
 			LineJoin GetJoin() const
 			{
-				return Drawing::Private::MapLineJoin(m_Pen.GetJoin());
+				return wxWidgets::MapLineJoin(m_Pen.GetJoin());
 			}
 			void SetJoin(LineJoin join)
 			{
-				m_Pen.SetJoin(Drawing::Private::MapLineJoin(join));
+				m_Pen.SetJoin(wxWidgets::MapLineJoin(join));
 			}
 
 			LineCap GetCap() const
 			{
-				return Drawing::Private::MapLineCap(m_Pen.GetCap());
+				return wxWidgets::MapLineCap(m_Pen.GetCap());
 			}
 			void SetCap(LineCap cap)
 			{
-				m_Pen.SetCap(Drawing::Private::MapLineCap(cap));
+				m_Pen.SetCap(wxWidgets::MapLineCap(cap));
 			}
 
 			bool IsStipple() const
 			{
 				return m_Pen.GetStyle() == wxPENSTYLE_STIPPLE;
 			}
-			GDIBitmap GetStipple() const
-			{
-				if (m_Pen.GetStyle() == wxPENSTYLE_STIPPLE)
-				{
-					const wxBitmap* stipple = m_Pen.GetStipple();
-					if (stipple && stipple->IsOk())
-					{
-						return *stipple;
-					}
-				}
-				return {};
-			}
-			void SetStipple(const GDIBitmap& stipple)
-			{
-				m_Pen.SetStipple(stipple.ToWxBitmap());
-				m_Pen.SetStyle(wxPENSTYLE_STIPPLE);
-			}
+			GDIBitmap GetStipple() const;
+			void SetStipple(const GDIBitmap& stipple);
 
 			int GetWidth() const
 			{
@@ -191,13 +178,13 @@ namespace kxf
 			{
 				if (IsDash())
 				{
-					return Drawing::Private::MapDashStyle(static_cast<wxDeprecatedGUIConstants>(m_Pen.GetStyle()));
+					return wxWidgets::MapDashStyle(static_cast<wxDeprecatedGUIConstants>(m_Pen.GetStyle()));
 				}
 				return DashStyle::None;
 			}
 			void SetDashStyle(DashStyle style)
 			{
-				if (auto wxStyle = Drawing::Private::MapDashStyle(style))
+				if (auto wxStyle = wxWidgets::MapDashStyle(style))
 				{
 					m_Pen.SetStyle(static_cast<wxPenStyle>(*wxStyle));
 				}

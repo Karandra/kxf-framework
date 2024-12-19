@@ -4,6 +4,7 @@
 #include "GDIRenderer/GDICursor.h"
 #include "GDIRenderer/GDIIcon.h"
 #include "kxf/IO/IStream.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 #include "kxf/wxWidgets/StreamWrapper.h"
 #include <wx/image.h>
 
@@ -71,7 +72,7 @@ namespace kxf
 	size_t BitmapImage::GetImageCount(IInputStream& stream, const UniversallyUniqueID& format)
 	{
 		wxWidgets::InputStreamWrapperWx warpper(stream);
-		return wxImage::GetImageCount(warpper, Drawing::Private::MapImageFormat(format));
+		return wxImage::GetImageCount(warpper, wxWidgets::MapImageFormat(format));
 	}
 
 	BitmapImage::BitmapImage(const wxImage& other)
@@ -139,13 +140,13 @@ namespace kxf
 		}
 		return false;
 	}
-	std::unique_ptr<IImage2D> BitmapImage::CloneImage2D() const
+	std::shared_ptr<IImage2D> BitmapImage::CloneImage2D() const
 	{
 		if (m_Image)
 		{
-			return std::make_unique<BitmapImage>(m_Image->Copy());
+			return std::make_shared<BitmapImage>(m_Image->Copy());
 		}
-		return std::make_unique<BitmapImage>();
+		return nullptr;
 	}
 
 	// IImage2D: Create, save and load
@@ -161,7 +162,7 @@ namespace kxf
 		}
 
 		wxWidgets::InputStreamWrapperWx warpper(stream);
-		return m_Image->LoadFile(warpper, Drawing::Private::MapImageFormat(format), index == IImage2D::npos ? -1 : static_cast<int>(index));
+		return m_Image->LoadFile(warpper, wxWidgets::MapImageFormat(format), index == IImage2D::npos ? -1 : static_cast<int>(index));
 	}
 	bool BitmapImage::Save(IOutputStream& stream, const UniversallyUniqueID& format) const
 	{
@@ -182,7 +183,7 @@ namespace kxf
 			}
 			else
 			{
-				return m_Image->SaveFile(warpper, Drawing::Private::MapImageFormat(format));
+				return m_Image->SaveFile(warpper, wxWidgets::MapImageFormat(format));
 			}
 		}
 		return false;
@@ -213,7 +214,7 @@ namespace kxf
 	{
 		if (m_Image)
 		{
-			return Drawing::Private::MapImageFormat(m_Image->GetType());
+			return wxWidgets::MapImageFormat(m_Image->GetType());
 		}
 		return {};
 	}
@@ -540,7 +541,7 @@ namespace kxf
 	{
 		if (m_Image)
 		{
-			m_Image->SetType(Drawing::Private::MapImageFormat(format));
+			m_Image->SetType(wxWidgets::MapImageFormat(format));
 		}
 	}
 	bool BitmapImage::IsSameAs(const BitmapImage& other) const

@@ -7,12 +7,6 @@
 #include "../ColorDepth.h"
 #include "../FontMetrics.h"
 
-#include "IGDIObject.h"
-#include "GDIIcon.h"
-#include "GDIBitmap.h"
-#include "GDIRegion.h"
-#include "GDIFont.h"
-
 namespace kxf
 {
 	enum class GDIMappingMode

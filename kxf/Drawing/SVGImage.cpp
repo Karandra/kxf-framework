@@ -38,11 +38,11 @@ namespace kxf
 		m_Document = std::move(svg);
 	}
 
-	std::unique_ptr<IImage2D> SVGImage::CloneImage2D() const
+	std::shared_ptr<IImage2D> SVGImage::CloneImage2D() const
 	{
 		if (m_Document)
 		{
-			auto clone = std::make_unique<SVGImage>(*this);
+			auto clone = std::make_shared<SVGImage>(*this);
 			clone->AllocExclusive();
 
 			return clone;

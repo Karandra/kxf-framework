@@ -1,9 +1,9 @@
 #include "kxf-pch.h"
 #include "Font.h"
 #include "GDIRenderer/GDIScreenContext.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 #include <wx/font.h>
 #include <wx/fontutil.h>
-#include "Private/Common.h"
 
 namespace
 {
@@ -147,10 +147,10 @@ namespace kxf
 			m_PixelSize = Size(other.GetPixelSize());
 			m_PointSize = static_cast<float>(other.GetFractionalPointSize());
 			m_Weight = other.GetNumericWeight();
-			m_Family = Drawing::Private::MapFontFamily(other.GetFamily());
-			m_Encoding = Drawing::Private::MapFontEncoding(other.GetEncoding());
+			m_Family = wxWidgets::MapFontFamily(other.GetFamily());
+			m_Encoding = wxWidgets::MapFontEncoding(other.GetEncoding());
 
-			m_Style = Drawing::Private::MapFontStyle(other.GetStyle());
+			m_Style = wxWidgets::MapFontStyle(other.GetStyle());
 			m_Style.Add(FontStyle::Underline, other.GetUnderlined());
 			m_Style.Add(FontStyle::Strikethrough, other.GetStrikethrough());
 		}
@@ -161,10 +161,10 @@ namespace kxf
 		m_PixelSize = Size(other.GetPixelSize());
 		m_PointSize = static_cast<float>(other.GetFractionalPointSize());
 		m_Weight = other.GetNumericWeight();
-		m_Family = Drawing::Private::MapFontFamily(other.GetFamily());
-		m_Encoding = Drawing::Private::MapFontEncoding(other.GetEncoding());
+		m_Family = wxWidgets::MapFontFamily(other.GetFamily());
+		m_Encoding = wxWidgets::MapFontEncoding(other.GetEncoding());
 
-		m_Style = Drawing::Private::MapFontStyle(other.GetStyle());
+		m_Style = wxWidgets::MapFontStyle(other.GetStyle());
 		m_Style.Add(FontStyle::Underline, other.GetUnderlined());
 		m_Style.Add(FontStyle::Strikethrough, other.GetStrikethrough());
 	}

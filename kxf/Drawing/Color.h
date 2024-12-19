@@ -1,9 +1,8 @@
 #pragma once
 #include "Common.h"
-#include "ColorDefines.h"
 #include "Angle.h"
+#include "ColorDefines.h"
 #include "kxf/Serialization/BinarySerializer.h"
-class wxWindow;
 class wxColour;
 class wxBrush;
 class wxPen;
@@ -446,7 +445,6 @@ namespace kxf
 				// https://stackoverflow.com/questions/7260989/how-to-pick-good-contrast-rgb-colors-programmatically/7261283#7261283
 				return GetLuminance(weight) < 0.5f ? light : dark;
 			}
-			Color GetContrastColor(const wxWindow& window, const PackedRGB<float>& weight = ColorWeight::sRGB) const noexcept;
 
 			constexpr float GetDifference(const Color& other) const noexcept
 			{

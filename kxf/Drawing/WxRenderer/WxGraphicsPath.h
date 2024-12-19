@@ -58,14 +58,7 @@ namespace kxf
 			}
 
 			// IGraphicsPath
-			bool ContainsPoint(const PointF& point, PolygonFill fill = PolygonFill::OddEvenRule) const override
-			{
-				if (auto fillMode = Drawing::Private::MapPolygonFill(fill))
-				{
-					return m_Graphics.Contains(point, *fillMode);
-				}
-				return false;
-			}
+			bool ContainsPoint(const PointF& point, PolygonFillMode fill = PolygonFillMode::OddEvenRule) const override;
 			PointF GetCurrentPoint() const override
 			{
 				return PointD(m_Graphics.GetCurrentPoint());

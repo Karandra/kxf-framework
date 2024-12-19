@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "Common.h"
-#include "IImageHandler.h"
 #include "BitmapImage.h"
+#include "IImageHandler.h"
 #include "Private/SVGImageHandler.h"
 #include "kxf/wxWidgets/StreamWrapper.h"
 #include "kxf/Utility/ScopeGuard.h"
@@ -15,7 +15,7 @@ namespace kxf::Drawing
 		wxImage::AddHandler(std::make_unique<Drawing::Private::SVGImageHandler>().release());
 	}
 
-	std::unique_ptr<IImage2D> LoadImage(IInputStream& stream, size_t index)
+	std::shared_ptr<IImage2D> LoadImage(IInputStream& stream, size_t index)
 	{
 		if (stream.IsSeekable())
 		{
@@ -47,7 +47,7 @@ namespace kxf::Drawing
 					if (handlerWx.LoadFile(&image, wrapper, false, index != std::numeric_limits<size_t>::max() ? static_cast<int>(index) : -1) && image.IsOk())
 					{
 						image.SetType(handlerWx.GetType());
-						return std::make_unique<BitmapImage>(std::move(image));
+						return std::make_shared<BitmapImage>(std::move(image));
 					}
 				}
 			}

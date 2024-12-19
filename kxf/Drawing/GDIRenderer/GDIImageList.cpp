@@ -76,11 +76,11 @@ namespace kxf
 	{
 		return m_hImageList == other.GetHandle();
 	}
-	std::unique_ptr<IGDIObject> GDIImageList::CloneGDIObject() const
+	std::shared_ptr<IGDIObject> GDIImageList::CloneGDIObject() const
 	{
 		const size_t count = GetImageCount();
 		const auto size = GetSize();
-		auto clone = std::make_unique<GDIImageList>(size.GetWidth(), size.GetHeight(), count);
+		auto clone = std::make_shared<GDIImageList>(size.GetWidth(), size.GetHeight(), count);
 		clone->m_Flags = m_Flags;
 
 		for (size_t i = 0; i < count; i++)

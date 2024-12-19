@@ -59,9 +59,9 @@ namespace kxf
 			{
 				return DoIsSameAs(other);
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIGraphicsTexture>(*this);
+				return std::make_shared<GDIGraphicsTexture>(*this);
 			}
 
 			void* GetHandle() const override

@@ -7,6 +7,7 @@
 #include "WxGraphicsPath.h"
 #include "../BitmapImage.h"
 #include "../GDIRenderer/GDIBitmap.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 #include <wx/msw/dc.h>
 
 namespace kxf
@@ -309,16 +310,16 @@ namespace kxf
 	{
 		m_Context->StrokePath(path.QueryInterface<WxGraphicsPath>()->Get());
 	}
-	void WxGraphicsContext::FillPath(const IGraphicsPath& path, PolygonFill fill)
+	void WxGraphicsContext::FillPath(const IGraphicsPath& path, PolygonFillMode fill)
 	{
-		if (auto fillMode = Drawing::Private::MapPolygonFill(fill))
+		if (auto fillMode = wxWidgets::MapPolygonFillMode(fill))
 		{
 			m_Context->FillPath(path.QueryInterface<WxGraphicsPath>()->Get(), *fillMode);
 		}
 	}
-	void WxGraphicsContext::DrawPath(const IGraphicsPath& path, PolygonFill fill)
+	void WxGraphicsContext::DrawPath(const IGraphicsPath& path, PolygonFillMode fill)
 	{
-		if (auto fillMode = Drawing::Private::MapPolygonFill(fill))
+		if (auto fillMode = wxWidgets::MapPolygonFillMode(fill))
 		{
 			m_Context->DrawPath(path.QueryInterface<WxGraphicsPath>()->Get(), *fillMode);
 		}

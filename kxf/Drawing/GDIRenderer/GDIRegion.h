@@ -2,7 +2,7 @@
 #include "Common.h"
 #include "IGDIObject.h"
 #include "Private/GDI.h"
-#include "../Private/Common.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 #include <wx/region.h>
 
 namespace kxf
@@ -41,9 +41,9 @@ namespace kxf
 			GDIRegion(const GDIBitmap& bitmap);
 			GDIRegion(const GDIBitmap& bitmap, const Color& transparentColor, int tolerance = 0);
 
-			GDIRegion(const Point* points, size_t count, PolygonFill fillMode = PolygonFill::OddEvenRule)
+			GDIRegion(const Point* points, size_t count, PolygonFillMode fillMode = PolygonFillMode::OddEvenRule)
 			{
-				if (auto modeWx = Drawing::Private::MapPolygonFill(fillMode))
+				if (auto modeWx = wxWidgets::MapPolygonFillMode(fillMode))
 				{
 					auto pointsBuffer = Private::ConvertWxPoints(points, count);
 					m_Region = wxRegion(pointsBuffer.size(), pointsBuffer.data(), *modeWx);
@@ -51,9 +51,9 @@ namespace kxf
 			}
 
 			template<size_t N>
-			GDIRegion(const Point(&points)[N], PolygonFill fillMode = PolygonFill::OddEvenRule)
+			GDIRegion(const Point(&points)[N], PolygonFillMode fillMode = PolygonFillMode::OddEvenRule)
 			{
-				if (auto modeWx = Drawing::Private::MapPolygonFill(fillMode))
+				if (auto modeWx = wxWidgets::MapPolygonFillMode(fillMode))
 				{
 					auto pointsBuffer = Private::ConvertWxPoints(points);
 					m_Region = wxRegion(pointsBuffer.size(), pointsBuffer.data(), *modeWx);
@@ -61,9 +61,9 @@ namespace kxf
 			}
 
 			template<size_t N>
-			GDIRegion(const std::array<Point, N>& points, PolygonFill fillMode = PolygonFill::OddEvenRule)
+			GDIRegion(const std::array<Point, N>& points, PolygonFillMode fillMode = PolygonFillMode::OddEvenRule)
 			{
-				if (auto modeWx = Drawing::Private::MapPolygonFill(fillMode))
+				if (auto modeWx = wxWidgets::MapPolygonFillMode(fillMode))
 				{
 					auto pointsBuffer = Private::ConvertWxPoints(points);
 					m_Region = wxRegion(pointsBuffer.size(), pointsBuffer.data(), *modeWx);
@@ -90,9 +90,9 @@ namespace kxf
 				}
 				return false;
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIRegion>(m_Region);
+				return std::make_shared<GDIRegion>(m_Region);
 			}
 
 			void* GetHandle() const override;

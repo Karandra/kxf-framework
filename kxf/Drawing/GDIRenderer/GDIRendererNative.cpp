@@ -3,11 +3,12 @@
 #include "GDIAction.h"
 #include "GDIFont.h"
 #include "GDIBitmap.h"
-#include "kxf/System/SystemInformation.h"
-#include "kxf/Core/Private/Mapping.h"
-#include "../GraphicsRenderer.h"
 #include "UxTheme.h"
-#include "Private/UxThemeDefines.h"
+#include "../GraphicsRenderer.h"
+#include "kxf/System/SystemInformation.h"
+#include "kxf/wxWidgets/MapCore.h"
+#include "kxf/Win32/Include-GUI.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {
@@ -386,7 +387,7 @@ namespace kxf
 	void GDIRendererNative::DrawItemText(wxWindow* window, GDIContext& dc, const String& text, const Rect& rect, FlagSet<NativeWidgetFlag> widgetFlags, FlagSet<Alignment> alignment, EllipsizeMode ellipsizeMode)
 	{
 		CalcBoundingBox calcBoudingBox(dc, rect);
-		GetRenderer().DrawItemText(window, dc.ToWxDC(), text, rect, *Private::MapAlignment(alignment), *MapWidgetFlags(widgetFlags), static_cast<wxEllipsizeMode>(ellipsizeMode));
+		GetRenderer().DrawItemText(window, dc.ToWxDC(), text, rect, *wxWidgets::MapAlignment(alignment), *MapWidgetFlags(widgetFlags), static_cast<wxEllipsizeMode>(ellipsizeMode));
 	}
 
 	// Title bar button

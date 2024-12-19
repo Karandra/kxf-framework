@@ -3,7 +3,6 @@
 #include "kxf/Core/RegEx.h"
 #include "kxf/Core/String.h"
 #include "kxf/Utility/Common.h"
-#include "wx/window.h"
 #include <wx/colour.h>
 #include <wx/brush.h>
 #include <wx/pen.h>
@@ -213,12 +212,6 @@ namespace kxf
 	{
 		const auto fixed8 = GetFixed8();
 		return wxTheColourDatabase->FindName(wxColour(fixed8.Red, fixed8.Green, fixed8.Blue, wxALPHA_OPAQUE));
-	}
-
-	Color Color::GetContrastColor(const wxWindow& window, const PackedRGB<float>& weight) const noexcept
-	{
-		auto [light, dark] = SelectLighterAndDarkerColor(window.GetBackgroundColour(), window.GetForegroundColour());
-		return GetContrastColor(light, dark);
 	}
 
 	std::strong_ordering Color::operator<=>(const wxColour& other) const noexcept

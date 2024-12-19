@@ -46,7 +46,7 @@ namespace kxf
 			// IImage2D
 			bool IsNull() const;
 			bool IsSameAs(const IImage2D& other) const override;
-			std::unique_ptr<IImage2D> CloneImage2D() const override;
+			std::shared_ptr<IImage2D> CloneImage2D() const override;
 
 			// IImage2D: Create, save and load
 			void Create(const Size& size);

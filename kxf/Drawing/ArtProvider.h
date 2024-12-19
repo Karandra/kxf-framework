@@ -2,7 +2,6 @@
 #include "Common.h"
 #include "IArtProvider.h"
 #include "kxf/Core/StdIcon.h"
-#include "kxf/Core/OptionalPtr.h"
 
 namespace kxf
 {
@@ -24,7 +23,7 @@ namespace kxf::ArtProviderClient
 
 namespace kxf::ArtProvider
 {
-	KXF_API void PushProvider(optional_ptr<IArtProvider> artProvider);
+	KXF_API void PushProvider(std::shared_ptr<IArtProvider> artProvider);
 	KXF_API void RemoveProvider(const IArtProvider& artProvider);
 }
 

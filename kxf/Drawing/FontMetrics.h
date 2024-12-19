@@ -43,10 +43,4 @@ namespace kxf
 	using FontMetrics = Drawing::BasicFontMetrics<int>;
 	using FontMetricsF = Drawing::BasicFontMetrics<float>;
 	using FontMetricsD = Drawing::BasicFontMetrics<double>;
-
-	namespace Private
-	{
-		wxFontMetrics ToWxFontMetrics(const FontMetrics& metrics) noexcept;
-		FontMetrics FromWxFontMetrics(const wxFontMetrics& metricsWx) noexcept;
-	}
 }

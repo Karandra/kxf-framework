@@ -92,8 +92,8 @@ namespace kxf
 
 			// Path functions
 			virtual void StrokePath(const IGraphicsPath& path) = 0;
-			virtual void FillPath(const IGraphicsPath& path, PolygonFill fill = PolygonFill::OddEvenRule) = 0;
-			virtual void DrawPath(const IGraphicsPath& path, PolygonFill fill = PolygonFill::OddEvenRule) = 0;
+			virtual void FillPath(const IGraphicsPath& path, PolygonFillMode fill = PolygonFillMode::OddEvenRule) = 0;
+			virtual void DrawPath(const IGraphicsPath& path, PolygonFillMode fill = PolygonFillMode::OddEvenRule) = 0;
 
 			// Texture functions
 			virtual void DrawTexture(const IGraphicsTexture& texture, const RectF& rect) = 0;

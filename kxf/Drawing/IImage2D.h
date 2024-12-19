@@ -28,7 +28,7 @@ namespace kxf
 		public:
 			virtual bool IsNull() const = 0;
 			virtual bool IsSameAs(const IImage2D& other) const = 0;
-			virtual std::unique_ptr<IImage2D> CloneImage2D() const = 0;
+			virtual std::shared_ptr<IImage2D> CloneImage2D() const = 0;
 
 			// Create, save and load
 			virtual void Create(const Size& size) = 0;

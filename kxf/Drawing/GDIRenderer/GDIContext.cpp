@@ -1,5 +1,7 @@
 #include "kxf-pch.h"
 #include "GDIContext.h"
+#include "kxf/wxWidgets/MapCore.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 #include <wx/msw/dc.h>
 
 namespace kxf
@@ -38,6 +40,42 @@ namespace kxf
 		::DeleteDC(static_cast<HDC>(handle));
 	}
 
+	// Drawing functions
+	Rect GDIContext::DrawLabel(const String& text, const Rect& rect, const GDIBitmap& bitmap, FlagSet<Alignment> alignment, size_t acceleratorIndex)
+	{
+		wxRect boundingBox;
+		m_DC->DrawLabel(text, bitmap.ToWxBitmap(), rect, *wxWidgets::MapAlignment(alignment), acceleratorIndex != String::npos ? static_cast<int>(acceleratorIndex) : -1, &boundingBox);
+
+		return Rect(boundingBox);
+	}
+	Rect GDIContext::DrawLabel(const String& text, const Rect& rect, FlagSet<Alignment> alignment, size_t acceleratorIndex)
+	{
+		wxRect boundingBox;
+		m_DC->DrawLabel(text, wxNullBitmap, rect, *wxWidgets::MapAlignment(alignment), acceleratorIndex != String::npos ? static_cast<int>(acceleratorIndex) : -1, &boundingBox);
+
+		return Rect(boundingBox);
+	}
+
+	void GDIContext::FloodFill(const Point& pos, const Color& color, FloodFillMode fillMode)
+	{
+		if (auto modeWx = wxWidgets::MapFloodFillMode(fillMode))
+		{
+			m_DC->FloodFill(pos, color, *modeWx);
+		}
+	}
+
+	// Clipping region functions
+	void GDIContext::ClipRegion(const GDIRegion& region)
+	{
+		m_DC->SetDeviceClippingRegion(region.ToWxRegion());
+	}
+
+	// Text/character extent functions
+	kxf::FontMetrics GDIContext::GetFontMetrics() const
+	{
+		return wxWidgets::MapFontMetrics(m_DC->GetFontMetrics());
+	}
+
 	// Bounding box functions
 	Rect GDIContext::GetBoundingBox() const
 	{
@@ -58,5 +96,15 @@ namespace kxf
 
 			return rect;
 		}
+	}
+
+	// Transformation matrix
+	AffineMatrix GDIContext::GetTransformMatrix() const
+	{
+		return wxWidgets::MapAffineMatrix(m_DC->GetTransformMatrix());
+	}
+	bool GDIContext::SetTransformMatrix(const AffineMatrix& transform)
+	{
+		return m_DC->SetTransformMatrix(wxWidgets::MapAffineMatrix(transform));
 	}
 }

@@ -1,8 +1,13 @@
 #include "kxf-pch.h"
-#include "Common.h"
-#include "../ImageDefines.h"
+#include "MapDrawing.h"
+#include "kxf/Drawing/ImageDefines.h"
+#include <wx/dc.h>
+#include <wx/font.h>
+#include <wx/defs.h>
 #include <wx/pen.h>
 #include <wx/brush.h>
+#include <wx/peninfobase.h>
+#include <wx/affinematrix2d.h>
 
 namespace
 {
@@ -71,7 +76,7 @@ namespace
 	} g_BitmapTypeRegistry;
 }
 
-namespace kxf::Drawing::Private
+namespace kxf::wxWidgets
 {
 	std::optional<int> MapNativeHatchStyle(wxHatchStyle style) noexcept
 	{
@@ -384,30 +389,30 @@ namespace kxf::Drawing::Private
 		return LineCap::None;
 	}
 
-	std::optional<wxFloodFillStyle> MapFloodFill(FloodFill fill) noexcept
+	std::optional<wxFloodFillStyle> MapFloodFillMode(FloodFillMode fill) noexcept
 	{
 		switch (fill)
 		{
-			case FloodFill::Surface:
+			case FloodFillMode::Surface:
 			{
 				return wxFLOOD_SURFACE;
 			}
-			case FloodFill::Border:
+			case FloodFillMode::Border:
 			{
 				return wxFLOOD_BORDER;
 			}
 		};
 		return {};
 	}
-	std::optional<wxPolygonFillMode> MapPolygonFill(PolygonFill fill) noexcept
+	std::optional<wxPolygonFillMode> MapPolygonFillMode(PolygonFillMode fill) noexcept
 	{
 		switch (fill)
 		{
-			case PolygonFill::OddEvenRule:
+			case PolygonFillMode::OddEvenRule:
 			{
 				return wxODDEVEN_RULE;
 			}
-			case PolygonFill::WindingRule:
+			case PolygonFillMode::WindingRule:
 			{
 				return wxWINDING_RULE;
 			}
@@ -416,7 +421,7 @@ namespace kxf::Drawing::Private
 	}
 }
 
-namespace kxf::Drawing::Private
+namespace kxf::wxWidgets
 {
 	wxFontStyle MapFontStyle(FlagSet<FontStyle> style) noexcept
 	{
@@ -695,7 +700,7 @@ namespace kxf::Drawing::Private
 	}
 }
 
-namespace kxf::Drawing::Private
+namespace kxf::wxWidgets
 {
 	wxBitmapType RegisterWxBitmapType(const UniversallyUniqueID& format)
 	{
@@ -709,5 +714,64 @@ namespace kxf::Drawing::Private
 	wxBitmapType MapImageFormat(const UniversallyUniqueID& format) noexcept
 	{
 		return g_BitmapTypeRegistry.Find(format).value_or(wxBITMAP_TYPE_INVALID);
+	}
+
+	AffineMatrixD MapAffineMatrix(const wxAffineMatrix2D& matrix) noexcept
+	{
+		wxMatrix2D matrix2D;
+		wxPoint2DDouble txy;
+		matrix.Get(&matrix2D, &txy);
+
+		return
+		{
+			static_cast<double>(matrix2D.m_11),
+			static_cast<double>(matrix2D.m_12),
+			static_cast<double>(matrix2D.m_21),
+			static_cast<double>(matrix2D.m_22),
+			static_cast<double>(txy.m_x),
+			static_cast<double>(txy.m_y)
+		};
+	}
+	wxAffineMatrix2D MapAffineMatrix(const AffineMatrixD& matrix) noexcept
+	{
+		double m11 = 0;
+		double m12 = 0;
+		double m21 = 0;
+		double m22 = 0;
+		double tx = 0;
+		double ty = 0;
+		matrix.GetElements(m11, m12, m21, m22, tx, ty);
+
+		wxMatrix2D matrix2D(static_cast<wxDouble>(m11), static_cast<wxDouble>(m12), static_cast<wxDouble>(m21), static_cast<wxDouble>(m22));
+		wxPoint2DDouble txy(static_cast<wxDouble>(tx), static_cast<wxDouble>(ty));
+
+		wxAffineMatrix2D affineMatrix;
+		affineMatrix.Set(matrix2D, txy);
+		return affineMatrix;
+	}
+
+	wxFontMetrics MapFontMetrics(const FontMetrics& metrics) noexcept
+	{
+		wxFontMetrics fontMetrics;
+		fontMetrics.height = metrics.Height;
+		fontMetrics.ascent = metrics.Ascent;
+		fontMetrics.descent = metrics.Descent;
+		fontMetrics.averageWidth = metrics.AverageWidth;
+		fontMetrics.internalLeading = metrics.InternalLeading;
+		fontMetrics.externalLeading = metrics.ExternalLeading;
+
+		return fontMetrics;
+	}
+	FontMetrics MapFontMetrics(const wxFontMetrics& metricsWx) noexcept
+	{
+		FontMetrics fontMetrics;
+		fontMetrics.Height = metricsWx.height;
+		fontMetrics.Ascent = metricsWx.ascent;
+		fontMetrics.Descent = metricsWx.descent;
+		fontMetrics.AverageWidth = metricsWx.averageWidth;
+		fontMetrics.InternalLeading = metricsWx.internalLeading;
+		fontMetrics.ExternalLeading = metricsWx.externalLeading;
+
+		return fontMetrics;
 	}
 }

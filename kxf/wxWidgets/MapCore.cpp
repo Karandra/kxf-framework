@@ -1,7 +1,9 @@
 #include "kxf-pch.h"
-#include "Mapping.h"
+#include "MapCore.h"
+#include <wx/defs.h>
+#include <wx/gdicmn.h>
 
-namespace kxf::Private
+namespace kxf::wxWidgets
 {
 	FlagSet<wxDirection> MapDirection(FlagSet<Direction> value) noexcept
 	{

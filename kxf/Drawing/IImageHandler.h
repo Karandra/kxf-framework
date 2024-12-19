@@ -20,7 +20,7 @@ namespace kxf
 			virtual ~IImageHandler() = default;
 
 		public:
-			virtual std::unique_ptr<IImage2D> CreateImage() = 0;
+			virtual std::shared_ptr<IImage2D> CreateImage() = 0;
 
 			virtual size_t GetSubImageCount(IInputStream& stream) = 0;
 			virtual bool LoadImage(IImage2D& image, IInputStream& stream, size_t index) = 0;

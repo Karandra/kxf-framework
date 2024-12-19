@@ -63,7 +63,7 @@ namespace kxf
 			{
 				return DoIsSameAs(other);
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
 				return nullptr;
 			}
@@ -140,10 +140,10 @@ namespace kxf
 			void StrokePath(const IGraphicsPath& path) override
 			{
 			}
-			void FillPath(const IGraphicsPath& path, PolygonFill fill = PolygonFill::OddEvenRule) override
+			void FillPath(const IGraphicsPath& path, PolygonFillMode fill = PolygonFillMode::OddEvenRule) override
 			{
 			}
-			void DrawPath(const IGraphicsPath& path, PolygonFill fill = PolygonFill::OddEvenRule) override
+			void DrawPath(const IGraphicsPath& path, PolygonFillMode fill = PolygonFillMode::OddEvenRule) override
 			{
 			}
 

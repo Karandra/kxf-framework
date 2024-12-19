@@ -6,6 +6,14 @@
 
 namespace kxf
 {
+	class GDIIcon;
+	class GDICursor;
+	class GDIBitmap;
+	class BitmapImage;
+}
+
+namespace kxf
+{
 	class KXF_API GDIIcon: public RTTI::DynamicImplementation<GDIIcon, IGDIObject, IImage2D>
 	{
 		kxf_RTTI_DeclareIID(GDIIcon, {0x5da6784, 0xf20c, 0x4ad6, {0xb1, 0x3b, 0x3a, 0xa1, 0x2d, 0xd9, 0x66, 0x4a}});
@@ -62,9 +70,9 @@ namespace kxf
 			{
 				return m_Icon.GetHandle() == other.GetHandle();
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIIcon>(m_Icon);
+				return std::make_shared<GDIIcon>(m_Icon);
 			}
 
 			void* GetHandle() const override;
@@ -84,9 +92,9 @@ namespace kxf
 				}
 				return false;
 			}
-			std::unique_ptr<IImage2D> CloneImage2D() const override
+			std::shared_ptr<IImage2D> CloneImage2D() const override
 			{
-				return std::make_unique<GDIIcon>(m_Icon);
+				return std::make_shared<GDIIcon>(m_Icon);
 			}
 
 			Size GetSize() const override

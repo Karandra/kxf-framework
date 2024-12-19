@@ -1,16 +1,16 @@
 #include "kxf-pch.h"
 #include "ArtProvider.h"
-#include "GDIRenderer/GDIBitmap.h"
-#include "GDIRenderer/GDIIcon.h"
 #include "BitmapImage.h"
 #include "ImageBundle.h"
-#include "kxf/wxWidgets/MapConstants.h"
+#include "GDIRenderer/GDIBitmap.h"
+#include "GDIRenderer/GDIIcon.h"
 #include "kxf/Utility/Container.h"
+#include "kxf/wxWidgets/MapConstants.h"
 #include <wx/artprov.h>
 
 namespace
 {
-	std::vector<std::pair<kxf::optional_ptr<kxf::IArtProvider>, wxArtProvider*>> g_Providers;
+	std::vector<std::pair<std::shared_ptr<kxf::IArtProvider>, wxArtProvider*>> g_Providers;
 
 	class ArtProviderWrapper final: public wxArtProvider
 	{
@@ -49,7 +49,7 @@ namespace kxf::ArtProviderClient
 
 namespace kxf::ArtProvider
 {
-	void PushProvider(optional_ptr<IArtProvider> artProvider)
+	void PushProvider(std::shared_ptr<IArtProvider> artProvider)
 	{
 		if (artProvider)
 		{

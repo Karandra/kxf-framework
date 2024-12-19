@@ -1,6 +1,8 @@
 #include "kxf-pch.h"
 #include "GDIPen.h"
+#include "GDIBitmap.h"
 #include "Private/GDI.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 
 namespace
 {
@@ -40,6 +42,12 @@ namespace kxf
 	{
 		m_Pen.SetCap(wxCAP_BUTT);
 		m_Pen.SetJoin(wxJOIN_MITER);
+	}
+
+	GDIPen::GDIPen(const GDIBitmap& stippleBitmap, int width)
+		:m_Pen(stippleBitmap.ToWxBitmap(), width)
+	{
+		Initialize();
 	}
 
 	// IGDIObject
@@ -89,11 +97,11 @@ namespace kxf
 					// Convert join type if the pen is geometric
 					if ((penInfoEx.elpPenStyle & PS_TYPE_MASK) == PS_GEOMETRIC)
 					{
-						refData->m_join = Drawing::Private::MapNativePenJoin(penInfoEx.elpPenStyle & PS_JOIN_MASK);
+						refData->m_join = wxWidgets::MapNativePenJoin(penInfoEx.elpPenStyle & PS_JOIN_MASK);
 					}
 
 					// Convert pen style
-					refData->m_style = Drawing::Private::MapNativePenStyle(penInfoEx.elpPenStyle & PS_STYLE_MASK);
+					refData->m_style = wxWidgets::MapNativePenStyle(penInfoEx.elpPenStyle & PS_STYLE_MASK);
 
 					// Convert brush style
 					switch (penInfoEx.elpBrushStyle)
@@ -135,7 +143,7 @@ namespace kxf
 							refData->m_colour = Color::FromCOLORREF(penInfoEx.elpColor);
 							if (penInfoEx.elpBrushStyle == BS_HATCHED)
 							{
-								refData->m_style = static_cast<wxPenStyle>(Drawing::Private::MapNativeHatchStyle(static_cast<int>(penInfoEx.elpHatch)));
+								refData->m_style = static_cast<wxPenStyle>(wxWidgets::MapNativeHatchStyle(static_cast<int>(penInfoEx.elpHatch)));
 							}
 							else
 							{
@@ -158,7 +166,7 @@ namespace kxf
 				// Regular pen config
 				if (LOGPEN penInfo = {}; ::GetObjectW(handle, sizeof(penInfo), &penInfo) != 0)
 				{
-					refData->m_style = Drawing::Private::MapNativePenStyle(penInfo.lopnStyle);
+					refData->m_style = wxWidgets::MapNativePenStyle(penInfo.lopnStyle);
 					refData->m_width = penInfo.lopnWidth.x;
 					refData->m_colour = Color::FromCOLORREF(penInfo.lopnColor);
 				}
@@ -167,6 +175,25 @@ namespace kxf
 			// Delete the handle if we can't attach it
 			::DeleteObject(handle);
 		}
+	}
+
+	// GDIPen
+	GDIBitmap GDIPen::GetStipple() const
+	{
+		if (m_Pen.GetStyle() == wxPENSTYLE_STIPPLE)
+		{
+			const wxBitmap* stipple = m_Pen.GetStipple();
+			if (stipple && stipple->IsOk())
+			{
+				return *stipple;
+			}
+		}
+		return {};
+	}
+	void GDIPen::SetStipple(const GDIBitmap& stipple)
+	{
+		m_Pen.SetStipple(stipple.ToWxBitmap());
+		m_Pen.SetStyle(wxPENSTYLE_STIPPLE);
 	}
 }
 

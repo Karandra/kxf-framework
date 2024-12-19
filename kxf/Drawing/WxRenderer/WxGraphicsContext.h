@@ -172,8 +172,8 @@ namespace kxf
 
 			// Path functions
 			void StrokePath(const IGraphicsPath& path) override;
-			void FillPath(const IGraphicsPath& path, PolygonFill fill = PolygonFill::OddEvenRule) override;
-			void DrawPath(const IGraphicsPath& path, PolygonFill fill = PolygonFill::OddEvenRule) override;
+			void FillPath(const IGraphicsPath& path, PolygonFillMode fill = PolygonFillMode::OddEvenRule) override;
+			void DrawPath(const IGraphicsPath& path, PolygonFillMode fill = PolygonFillMode::OddEvenRule) override;
 
 			// Texture functions
 			void DrawTexture(const IGraphicsTexture& texture, const RectF& rect) override;

@@ -2,7 +2,9 @@
 #include "SVGImageHandler.h"
 #include "../SVGImage.h"
 #include "../BitmapImage.h"
+#include "kxf/wxWidgets/MapDrawing.h"
 #include "kxf/wxWidgets/StreamWrapper.h"
+#include <wx/image.h>
 
 namespace kxf::Drawing::Private
 {
@@ -23,7 +25,7 @@ namespace kxf::Drawing::Private
 		m_name = "Scalable Vector Graphics";
 		m_mime = "image/svg+xml";
 		m_extension = "svg";
-		m_type = Drawing::Private::RegisterWxBitmapType(ImageFormat::SVG);
+		m_type = wxWidgets::RegisterWxBitmapType(ImageFormat::SVG);
 	}
 
 	// wxImageHandler
@@ -54,9 +56,9 @@ namespace kxf::Drawing::Private
 	}
 
 	// IImageHandler
-	std::unique_ptr<IImage2D> SVGImageHandler::CreateImage()
+	std::shared_ptr<IImage2D> SVGImageHandler::CreateImage()
 	{
-		return std::make_unique<SVGImage>();
+		return std::make_shared<SVGImage>();
 	}
 
 	size_t SVGImageHandler::GetSubImageCount(IInputStream& stream)

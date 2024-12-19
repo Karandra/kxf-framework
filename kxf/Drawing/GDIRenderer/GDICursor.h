@@ -4,6 +4,11 @@
 #include "../IImage2D.h"
 #include <wx/cursor.h>
 
+namespace kxf
+{
+	class GDIIcon;
+	class GDIBitmap;
+}
 namespace kxf::Drawing
 {
 	enum class StockCursor
@@ -91,9 +96,9 @@ namespace kxf
 			{
 				return m_Cursor.GetHandle() == other.GetHandle();
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDICursor>(m_Cursor);
+				return std::make_shared<GDICursor>(m_Cursor);
 			}
 
 			void* GetHandle() const override;
@@ -113,9 +118,9 @@ namespace kxf
 				}
 				return false;
 			}
-			std::unique_ptr<IImage2D> CloneImage2D() const override
+			std::shared_ptr<IImage2D> CloneImage2D() const override
 			{
-				return std::make_unique<GDICursor>(m_Cursor);
+				return std::make_shared<GDICursor>(m_Cursor);
 			}
 
 			Size GetSize() const override

@@ -1,9 +1,12 @@
 #pragma once
-#include "../Common.h"
-#include <wx/defs.h>
-#include <wx/gdicmn.h>
+#include "kxf/Core/Common.h"
+#include "kxf/Core/FlagSet.h"
+enum wxDirection;
+enum wxAlignment;
+enum wxOrientation;
+enum wxEllipsizeFlags;
 
-namespace kxf::Private
+namespace kxf::wxWidgets
 {
 	FlagSet<wxDirection> MapDirection(FlagSet<Direction> value) noexcept;
 	FlagSet<Direction> MapDirection(FlagSet<wxDirection> wx) noexcept;

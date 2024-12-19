@@ -1,7 +1,12 @@
 #pragma once
 #include "Common.h"
-#include "../Private/Common.h"
+#include "IGDIObject.h"
 #include <wx/brush.h>
+
+namespace kxf
+{
+	class GDIBitmap;
+}
 
 namespace kxf
 {
@@ -28,10 +33,7 @@ namespace kxf
 				:m_Brush(color, wxBRUSHSTYLE_SOLID)
 			{
 			}
-			GDIBrush(const GDIBitmap& stippleBitmap)
-				:m_Brush(stippleBitmap.ToWxBitmap())
-			{
-			}
+			GDIBrush(const GDIBitmap& stippleBitmap);
 			virtual ~GDIBrush() = default;
 
 		public:
@@ -44,9 +46,9 @@ namespace kxf
 			{
 				return this == &other || GetHandle() == other.GetHandle();
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIBrush>(m_Brush);
+				return std::make_shared<GDIBrush>(m_Brush);
 			}
 
 			void* GetHandle() const override;
@@ -90,33 +92,15 @@ namespace kxf
 				m_Brush.SetStyle(wxBRUSHSTYLE_SOLID);
 			}
 
-			GDIBitmap GetStipple() const
-			{
-				const wxBitmap* stipple = m_Brush.GetStipple();
-				if (stipple && stipple->IsOk())
-				{
-					return *stipple;
-				}
-				return {};
-			}
-			void SetStipple(const GDIBitmap& stipple)
-			{
-				m_Brush.SetStipple(stipple.ToWxBitmap());
-				m_Brush.SetStyle(wxBRUSHSTYLE_STIPPLE);
-			}
+			GDIBitmap GetStipple() const;
+			void SetStipple(const GDIBitmap& stipple);
 
 			bool IsHatch() const
 			{
 				return m_Brush.IsHatch();
 			}
-			HatchStyle GetHatchStyle() const
-			{
-				return Drawing::Private::MapHatchStyle(static_cast<wxHatchStyle>(m_Brush.GetStyle()));
-			}
-			void SetHatchStyle(HatchStyle style)
-			{
-				m_Brush.SetStyle(static_cast<wxBrushStyle>(Drawing::Private::MapHatchStyle(style)));
-			}
+			HatchStyle GetHatchStyle() const;
+			void SetHatchStyle(HatchStyle style);
 
 		public:
 			explicit operator bool() const noexcept

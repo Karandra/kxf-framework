@@ -15,7 +15,7 @@ namespace kxf
 		public:
 			virtual bool IsNull() const = 0;
 			virtual bool IsSameAs(const IGDIObject& other) const = 0;
-			virtual std::unique_ptr<IGDIObject> CloneGDIObject() const = 0;
+			virtual std::shared_ptr<IGDIObject> CloneGDIObject() const = 0;
 
 			virtual void* GetHandle() const = 0;
 			virtual void* DetachHandle() = 0;

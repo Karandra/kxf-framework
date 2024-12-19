@@ -19,9 +19,8 @@
 #include <wx/dcclient.h>
 #include <wx/dcbuffer.h>
 #include <wx/renderer.h>
-
-#include <Uxtheme.h>
-#include "Private/UxThemeDefines.h"
+#include "kxf/Win32/Include-GUI.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace
 {

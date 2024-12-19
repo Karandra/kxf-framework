@@ -1,5 +1,6 @@
 #include "kxf-pch.h"
 #include "GDIGraphicsPen.h"
+#include "GDIBitmap.h"
 #include "../BitmapImage.h"
 #include "../GraphicsRenderer/IGraphicsBrush.h"
 #include "../GraphicsRenderer/IGraphicsTexture.h"

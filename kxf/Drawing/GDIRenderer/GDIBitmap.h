@@ -7,6 +7,8 @@
 namespace kxf
 {
 	class GDIContext;
+	class GDICursor;
+	class GDIIcon;
 }
 
 namespace kxf
@@ -83,9 +85,9 @@ namespace kxf
 			{
 				return m_Bitmap.GetHandle() == other.GetHandle();
 			}
-			std::unique_ptr<IGDIObject> CloneGDIObject() const override
+			std::shared_ptr<IGDIObject> CloneGDIObject() const override
 			{
-				return std::make_unique<GDIBitmap>(m_Bitmap);
+				return std::make_shared<GDIBitmap>(m_Bitmap);
 			}
 
 			void* GetHandle() const override;
@@ -105,9 +107,9 @@ namespace kxf
 				}
 				return false;
 			}
-			std::unique_ptr<IImage2D> CloneImage2D() const override
+			std::shared_ptr<IImage2D> CloneImage2D() const override
 			{
-				return std::make_unique<GDIBitmap>(m_Bitmap);
+				return std::make_shared<GDIBitmap>(m_Bitmap);
 			}
 
 			Size GetSize() const override
