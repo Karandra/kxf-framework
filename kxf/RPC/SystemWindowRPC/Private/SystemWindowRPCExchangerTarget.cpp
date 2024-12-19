@@ -8,7 +8,7 @@ namespace kxf
 {
 	bool SystemWindowRPCExchangerTarget::Create(const String& sessionID)
 	{
-		return m_Window.Create([&](intptr_t& result, uint32_t msg, intptr_t wParam, intptr_t lParam) -> bool
+		return m_Window.Create([&](uint32_t msg, intptr_t wParam, intptr_t lParam) -> CallbackResult<intptr_t>
 		{
 			if (msg == WM_COPYDATA)
 			{
@@ -16,10 +16,9 @@ namespace kxf
 				MemoryInputStream stream(copyData->lpData, copyData->cbData);
 				m_Exchanger.OnDataRecieved(stream);
 
-				result = TRUE;
-				return true;
+				return {CallbackCommand::Continue, TRUE};
 			}
-			return false;
+			return {CallbackCommand::Discard, 0};
 		}, Format("kxf::SystemWindowRPCExchangerTarget-{}", sessionID));
 	}
 	bool SystemWindowRPCExchangerTarget::Destroy() noexcept

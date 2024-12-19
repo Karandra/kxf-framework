@@ -1,5 +1,6 @@
 #pragma once
 #include "kxf/System/SystemWindow.h"
+#include "kxf/System/SystemWindow/AnonymousSystemWindow.h"
 #include "kxf-gui/Widgets/Private/AnonymousNativeWindow.h"
 
 namespace kxf
@@ -12,7 +13,7 @@ namespace kxf
 	class SystemWindowRPCExchangerTarget final
 	{
 		private:
-			Private::AnonymousNativeWindow m_Window;
+			AnonymousSystemWindow m_Window;
 			SystemWindowRPCExchanger& m_Exchanger;
 
 		public:
@@ -24,7 +25,7 @@ namespace kxf
 		public:
 			SystemWindow GetWindow() const noexcept
 			{
-				return m_Window.GetWindow();
+				return m_Window;
 			}
 
 			bool Create(const String& sessionID);
