@@ -1,8 +1,8 @@
 #include "kxf-pch.h"
 #include "StdDialogButtonSizer.h"
 #include "kxf/Localization/Common.h"
-#include "kxf/Core/Private/Mapping.h"
 #include "kxf/Utility/Common.h"
+#include "kxf/wxWidgets/MapCore.h"
 #include "kxf-gui/Widgets/Controls/Button.h"
 #include "kxf-gui/Widgets/Dialogs/Dialog.h"
 
@@ -112,7 +112,7 @@ namespace kxf::UI
 		ConfigureButton(button);
 
 		int border = GetSpacing(button);
-		auto flags = Utility::CombineEnumFlags<int>(*kxf::Private::MapAlignment(Alignment::Center), *kxf::Private::MapDirection(Direction::Left|Direction::Right));
+		auto flags = Utility::CombineEnumFlags<int>(*wxWidgets::MapAlignment(Alignment::Center), *wxWidgets::MapDirection(Direction::Left|Direction::Right));
 		if (prepend)
 		{
 			if (!m_HasFirstPrepend)
@@ -137,7 +137,7 @@ namespace kxf::UI
 		{
 			if (button)
 			{
-				auto flags = Utility::CombineEnumFlags<int>(*kxf::Private::MapAlignment(Alignment::Center), *kxf::Private::MapDirection(Direction::Left|Direction::Right));
+				auto flags = Utility::CombineEnumFlags<int>(*wxWidgets::MapAlignment(Alignment::Center), *wxWidgets::MapDirection(Direction::Left|Direction::Right));
 				Add(button, 0, flags, button->ConvertDialogToPixels(Size(2, 0)).GetWidth());
 			}
 		};
@@ -161,7 +161,7 @@ namespace kxf::UI
 		SetLabel(m_ButtonCancel);
 		SetLabel(m_ButtonHelp);
 
-		auto flags = Utility::CombineEnumFlags<int>(*kxf::Private::MapAlignment(Alignment::Center), *kxf::Private::MapDirection(Direction::Left));
+		auto flags = Utility::CombineEnumFlags<int>(*wxWidgets::MapAlignment(Alignment::Center), *wxWidgets::MapDirection(Direction::Left));
 		for (wxAnyButton* button: m_NonStandardButtons)
 		{
 			Add(button, 0, flags, GetSpacing(button));

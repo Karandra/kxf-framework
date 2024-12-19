@@ -1,11 +1,13 @@
 #pragma once
 #include "Common.h"
-#include "IGDIObject.h"
-#include "../IImage2D.h"
+#include "kxf/Drawing/IImage2D.h"
 #include <wx/bitmap.h>
+class wxDC;
 
 namespace kxf
 {
+	class BitmapImage;
+
 	class GDIContext;
 	class GDICursor;
 	class GDIIcon;
@@ -52,26 +54,14 @@ namespace kxf
 			}
 
 			GDIBitmap(const GDIIcon& other);
-			GDIBitmap(const BitmapImage& other);
-			GDIBitmap(const BitmapImage& other, const GDIContext& dc);
 			GDIBitmap(const GDICursor& other);
-			GDIBitmap(const GDIBitmap& other)
-				:m_Bitmap(other.m_Bitmap)
-			{
-				Initialize();
-			}
+			GDIBitmap(const GDIBitmap& other);
+			GDIBitmap(const BitmapImage& other);
+			GDIBitmap(const BitmapImage& other, const wxDC& dc);
 
-			GDIBitmap(const char* xbm, const Size& size, ColorDepth depth = ColorDepthDB::BPP1)
-				:m_Bitmap(xbm, size.GetWidth(), size.GetHeight(), depth ? depth.GetValue() : -1)
-			{
-				Initialize();
-			}
-			GDIBitmap(const Size& size, ColorDepth depth = {})
-				:m_Bitmap(size.GetWidth(), size.GetHeight(), depth ? depth.GetValue() : -1)
-			{
-				Initialize();
-			}
-			GDIBitmap(const Size& size, const GDIContext& dc);
+			GDIBitmap(const Size& size, ColorDepth depth = {});
+			GDIBitmap(const Size& size, const wxDC& dc);
+			GDIBitmap(const char* xbm, const Size& size, ColorDepth depth = ColorDepthDB::BPP1);
 
 			virtual ~GDIBitmap() = default;
 
@@ -135,11 +125,11 @@ namespace kxf
 			BitmapImage ToBitmapImage(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const override;
 
 			// GDIBitmap
-			const wxBitmap& ToWxBitmap() const noexcept
+			wxBitmap& AsWXBitmap() noexcept
 			{
 				return m_Bitmap;
 			}
-			wxBitmap& ToWxBitmap() noexcept
+			const wxBitmap& AsWXBitmap() const noexcept
 			{
 				return m_Bitmap;
 			}

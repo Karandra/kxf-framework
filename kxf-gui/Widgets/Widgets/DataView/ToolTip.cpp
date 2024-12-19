@@ -4,9 +4,9 @@
 #include "../../Widgets/WXUI/DataView/View.h"
 #include "../../IDataViewWidget.h"
 #include "../../IGraphicsRendererAwareWidget.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
 #include "kxf/Drawing/SizeRatio.h"
 #include "kxf/System/SystemInformation.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 #include <wx/textwrapper.h>
 
 namespace kxf::DataView
@@ -112,7 +112,7 @@ namespace kxf::DataView
 			tooltip.RemoveOption(UI::ToolTipExStyle::LargeIcons);
 			if (auto icon = GetIconBitmap())
 			{
-				tooltip.SetIcon(icon.ToGDIBitmap());
+				tooltip.SetIcon(icon.ToWXBitmap());
 			}
 			else
 			{

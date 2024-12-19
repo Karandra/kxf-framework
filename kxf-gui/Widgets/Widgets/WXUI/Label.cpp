@@ -1,9 +1,9 @@
 #include "kxf-pch.h"
 #include "Label.h"
 #include "../../Events/WidgetTextEvent.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
 #include "kxf/System/SystemInformation.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
 
 namespace
 {

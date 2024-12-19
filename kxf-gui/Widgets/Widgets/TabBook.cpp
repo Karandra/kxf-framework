@@ -1,8 +1,8 @@
 #include "kxf-pch.h"
 #include "TabBook.h"
 #include "WXUI/TabBook.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "kxf/Drawing/GDIRenderer/GDIBitmap.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIBitmap.h"
 
 namespace kxf::Widgets
 {
@@ -27,11 +27,11 @@ namespace kxf::Widgets
 	// IBookWidget
 	BitmapImage TabBook::GetPageImage(size_t index) const
 	{
-		return GDIBitmap(Get()->GetPageBitmap(index));
+		return Get()->GetPageBitmap(index);
 	}
 	void TabBook::SetPageImage(size_t index, const BitmapImage& image)
 	{
-		Get()->SetPageBitmap(index, image.ToGDIBitmap().ToWxBitmap());
+		Get()->SetPageBitmap(index, image.ToWXBitmap());
 	}
 
 	// ITabBookWidget

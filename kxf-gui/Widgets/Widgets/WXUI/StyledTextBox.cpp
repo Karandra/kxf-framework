@@ -28,8 +28,8 @@ namespace kxf::WXUI
 			font.SetFamily(FontFamily::FixedWidth);
 			if (font.SetFaceName("Consolas") || font.SetFaceName("Courier New"))
 			{
-				StyleSetFont(g_GlobalStyle, font.ToWxFont());
-				StyleSetFont(wxSTC_STYLE_LINENUMBER, font.ToWxFont());
+				StyleSetFont(g_GlobalStyle, font.AsWXFont());
+				StyleSetFont(wxSTC_STYLE_LINENUMBER, font.AsWXFont());
 			}
 
 			SetDoubleBuffered(true);

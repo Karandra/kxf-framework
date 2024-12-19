@@ -1,6 +1,6 @@
 #include "kxf-pch.h"
 #include "GDIFont.h"
-#include "../Font.h"
+#include "kxf/Drawing/Font.h"
 #include "kxf/wxWidgets/MapDrawing.h"
 #include <wx/fontutil.h>
 
@@ -31,17 +31,8 @@ namespace kxf
 	}
 
 	GDIFont::GDIFont(const Font& other)
-		:m_Font(other.GetPointSize(),
-				wxWidgets::MapFontFamily(other.GetFamily()),
-				wxWidgets::MapFontStyle(other.GetStyle()),
-				wxWidgets::MapFontWeight(other.GetWeight()),
-				other.GetStyle().Contains(FontStyle::Underline),
-				other.GetFaceName(),
-				wxWidgets::MapFontEncoding(other.GetEncoding())
-		)
+		:m_Font(wxWidgets::MapFont(other))
 	{
-		m_Font.SetFractionalPointSize(other.GetPointSize());
-		m_Font.SetStrikethrough(other.GetStyle().Contains(FontStyle::Strikethrough));
 	}
 
 	// IGDIObject
@@ -87,5 +78,11 @@ namespace kxf
 			// Delete the handle if we can't attach it
 			::DeleteObject(handle);
 		}
+	}
+
+	// GDIFont
+	kxf::Font GDIFont::ToFont() const
+	{
+		return m_Font;
 	}
 }

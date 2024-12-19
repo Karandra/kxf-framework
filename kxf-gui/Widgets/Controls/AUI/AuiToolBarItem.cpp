@@ -189,7 +189,7 @@ namespace kxf::UI
 	}
 	void AuiToolBarItem::SetBitmap(const GDIBitmap& bitmap)
 	{
-		m_Item->SetBitmap(bitmap.ToWxBitmap());
+		m_Item->SetBitmap(bitmap.AsWXBitmap());
 		Refresh();
 	}
 
@@ -199,7 +199,7 @@ namespace kxf::UI
 	}
 	void AuiToolBarItem::SetDisabledBitmap(const GDIBitmap& bitmap)
 	{
-		m_Item->SetDisabledBitmap(bitmap.ToWxBitmap());
+		m_Item->SetDisabledBitmap(bitmap.AsWXBitmap());
 		Refresh();
 	}
 }

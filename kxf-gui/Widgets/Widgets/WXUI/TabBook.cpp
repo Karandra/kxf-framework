@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "TabBook.h"
-#include "kxf/Drawing/GDIRenderer/GDIContext.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
 
 namespace kxf::WXUI
 {

@@ -19,7 +19,7 @@ namespace kxf::WXUI
 			size_t m_Focused = IImageGalleryWidget::npos;
 			size_t m_Selected = IImageGalleryWidget::npos;
 
-			std::vector<std::unique_ptr<IImage2D>> m_Items;
+			std::vector<std::shared_ptr<IImage2D>> m_Items;
 
 		private:
 			void OnPaint(wxPaintEvent& event);

@@ -14,7 +14,7 @@ namespace kxf::WXUI
 			IImageViewWidget& m_Widget;
 			std::shared_ptr<IGraphicsRendererAwareWidget> m_RendererAware;
 
-			std::unique_ptr<IImage2D> m_Image;
+			std::shared_ptr<IImage2D> m_Image;
 			IImageViewWidget::BackgroundMode m_BackgroundMode = IImageViewWidget::BackgroundMode::Solid;
 			IImageViewWidget::ScaleMode m_ScaleMode = IImageViewWidget::ScaleMode::None;
 			Direction m_GradientDirection = Direction::Down;
@@ -84,8 +84,15 @@ namespace kxf::WXUI
 
 			void SetImage(const IImage2D& image)
 			{
+				if (image)
+				{
+					m_Image = image.CloneImage2D();
+				}
+				else
+				{
+					m_Image = nullptr;
+				}
 				ScheduleRefresh();
-				m_Image = image ? image.CloneImage2D() : nullptr;
 			}
 	};
 }

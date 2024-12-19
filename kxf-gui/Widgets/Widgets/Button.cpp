@@ -1,10 +1,10 @@
 #include "kxf-pch.h"
 #include "Button.h"
 #include "WXUI/Button.h"
-#include "kxf/Drawing/ArtProvider.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "kxf/Drawing/GDIRenderer/GDIBitmap.h"
-#include "kxf/Core/Private/Mapping.h"
+#include "kxf/wxWidgets/MapCore.h"
+#include "kxf-gui/Drawing/ArtProvider.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIBitmap.h"
 
 namespace kxf::Widgets
 {
@@ -51,11 +51,11 @@ namespace kxf::Widgets
 
 	BitmapImage Button::GetIcon() const
 	{
-		return GDIBitmap(Get()->GetBitmap());
+		return Get()->GetBitmap();
 	}
 	void Button::SetIcon(const BitmapImage& icon, FlagSet<Direction> direction)
 	{
-		Get()->SetBitmap(icon.ToGDIBitmap().ToWxBitmap(), *Private::MapDirection(direction));
+		Get()->SetBitmap(icon.ToWXBitmap(), *wxWidgets::MapDirection(direction));
 	}
 	void Button::SetStdIcon(FlagSet<StdIcon> stdIcon, FlagSet<Direction> direction)
 	{

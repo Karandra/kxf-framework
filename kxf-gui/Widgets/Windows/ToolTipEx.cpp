@@ -2,10 +2,10 @@
 #include "ToolTipEx.h"
 #include "kxf/System/Registry.h"
 #include "kxf/System/SystemInformation.h"
-#include "kxf/Drawing/ArtProvider.h"
+#include "kxf-gui/Drawing/ArtProvider.h"
 
 #include <wx/artprov.h>
-#include <CommCtrl.h>
+#include "kxf/Win32/Include-GUI.h"
 #include "kxf/Win32/UndefMacros.h"
 
 namespace
@@ -122,7 +122,7 @@ namespace kxf::UI
 					else
 					{
 						Size size = System::GetMetric(SystemSizeMetric::IconSmall);
-						m_QuestionIcon = ArtProvider::GetResource(ArtProvider::GetMessageBoxResourceIDs(StdIcon::Question), ArtProviderClient::MessageBox, size).ToGDIIcon();
+						m_QuestionIcon = ArtProvider::GetResource(ArtProvider::GetMessageBoxResourceIDs(StdIcon::Question), ArtProviderClient::MessageBox, size).ToWXIcon();
 					}
 
 					if (m_QuestionIcon)

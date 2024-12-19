@@ -114,11 +114,11 @@ namespace kxf::Sciter
 		GetGrapchicsAPI()->pathCreate(&path);
 		return FromSciterPath(path);
 	}
-	void GraphicsContext::DrawPath(const GraphicsPath& path, PolygonFill fillStyle)
+	void GraphicsContext::DrawPath(const GraphicsPath& path, PolygonFillMode fillStyle)
 	{
 		DoDrawPath(*this, path, DRAW_PATH_MODE::DRAW_FILL_AND_STROKE);
 	}
-	void GraphicsContext::FillPath(const GraphicsPath& path, PolygonFill fillStyle)
+	void GraphicsContext::FillPath(const GraphicsPath& path, PolygonFillMode fillStyle)
 	{
 		DoDrawPath(*this, path, DRAW_PATH_MODE::DRAW_FILL_ONLY);
 	}
@@ -230,7 +230,7 @@ namespace kxf::Sciter
 			penInfo.Join(static_cast<wxPenJoin>(pen.GetJoin()));
 			penInfo.Cap(static_cast<wxPenCap>(pen.GetCap()));
 			penInfo.Style(pen.ToWxPen().GetStyle());
-			penInfo.Stipple(pen.GetStipple().ToWxBitmap());
+			penInfo.Stipple(pen.GetStipple().AsWXBitmap());
 
 			GDIPen::Dash* dashes = nullptr;
 			size_t dashCount = pen.GetDashes(dashes);

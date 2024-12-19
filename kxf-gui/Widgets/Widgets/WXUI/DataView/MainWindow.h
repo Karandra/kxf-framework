@@ -14,7 +14,7 @@
 
 #include "kxf-gui/Widgets/Windows/ToolTipEx.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 #include "kxf/EventSystem/Event.h"
 #include <wx/selstore.h>
 

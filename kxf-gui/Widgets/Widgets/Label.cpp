@@ -1,8 +1,8 @@
 #include "kxf-pch.h"
 #include "Label.h"
 #include "WXUI/Label.h"
-#include "kxf/Drawing/ArtProvider.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/ArtProvider.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 
 namespace kxf::Widgets
 {

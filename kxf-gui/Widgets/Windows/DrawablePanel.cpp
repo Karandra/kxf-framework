@@ -1,8 +1,8 @@
 #include "kxf-pch.h"
 #include "DrawablePanel.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
-#include "kxf/Drawing/GDIRenderer/GDIMemoryContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIMemoryContext.h"
 #include <wx/bookctrl.h>
 
 namespace
@@ -27,7 +27,7 @@ namespace kxf::UI
 			case BitmapScaleMode::None:
 			{
 				scaledImageSize = bitmapSize;
-				gc->DrawBitmap(!bitmap.IsNull() ? bitmap : gc->CreateBitmap(g_EmptyBitmap.ToWxBitmap()), rect.GetX(), rect.GetY(), bitmapSize.GetWidth(), bitmapSize.GetWidth());
+				gc->DrawBitmap(!bitmap.IsNull() ? bitmap : gc->CreateBitmap(g_EmptyBitmap.AsWXBitmap()), rect.GetX(), rect.GetY(), bitmapSize.GetWidth(), bitmapSize.GetWidth());
 				return scaledImageSize;
 			}
 			case BitmapScaleMode::Fill:
@@ -63,21 +63,21 @@ namespace kxf::UI
 
 		scaledImageSize.Width() = width;
 		scaledImageSize.Height() = height;
-		gc->DrawBitmap(!bitmap.IsNull() ? bitmap : gc->CreateBitmap(g_EmptyBitmap.ToWxBitmap()), rect.GetX() + x, rect.GetY() + y, width, height);
+		gc->DrawBitmap(!bitmap.IsNull() ? bitmap : gc->CreateBitmap(g_EmptyBitmap.AsWXBitmap()), rect.GetX() + x, rect.GetY() + y, width, height);
 		return scaledImageSize;
 	}
 	Size DrawablePanel::DrawScaledBitmap(wxGraphicsContext* gc, const GDIBitmap& bitmap, const Rect& rect, BitmapScaleMode scaleMode, double globalScale)
 	{
-		return DrawScaledBitmap(gc, gc->CreateBitmap(bitmap.ToWxBitmap()), bitmap.GetSize(), rect, scaleMode, globalScale);
+		return DrawScaledBitmap(gc, gc->CreateBitmap(bitmap.AsWXBitmap()), bitmap.GetSize(), rect, scaleMode, globalScale);
 	}
 	Size DrawablePanel::DrawScaledBitmap(GDIWindowContext& dc, const GDIBitmap& bitmap, const Rect& rect, BitmapScaleMode scaleMode, double globalScale)
 	{
-		wxGCDC gcdc(dc.ToWxDC());
+		wxGCDC gcdc(dc.AsWXDC());
 		return DrawScaledBitmap(gcdc.GetGraphicsContext(), bitmap, rect, scaleMode, globalScale);
 	}
 	Size DrawablePanel::DrawScaledBitmap(GDIMemoryContext& dc, const GDIBitmap& bitmap, const Rect& rect, BitmapScaleMode scaleMode, double globalScale)
 	{
-		wxGCDC gcdc(dc.ToWxDC());
+		wxGCDC gcdc(dc.AsWXDC());
 		return DrawScaledBitmap(gcdc.GetGraphicsContext(), bitmap, rect, scaleMode, globalScale);
 	}
 	void DrawablePanel::DrawTransparencyPattern(GDIContext& dc)
@@ -142,7 +142,7 @@ namespace kxf::UI
 		GDIPaintContext dc(*this);
 		if (m_BackgroundMode & DrawablePanelMode::FGImage)
 		{
-			wxGCDC gcdc(dc.ToWxDC());
+			wxGCDC gcdc(dc.AsWXDC());
 			m_ScaledImageSize = DrawScaledBitmap(gcdc.GetGraphicsContext(), m_Bitmap, Rect({0, 0}, Size(GetClientSize())), m_ImageScaleMode, m_ScaleFactor);
 		}
 		else

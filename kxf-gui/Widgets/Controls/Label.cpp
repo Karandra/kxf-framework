@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "Label.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
 
 namespace
 {
@@ -105,7 +105,7 @@ namespace kxf::UI
 		const bool isSelected = m_State == wxCONTROL_FOCUSED || m_State == wxCONTROL_PRESSED;
 		const bool isEnabled = IsThisEnabled();
 		const Color color = GetStateColor();
-		const String label = wxControl::Ellipsize(m_Label, dc.ToWxDC(), g_EllipsizeMode, rect.GetWidth(), wxELLIPSIZE_FLAGS_NONE);
+		const String label = wxControl::Ellipsize(m_Label, dc.AsWXDC(), g_EllipsizeMode, rect.GetWidth(), wxELLIPSIZE_FLAGS_NONE);
 
 		dc.SetBackgroundTransparent();
 		dc.SetBackgroundBrush(GetParent()->GetBackgroundColour());
@@ -114,7 +114,7 @@ namespace kxf::UI
 		// Draw main part
 		if (m_Style & LabelStyle::InteractiveSelection && isSelected)
 		{
-			wxRendererNative::Get().DrawItemSelectionRect(this, dc.ToWxDC(), rect, wxCONTROL_FOCUSED|wxCONTROL_SELECTED);
+			wxRendererNative::Get().DrawItemSelectionRect(this, dc.AsWXDC(), rect, wxCONTROL_FOCUSED|wxCONTROL_SELECTED);
 		}
 
 		if (m_Style & LabelStyle::Hyperlink && isSelected)
@@ -142,7 +142,7 @@ namespace kxf::UI
 				Rect rect2 = labelRect;
 				rect2.Y() += ConvertDialogToPixels(wxSize(0, 2)).GetHeight();
 
-				dc.DrawLabel({}, rect2, image.ToWxBitmap(), m_MultiLineAlignStyle);
+				dc.DrawLabel({}, rect2, image.AsWXBitmap(), m_MultiLineAlignStyle);
 				offset = image.GetWidth() + ConvertDialogToPixels(wxSize(2, 0)).GetWidth();
 			}
 
@@ -164,7 +164,7 @@ namespace kxf::UI
 		{
 			contentSize = dc.GetTextExtent(label);
 			contentSize.SetHeight(g_MinSingleLineHeight);
-			dc.DrawLabel(label, labelRect, image.ToWxBitmap(), m_AlignStyle);
+			dc.DrawLabel(label, labelRect, image.AsWXBitmap(), m_AlignStyle);
 		}
 
 		if (m_Style & LabelStyle::HeaderLine)

@@ -161,7 +161,7 @@ namespace kxf::UI
 			}
 			void SetMainIcon(const GDIBitmap& icon) override
 			{
-				SetIcon(icon.ToGDIIcon().ToWxIcon());
+				SetIcon(icon.ToGDIIcon().AsWXIcon());
 			}
 			void SetMainIcon(StdIcon iconID = DefaultIconID) override
 			{

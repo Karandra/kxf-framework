@@ -1,15 +1,12 @@
 #pragma once
 #include "Common.h"
-#include "IGDIObject.h"
-#include "../IImage2D.h"
+#include "kxf/Drawing/IImage2D.h"
 #include <wx/icon.h>
 
 namespace kxf
 {
-	class GDIIcon;
-	class GDICursor;
 	class GDIBitmap;
-	class BitmapImage;
+	class GDICursor;
 }
 
 namespace kxf
@@ -45,13 +42,10 @@ namespace kxf
 			{
 			}
 
-			GDIIcon(const BitmapImage& other);
+			GDIIcon(const GDIIcon& other);
 			GDIIcon(const GDIBitmap& other);
 			GDIIcon(const GDICursor& other);
-			GDIIcon(const GDIIcon& other)
-				:m_Icon(other.m_Icon)
-			{
-			}
+			GDIIcon(const BitmapImage& other);
 
 			GDIIcon(const char* xbm, const Size& size)
 				:m_Icon(xbm, size.GetWidth(), size.GetHeight())
@@ -117,14 +111,15 @@ namespace kxf
 			BitmapImage ToBitmapImage(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const override;
 
 			// Icon
-			const wxIcon& ToWxIcon() const noexcept
+			wxIcon& AsWXIcon() noexcept
 			{
 				return m_Icon;
 			}
-			wxIcon& ToWxIcon() noexcept
+			const wxIcon& AsWXIcon() const noexcept
 			{
 				return m_Icon;
 			}
+
 			GDICursor ToGDICursor(const Point& hotSpot = Point::UnspecifiedPosition()) const;
 			GDIBitmap ToGDIBitmap(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const;
 

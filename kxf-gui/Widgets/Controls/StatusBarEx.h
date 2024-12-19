@@ -1,6 +1,6 @@
 #pragma once
 #include "kxf-gui/Widgets/Common.h"
-#include "kxf/Drawing/WithImageList.h"
+#include "kxf-gui/Drawing/WithImageList.h"
 #include "StatusBar.h"
 #include "IProgressMeter.h"
 #include <wx/renderer.h>

@@ -1,8 +1,10 @@
 #include "kxf-pch.h"
 #include "MapDrawing.h"
+#include "kxf/Drawing/Font.h"
 #include "kxf/Drawing/ImageDefines.h"
-#include <wx/dc.h>
 #include <wx/font.h>
+#include <wx/fontutil.h>
+#include <wx/dc.h>
 #include <wx/defs.h>
 #include <wx/pen.h>
 #include <wx/brush.h>
@@ -773,5 +775,22 @@ namespace kxf::wxWidgets
 		fontMetrics.ExternalLeading = metricsWx.externalLeading;
 
 		return fontMetrics;
+	}
+
+	wxFont MapFont(const Font& other)
+	{
+		wxFont font(other.GetPointSize(),
+					MapFontFamily(other.GetFamily()),
+					MapFontStyle(other.GetStyle()),
+					MapFontWeight(other.GetWeight()),
+					other.GetStyle().Contains(FontStyle::Underline),
+					other.GetFaceName(),
+					MapFontEncoding(other.GetEncoding())
+		);
+
+		font.SetFractionalPointSize(other.GetPointSize());
+		font.SetStrikethrough(other.GetStyle().Contains(FontStyle::Strikethrough));
+
+		return font;
 	}
 }

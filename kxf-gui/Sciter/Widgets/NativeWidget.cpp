@@ -39,7 +39,7 @@ namespace kxf::Sciter
 		}
 		if (Font font = node.GetStyleFont())
 		{
-			m_NativeWindow->SetFont(font.ToWxFont());
+			m_NativeWindow->SetFont(font.ToWXFont());
 		}
 
 		// Attach the window

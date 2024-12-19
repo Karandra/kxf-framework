@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "Button.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
 #include "../../Events/ButtonWidgetEvent.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 #include <wx/toplevel.h>
 #include <wx/button.h>
 
@@ -80,7 +80,7 @@ namespace kxf::WXUI
 		}
 
 		// Draw bitmap and label
-		if (BitmapImage bitmap = GDIBitmap(GetBitmap()))
+		if (BitmapImage bitmap = GetBitmap())
 		{
 			if (!isEnabled)
 			{

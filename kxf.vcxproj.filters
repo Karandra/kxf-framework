@@ -31,9 +31,6 @@
     <Filter Include="kxf\Core\Private">
       <UniqueIdentifier>{9bddb8ad-b98d-4558-90ae-2b5b7048b860}</UniqueIdentifier>
     </Filter>
-    <Filter Include="kxf\Crypto">
-      <UniqueIdentifier>{a22e20b9-4de3-47e4-ace6-bcc7101c470c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="kxf\Network">
       <UniqueIdentifier>{503679ad-0476-4a11-beb0-ba123ce47580}</UniqueIdentifier>
     </Filter>
@@ -96,30 +93,6 @@
     </Filter>
     <Filter Include="kxf\Log">
       <UniqueIdentifier>{3e786109-f51a-4653-8566-c33d43e122c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Drawing\GraphicsRenderer">
-      <UniqueIdentifier>{1588b372-00bd-4ee3-b887-e8bac24be415}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Drawing\GDIRenderer">
-      <UniqueIdentifier>{365a82ef-fb02-4d8a-818b-bd19002d1677}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Drawing\GDIRenderer\Private">
-      <UniqueIdentifier>{485c90e8-0161-430c-94a2-66571dc4a8e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;">
-      <UniqueIdentifier>{d050cdbb-fd26-4ffd-b773-b7f7262b1f51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Drawing\GDIRenderer\&lt;GDIContext&gt;">
-      <UniqueIdentifier>{ca283a84-716b-42c9-9846-44ab464d926c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;">
-      <UniqueIdentifier>{d53c01ca-0177-4257-af92-3afd61a39c72}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Drawing\GraphicsRenderer\NullObjects">
-      <UniqueIdentifier>{4c87a8c9-0dcc-4920-826c-8c1aa32ec87f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="kxf\Drawing\WxRenderer">
-      <UniqueIdentifier>{a2fbc745-d4d0-4f41-87a4-f00f4ec82b32}</UniqueIdentifier>
     </Filter>
     <Filter Include="kxf\Network\CURLWebSession">
       <UniqueIdentifier>{7a962409-a4c6-438c-bc0a-e182899e59fb}</UniqueIdentifier>
@@ -219,6 +192,12 @@
     </Filter>
     <Filter Include="kxf\DateTime\Private">
       <UniqueIdentifier>{1927ba84-01dd-4b98-90dd-7496ee4a3211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\Drawing\GDIRenderer">
+      <UniqueIdentifier>{3d09846d-8bb1-45f5-80f8-941139d141a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\Crypto">
+      <UniqueIdentifier>{a22e20b9-4de3-47e4-ace6-bcc7101c470c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -388,9 +367,6 @@
       <Filter>kxf\Compression</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Drawing\Common.h">
-      <Filter>kxf\Drawing</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WithImageList.h">
       <Filter>kxf\Drawing</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Core\Math.h">
@@ -864,164 +840,14 @@
     <ClInclude Include="kxf\Drawing\ImageBundle.h">
       <Filter>kxf\Drawing</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Drawing\IArtProvider.h">
-      <Filter>kxf\Drawing</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\ArtProvider.h">
-      <Filter>kxf\Drawing</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\IGraphicsRenderer.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\IGraphicsBrush.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\IGraphicsObject.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\IGraphicsPen.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\Common.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\IGraphicsContext.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer.h">
-      <Filter>kxf\Drawing</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GradientStops.h">
-      <Filter>kxf\Drawing</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\IGraphicsTexture.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\IGraphicsPath.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\IGraphicsFont.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Drawing\FontMetrics.h">
       <Filter>kxf\Drawing</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIAction.h">
-      <Filter>kxf\Drawing\GDIRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\Common.h">
-      <Filter>kxf\Drawing\GDIRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIGraphicsContext.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIGraphicsPen.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIGraphicsRenderer.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIGraphicsBrush.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIGraphicsTexture.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIGraphicsFont.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\GraphicsAction.h">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIContext.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIContext&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIMemoryContext.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIContext&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIMirroringContext.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIContext&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIScreenContext.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIContext&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIWindowContext.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIContext&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIPen.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIBrush.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\IGDIObject.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\Private\GDI.h">
-      <Filter>kxf\Drawing\GDIRenderer\Private</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIRegion.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIImageList.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIFont.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Drawing\AffineMatrix.h">
       <Filter>kxf\Drawing</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\NullObjects\NullGraphicsPen.h">
-      <Filter>kxf\Drawing\GraphicsRenderer\NullObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\NullObjects\NullGraphicsRenderer.h">
-      <Filter>kxf\Drawing\GraphicsRenderer\NullObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\NullObjects\NullGraphicsTexture.h">
-      <Filter>kxf\Drawing\GraphicsRenderer\NullObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\NullObjects\NullGraphicsBrush.h">
-      <Filter>kxf\Drawing\GraphicsRenderer\NullObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\NullObjects\NullGraphicsFont.h">
-      <Filter>kxf\Drawing\GraphicsRenderer\NullObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\NullObjects\NullGraphicsObject.h">
-      <Filter>kxf\Drawing\GraphicsRenderer\NullObjects</Filter>
-    </ClInclude>
     <ClInclude Include="kxf\Drawing\Font.h">
       <Filter>kxf\Drawing</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WxRenderer\WxGraphicsRenderer.h">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WxRenderer\Common.h">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WxRenderer\WxGraphicsTexture.h">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WxRenderer\WxGraphicsFont.h">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WxRenderer\WxGraphicsBrush.h">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WxRenderer\WxGraphicsPen.h">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WxRenderer\WxGraphicsContext.h">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\WxRenderer\WxGraphicsPath.h">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GraphicsRenderer\NullObjects\NullGraphicsPath.h">
-      <Filter>kxf\Drawing\GraphicsRenderer\NullObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIRendererNative.h">
-      <Filter>kxf\Drawing\GDIRenderer</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Drawing\Private\SVGImageHandler.h">
       <Filter>kxf\Drawing\Private</Filter>
@@ -1109,15 +935,6 @@
     </ClInclude>
     <ClInclude Include="kxf\Core\AlignedObjectStorage.h">
       <Filter>kxf\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIBitmap.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDICursor.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIIcon.h">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
     </ClInclude>
     <ClInclude Include="kxf\wxWidgets\EventTagRef.h">
       <Filter>kxf\wxWidgets</Filter>
@@ -1262,15 +1079,6 @@
     </ClInclude>
     <ClInclude Include="kxf\Application\CommandLineParser.h">
       <Filter>kxf\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\wxWidgets\WithImageList.h">
-      <Filter>kxf\wxWidgets</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\GDIRenderer\UxTheme.h">
-      <Filter>kxf\Drawing\GDIRenderer</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Drawing\IRendererNative.h">
-      <Filter>kxf\Drawing</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Log\Private\WxOverride.h">
       <Filter>kxf\Log\Private</Filter>
@@ -1584,6 +1392,27 @@
     <ClInclude Include="kxf\Win32\Include-GUI.h">
       <Filter>kxf\Win32</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\Drawing\IGDIObject.h">
+      <Filter>kxf\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIIcon.h">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIBitmap.h">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Drawing\GDIRenderer\GDICursor.h">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Drawing\GDIRenderer\GDIFont.h">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Drawing\GDIRenderer\Common.h">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Drawing\GDIRenderer\Private.h">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">
@@ -1886,74 +1715,8 @@
     <ClCompile Include="kxf\Drawing\ImageBundle.cpp">
       <Filter>kxf\Drawing</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Drawing\ArtProvider.cpp">
-      <Filter>kxf\Drawing</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIAction.cpp">
-      <Filter>kxf\Drawing\GDIRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIGraphicsContext.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIGraphicsPen.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIGraphicsRenderer.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIGraphicsFont.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GraphicsRenderer&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIContext.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIContext&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIPen.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIBrush.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\Private\GDI.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIRegion.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIImageList.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIFont.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClCompile>
     <ClCompile Include="kxf\Drawing\Font.cpp">
       <Filter>kxf\Drawing</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsRenderer.cpp">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsFont.cpp">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsPen.cpp">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsContext.cpp">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GraphicsRenderer.cpp">
-      <Filter>kxf\Drawing</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GraphicsRenderer\IGraphicsContext.cpp">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIRendererNative.cpp">
-      <Filter>kxf\Drawing\GDIRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GraphicsRenderer\NullObjects\NullGraphicsRenderer.cpp">
-      <Filter>kxf\Drawing\GraphicsRenderer\NullObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GraphicsRenderer\Common.cpp">
-      <Filter>kxf\Drawing\GraphicsRenderer</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Drawing\Private\SVGImageHandler.cpp">
       <Filter>kxf\Drawing\Private</Filter>
@@ -1993,15 +1756,6 @@
     </ClCompile>
     <ClCompile Include="kxf\Localization\LocalizationPackageStack.cpp">
       <Filter>kxf\Localization</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIBitmap.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDICursor.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIIcon.cpp">
-      <Filter>kxf\Drawing\GDIRenderer\&lt;GDIObjects&gt;</Filter>
     </ClCompile>
     <ClCompile Include="kxf\System\WMI.cpp">
       <Filter>kxf\System</Filter>
@@ -2077,12 +1831,6 @@
     </ClCompile>
     <ClCompile Include="kxf\Application\CommandLineParser.cpp">
       <Filter>kxf\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\GDIRenderer\UxTheme.cpp">
-      <Filter>kxf\Drawing\GDIRenderer</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Drawing\IRendererNative.cpp">
-      <Filter>kxf\Drawing</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Log\Private\WxOverride.cpp">
       <Filter>kxf\Log\Private</Filter>
@@ -2276,8 +2024,17 @@
     <ClCompile Include="kxf\wxWidgets\MapCore.cpp">
       <Filter>kxf\wxWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Drawing\WxRenderer\WxGraphicsPath.cpp">
-      <Filter>kxf\Drawing\WxRenderer</Filter>
+    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIBitmap.cpp">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Drawing\GDIRenderer\GDICursor.cpp">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIFont.cpp">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\Drawing\GDIRenderer\GDIIcon.cpp">
+      <Filter>kxf\Drawing\GDIRenderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

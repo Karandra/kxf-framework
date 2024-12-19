@@ -4,8 +4,8 @@
 #include "../Node.h"
 #include "../Column.h"
 #include "kxf-gui/Widgets/Controls/HTMLWindow.h"
-#include "kxf/Drawing/GDIRenderer/GDIContext.h"
-#include "kxf/Drawing/GDIRenderer/GDIAction.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIAction.h"
 #include <wx/html/htmprint.h>
 
 namespace
@@ -53,7 +53,7 @@ namespace kxf::UI::DataView
 
 	void HTMLTextRenderer::PrepareRenderer(wxHtmlDCRenderer& htmlRenderer, GDIContext& dc, const Rect& cellRect) const
 	{
-		htmlRenderer.SetDC(&dc.ToWxDC(), g_UserScale * m_PixelScale, g_UserScale * m_FontScale);
+		htmlRenderer.SetDC(&dc.AsWXDC(), g_UserScale * m_PixelScale, g_UserScale * m_FontScale);
 
 		// Size
 		Size size = cellRect.GetSize();

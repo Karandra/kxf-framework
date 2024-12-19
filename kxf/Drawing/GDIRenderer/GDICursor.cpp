@@ -2,8 +2,8 @@
 #include "GDICursor.h"
 #include "GDIBitmap.h"
 #include "GDIIcon.h"
-#include "../BitmapImage.h"
-#include "Private/GDI.h"
+#include "Private.h"
+#include "kxf/Drawing/BitmapImage.h"
 
 namespace kxf
 {
@@ -16,8 +16,12 @@ namespace kxf
 		:m_Cursor(other.ToGDICursor().m_Cursor)
 	{
 	}
+	GDICursor::GDICursor(const GDICursor& other)
+		:m_Cursor(other.m_Cursor), m_HotSpot(other.m_HotSpot)
+	{
+	}
 	GDICursor::GDICursor(const BitmapImage& other)
-		:m_Cursor(other.ToGDICursor().m_Cursor)
+		:m_Cursor(other.ToWXCursor())
 	{
 	}
 
@@ -32,7 +36,7 @@ namespace kxf
 	}
 	void GDICursor::AttachHandle(void* handle)
 	{
-		m_Cursor = wxCursor();
+		m_Cursor = {};
 		Drawing::Private::AttachIconHandle(m_Cursor, handle, [&]()
 		{
 			m_Cursor = wxStockCursor::wxCURSOR_ARROW;
@@ -48,7 +52,7 @@ namespace kxf
 			image.SetOption(ImageOption::Cursor::HotSpotX, m_HotSpot.GetX());
 			image.SetOption(ImageOption::Cursor::HotSpotY, m_HotSpot.GetY());
 		}
-		m_Cursor = std::move(image.ToGDICursor().m_Cursor);
+		m_Cursor = wxCursor(image.AsWXImage());
 	}
 
 	// IImage2D
@@ -63,7 +67,7 @@ namespace kxf
 
 		if (image.Load(stream, format))
 		{
-			m_Cursor = std::move(image.ToGDICursor().m_Cursor);
+			m_Cursor = wxCursor(image.AsWXImage());
 			return m_Cursor.IsOk();
 		}
 		return false;
@@ -113,7 +117,7 @@ namespace kxf
 	{
 		if (m_Cursor.IsOk())
 		{
-			BitmapImage image = GDIBitmap(wxBitmap(m_Cursor));
+			BitmapImage image = m_Cursor;
 			if (!size.IsFullySpecified() || m_Cursor.GetSize() == size)
 			{
 				return image;
@@ -140,12 +144,22 @@ namespace kxf
 			}
 			else
 			{
-				BitmapImage image = GDIBitmap(wxBitmap(m_Cursor));
+				BitmapImage image = m_Cursor;
 				image.Rescale(size, interpolationQuality);
-				return image.ToGDIBitmap();
+				return image.ToWXBitmap();
 			}
 		}
 		return {};
+	}
+
+	Point GDICursor::GetHotSpot() const
+	{
+		return Point(m_Cursor.GetHotSpot());
+	}
+	void GDICursor::SetHotSpot(Point hotSpot)
+	{
+		// TODO: Update the hotspot on the cursor in memory
+		m_HotSpot = std::move(hotSpot);
 	}
 }
 

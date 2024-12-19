@@ -2,9 +2,9 @@
 #include "DataView.h"
 #include "WXUI/DataView/View.h"
 #include "WXUI/DataView/MainWindow.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
 #include "kxf/Utility/Enumerator.h"
 #include "kxf/Utility/Functional.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 
 namespace kxf::Widgets
 {

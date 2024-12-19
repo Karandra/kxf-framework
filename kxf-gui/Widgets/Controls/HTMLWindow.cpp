@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "HTMLWindow.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
 #include "kxf/Localization/Common.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
 #include <wx/clipbrd.h>
 #include <wx/dcbuffer.h>
 #include <wx/dcgraph.h>

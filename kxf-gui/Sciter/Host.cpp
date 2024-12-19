@@ -472,7 +472,7 @@ namespace kxf::Sciter
 	}
 	bool Host::SetFont(const GDIFont& font)
 	{
-		return GetRootElement().SetStyleFont(font);
+		return GetRootElement().SetStyleFont(font.ToFont());
 	}
 	bool Host::SetBackgroundColor(const Color& color)
 	{

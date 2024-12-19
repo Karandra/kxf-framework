@@ -110,7 +110,7 @@ namespace kxf::UI
 			}
 			GDIBitmap GetBitmap() const
 			{
-				return BitmapImage(m_Bitmap.ConvertToImage()).ToGDIBitmap();
+				return BitmapImage(m_Bitmap.ConvertToImage()).ToWXBitmap();
 			}
 			void SetBitmap(const GDIBitmap& bitmap);
 			void SetBitmap(const BitmapImage& image);

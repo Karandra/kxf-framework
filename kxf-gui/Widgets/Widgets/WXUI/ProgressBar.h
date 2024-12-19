@@ -3,7 +3,7 @@
 #include "../../IProgressMeterWidget.h"
 #include "../../IGraphicsRendererAwareWidget.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
-#include "kxf/Drawing/IRendererNative.h"
+#include "kxf-gui/Drawing/IRendererNative.h"
 #include <wx/gauge.h>
 #include <wx/systhemectrl.h>
 

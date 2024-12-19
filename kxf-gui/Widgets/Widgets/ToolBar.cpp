@@ -2,8 +2,8 @@
 #include "ToolBar.h"
 #include "ToolBarItem.h"
 #include "WXUI/ToolBar.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
 #include "kxf/Utility/Enumerator.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 
 namespace kxf::Widgets
 {

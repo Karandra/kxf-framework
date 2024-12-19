@@ -1,10 +1,11 @@
 #include "kxf-pch.h"
 #include "StatusBarEx.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
-#include "kxf/Drawing/GDIRenderer/Private/UxThemeDefines.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
-#include "kxf/Drawing/GDIRenderer/GDIMemoryContext.h"
 #include "kxf/Utility/Common.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIMemoryContext.h"
+#include "kxf/Win32/Include-GUI.h"
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf::UI
 {
@@ -107,7 +108,7 @@ namespace kxf::UI
 				// Ellipsize label if needed
 				if (!label.IsEmpty())
 				{
-					label = wxControl::Ellipsize(label, dc.ToWxDC(), GetEllipsizeMode(), maxWidth);
+					label = wxControl::Ellipsize(label, dc.AsWXDC(), GetEllipsizeMode(), maxWidth);
 				}
 
 				// Draw the label and/or icon
@@ -117,7 +118,7 @@ namespace kxf::UI
 				}
 				else
 				{
-					dc.DrawLabel(label, rect, GetImageList()->GetBitmap(imageIndex).ToWxBitmap(), Alignment::CenterVertical);
+					dc.DrawLabel(label, rect, GetImageList()->GetBitmap(imageIndex).AsWXBitmap(), Alignment::CenterVertical);
 				}
 
 				if (m_IsSeparatorsVisible && m_BorderColor && i != fieldsCount - 1)

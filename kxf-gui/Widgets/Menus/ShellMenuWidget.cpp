@@ -1,10 +1,10 @@
 #include "kxf-pch.h"
 #include "ShellMenuWidget.h"
 #include "ShellMenuWidgetItem.h"
-#include "../INativeWidget.h"
 #include "WXUI/Menu.h"
-#include "kxf/Drawing/GDIRenderer/GDIBitmap.h"
+#include "../INativeWidget.h"
 #include "kxf/Utility/String.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIBitmap.h"
 
 #include <Windows.h>
 #include <winnls.h>
@@ -106,7 +106,7 @@ namespace kxf::Widgets
 								GDIBitmap bitmap;
 								bitmap.AttachHandle(handle);
 
-								BitmapImage image(bitmap);
+								BitmapImage image(bitmap.AsWXBitmap());
 								bitmap.DetachHandle();
 
 								return image;

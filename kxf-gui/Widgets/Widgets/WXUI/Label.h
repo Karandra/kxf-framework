@@ -3,7 +3,7 @@
 #include "../../ILabelWidget.h"
 #include "../../IGraphicsRendererAwareWidget.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
-#include "kxf/Drawing/IRendererNative.h"
+#include "kxf-gui/Drawing/IRendererNative.h"
 #include "kxf/Network/URI.h"
 #include <wx/systhemectrl.h>
 #include <wx/stattext.h>

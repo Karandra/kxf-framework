@@ -3,7 +3,7 @@
 #include "../View.h"
 #include "../Node.h"
 #include "../Column.h"
-#include "kxf/Drawing/GDIRenderer/GDIGraphicsContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIGraphicsContext.h"
 
 namespace kxf::UI::DataView
 {

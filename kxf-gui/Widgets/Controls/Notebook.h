@@ -1,6 +1,6 @@
 #pragma once
 #include "kxf-gui/Widgets/Common.h"
-#include "kxf/wxWidgets/WithImageList.h"
+#include "kxf-gui/wxWidgets/WithImageList.h"
 #include <wx/notebook.h>
 
 namespace kxf::UI

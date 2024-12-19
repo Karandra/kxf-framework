@@ -162,7 +162,7 @@ namespace kxf::Sciter
 	}
 	GDIBitmap GraphicsBitmap::ConvertToBitmap() const
 	{
-		return ConvertToImage().ToGDIBitmap();
+		return ConvertToImage().ToWXBitmap();
 	}
 	ScriptValue GraphicsBitmap::ToScriptValue() const
 	{

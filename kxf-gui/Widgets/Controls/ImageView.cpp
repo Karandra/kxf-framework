@@ -1,6 +1,6 @@
 #include "kxf-pch.h"
 #include "ImageView.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
 #include "kxf-gui/Widgets/Windows/DrawablePanel.h"
 #include "kxf/wxWidgets/StreamWrapper.h"
 
@@ -97,11 +97,11 @@ namespace kxf::UI
 	}
 	void ImageView::SetBitmap(const GDIBitmap& bitmap)
 	{
-		DoSetBitmap(m_Renderer->CreateBitmap(bitmap.ToWxBitmap()), bitmap.GetSize());
+		DoSetBitmap(m_Renderer->CreateBitmap(bitmap.AsWXBitmap()), bitmap.GetSize());
 	}
 	void ImageView::SetBitmap(const BitmapImage& image)
 	{
-		DoSetBitmap(m_Renderer->CreateBitmapFromImage(image.ToWxImage()), image.GetSize());
+		DoSetBitmap(m_Renderer->CreateBitmapFromImage(image.AsWXImage()), image.GetSize());
 	}
 	void ImageView::SetBitmap(const wxGraphicsBitmap& bitmap, const Size& size)
 	{

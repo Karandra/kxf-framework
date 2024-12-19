@@ -6,8 +6,8 @@
 #include "kxf-gui/Widgets/Common.h"
 #include "kxf/System/SystemWindow.h" 
 #include "kxf/System/SystemInformation.h"
-#include "kxf/Drawing/IRendererNative.h"
 #include "kxf/Utility/Drawing.h"
+#include "kxf-gui/Drawing/IRendererNative.h"
 
 #include "kxf/Win32/WrapperUnicode.h"
 kxf_MakeWinUnicodeCallWrapper(SendMessage);

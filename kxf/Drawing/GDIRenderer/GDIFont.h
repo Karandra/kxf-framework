@@ -1,6 +1,5 @@
 #pragma once
 #include "Common.h"
-#include "IGDIObject.h"
 #include <wx/font.h>
 #include "kxf/wxWidgets/MapDrawing.h"
 
@@ -78,15 +77,6 @@ namespace kxf
 			void AttachHandle(void* handle) override;
 
 			// GDIFont
-			const wxFont& ToWxFont() const noexcept
-			{
-				return m_Font;
-			}
-			wxFont& ToWxFont() noexcept
-			{
-				return m_Font;
-			}
-
 			String GetDescription() const
 			{
 				return m_Font.GetNativeFontInfoUserDesc();
@@ -201,6 +191,16 @@ namespace kxf
 			void SetNumericWeight(int weight)
 			{
 				m_Font.SetNumericWeight(weight);
+			}
+
+			Font ToFont() const;
+			wxFont& AsWXFont() noexcept
+			{
+				return m_Font;
+			}
+			const wxFont& AsWXFont() const noexcept
+			{
+				return m_Font;
 			}
 
 		public:

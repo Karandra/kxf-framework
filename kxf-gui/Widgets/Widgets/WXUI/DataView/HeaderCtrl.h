@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Drawing/GDIRenderer/GDIImageList.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIImageList.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
 #include "../../../Events/DataViewWidgetEvent.h"
 struct _HD_ITEMW;

@@ -6,9 +6,9 @@
 #include "../INativeWidget.h"
 #include "../Events/MenuWidgetEvent.h"
 #include "kxf/Threading/Common.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "kxf/Utility/Enumerator.h"
 #include "kxf/Utility/Drawing.h"
+#include "kxf/Utility/Enumerator.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 #include <wx/menu.h>
 #include <wx/colour.h>
 #include <wx/msw/dc.h>

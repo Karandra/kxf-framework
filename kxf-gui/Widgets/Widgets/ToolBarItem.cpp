@@ -2,8 +2,8 @@
 #include "ToolBar.h"
 #include "ToolBarItem.h"
 #include "WXUI/ToolBar.h"
-#include "kxf/Drawing/GDIRenderer/GDIBitmap.h"
-#include "kxf/Core/Private/Mapping.h"
+#include "kxf/wxWidgets/MapCore.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIBitmap.h"
 #include <wx/aui/auibar.h>
 
 namespace kxf::Widgets
@@ -104,7 +104,7 @@ namespace kxf::Widgets
 	{
 		if (m_Item)
 		{
-			return GDIBitmap(m_Item->GetBitmap());
+			return m_Item->GetBitmap();
 		}
 		return {};
 	}
@@ -112,7 +112,7 @@ namespace kxf::Widgets
 	{
 		if (m_Item)
 		{
-			m_Item->SetBitmap(icon.ToGDIBitmap().ToWxBitmap());
+			m_Item->SetBitmap(icon.ToWXBitmap());
 			ScheduleRefreshItem();
 		}
 	}
@@ -302,7 +302,7 @@ namespace kxf::Widgets
 	{
 		if (m_Item)
 		{
-			return Private::MapAlignment(static_cast<wxAlignment>(m_Item->GetAlignment()));
+			return wxWidgets::MapAlignment(static_cast<wxAlignment>(m_Item->GetAlignment()));
 		}
 		return {};
 	}
@@ -310,7 +310,7 @@ namespace kxf::Widgets
 	{
 		if (m_Item)
 		{
-			m_Item->SetAlignment(*Private::MapAlignment(alignment));
+			m_Item->SetAlignment(*wxWidgets::MapAlignment(alignment));
 			ScheduleRefreshItem();
 		}
 	}

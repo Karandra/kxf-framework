@@ -2,8 +2,8 @@
 #include "View.h"
 #include "HeaderCtrl.h"
 #include "MainWindow.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
 #include "kxf/System/SystemInformation.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 
 namespace
 {

@@ -1,6 +1,6 @@
 #include "kxf-pch.h"
 #include "BasicWindowWidget.h"
-#include "kxf/Drawing/GDIRenderer/GDIIcon.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIIcon.h"
 #include <wx/window.h>
 #include <wx/toplevel.h>
 
@@ -15,11 +15,11 @@ namespace kxf::Private
 	// BasicTopLevelWindowWidgetBase
 	BitmapImage BasicWindowWidgetBase::GetIcon() const
 	{
-		return GDIIcon(GetWxWindow()->GetIcon());
+		return GetWxWindow()->GetIcon();
 	}
 	void BasicWindowWidgetBase::SetIcon(const BitmapImage& icon)
 	{
-		GetWxWindow()->SetIcon(icon.ToGDIIcon().ToWxIcon());
+		GetWxWindow()->SetIcon(icon.ToWXIcon());
 	}
 
 	ImageBundle BasicWindowWidgetBase::GetIconPack() const

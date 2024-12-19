@@ -118,7 +118,7 @@ namespace kxf::UI
 			{
 				m_BackgroundBitmap = bitmap;
 
-				wxBitmapBundle bitmapBundle(bitmap.ToWxBitmap());
+				wxBitmapBundle bitmapBundle(bitmap.AsWXBitmap());
 				HTMLWindow::SetHTMLBackgroundImage(bitmapBundle);
 				ScheduleRefresh();
 			}

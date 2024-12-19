@@ -3,7 +3,7 @@
 #include "../../IButtonWidget.h"
 #include "../../IGraphicsRendererAwareWidget.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
-#include "kxf/Drawing/IRendererNative.h"
+#include "kxf-gui/Drawing/IRendererNative.h"
 #include <wx/anybutton.h>
 #include <wx/systhemectrl.h>
 

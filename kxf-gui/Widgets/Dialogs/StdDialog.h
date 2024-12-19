@@ -222,7 +222,7 @@ namespace kxf::UI
 			}
 			void LoadIcon()
 			{
-				m_IconView->SetBitmap(m_MainIcon.ToWxBitmap());
+				m_IconView->SetBitmap(m_MainIcon.AsWXBitmap());
 			}
 			void SetIconVisibility()
 			{

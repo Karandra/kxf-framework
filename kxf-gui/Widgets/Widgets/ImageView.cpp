@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "ImageView.h"
 #include "WXUI/ImageView.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 
 namespace kxf::Widgets
 {

@@ -1,11 +1,11 @@
 #include "kxf-pch.h"
 #include "Button.h"
-#include "kxf/Drawing/ImageBundle.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
-#include "kxf/Drawing/GDIRenderer/GDIMemoryContext.h"
 #include "kxf/System/DynamicLibrary.h"
 #include "kxf/System/Private/System.h"
+#include "kxf/Drawing/ImageBundle.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIMemoryContext.h"
 #include <wx/toplevel.h>
 #include <wx/button.h>
 
@@ -80,12 +80,12 @@ namespace kxf::UI
 
 		// Draw first part
 		dc.SetTextForeground(isEnabled ? GetForegroundColour() : GetForegroundColour().MakeDisabled());
-		renderer.DrawPushButton(this, dc.ToWxDC(), rect, controlState);
+		renderer.DrawPushButton(this, dc.AsWXDC(), rect, controlState);
 
 		// Draw focus rectangle
 		if (m_IsFocusDrawingAllowed && HasFocus())
 		{
-			renderer.DrawFocusRect(this, dc.ToWxDC(), contentRect, wxCONTROL_SELECTED);
+			renderer.DrawFocusRect(this, dc.AsWXDC(), contentRect, wxCONTROL_SELECTED);
 		}
 
 		// Draw bitmap and label
@@ -111,8 +111,8 @@ namespace kxf::UI
 			splitRect.Width() = FromDIPX(this, g_ArrowButtonWidth);
 			splitRect.Height() = clientSize.GetHeight() + FromDIPX(this, 2);
 
-			renderer.DrawPushButton(this, dc.ToWxDC(), splitRect, controlState);
-			renderer.DrawDropArrow(this, dc.ToWxDC(), splitRect, controlState);
+			renderer.DrawPushButton(this, dc.AsWXDC(), splitRect, controlState);
+			renderer.DrawDropArrow(this, dc.AsWXDC(), splitRect, controlState);
 		}
 	}
 	void Button::OnResize(wxSizeEvent& event)
@@ -267,7 +267,7 @@ namespace kxf::UI
 				{
 					if (BitmapImage image = bundle.GetImage(Size(GetSize()), ImageBundleFlag::SystemSize|ImageBundleFlag::NearestLarger))
 					{
-						SetBitmap(image.ToGDIBitmap().ToWxBitmap());
+						SetBitmap(image.ToWXBitmap());
 						return;
 					}
 				}

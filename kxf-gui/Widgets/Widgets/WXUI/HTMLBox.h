@@ -25,7 +25,7 @@ namespace kxf::WXUI
 			std::shared_ptr<IGraphicsRendererAwareWidget> m_RendererAware;
 			wxEvtHandler m_EvtHandler;
 
-			std::unique_ptr<IImage2D> m_BackgroundImage;
+			std::shared_ptr<IImage2D> m_BackgroundImage;
 			Color m_BackgroundColor;
 			const bool m_IsEditable = false;
 
@@ -120,7 +120,14 @@ namespace kxf::WXUI
 
 			void SetBackgroundImage(const IImage2D& image)
 			{
-				m_BackgroundImage = image ? image.CloneImage2D() : nullptr;
+				if (image)
+				{
+					m_BackgroundImage = image.CloneImage2D();
+				}
+				else
+				{
+					m_BackgroundImage = nullptr;
+				}
 				wxHtmlWindow::SetHTMLBackgroundImage(wxNullBitmap);
 
 				ScheduleRefresh();

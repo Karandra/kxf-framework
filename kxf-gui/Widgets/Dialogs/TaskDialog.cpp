@@ -4,8 +4,8 @@
 #include "kxf/Application/ICoreApplication.h"
 #include "kxf/Localization/Common.h"
 #include "kxf/System/DynamicLibrary.h"
-#include "kxf/Drawing/ArtProvider.h"
 #include "kxf/Utility/Memory.h"
+#include "kxf-gui/Drawing/ArtProvider.h"
 
 #include <CommCtrl.h>
 #include "kxf/Win32/UndefMacros.h"
@@ -210,7 +210,7 @@ namespace kxf::UI
 		}
 		else
 		{
-			return ArtProvider::GetMessageBoxResource(m_MainIconID).ToGDIBitmap();
+			return ArtProvider::GetMessageBoxResource(m_MainIconID).ToWXBitmap();
 		}
 	}
 	void TaskDialog::SetMainIcon(StdIcon iconID)
@@ -219,7 +219,7 @@ namespace kxf::UI
 		{
 			// Windows doesn't allow to show a question icon using icon ID for the main icon
 			// but if we really want to use this icon nothing should stop us!
-			SetMainIcon(ArtProvider::GetMessageBoxResource(StdIcon::Question).ToGDIBitmap());
+			SetMainIcon(ArtProvider::GetMessageBoxResource(StdIcon::Question).ToWXBitmap());
 			m_MainIconID = iconID;
 		}
 		else
@@ -258,7 +258,7 @@ namespace kxf::UI
 		}
 		else
 		{
-			return ArtProvider::GetMessageBoxResource(m_FooterIconID).ToGDIBitmap();
+			return ArtProvider::GetMessageBoxResource(m_FooterIconID).ToWXBitmap();
 		}
 	}
 	void TaskDialog::SetFooterIcon(StdIcon iconID)

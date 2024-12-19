@@ -1,7 +1,7 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Drawing/GDIRenderer/GDIPen.h"
-#include "kxf/Drawing/GDIRenderer/GDIBrush.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIPen.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIBrush.h"
 #include <wx/graphics.h>
 
 namespace kxf::Sciter
@@ -83,8 +83,8 @@ namespace kxf::Sciter
 
 			// Drawing functions
 			GraphicsPath CreatePath();
-			void DrawPath(const GraphicsPath& path, PolygonFill fillStyle = PolygonFill::OddEvenRule);
-			void FillPath(const GraphicsPath& path, PolygonFill fillStyle = PolygonFill::OddEvenRule);
+			void DrawPath(const GraphicsPath& path, PolygonFillMode fillStyle = PolygonFillMode::OddEvenRule);
+			void FillPath(const GraphicsPath& path, PolygonFillMode fillStyle = PolygonFillMode::OddEvenRule);
 			void StrokePath(const GraphicsPath& path);
 
 			void DrawEllipse(const RectD& rect);

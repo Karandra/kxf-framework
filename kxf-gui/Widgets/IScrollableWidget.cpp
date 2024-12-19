@@ -1,6 +1,6 @@
 #include "kxf-pch.h"
 #include "IScrollableWidget.h"
-#include "kxf/Drawing/GraphicsRenderer/IGraphicsContext.h"
+#include "kxf-gui/Drawing/GraphicsRenderer/IGraphicsContext.h"
 
 namespace kxf
 {

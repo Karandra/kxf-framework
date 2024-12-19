@@ -1,7 +1,7 @@
 #pragma once
 #include "kxf-gui/Widgets/Common.h"
-#include "kxf/Drawing/GDIRenderer/GDIFont.h"
-#include "kxf/Drawing/GDIRenderer/GDIIcon.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIFont.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIIcon.h"
 #include "kxf/wxWidgets/MapConstants.h"
 #include "kxf/Utility/Common.h"
 #include <wx/richtooltip.h>
@@ -91,7 +91,7 @@ namespace kxf::UI
 			void SetTitleFont(const GDIFont& font)
 			{
 				m_Font = font;
-				m_ToolTip.SetTitleFont(font.ToWxFont());
+				m_ToolTip.SetTitleFont(font.AsWXFont());
 			}
 			void SetBackgroundColour(const Color& color1, const Color& color2 = wxNullColour)
 			{
@@ -118,7 +118,7 @@ namespace kxf::UI
 			{
 				m_Icon = icon;
 				m_IconID = StdIcon::None;
-				m_ToolTip.SetIcon(icon.ToWxIcon());
+				m_ToolTip.SetIcon(icon.AsWXIcon());
 			}
 			void SetIcon(StdIcon iconID);
 

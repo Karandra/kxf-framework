@@ -1,9 +1,8 @@
 #include "kxf-pch.h"
 #include "ProgressBar.h"
 #include "../../INativeWidget.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include <Windows.h>
-#include <Commctrl.h>
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
+#include "kxf/Win32/Include-GUI.h"
 
 namespace kxf::WXUI
 {

@@ -3,7 +3,7 @@
 #include "../../IStatusBarWidget.h"
 #include "../../IGraphicsRendererAwareWidget.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
-#include "kxf/Drawing/IRendererNative.h"
+#include "kxf-gui/Drawing/IRendererNative.h"
 #include "StatusBar.h"
 #include <wx/toplevel.h>
 
@@ -12,7 +12,7 @@ namespace kxf::WXUI
 	class KXF_API StatusBarEx: public StatusBar
 	{
 		private:
-			std::vector<std::unique_ptr<IImage2D>> m_Icons;
+			std::vector<std::shared_ptr<IImage2D>> m_Icons;
 			Color m_BorderColor;
 			NativeWidgetFlag m_WidgetState = NativeWidgetFlag::None;
 			bool m_IsSeparatorsVisible = false;
@@ -82,14 +82,7 @@ namespace kxf::WXUI
 				ScheduleRefresh();
 			}
 		
-			void SetPaneIcon(size_t index, const IImage2D& icon)
-			{
-				if (index < m_Icons.size())
-				{
-					m_Icons[index] = icon ? icon.CloneImage2D() : nullptr;
-					ScheduleRefresh();
-				}
-			}
+			void SetPaneIcon(size_t index, const IImage2D& icon);
 
 		public:
 			int GetRange() const

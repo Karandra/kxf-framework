@@ -1,9 +1,9 @@
 #include "kxf-pch.h"
 #include "StdDialog.h"
 #include "kxf/System/SystemWindow.h" 
-#include "kxf/Drawing/ArtProvider.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
 #include "kxf/Utility/Common.h"
+#include "kxf-gui/Drawing/ArtProvider.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
 
 namespace
 {
@@ -349,7 +349,7 @@ namespace kxf::UI
 			m_ContentPanelLine->SetBackgroundColour(ms_LineBackgroundColor);
 			m_ContentPanelLine->SetMaxSize(FromDIP(Size(wxDefaultCoord, 1)));
 
-			m_IconView = new wxStaticBitmap(m_ContentPanel, wxID_NONE, m_MainIcon.ToWxBitmap());
+			m_IconView = new wxStaticBitmap(m_ContentPanel, wxID_NONE, m_MainIcon.AsWXBitmap());
 			if (m_MainIcon)
 			{
 				m_IconView->SetMinSize(m_MainIcon.GetSize());
@@ -559,7 +559,7 @@ namespace kxf::UI
 		m_MainIconID = iconID;
 		if (iconID != StdIcon::None)
 		{
-			m_MainIcon = ArtProvider::GetMessageBoxResource(iconID).ToGDIBitmap();
+			m_MainIcon = ArtProvider::GetMessageBoxResource(iconID).ToWXBitmap();
 			LoadIcon();
 		}
 		SetIconVisibility();

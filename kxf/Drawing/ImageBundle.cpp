@@ -1,6 +1,5 @@
 #include "kxf-pch.h"
 #include "ImageBundle.h"
-#include "GDIRenderer/GDIIcon.h"
 #include "kxf/IO/IStream.h"
 #include "kxf/System/SystemInformation.h"
 #include "kxf/Application/IGUIApplication.h"
@@ -20,7 +19,7 @@ namespace kxf
 	{
 		for (size_t i = 0; i < other.GetIconCount(); i++)
 		{
-			if (!m_Items.emplace_back(GDIIcon(other.GetIconByIndex(i)).ToBitmapImage()))
+			if (!m_Items.emplace_back(other.GetIconByIndex(i)))
 			{
 				m_Items.pop_back();
 			}
@@ -202,9 +201,9 @@ namespace kxf
 	wxIconBundle ImageBundle::ToWxIconBundle() const
 	{
 		wxIconBundle iconBundle;
-		for (const BitmapImage& image: m_Items)
+		for (auto& image: m_Items)
 		{
-			iconBundle.AddIcon(image.ToGDIIcon().ToWxIcon());
+			iconBundle.AddIcon(image.ToWXIcon());
 		}
 		return iconBundle;
 	}

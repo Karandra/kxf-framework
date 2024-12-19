@@ -1,9 +1,9 @@
 #include "kxf-pch.h"
 #include "StatusBarEx.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
-#include "kxf/Drawing/GDIRenderer/Private/UxThemeDefines.h"
 #include "kxf/Utility/Common.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
+#include "kxf/Win32/Include-GUI.h"
 
 namespace kxf::WXUI
 {
@@ -203,6 +203,23 @@ namespace kxf::WXUI
 		else
 		{
 			return StatusBar::SetBackgroundColour(Color(GetParent()->GetBackgroundColour()).ChangeLightness(Angle::FromDegrees(110)));
+		}
+	}
+
+	// StatusBarEx
+	void StatusBarEx::SetPaneIcon(size_t index, const IImage2D& icon)
+	{
+		if (index < m_Icons.size())
+		{
+			if (icon)
+			{
+				m_Icons[index] = icon.CloneImage2D();
+			}
+			else
+			{
+				m_Icons[index] = nullptr;
+			}
+			ScheduleRefresh();
 		}
 	}
 }

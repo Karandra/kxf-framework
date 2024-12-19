@@ -1,8 +1,6 @@
 #include "kxf-pch.h"
 #include "EvtHandlerWrapper.h"
 #include "kxf/Network/URI.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "../IGraphicsRendererAwareWidget.h"
 
 #include "../Events/WidgetEvent.h"
 #include "../Events/WidgetTextEvent.h"
@@ -14,10 +12,13 @@
 #include "../Events/WidgetScrollEvent.h"
 #include "../Events/WidgetLifetimeEvent.h"
 #include "../Events/WidgetContextMenuEvent.h"
+#include "../Events/BookWidgetEvent.h"
 
 #include "../ITextWidget.h"
 #include "../IBookWidget.h"
-#include "../Events/BookWidgetEvent.h"
+#include "../IGraphicsRendererAwareWidget.h"
+
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 
 #include <wx/bookctrl.h>
 #include <wx/aui/auibook.h>

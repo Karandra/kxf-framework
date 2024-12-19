@@ -1,7 +1,7 @@
 #pragma once
 #include "Common.h"
 #include "Event.h"
-#include "kxf/Drawing/GDIRenderer/GDIImageList.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIImageList.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
 struct _HD_ITEMW;
 class wxHeaderCtrlEvent;

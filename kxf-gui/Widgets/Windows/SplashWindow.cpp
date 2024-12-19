@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "SplashWindow.h"
 #include "kxf/System/SystemWindow.h" 
-#include "kxf/Drawing/GDIRenderer/GDIMemoryContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIMemoryContext.h"
 #include <wx/rawbmp.h>
 
 namespace kxf::UI
@@ -44,7 +44,7 @@ namespace kxf::UI
 			}
 		}
 
-		GDIBitmap bitmap = image.ToGDIBitmap();
+		GDIBitmap bitmap = image.ToWXBitmap();
 		GDIMemoryContext dc(bitmap);
 
 		BLENDFUNCTION blendFunction = {};

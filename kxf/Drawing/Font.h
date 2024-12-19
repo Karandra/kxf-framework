@@ -4,11 +4,7 @@
 #include "kxf/Core/String.h"
 #include "kxf/Serialization/BinarySerializer.h"
 class wxFont;
-
-namespace kxf
-{
-	class GDIFont;
-}
+class wxNativeFontInfo;
 
 namespace kxf
 {
@@ -33,7 +29,6 @@ namespace kxf
 			FlagSet<FontStyle> m_Style;
 
 		private:
-			void CreateFrom(const GDIFont& other);
 			void CreateFrom(const wxFont& other);
 			void CreateFrom(const wxNativeFontInfo& other);
 			void InitCommon()
@@ -49,11 +44,6 @@ namespace kxf
 			Font(const Font&) = default;
 			Font(Font&&) noexcept = default;
 
-			Font(const GDIFont& other)
-			{
-				CreateFrom(other);
-				InitCommon();
-			}
 			Font(const wxFont& other)
 			{
 				CreateFrom(other);
@@ -153,8 +143,7 @@ namespace kxf
 				m_Weight = weight;
 			}
 
-			GDIFont ToGDIFont() const;
-			wxFont ToWxFont() const;
+			wxFont ToWXFont() const;
 
 		public:
 			explicit operator bool() const noexcept

@@ -1,14 +1,13 @@
 #include "kxf-pch.h"
 #include "BasicWxWidget.h"
-#include "kxf/Core/Private/Mapping.h"
-#include "kxf/Drawing/GDIRenderer/GDIFont.h"
 #include "kxf/System/NativeAPI.h"
 #include "kxf/Utility/Enumerator.h"
 #include "kxf/Utility/String.h"
+#include "kxf/wxWidgets/MapCore.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIFont.h"
 #include <wx/window.h>
 #include <wx/colour.h>
-#include <Windows.h>
-#include <UxTheme.h>
+#include "kxf/Win32/Include-GUI.h"
 
 namespace
 {
@@ -171,11 +170,11 @@ namespace kxf::Private
 
 	void BasicWxWidgetBase::Center(FlagSet<Orientation> orientation)
 	{
-		m_Window->Center(*Private::MapOrientation(orientation));
+		m_Window->Center(*wxWidgets::MapOrientation(orientation));
 	}
 	void BasicWxWidgetBase::CenterOnParent(FlagSet<Orientation> orientation)
 	{
-		m_Window->CenterOnParent(*Private::MapOrientation(orientation));
+		m_Window->CenterOnParent(*wxWidgets::MapOrientation(orientation));
 	}
 
 	// Size functions
@@ -533,7 +532,7 @@ namespace kxf::Private
 	}
 	void BasicWxWidgetBase::SetFont(const Font& font)
 	{
-		m_Window->SetFont(font.ToGDIFont().ToWxFont());
+		m_Window->SetFont(font.ToWXFont());
 	}
 
 	Color BasicWxWidgetBase::GetColor(WidgetColorFlag colorType) const

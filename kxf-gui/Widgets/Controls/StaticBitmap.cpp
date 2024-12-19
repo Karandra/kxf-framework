@@ -1,8 +1,8 @@
 #include "kxf-pch.h"
 #include "StaticBitmap.h"
 #include "kxf/Drawing/BitmapImage.h"
-#include "kxf/Drawing/GDIRenderer/UxTheme.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/UxTheme.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
 
 namespace kxf::UI
 {
@@ -24,7 +24,7 @@ namespace kxf::UI
 	)
 	{
 		SetBackgroundStyle(wxBG_STYLE_PAINT);
-		if (wxGenericStaticBitmap::Create(parent, id, bitmap.ToWxBitmap(), Point::UnspecifiedPosition(), Size::UnspecifiedSize(), style.ToInt()))
+		if (wxGenericStaticBitmap::Create(parent, id, bitmap.AsWXBitmap(), Point::UnspecifiedPosition(), Size::UnspecifiedSize(), style.ToInt()))
 		{
 			m_InitialSize = bitmap ? bitmap.GetSize() : Size(this->GetSize());
 
@@ -42,6 +42,6 @@ namespace kxf::UI
 	}
 	void StaticBitmap::SetImage(const BitmapImage& image)
 	{
-		SetBitmap(image.ToGDIBitmap().ToWxBitmap());
+		SetBitmap(image.ToWXBitmap());
 	}
 }

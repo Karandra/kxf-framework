@@ -1,7 +1,7 @@
 #pragma once
 #include "kxf-gui/Widgets/Common.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
-#include "kxf/Drawing/WithImageList.h"
+#include "kxf-gui/Drawing/WithImageList.h"
 #include "ComboBox.h"
 #include <wx/systhemectrl.h>
 #include <wx/bmpcbox.h>

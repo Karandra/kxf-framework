@@ -10,7 +10,7 @@
 #include "kxf-gui/Widgets/WindowWithStyles.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
 #include "kxf-gui/Widgets/Windows/ToolTipEx.h"
-#include "kxf/Drawing/IRendererNative.h"
+#include "kxf-gui/Drawing/IRendererNative.h"
 #include <wx/systhemectrl.h>
 #include <wx/scrolwin.h>
 #include <wx/dataobj.h>

@@ -35,7 +35,7 @@ namespace kxf::UI
 
 					const GDIBitmap& bitmap = m_Items[thumbIndex].GetBitmap();
 					const Point newPos = thumbRect.GetTopLeft() + Point::FromSize(m_ThumbSize - bitmap.GetSize()) / 2;
-					dc.DrawBitmap(bitmap.ToWxBitmap(), newPos);
+					dc.DrawBitmap(bitmap.AsWXBitmap(), newPos);
 				}
 				else
 				{
@@ -201,12 +201,12 @@ namespace kxf::UI
 	GDIBitmap ThumbView::CreateThumb(const GDIBitmap& bitmap, const Size& size) const
 	{
 		GDIBitmap result(size, ColorDepthDB::BPP32);;
-		wxMemoryDC dc(result.ToWxBitmap());
+		wxMemoryDC dc(result.AsWXBitmap());
 		wxGCDC gcdc(dc);
 		gcdc.SetBackground(*wxTRANSPARENT_BRUSH);
 		gcdc.Clear();
 
-		DrawablePanel::DrawScaledBitmap(gcdc.GetGraphicsContext(), bitmap.ToWxBitmap(), Rect(Point(0, 0), size), BitmapScaleMode::AspectFit);
+		DrawablePanel::DrawScaledBitmap(gcdc.GetGraphicsContext(), bitmap.AsWXBitmap(), Rect(Point(0, 0), size), BitmapScaleMode::AspectFit);
 		return result;
 	}
 
@@ -308,7 +308,7 @@ namespace kxf::UI
 		image.SetOption(ImageOption::DesiredHeight, m_ThumbSize.GetHeight());
 		if (image.Load(stream, format, index))
 		{
-			return AddThumb(image.ToGDIBitmap());
+			return AddThumb(image.ToWXBitmap());
 		}
 		return InvalidItemIndex;
 	}

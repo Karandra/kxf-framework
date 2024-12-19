@@ -19,8 +19,14 @@ enum wxFontEncoding;
 enum wxFontSymbolicSize;
 
 enum wxBitmapType;
+class wxFont;
 class wxAffineMatrix2D;
 struct wxFontMetrics;
+
+namespace kxf
+{
+	class Font;
+}
 
 namespace kxf::wxWidgets
 {
@@ -76,4 +82,6 @@ namespace kxf::wxWidgets
 
 	wxFontMetrics MapFontMetrics(const FontMetrics& metrics) noexcept;
 	FontMetrics MapFontMetrics(const wxFontMetrics& metricsWx) noexcept;
+
+	wxFont MapFont(const Font& other);
 }

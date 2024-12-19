@@ -2,7 +2,7 @@
 #include "MainWindow.h"
 #include "HeaderCtrl.h"
 #include "kxf/System/SystemInformation.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 #include "kxf-gui/Widgets/Events/WidgetMouseEvent.h"
 #include <wx/generic/private/widthcalc.h>
 #include <wx/popupwin.h>

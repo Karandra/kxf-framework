@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "kxf/Drawing/IRendererNative.h"
+#include "kxf-gui/Drawing/IRendererNative.h"
 
 namespace kxf::UI::DataView
 {

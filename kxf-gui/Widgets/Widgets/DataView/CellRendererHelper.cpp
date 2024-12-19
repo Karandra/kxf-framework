@@ -2,9 +2,9 @@
 #include "CellRendererHelper.h"
 #include "Column.h"
 #include "../../IDataViewWidget.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "kxf/Drawing/IRendererNative.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/IRendererNative.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
 #include "wx/generic/private/markuptext.h"
 
 namespace
@@ -26,7 +26,7 @@ namespace kxf::DataView::Markup
 		public:
 			Size GetTextExtent(GDIContext& dc) const
 			{
-				return Size(Measure(dc.ToWxDC()));
+				return Size(Measure(dc.AsWXDC()));
 			}
 	};
 	class WithMnemonics final: public wxMarkupText
@@ -40,7 +40,7 @@ namespace kxf::DataView::Markup
 		public:
 			Size GetTextExtent(GDIContext& dc) const
 			{
-				return Size(Measure(dc.ToWxDC()));
+				return Size(Measure(dc.AsWXDC()));
 			}
 	};
 
@@ -60,7 +60,7 @@ namespace kxf::DataView::Markup
 	template<class T>
 	Size GetTextExtent(T& markup, GDIContext& dc)
 	{
-		return Size(markup.Measure(dc.ToWxDC()));
+		return Size(markup.Measure(dc.AsWXDC()));
 	}
 
 	Size GetTextExtent(MarkupMode mode, GDIContext& dc, const String& string)
@@ -84,11 +84,11 @@ namespace kxf::DataView::Markup
 	{
 		if constexpr(std::is_same_v<T, WithMnemonics>)
 		{
-			markup.Render(dc.ToWxDC(), rect, flags.ToInt());
+			markup.Render(dc.AsWXDC(), rect, flags.ToInt());
 		}
 		else
 		{
-			markup.Render(window, dc.ToWxDC(), rect, flags.ToInt(), ellipsizeMode);
+			markup.Render(window, dc.AsWXDC(), rect, flags.ToInt(), ellipsizeMode);
 		}
 	}
 
@@ -172,7 +172,7 @@ namespace kxf::DataView
 			{
 				if (!m_RenderInfo.Attributes.FontOptions().IsDefault())
 				{
-					dc.SetFont(m_RenderInfo.Attributes.GetEffectiveFont(dc.GetFont()));
+					dc.SetFont(m_RenderInfo.Attributes.GetEffectiveFont(dc.GetFont().ToFont()));
 				}
 				extent = Markup::GetTextExtent(m_RenderInfo.MarkupMode, dc, string);
 			});

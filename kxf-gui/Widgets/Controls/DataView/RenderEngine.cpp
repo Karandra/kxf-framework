@@ -4,7 +4,7 @@
 #include "Column.h"
 #include "View.h"
 #include "MainWindow.h"
-#include "kxf/Drawing/GDIRenderer/GDIWindowContext.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIWindowContext.h"
 #include "wx/generic/private/markuptext.h"
 
 namespace
@@ -32,7 +32,7 @@ namespace kxf::UI::DataView::Markup
 		public:
 			Size GetTextExtent(GDIContext& dc) const
 			{
-				return Size(Measure(dc.ToWxDC()));
+				return Size(Measure(dc.AsWXDC()));
 			}
 	};
 	class WithMnemonics final: public wxMarkupText
@@ -46,7 +46,7 @@ namespace kxf::UI::DataView::Markup
 		public:
 			Size GetTextExtent(GDIContext& dc) const
 			{
-				return Size(Measure(dc.ToWxDC()));
+				return Size(Measure(dc.AsWXDC()));
 			}
 	};
 }
@@ -68,7 +68,7 @@ namespace kxf::UI::DataView::Markup
 
 	Size GetTextExtent(const wxMarkupTextBase& markup, GDIContext& dc)
 	{
-		return Size(markup.Measure(dc.ToWxDC()));
+		return Size(markup.Measure(dc.AsWXDC()));
 	}
 	Size GetTextExtent(MarkupMode mode, GDIContext& dc, const String& string)
 	{
@@ -91,11 +91,11 @@ namespace kxf::UI::DataView::Markup
 	{
 		if constexpr(std::is_same_v<T, WithMnemonics>)
 		{
-			markup.Render(dc.ToWxDC(), rect, flags);
+			markup.Render(dc.AsWXDC(), rect, flags);
 		}
 		else
 		{
-			markup.Render(window, dc.ToWxDC(), rect, flags, ellipsizeMode);
+			markup.Render(window, dc.AsWXDC(), rect, flags, ellipsizeMode);
 		}
 	}
 
@@ -193,7 +193,7 @@ namespace kxf::UI::DataView
 			{
 				if (attributes.FontOptions().RequiresNeedAlteration())
 				{
-					dc.SetFont(attributes.GetEffectiveFont(dc.GetFont()));
+					dc.SetFont(attributes.GetEffectiveFont(dc.GetFont().ToFont()));
 				}
 				extent = Markup::GetTextExtent(m_Renderer.m_MarkupMode, dc, string);
 			});

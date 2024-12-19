@@ -1,7 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "IGDIObject.h"
-#include "../IImage2D.h"
+#include "kxf/Drawing/IImage2D.h"
 #include <wx/cursor.h>
 
 namespace kxf
@@ -78,13 +77,8 @@ namespace kxf
 
 			GDICursor(const GDIIcon& other);
 			GDICursor(const GDIBitmap& other);
+			GDICursor(const GDICursor& other);
 			GDICursor(const BitmapImage& other);
-			GDICursor(const GDICursor& other)
-				:m_Cursor(other.m_Cursor), m_HotSpot(other.m_HotSpot)
-			{
-			}
-
-			virtual ~GDICursor() = default;
 
 		public:
 			// IGDIObject
@@ -146,26 +140,20 @@ namespace kxf
 			BitmapImage ToBitmapImage(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const override;
 
 			// GDICursor
-			const wxCursor& ToWxCursor() const noexcept
+			wxCursor& AsWXCursor() noexcept
 			{
 				return m_Cursor;
 			}
-			wxCursor& ToWxCursor() noexcept
+			const wxCursor& AsWXCursor() const noexcept
 			{
 				return m_Cursor;
 			}
+
 			GDIIcon ToGDIIcon() const;
 			GDIBitmap ToGDIBitmap(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const;
 
-			Point GetHotSpot() const
-			{
-				return Point(m_Cursor.GetHotSpot());
-			}
-			void SetHotSpot(Point hotSpot)
-			{
-				// TODO: Update the hotspot on the cursor in memory
-				m_HotSpot = std::move(hotSpot);
-			}
+			Point GetHotSpot() const;
+			void SetHotSpot(Point hotSpot);
 
 		public:
 			explicit operator bool() const noexcept

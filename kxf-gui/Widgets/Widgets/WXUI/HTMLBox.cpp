@@ -2,9 +2,9 @@
 #include "HTMLBox.h"
 #include "../../Menus/MenuWidget.h"
 #include "../../Events/MenuWidgetEvent.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "kxf/Drawing/GDIRenderer/GDIContext.h"
 #include "kxf/Localization/Common.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIContext.h"
 #include <wx/clipbrd.h>
 
 namespace kxf::WXUI
@@ -152,7 +152,7 @@ namespace kxf::WXUI
 			renderInfo.SetSelection(m_selection);
 			renderInfo.SetStyle(&renderStyle);
 
-			m_Cell->Draw(dc.ToWxDC(), 0, 0, pos.GetY() * wxHTML_SCROLL_STEP + rect.GetTop(), pos.GetY() * wxHTML_SCROLL_STEP + rect.GetBottom(), renderInfo);
+			m_Cell->Draw(dc.AsWXDC(), 0, 0, pos.GetY() * wxHTML_SCROLL_STEP + rect.GetTop(), pos.GetY() * wxHTML_SCROLL_STEP + rect.GetBottom(), renderInfo);
 		});
 	}
 	void HTMLBox::OnEraseBackground(wxEraseEvent& event)

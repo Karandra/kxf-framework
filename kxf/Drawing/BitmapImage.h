@@ -2,15 +2,11 @@
 #include "Common.h"
 #include "IBitmapImage.h"
 #include "kxf/Serialization/BinarySerializer.h"
+class wxIcon;
 class wxImage;
+class wxBitmap;
+class wxCursor;
 class wxMemoryBuffer;
-
-namespace kxf
-{
-	class GDICursor;
-	class GDIBitmap;
-	class GDIIcon;
-}
 
 namespace kxf
 {
@@ -26,13 +22,12 @@ namespace kxf
 
 		public:
 			BitmapImage() = default;
+			BitmapImage(const wxIcon& other);
 			BitmapImage(const wxImage& other);
+			BitmapImage(const wxBitmap& other);
+			BitmapImage(const wxCursor& other);
 			BitmapImage(const BitmapImage& other);
 			BitmapImage(BitmapImage&&) noexcept = default;
-
-			BitmapImage(const GDIIcon& other);
-			BitmapImage(const GDIBitmap& other);
-			BitmapImage(const GDICursor& other);
 
 			BitmapImage(const Size& size);
 			BitmapImage(const Size& size, uint8_t* rgb);
@@ -105,13 +100,6 @@ namespace kxf
 			bool IsSameAs(const BitmapImage& other) const;
 			BitmapImage Clone() const;
 
-			// BitmapImage: Conversion
-			const wxImage& ToWxImage() const noexcept;
-			wxImage& ToWxImage() noexcept;
-
-			GDICursor ToGDICursor(const Point& hotSpot = Point::UnspecifiedPosition()) const;
-			GDIIcon ToGDIIcon() const;
-
 			// BitmapImage: Pixel data
 			const uint8_t* GetRawData() const;
 			uint8_t* GetRawData();
@@ -146,7 +134,12 @@ namespace kxf
 			BitmapImage& Rescale(const Size& size, InterpolationQuality interpolationQuality);
 
 			// BitmapImage: Conversion
-			GDIBitmap ToGDIBitmap(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const;
+			wxImage& AsWXImage() noexcept;
+			const wxImage& AsWXImage() const noexcept;
+
+			wxIcon ToWXIcon(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const;
+			wxCursor ToWXCursor(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const;
+			wxBitmap ToWXBitmap(const Size& size = Size::UnspecifiedSize(), InterpolationQuality interpolationQuality = InterpolationQuality::Default) const;
 			BitmapImage ConvertToDisabled(Angle brightness = Angle::FromNormalized(1)) const;
 			BitmapImage ConvertToMonochrome(const PackedRGB<uint8_t>& makeWhite) const;
 			BitmapImage ConvertToGrayscale(const PackedRGB<float>& weight = ColorWeight::CCIR_601) const;

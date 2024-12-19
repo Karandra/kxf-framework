@@ -1,6 +1,6 @@
 #pragma once
 #include "../Editor.h"
-#include "kxf/Drawing/WithImageList.h"
+#include "kxf-gui/Drawing/WithImageList.h"
 
 namespace kxf::UI::DataView
 {

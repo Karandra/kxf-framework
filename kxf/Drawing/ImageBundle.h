@@ -31,11 +31,12 @@ namespace kxf
 			{
 				m_Items.reserve(initialCount);
 			}
-			ImageBundle(const ImageBundle&) = default;
-			ImageBundle(ImageBundle&&) noexcept = default;
 			ImageBundle(const wxIconBundle& other);
 			ImageBundle(const BitmapImage& other);
-			virtual ~ImageBundle() = default;
+
+			ImageBundle(const ImageBundle&) = default;
+			ImageBundle(ImageBundle&&) noexcept = default;
+			~ImageBundle() = default;
 
 		public:
 			// ImageBundle

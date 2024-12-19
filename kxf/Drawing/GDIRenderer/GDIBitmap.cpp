@@ -2,9 +2,8 @@
 #include "GDIBitmap.h"
 #include "GDICursor.h"
 #include "GDIIcon.h"
-#include "../BitmapImage.h"
-#include "../GDIRenderer/GDIContext.h"
-#include "Private/GDI.h"
+#include "Private.h"
+#include "kxf/Drawing/BitmapImage.h"
 
 namespace kxf
 {
@@ -16,28 +15,44 @@ namespace kxf
 		//m_Bitmap.UseAlpha(true);
 	}
 
-	GDIBitmap::GDIBitmap(const GDICursor& other)
-		:m_Bitmap(std::move(other.ToGDIBitmap().m_Bitmap))
-	{
-		Initialize();
-	}
 	GDIBitmap::GDIBitmap(const GDIIcon& other)
 		:m_Bitmap(std::move(other.ToGDIBitmap().m_Bitmap))
 	{
 		Initialize();
 	}
-	GDIBitmap::GDIBitmap(const BitmapImage& other)
+	GDIBitmap::GDIBitmap(const GDICursor& other)
 		:m_Bitmap(std::move(other.ToGDIBitmap().m_Bitmap))
 	{
 		Initialize();
 	}
-	GDIBitmap::GDIBitmap(const BitmapImage& other, const GDIContext& dc)
-		:m_Bitmap(other.ToWxImage(), dc.ToWxDC())
+	GDIBitmap::GDIBitmap(const GDIBitmap& other)
+		:m_Bitmap(other.m_Bitmap)
 	{
 		Initialize();
 	}
-	GDIBitmap::GDIBitmap(const Size& size, const GDIContext& dc)
-		:m_Bitmap(size.GetWidth(), size.GetHeight(), dc.ToWxDC())
+	GDIBitmap::GDIBitmap(const BitmapImage& other)
+		:m_Bitmap(other.ToWXBitmap())
+	{
+		Initialize();
+	}
+	GDIBitmap::GDIBitmap(const BitmapImage& other, const wxDC& dc)
+		:m_Bitmap(other.AsWXImage(), dc)
+	{
+		Initialize();
+	}
+
+	GDIBitmap::GDIBitmap(const Size& size, ColorDepth depth)
+		:m_Bitmap(size.GetWidth(), size.GetHeight(), depth ? depth.GetValue() : -1)
+	{
+		Initialize();
+	}
+	GDIBitmap::GDIBitmap(const Size& size, const wxDC& dc)
+		:m_Bitmap(size.GetWidth(), size.GetHeight(), dc)
+	{
+		Initialize();
+	}
+	GDIBitmap::GDIBitmap(const char* xbm, const Size& size, ColorDepth depth)
+		:m_Bitmap(xbm, size.GetWidth(), size.GetHeight(), depth ? depth.GetValue() : -1)
 	{
 		Initialize();
 	}
@@ -74,7 +89,7 @@ namespace kxf
 		BitmapImage image;
 		if (image.Load(stream, format))
 		{
-			m_Bitmap = std::move(image.ToGDIBitmap().m_Bitmap);
+			m_Bitmap = image.ToWXBitmap();
 			return m_Bitmap.IsOk();
 		}
 		return false;
@@ -100,7 +115,7 @@ namespace kxf
 			{
 				BitmapImage image = m_Bitmap.ConvertToImage();
 				image.Rescale(size, interpolationQuality);
-				return image.ToGDIBitmap();
+				return image.ToWXBitmap();
 			}
 		}
 		return {};
@@ -134,7 +149,7 @@ namespace kxf
 			{
 				BitmapImage image = m_Bitmap.ConvertToImage();
 				image.Rescale(size, interpolationQuality);
-				return image.ToGDIBitmap();
+				return image.ToWXBitmap();
 			}
 		}
 		return {};

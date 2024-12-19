@@ -1,7 +1,7 @@
 #pragma once
 #include "kxf-gui/Widgets/Common.h"
 #include "kxf-gui/Widgets/WindowRefreshScheduler.h"
-#include "kxf/wxWidgets/WithImageList.h"
+#include "kxf-gui/wxWidgets/WithImageList.h"
 #include <wx/aui/auibook.h>
 #include <wx/aui/dockart.h>
 

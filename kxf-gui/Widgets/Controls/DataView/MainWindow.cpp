@@ -10,7 +10,7 @@
 #include "View.h"
 #include "kxf/System/SystemInformation.h"
 #include "kxf-gui/Widgets/Windows/Frame.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 #include <wx/popupwin.h>
 #include <wx/generic/private/widthcalc.h>
 #include <wx/minifram.h>
@@ -2292,7 +2292,7 @@ namespace kxf::UI::DataView
 			}
 		}
 
-		return texture->ToBitmapImage().ToGDIBitmap();
+		return texture->ToBitmapImage().ToWXBitmap();
 	}
 
 	bool MainWindow::EnableDND(std::unique_ptr<wxDataObjectSimple> dataObject, DNDOpType type, bool isPreferredDrop)

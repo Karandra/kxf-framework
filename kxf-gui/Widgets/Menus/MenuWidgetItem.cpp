@@ -2,12 +2,12 @@
 #include "MenuWidgetItem.h"
 #include "MenuWidget.h"
 #include "kxf/Drawing/BitmapImage.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
-#include "kxf/Drawing/GDIRenderer/GDIBitmap.h"
 #include "kxf/System/SystemInformation.h"
 #include "kxf/Utility/Drawing.h"
 #include "WXUI/Menu.h"
 #include "WXUI/MenuItem.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIBitmap.h"
 #include <wx/menu.h>
 #include <wx/colour.h>
 #include <Windows.h>

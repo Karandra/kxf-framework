@@ -28,8 +28,8 @@ namespace kxf::UI
 			font.SetFamily(FontFamily::FixedWidth);
 			if (font.SetFaceName("Consolas"))
 			{
-				StyleSetFont(style, font.ToWxFont());
-				StyleSetFont(wxSTC_STYLE_LINENUMBER, font.ToWxFont());
+				StyleSetFont(style, font.AsWXFont());
+				StyleSetFont(wxSTC_STYLE_LINENUMBER, font.AsWXFont());
 			}
 
 			SetDoubleBuffered(true);

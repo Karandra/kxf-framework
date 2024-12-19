@@ -2,8 +2,8 @@
 #include "MenuItem.h"
 #include "../MenuWidget.h"
 #include "../MenuWidgetItem.h"
-#include "kxf/Drawing/GraphicsRenderer.h"
 #include "kxf/System/SystemInformation.h"
+#include "kxf-gui/Drawing/GraphicsRenderer.h"
 
 namespace kxf::WXUI
 {
@@ -39,7 +39,7 @@ namespace kxf::WXUI
 		auto gc = renderer->CreateLegacyContext(texture, GetWindow());
 		m_Item->OnDrawItem(std::move(gc), Rect(rect.GetSize()), flags);
 
-		dc.DrawBitmap(texture->ToBitmapImage().ToGDIBitmap().ToWxBitmap(), rect.GetPosition());
+		dc.DrawBitmap(texture->ToBitmapImage().ToWXBitmap(), rect.GetPosition());
 		return true;
 	}
 

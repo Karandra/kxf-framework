@@ -1,7 +1,7 @@
 #pragma once
 #include "kxf-gui/Widgets/Common.h"
 #include "kxf/EventSystem/Event.h"
-#include "kxf/Drawing/GDIRenderer/GDIIcon.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIIcon.h"
 #include <wx/toplevel.h>
 
 namespace kxf::UI

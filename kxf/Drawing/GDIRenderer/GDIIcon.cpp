@@ -2,22 +2,26 @@
 #include "GDIIcon.h"
 #include "GDICursor.h"
 #include "GDIBitmap.h"
-#include "../BitmapImage.h"
-#include "Private/GDI.h"
+#include "Private.h"
+#include "kxf/Drawing/BitmapImage.h"
 
 namespace kxf
 {
 	// Icon
+	GDIIcon::GDIIcon(const GDIIcon& other)
+		:m_Icon(other.m_Icon)
+	{
+	}
+	GDIIcon::GDIIcon(const GDIBitmap& other)
+		:m_Icon(std::move(other.ToGDIIcon().m_Icon))
+	{
+	}
 	GDIIcon::GDIIcon(const GDICursor& other)
 		:m_Icon(std::move(other.ToGDIIcon().m_Icon))
 	{
 	}
 	GDIIcon::GDIIcon(const BitmapImage& other)
-		:m_Icon(std::move(other.ToGDIIcon().m_Icon))
-	{
-	}
-	GDIIcon::GDIIcon(const GDIBitmap& other)
-		:m_Icon(std::move(other.ToGDIIcon().m_Icon))
+		:m_Icon(other.ToWXIcon())
 	{
 	}
 
@@ -42,14 +46,14 @@ namespace kxf
 		}
 		else
 		{
-			m_Icon = wxIcon();
+			m_Icon = {};
 		}
 	}
 
 	void GDIIcon::Create(const Size& size)
 	{
 		BitmapImage image(size);
-		m_Icon = std::move(image.ToGDIIcon().m_Icon);
+		m_Icon.CopyFromBitmap(image.ToWXBitmap());
 	}
 
 	// IImage2D
@@ -58,7 +62,7 @@ namespace kxf
 		BitmapImage image;
 		if (image.Load(stream, format, index == IImage2D::npos ? -1 : static_cast<int>(index)))
 		{
-			m_Icon = std::move(image.ToGDIIcon().m_Icon);
+			m_Icon.CopyFromBitmap(image.ToWXBitmap());
 			return m_Icon.IsOk();
 		}
 		return false;
@@ -95,9 +99,9 @@ namespace kxf
 				return bitmap;
 			}
 
-			BitmapImage image = GDIBitmap(bitmap);
+			BitmapImage image = bitmap;
 			image.Rescale(size, interpolationQuality);
-			return image.ToGDIBitmap();
+			return image.ToWXBitmap();
 		}
 		return {};
 	}

@@ -1,7 +1,7 @@
 #include "kxf-pch.h"
 #include "ImageComboBox.h"
 #include "WXUI/ImageComboBox.h"
-#include "kxf/Drawing/GDIRenderer/GDIBitmap.h"
+#include "kxf-gui/Drawing/GDIRenderer/GDIBitmap.h"
 
 namespace kxf::Widgets
 {
@@ -90,17 +90,17 @@ namespace kxf::Widgets
 	size_t ImageComboBox::InsertItem(size_t index, const String& label, const BitmapImage& image, void* data)
 	{
 		const auto count = Get()->GetCount();
-		int newIndex = Get()->Insert(label, image.ToGDIBitmap().ToWxBitmap(), index <= count ? index : count - 1, data);
+		int newIndex = Get()->Insert(label, image.ToWXBitmap(), index <= count ? index : count - 1, data);
 
 		return newIndex >= 0 ? newIndex : npos;
 	}
 
 	BitmapImage ImageComboBox::GetItemImage(size_t index) const
 	{
-		return GDIBitmap(Get()->GetItemBitmap(index));
+		return Get()->GetItemBitmap(index);
 	}
 	void ImageComboBox::SetItemImage(size_t index, const BitmapImage& image)
 	{
-		Get()->SetItemBitmap(index, image.ToGDIBitmap().ToWxBitmap());
+		Get()->SetItemBitmap(index, image.ToWXBitmap());
 	}
 }

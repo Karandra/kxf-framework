@@ -1,7 +1,7 @@
 #pragma once
 #include "../Renderer.h"
-#include "kxf/Drawing/WithImageList.h"
 #include "ImageListRenderer.h"
+#include "kxf-gui/Drawing/WithImageList.h"
 
 namespace kxf::UI::DataView
 {
@@ -79,7 +79,7 @@ namespace kxf::UI::DataView
 			}
 			BitmapImage GetImage(size_t index) const override
 			{
-				return m_Value.GetImage(index);
+				return m_Value.GetImage(index).AsWXBitmap();
 			}
 
 		public:
