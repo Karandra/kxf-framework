@@ -39,8 +39,12 @@ namespace kxf
 			virtual bool PostMessage(uint32_t message, intptr_t wParam, intptr_t lParam) = 0;
 			virtual std::optional<intptr_t> SendMessage(uint32_t message, intptr_t wParam, intptr_t lParam, FlagSet<uint32_t> flags = {}, TimeSpan timeout = {}) = 0;
 
+			virtual bool IsVisible() const = 0;
 			virtual bool Show(SHWindowCommand command, bool async = false) = 0;
 			virtual bool Close() = 0;
 			virtual bool Destroy() = 0;
+
+			virtual bool IsEnabled() const = 0;
+			virtual bool SetEnabled(bool enable = true) = 0;
 	};
 }
