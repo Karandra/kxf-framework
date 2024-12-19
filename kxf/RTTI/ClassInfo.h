@@ -77,25 +77,6 @@ namespace kxf::RTTI
 			virtual std::shared_ptr<IObject> DoCreateObjectInstance() const = 0;
 			virtual IObject* DoCreateObjectInstanceAt(void* ptr, size_t size) const = 0;
 
-			template<class TResult>
-			static std::unique_ptr<TResult> DynamicCast(std::unique_ptr<IObject> ptr) noexcept
-			{
-				if constexpr(std::is_same_v<IObject, TResult>)
-				{
-					return ptr;
-				}
-				else if (ptr)
-				{
-					auto temp = ptr->QueryInterface<TResult>();
-					ptr.release();
-
-					// It's assumed that in this case 'QueryInterface' used 'assume_non_owned' to return
-					// the requested interface. This is a really dirty hack and it needs to be fixed.
-					return std::unique_ptr<TResult>(temp.get());
-				}
-				return nullptr;
-			}
-
 		protected:
 			ClassInfo(std::string_view name, size_t size, size_t alignment, FlagSet<ClassTrait> traits, const std::type_info& typeInfo) noexcept
 				:m_FullyQualifiedName(ParseToFullyQualifiedName(name, 0)), m_Size(size), m_Alignment(alignment), m_Traits(traits), m_TypeInfo(&typeInfo)
