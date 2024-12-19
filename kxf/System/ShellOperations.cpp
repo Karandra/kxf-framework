@@ -2,31 +2,24 @@
 #include "ShellOperations.h"
 #include "SystemInformation.h"
 #include "COM.h"
-#include "Private/Shell.h"
-#include "Private/KnownDirectoryGUID.h"
-#include "Private/KnownDirectoryDefinition.h"
+
+#include "kxf/Core/Any.h"
+#include "kxf/Core/UniversallyUniqueID.h"
+#include "kxf/Network/URI.h"
+#include "kxf/Drawing/BitmapImage.h"
+#include "kxf/Drawing/GDIRenderer/GDIIcon.h"
 #include "kxf/FileSystem/FileItem.h"
 #include "kxf/FileSystem/LegacyVolume.h"
 #include "kxf/FileSystem/Private/NativeFSUtility.h"
-#include "kxf/Core/UniversallyUniqueID.h"
-#include "kxf/Core/Any.h"
-#include "kxf/Network/URI.h"
-#include "kxf/Drawing/GDIRenderer/GDIIcon.h"
-#include "kxf-gui/Widgets/Common.h"
 #include "kxf/Utility/Common.h"
 #include "kxf/Utility/String.h"
 #include "kxf/Utility/ScopeGuard.h"
+#include "Private/Shell.h"
+#include "Private/KnownDirectoryGUID.h"
+#include "Private/KnownDirectoryDefinition.h"
 
-#include <Windows.h>
 #include <winnls.h>
-#include <shobjidl.h>
-#include <Shlobj.h>
-#include <objbase.h>
-#include <objidl.h>
-#include <shlwapi.h>
-#include <shlguid.h>
-#include <Shldisp.h>
-#include <KnownFolders.h>
+#include "kxf/Win32/Include-Shell.h"
 #include "kxf/Win32/UndefMacros.h"
 
 namespace
@@ -148,7 +141,7 @@ namespace
 
 namespace kxf::Shell
 {
-	bool FileOperation(SHOperationType opType, const FSPath& source, const FSPath& destination, wxWindow* window, FlagSet<SHOperationFlags> flags)
+	bool FileOperation(SHOperationType opType, const FSPath& source, const FSPath& destination, SystemWindow window, FlagSet<SHOperationFlags> flags)
 	{
 		// SHFileOperation doesn't work for paths longer than 'MAX_PATH'
 		if (source.GetLength() >= MAX_PATH || destination.GetLength() >= MAX_PATH)
@@ -188,8 +181,7 @@ namespace kxf::Shell
 		};
 
 		// Parent window
-		window = window ? wxGetTopLevelParent(window) : nullptr;
-		operationInfo.hwnd = window ? window->GetHandle() : nullptr;
+		operationInfo.hwnd = static_cast<HWND>(window.GetHandle());
 
 		// Set flags
 		FlagSet<decltype(operationInfo.fFlags)> operationInfoFlags = FOF_NOCONFIRMMKDIR;
@@ -223,9 +215,9 @@ namespace kxf::Shell
 
 		// Disable parent window if UI actions is allowed
 		bool disabled = false;
-		if (window && window->IsThisEnabled())
+		if (window && window.IsEnabled())
 		{
-			window->Disable();
+			window.SetEnabled(false);
 			disabled = true;
 		}
 		Utility::ScopeGuard atExit([&]()
@@ -233,18 +225,18 @@ namespace kxf::Shell
 			// Re-enable parent window
 			if (disabled)
 			{
-				window->Enable();
+				window.SetEnabled();
 			}
 		});
 
 		// Perform the operation, zero means function succeeded.
 		return ::SHFileOperationW(&operationInfo) == 0 && !operationInfo.fAnyOperationsAborted;
 	}
-	bool FormatVolume(const wxWindow* window, const LegacyVolume& volume, bool quickFormat) noexcept
+	bool FormatVolume(SystemWindow window, const LegacyVolume& volume, bool quickFormat) noexcept
 	{
 		if (volume && volume.DoesExist())
 		{
-			const HWND handle = reinterpret_cast<HWND>(UI::GetOwnerWindowHandle(window));
+			auto handle = static_cast<HWND>(window.GetHandle());
 			switch (::SHFormatDrive(handle, static_cast<UINT>(volume.GetIndex()), SHFMT_ID_DEFAULT, quickFormat ? SHFMT_OPT_FULL : 0))
 			{
 				case SHFMT_ERROR:
@@ -295,7 +287,7 @@ namespace kxf::Shell
 		#pragma warning(pop)
 	}
 
-	bool Execute(const wxWindow* window,
+	bool Execute(SystemWindow window,
 				 const FSPath& path,
 				 const String& command,
 				 const String& parameters,
@@ -313,7 +305,7 @@ namespace kxf::Shell
 		executeInfoMask.Add(SEE_MASK_NO_CONSOLE, flags & SHExexuteFlag::InheritConsole);
 		executeInfo.fMask = *executeInfoMask;
 
-		executeInfo.hwnd = reinterpret_cast<HWND>(UI::GetOwnerWindowHandle(window));
+		executeInfo.hwnd = static_cast<HWND>(window.GetHandle());
 		executeInfo.lpVerb = command.wc_str();
 		executeInfo.nShow = Private::MapSHWindowCommand(showWindow).value_or(SW_SHOWNORMAL);
 
@@ -328,7 +320,7 @@ namespace kxf::Shell
 		COMInitGuard comInit(COMThreadingModel::Apartment, COMInitFlag::DisableOLE1DDE);
 		return ::ShellExecuteExW(&executeInfo);
 	}
-	bool OpenURI(const wxWindow* window, const URI& uri, FlagSet<SHWindowCommand> showWindow, FlagSet<SHExexuteFlag> flags)
+	bool OpenURI(SystemWindow window, const URI& uri, FlagSet<SHWindowCommand> showWindow, FlagSet<SHExexuteFlag> flags)
 	{
 		return Execute(window, uri.BuildUnescapedURI(), {}, {}, {}, showWindow, flags);
 	}
@@ -520,13 +512,14 @@ namespace kxf::Shell
 		}
 		return result;
 	}
-	size_t EnumKnownDirectories(std::function<bool(KnownDirectoryID, String)> func)
+	CallbackResult<void> EnumKnownDirectories(CallbackFunction<KnownDirectoryID, String> func)
 	{
 		using namespace Private;
 
-		return KnownDirectoryDefinition::EnumItems([&](const KnownDirectoryDefinition::TItem& item)
+		KnownDirectoryDefinition::EnumItems([&](const KnownDirectoryDefinition::TItem& item)
 		{
-			return std::invoke(func, item.GetValue(), String(item.GetName()));
+			return func.Invoke(item.GetValue(), item.GetName()).GetLastCommand();
 		});
+		return func.Finalize();
 	}
 }

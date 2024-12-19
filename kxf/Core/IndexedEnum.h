@@ -1,6 +1,7 @@
 #pragma once
 #include "Common.h"
 #include "String.h"
+#include "CallbackFunction.h"
 #include "kxf/Utility/Common.h"
 
 namespace kxf
@@ -194,7 +195,7 @@ namespace kxf
 				for (const TItem& item: GetItems())
 				{
 					count++;
-					if (!std::invoke(func, item))
+					if (std::invoke(func, item) == CallbackCommand::Terminate)
 					{
 						break;
 					}

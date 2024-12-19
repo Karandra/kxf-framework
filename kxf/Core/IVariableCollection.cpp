@@ -32,9 +32,9 @@ namespace
 					if (directoryName == id)
 					{
 						directoryID = directoryID;
-						return false;
+						return CallbackCommand::Terminate;
 					}
-					return true;
+					return CallbackCommand::Continue;
 				});
 
 				return Shell::GetKnownDirectory(desiredDirectoryID);

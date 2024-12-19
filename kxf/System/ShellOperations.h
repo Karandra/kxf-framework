@@ -1,10 +1,11 @@
 #pragma once
 #include "Common.h"
+#include "HResult.h"
+#include "SystemWindow.h"
 #include "KnownDirectoryID.h"
 #include "kxf/Core/String.h"
-#include "kxf/System/HResult.h"
+#include "kxf/Core/CallbackFunction.h"
 #include "kxf/FileSystem/FSPath.h"
-class wxWindow;
 
 namespace kxf
 {
@@ -97,19 +98,19 @@ namespace kxf
 
 namespace kxf::Shell
 {
-	KXF_API bool FileOperation(SHOperationType opType, const FSPath& source, const FSPath& destination, wxWindow* window = nullptr, FlagSet<SHOperationFlags> flags = {});
-	KXF_API bool FormatVolume(const wxWindow* window, const LegacyVolume& volume, bool quickFormat = false) noexcept;
+	KXF_API bool FileOperation(SHOperationType opType, const FSPath& source, const FSPath& destination, SystemWindow window = {}, FlagSet<SHOperationFlags> flags = {});
+	KXF_API bool FormatVolume(SystemWindow window, const LegacyVolume& volume, bool quickFormat = false) noexcept;
 	KXF_API bool PinShortcut(const FSPath& filePath, SHPinShortcutCommand command);
 
-	KXF_API bool Execute(const wxWindow* window,
-						const FSPath& path,
-						const String& command = {},
-						const String& parameters = {},
-						const FSPath& workingDirectory = {},
-						FlagSet<SHWindowCommand> showWindow = SHWindowCommand::Show,
-						FlagSet<SHExexuteFlag> flags = {}
+	KXF_API bool Execute(SystemWindow window,
+						 const FSPath& path,
+						 const String& command = {},
+						 const String& parameters = {},
+						 const FSPath& workingDirectory = {},
+						 FlagSet<SHWindowCommand> showWindow = SHWindowCommand::Show,
+						 FlagSet<SHExexuteFlag> flags = {}
 	);
-	KXF_API bool OpenURI(const wxWindow* window, const URI& uri, FlagSet<SHWindowCommand> showWindow = SHWindowCommand::Show, FlagSet<SHExexuteFlag> flags = {});
+	KXF_API bool OpenURI(SystemWindow window, const URI& uri, FlagSet<SHWindowCommand> showWindow = SHWindowCommand::Show, FlagSet<SHExexuteFlag> flags = {});
 	KXF_API HResult ExploreToItem(const FSPath& path);
 
 	KXF_API BitmapImage GetFileIcon(const FSPath& path, FlagSet<SHGetFileIconFlag> flags);
@@ -122,5 +123,5 @@ namespace kxf::Shell
 	KXF_API HResult SetLocalizedName(const FSPath& path, const String& resourse, int resourceID);
 
 	KXF_API FSPath GetKnownDirectory(KnownDirectoryID id, FlagSet<SHGetKnownDirectoryFlag> flags = {});
-	KXF_API size_t EnumKnownDirectories(std::function<bool(KnownDirectoryID, String)> func);
+	KXF_API CallbackResult<void> EnumKnownDirectories(CallbackFunction<KnownDirectoryID, String> func);
 }
