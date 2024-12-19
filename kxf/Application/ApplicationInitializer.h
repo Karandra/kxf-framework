@@ -19,9 +19,9 @@
 	/ENTRY:mainCRTStartup
 */
 
-namespace kxf::Application::Private
+namespace kxf::wxWidgets
 {
-	class NativeApp;
+	class Application;
 }
 
 namespace kxf
@@ -29,8 +29,7 @@ namespace kxf
 	class KXF_API ApplicationInitializer final
 	{
 		private:
-			std::unique_ptr<Application::Private::NativeApp> m_NativeApp;
-
+			std::shared_ptr<wxWidgets::Application> m_wxApp;
 			ICoreApplication& m_Application;
 			XChar** m_CommandLine = nullptr;
 			int m_CommandLineCount = 0;
@@ -45,6 +44,7 @@ namespace kxf
 			bool OnInit(int argc, char** argv);
 			bool OnInit(int argc, wchar_t** argv);
 			void OnInitDone();
+			void OnTerminate();
 
 			template<class... Args>
 			void RunInitSequence(Args&&... arg)
@@ -60,8 +60,6 @@ namespace kxf
 					}
 				}
 			}
-
-			void OnTerminate();
 
 		public:
 			ApplicationInitializer(ICoreApplication& app);

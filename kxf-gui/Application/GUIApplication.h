@@ -35,6 +35,9 @@ namespace kxf
 			// ICoreApplication -> Active Event Loop
 			bool DispatchIdle() override;
 
+			// ICoreApplication -> Pending Events
+			void FinalizeScheduledForDestruction() override;
+
 			// ICoreApplication -> Exception Handler
 			bool OnMainLoopException() override;
 
@@ -42,6 +45,8 @@ namespace kxf
 			bool OnCreate() override;
 			void OnDestroy() override;
 			int OnRun() override;
+
+			std::shared_ptr<wxWidgets::Application> CreateWXApp() override;
 
 			// IGUIApplication
 			std::shared_ptr<ITopLevelWidget> GetTopWidget() const override;

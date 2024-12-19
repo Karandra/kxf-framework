@@ -38,18 +38,20 @@
   </PropertyGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)'=='Debug'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)'=='Release'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release Static'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup>
@@ -126,6 +128,8 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <SubSystem Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Windows</SubSystem>
+      <SubSystem Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Windows</SubSystem>
     </Link>
     <ResourceCompile>
       <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
@@ -162,6 +166,8 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <SubSystem Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Windows</SubSystem>
+      <SubSystem Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Windows</SubSystem>
     </Link>
     <ResourceCompile>
       <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
@@ -185,7 +191,6 @@
     <ClInclude Include="kxf\Application\IEventLoop.h" />
     <ClInclude Include="kxf\Application\IGUIApplication.h" />
     <ClInclude Include="kxf\Application\Private\CommonEventLoop.h" />
-    <ClInclude Include="kxf\Application\Private\NativeApp.h" />
     <ClInclude Include="kxf\Application\Private\Utility.h" />
     <ClInclude Include="kxf\Application\Private\Win32CommonEventLoop.h" />
     <ClInclude Include="kxf\Application\Private\Win32ConsoleEventLoop.h" />
@@ -476,6 +481,7 @@
     <ClInclude Include="kxf\System\SystemThread\RunningSystemThread.h" />
     <ClInclude Include="kxf\System\SystemThread\SystemThreadInfo.h" />
     <ClInclude Include="kxf\System\SystemWindow.h" />
+    <ClInclude Include="kxf\System\SystemWindow\AnonymousSystemWindow.h" />
     <ClInclude Include="kxf\System\SystemWindow\ISystemWindow.h" />
     <ClInclude Include="kxf\System\SystemWindow\SystemWindow.h" />
     <ClInclude Include="kxf\System\UserName.h" />
@@ -499,6 +505,7 @@
     <ClInclude Include="kxf\Utility\RecursiveCollectionEnumerator.h" />
     <ClInclude Include="kxf\Utility\SoftwareLicenseDB.h" />
     <ClInclude Include="kxf\Win32\Include-DirectX.h" />
+    <ClInclude Include="kxf\Win32\Include-Shell.h" />
     <ClInclude Include="kxf\Win32\LinkLibs-COM.h" />
     <ClInclude Include="kxf\Win32\LinkLibs-Crypto.h" />
     <ClInclude Include="kxf\Win32\LinkLibs-DirectX.h" />
@@ -509,7 +516,8 @@
     <ClInclude Include="kxf\Win32\WrapperMemory.h" />
     <ClInclude Include="kxf\Win32\UndefMacros.h" />
     <ClInclude Include="kxf\Win32\WrapperUnicode.h" />
-    <ClInclude Include="kxf\wxWidgets\Application.h" />
+    <ClInclude Include="kxf\wxWidgets\ApplicationWrapper.h" />
+    <ClInclude Include="kxf\wxWidgets\ApplicationWrapperConsole.h" />
     <ClInclude Include="kxf\wxWidgets\ClientObject.h" />
     <ClInclude Include="kxf\wxWidgets\Common.h" />
     <ClInclude Include="kxf\wxWidgets\MapConstants.h" />
@@ -649,7 +657,6 @@
     <ClCompile Include="kxf\Application\ICoreApplication.cpp" />
     <ClCompile Include="kxf\Application\IEventLoop.cpp" />
     <ClCompile Include="kxf\Application\Private\CommonEventLoop.cpp" />
-    <ClCompile Include="kxf\Application\Private\NativeApp.cpp" />
     <ClCompile Include="kxf\Application\Private\Utility.cpp" />
     <ClCompile Include="kxf\Application\Private\Win32CommonEventLoop.cpp" />
     <ClCompile Include="kxf\Application\Private\Win32ConsoleEventLoop.cpp" />
@@ -810,6 +817,7 @@
     <ClCompile Include="kxf\System\SystemThread\RunningSystemThread.cpp" />
     <ClCompile Include="kxf\System\SystemThread\SystemThreadInfo.cpp" />
     <ClCompile Include="kxf\System\SystemWindow.cpp" />
+    <ClCompile Include="kxf\System\SystemWindow\AnonymousSystemWindow.cpp" />
     <ClCompile Include="kxf\System\SystemWindow\SystemWindow.cpp" />
     <ClCompile Include="kxf\System\UserName.cpp" />
     <ClCompile Include="kxf\System\VariantProperty.cpp" />

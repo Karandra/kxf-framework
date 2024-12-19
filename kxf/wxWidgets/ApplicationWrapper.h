@@ -1,37 +1,73 @@
 #pragma once
-#include "../Common.h"
-#include "../ICoreApplication.h"
-#include "../IGUIApplication.h"
-#include "kxf/wxWidgets/Application.h"
+#include "kxf/Application/ICoreApplication.h"
+#include <wx/app.h>
 
-namespace kxf::Application::Private
+namespace kxf::wxWidgets
 {
-	class KXF_API NativeApp final: public wxWidgets::Application
+	class KXF_API Application
 	{
 		public:
-			static NativeApp* GetInstance()
-			{
-				return static_cast<NativeApp*>(wxAppConsole::GetInstance());
-			}
-
-		private:
-			ICoreApplication& m_App;
-			std::shared_ptr<IGUIApplication> m_GUIApp;
-
-		private:
-			void OnCreate();
-			void OnDestroy();
+			virtual ~Application() = default;
 
 		public:
-			NativeApp(ICoreApplication& app)
-				:m_App(app), m_GUIApp(app.QueryInterface<IGUIApplication>())
+			virtual wxAppConsole* Get() noexcept = 0;
+	};
+
+	class KXF_API ApplicationConsole: public RTTI::Interface<ApplicationConsole>, public Application, public wxAppConsole
+	{
+		kxf_RTTI_DeclareIID(ApplicationConsole, {0x912d2b7f, 0x51aa, 0x43e5, {0xa6, 0x0, 0xc4, 0xad, 0xb8, 0x59, 0xdf, 0x69}});
+
+		public:
+			static ApplicationConsole* GetInstance()
 			{
-				OnCreate();
+				return static_cast<ApplicationConsole*>(wxAppConsole::GetInstance());
 			}
-			~NativeApp()
+
+		public:
+			wxAppConsole* Get() noexcept override
 			{
-				OnDestroy();
+				return this;
 			}
+	};
+
+	class KXF_API ApplicationGUI: public RTTI::Interface<ApplicationGUI>, public Application, public wxApp
+	{
+		kxf_RTTI_DeclareIID(ApplicationGUI, {0xa856ae88, 0x6783, 0x44b8, {0x96, 0x6c, 0xe8, 0x20, 0x32, 0x6, 0xd9, 0x94}});
+
+		public:
+			static ApplicationGUI* GetInstance()
+			{
+				return static_cast<ApplicationGUI*>(wxApp::GetInstance());
+			}
+
+		public:
+			wxAppConsole* Get() noexcept override
+			{
+				return this;
+			}
+	};
+}
+
+namespace kxf::wxWidgets
+{
+	template<class TDerived, class TApp>
+	class ApplicationWrapperCommon: public TApp
+	{
+		public:
+			static TDerived* GetInstance()
+			{
+				return static_cast<TDerived*>(TApp::GetInstance());
+			}
+
+		protected:
+			ICoreApplication& m_App;
+
+		public:
+			ApplicationWrapperCommon(ICoreApplication& app)
+				:m_App(app)
+			{
+			}
+			~ApplicationWrapperCommon() = default;
 
 		public:
 			// Exceptions support
@@ -86,11 +122,11 @@ namespace kxf::Application::Private
 			}
 			void OnEventLoopEnter(wxEventLoopBase* loop) override
 			{
-				Application::OnEventLoopEnter(loop);
+				TApp::OnEventLoopEnter(loop);
 			}
 			void OnEventLoopExit(wxEventLoopBase* loop) override
 			{
-				Application::OnEventLoopExit(loop);
+				TApp::OnEventLoopExit(loop);
 			}
 
 			bool Pending() override
@@ -114,11 +150,11 @@ namespace kxf::Application::Private
 			void ProcessPendingEvents() override
 			{
 				m_App.ProcessPendingEventHandlers();
-				Application::ProcessPendingEvents();
+				TApp::ProcessPendingEvents();
 			}
 			void DeletePendingObjects()
 			{
-				Application::DeletePendingObjects();
+				TApp::DeletePendingObjects();
 			}
 
 			// Command line
@@ -137,38 +173,5 @@ namespace kxf::Application::Private
 			{
 				return true;
 			}
-
-			// GUI
-			bool IsActive() const override
-			{
-				return m_GUIApp ? m_GUIApp->IsActive() : false;
-			}
-			wxWindow* GetTopWindow() const override;
-			
-			wxLayoutDirection GetLayoutDirection() const override
-			{
-				if (m_GUIApp)
-				{
-					switch (m_GUIApp->GetLayoutDirection())
-					{
-						case LayoutDirection::LeftToRight:
-						{
-							return wxLayoutDirection::wxLayout_LeftToRight;
-						}
-						case LayoutDirection::RightToLeft:
-						{
-							return wxLayoutDirection::wxLayout_RightToLeft;
-						}
-					};
-				}
-				return wxLayoutDirection::wxLayout_Default;
-			}
-			bool SetNativeTheme(const wxString& themeName) override
-			{
-				return m_GUIApp ? m_GUIApp->SetNativeTheme(themeName) : false;
-			}
-
-			bool SafeYield(wxWindow* window, bool onlyIfNeeded) override;
-			bool SafeYieldFor(wxWindow* window, long eventsToProcess) override;
 	};
 }

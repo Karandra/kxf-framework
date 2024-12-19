@@ -124,6 +124,9 @@
     <Filter Include="kxf-gui\Widgets\&lt;Interfaces&gt;">
       <UniqueIdentifier>{e1338d5f-06dc-4e0d-93ad-ea4cb2fb9041}</UniqueIdentifier>
     </Filter>
+    <Filter Include="kxf-gui\wxWidgets">
+      <UniqueIdentifier>{84da7440-9d3a-4ff1-afbe-aed1381260a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kxf-gui\pch.hpp">
@@ -987,6 +990,9 @@
     <ClInclude Include="kxf-gui\Widgets\IGraphicsRendererAwareWidget.h">
       <Filter>kxf-gui\Widgets\&lt;Interfaces&gt;</Filter>
     </ClInclude>
+    <ClInclude Include="kxf-gui\wxWidgets\ApplicationWrapperGUI.h">
+      <Filter>kxf-gui\wxWidgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf-gui\+PCH\kxf-pch.cpp">
@@ -1582,6 +1588,9 @@
     </ClCompile>
     <ClCompile Include="kxf-gui\Widgets\IWidget.cpp">
       <Filter>kxf-gui\Widgets\&lt;Interfaces&gt;</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf-gui\wxWidgets\ApplicationWrapperGUI.cpp">
+      <Filter>kxf-gui\wxWidgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

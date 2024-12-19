@@ -687,7 +687,7 @@
     <ClInclude Include="kxf\EventSystem\IEventFilter.h">
       <Filter>kxf\EventSystem</Filter>
     </ClInclude>
-    <ClInclude Include="kxf\wxWidgets\Application.h">
+    <ClInclude Include="kxf\wxWidgets\ApplicationWrapper.h">
       <Filter>kxf\wxWidgets</Filter>
     </ClInclude>
     <ClInclude Include="kxf\Threading\RecursiveRWLock.h">
@@ -725,9 +725,6 @@
     </ClInclude>
     <ClInclude Include="kxf\Application\IGUIApplication.h">
       <Filter>kxf\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="kxf\Application\Private\NativeApp.h">
-      <Filter>kxf\Application\Private</Filter>
     </ClInclude>
     <ClInclude Include="kxf\EventSystem\IEvent.h">
       <Filter>kxf\EventSystem</Filter>
@@ -1581,6 +1578,15 @@
     <ClInclude Include="kxf\DateTime\SimpleTimer.h">
       <Filter>kxf\DateTime</Filter>
     </ClInclude>
+    <ClInclude Include="kxf\System\SystemWindow\AnonymousSystemWindow.h">
+      <Filter>kxf\System\SystemWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\wxWidgets\ApplicationWrapperConsole.h">
+      <Filter>kxf\wxWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\Win32\Include-Shell.h">
+      <Filter>kxf\Win32</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf\EventSystem\EventBuilder.cpp">
@@ -1831,9 +1837,6 @@
     </ClCompile>
     <ClCompile Include="kxf\Application\ICoreApplication.cpp">
       <Filter>kxf\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="kxf\Application\Private\NativeApp.cpp">
-      <Filter>kxf\Application\Private</Filter>
     </ClCompile>
     <ClCompile Include="kxf\Application\Private\Utility.cpp">
       <Filter>kxf\Application\Private</Filter>
@@ -2278,6 +2281,9 @@
     </ClCompile>
     <ClCompile Include="kxf\DateTime\SimpleTimer.cpp">
       <Filter>kxf\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="kxf\System\SystemWindow\AnonymousSystemWindow.cpp">
+      <Filter>kxf\System\SystemWindow</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,13 @@
 #include "kxf-pch.h"
 #include "GUIApplication.h"
 #include "kxf/Application/Private/Utility.h"
-#include "kxf/Application/Private/NativeApp.h"
 #include "kxf/System/SystemInformation.h"
 #include "kxf/System/SystemAppearance.h"
-#include "kxf/wxWidgets/Application.h"
 #include "kxf/Utility/Container.h"
+#include "kxf/Log/ScopedLogger.h"
 #include "Private/Win32GUIEventLoop.h"
 #include "kxf-gui/Widgets/ITopLevelWidget.h"
+#include "kxf-gui/wxWidgets/ApplicationWrapperGUI.h"
 #include <uxtheme.h>
 
 namespace kxf
@@ -34,9 +34,9 @@ namespace kxf
 	{
 		// Send an event to the application instance itself first
 		bool needMore = CoreApplication::DispatchIdle();
-		if (auto nativeApp = Application::Private::NativeApp::GetInstance())
+		if (auto nativeApp = wxApp::GetInstance())
 		{
-			if (nativeApp->wxApp::ProcessIdle())
+			if (nativeApp->ProcessIdle())
 			{
 				needMore = true;
 			}
@@ -57,6 +57,27 @@ namespace kxf
 		return needMore;
 	}
 
+	// ICoreApplication -> Pending Events
+	void GUIApplication::FinalizeScheduledForDestruction()
+	{
+		if (auto app = wxWidgets::ApplicationWrapperGUI::GetInstance())
+		{
+			app->DeletePendingObjects();
+		}
+
+		if (WriteLockGuard lock(m_ScheduledForDestructionLock); !m_ScheduledForDestruction.empty())
+		{
+			for (auto& item: m_ScheduledForDestruction)
+			{
+				if (auto widget = item->QueryInterface<IWidget>())
+				{
+					widget->DestroyWidget();
+				}
+			}
+			m_ScheduledForDestruction.clear();
+		}
+	}
+
 	// ICoreApplication -> Exception Handler
 	bool GUIApplication::OnMainLoopException()
 	{
@@ -66,12 +87,13 @@ namespace kxf
 	// ICoreApplication -> Application
 	bool GUIApplication::OnCreate()
 	{
-		m_LayoutDirection = GUIApplication::GetLayoutDirection();
+		KXF_SCOPEDLOG_FUNC;
 
-		if (auto app = Application::Private::NativeApp::GetInstance())
+		m_LayoutDirection = GUIApplication::GetLayoutDirection();
+		if (auto app = wxApp::GetInstance())
 		{
 			int argc = m_ArgC;
-			m_NativeAppInitialized = app->wxApp::Initialize(argc, m_ArgVW);
+			m_NativeAppInitialized = app->Initialize(argc, m_ArgVW);
 
 			if (!m_NativeAppInitialized)
 			{
@@ -79,15 +101,16 @@ namespace kxf
 			}
 		}
 
+		KXF_SCOPEDLOG.SetSuccess();
 		return CoreApplication::OnCreate();
 	}
 	void GUIApplication::OnDestroy()
 	{
 		if (m_NativeAppInitialized)
 		{
-			if (auto app = Application::Private::NativeApp::GetInstance())
+			if (auto app = wxApp::GetInstance())
 			{
-				app->wxApp::CleanUp();
+				app->CleanUp();
 				m_NativeAppCleanedUp = true;
 			}
 		}
@@ -101,7 +124,7 @@ namespace kxf
 			m_ExitWhenLastWidgetDestroyed = ExitWhenLastWidgetDestroyed::Always;
 
 			// Notify the wxWidgets application
-			if (auto app = Application::Private::NativeApp::GetInstance())
+			if (auto app = static_cast<wxApp*>(wxApp::GetInstance()))
 			{
 				app->SetExitOnFrameDelete(true);
 			}
@@ -109,6 +132,11 @@ namespace kxf
 
 		// Run the main loop
 		return CoreApplication::OnRun();
+	}
+
+	std::shared_ptr<kxf::wxWidgets::Application> GUIApplication::CreateWXApp()
+	{
+		return std::make_shared<kxf::wxWidgets::ApplicationWrapperGUI>(*this, *this);
 	}
 
 	// IGUIApplication
@@ -137,7 +165,7 @@ namespace kxf
 	{
 		m_TopWidget = widget;
 
-		if (auto app = Application::Private::NativeApp::GetInstance())
+		if (auto app = static_cast<wxApp*>(wxApp::GetInstance()))
 		{
 			app->SetTopWindow(widget ? widget->GetWxWindow() : nullptr);
 		}
@@ -150,7 +178,7 @@ namespace kxf
 	void GUIApplication::ExitWhenLastWidgetDestroyed(bool enable)
 	{
 		m_ExitWhenLastWidgetDestroyed = enable ? ExitWhenLastWidgetDestroyed::Always : ExitWhenLastWidgetDestroyed::Never;
-		if (auto app = Application::Private::NativeApp::GetInstance())
+		if (auto app = static_cast<wxApp*>(wxApp::GetInstance()))
 		{
 			app->SetExitOnFrameDelete(enable);
 		}

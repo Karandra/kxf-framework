@@ -1,7 +1,6 @@
 #include "kxf-pch.h"
 #include "CoreApplication.h"
 #include "Private/Utility.h"
-#include "Private/NativeApp.h"
 #include "Private/Win32ConsoleEventLoop.h"
 #include "kxf/Core/Enumerator.h"
 #include "kxf/Log/ScopedLogger.h"
@@ -13,10 +12,10 @@
 #include "kxf/System/DynamicLibraryEvent.h"
 #include "kxf/Utility/Container.h"
 #include "kxf/Utility/ScopeGuard.h"
-#include "kxf/wxWidgets/Application.h"
+#include "kxf/wxWidgets/ApplicationWrapper.h"
+#include "kxf/wxWidgets/ApplicationWrapperConsole.h"
 #include "kxf/wxWidgets/EvtHandlerWrapper.h"
 #include "kxf/wxWidgets/Setup.h"
-#include "kxf-gui/Widgets/IWidget.h"
 
 namespace
 {
@@ -176,13 +175,24 @@ namespace kxf
 	// IObject
 	RTTI::QueryInfo CoreApplication::DoQueryInterface(const IID& iid) noexcept
 	{
-		if (iid.IsOfType<wxWidgets::Application>() || iid.IsOfType<wxWidgets::ApplicationConsole>())
+		if (auto app = wxAppConsole::GetInstance())
 		{
-			if (auto app = Application::Private::NativeApp::GetInstance())
+			if (iid.IsOfType<wxWidgets::ApplicationConsole>())
 			{
-				return app->QueryInterface(iid);
+				if (auto appConsole = dynamic_cast<wxWidgets::ApplicationConsole*>(app))
+				{
+					return appConsole->QueryInterface(iid);
+				}
+				return nullptr;
 			}
-			return nullptr;
+			else if (iid.IsOfType<wxWidgets::ApplicationGUI>())
+			{
+				if (auto appGUI = dynamic_cast<wxWidgets::ApplicationGUI*>(app))
+				{
+					return appGUI->QueryInterface(iid);
+				}
+				return nullptr;
+			}
 		}
 		return TBaseClass::DoQueryInterface(iid);
 	}
@@ -433,20 +443,13 @@ namespace kxf
 	}
 	void CoreApplication::FinalizeScheduledForDestruction()
 	{
-		if (auto app = Application::Private::NativeApp::GetInstance())
+		if (auto app = wxWidgets::ApplicationWrapperConsole::GetInstance())
 		{
 			app->DeletePendingObjects();
 		}
 
 		if (WriteLockGuard lock(m_ScheduledForDestructionLock); !m_ScheduledForDestruction.empty())
 		{
-			for (auto& item: m_ScheduledForDestruction)
-			{
-				if (auto widget = item->QueryInterface<IWidget>())
-				{
-					widget->DestroyWidget();
-				}
-			}
 			m_ScheduledForDestruction.clear();
 		}
 	}
@@ -725,7 +728,7 @@ namespace kxf
 			if (auto app = wxAppConsole::GetInstance())
 			{
 				int argc = m_ArgC;
-				m_NativeAppInitialized = app->wxAppConsole::Initialize(argc, m_ArgVW);
+				m_NativeAppInitialized = app->Initialize(argc, m_ArgVW);
 				if (!m_NativeAppInitialized)
 				{
 					KXF_SCOPEDLOG.SetFail();
@@ -842,5 +845,10 @@ namespace kxf
 
 		// Do nothing by default if there are no event filters
 		return Result::Skip;
+	}
+
+	std::shared_ptr<wxWidgets::Application> CoreApplication::CreateWXApp()
+	{
+		return std::make_shared<wxWidgets::ApplicationWrapperConsole>(*this);
 	}
 }

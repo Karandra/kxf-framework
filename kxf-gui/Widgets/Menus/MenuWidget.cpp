@@ -140,7 +140,7 @@ namespace kxf::Widgets
 		return nullptr;
 	}
 
-	bool MenuWidget::HandleMessage(intptr_t& result, uint32_t msg, intptr_t wParam, intptr_t lParam)
+	CallbackResult<intptr_t> MenuWidget::HandleMessage(uint32_t msg, intptr_t wParam, intptr_t lParam)
 	{
 		switch (msg)
 		{
@@ -180,8 +180,7 @@ namespace kxf::Widgets
 						}
 					}
 
-					result = TRUE;
-					return true;
+					return {CallbackCommand::Continue, TRUE};
 				}
 				break;
 			}
@@ -224,8 +223,7 @@ namespace kxf::Widgets
 						}
 					}
 
-					result = TRUE;
-					return true;
+					return {CallbackCommand::Continue, TRUE};
 				}
 				break;
 			}
@@ -243,8 +241,7 @@ namespace kxf::Widgets
 						measureItem->itemWidth = static_cast<uint32_t>(size.GetWidth());
 						measureItem->itemHeight = static_cast<uint32_t>(size.GetHeight());
 
-						result = TRUE;
-						return handled;
+						return {handled ? CallbackCommand::Continue : CallbackCommand::Discard, TRUE};
 					}
 				}
 				break;
@@ -261,8 +258,7 @@ namespace kxf::Widgets
 						wxDCTemp dc(static_cast<HDC>(drawItem->hDC));
 						if (menuItem->OnDrawItem(dc, Utility::FromWindowsRect(drawItem->rcItem), static_cast<wxOwnerDrawn::wxODAction>(drawItem->itemAction), static_cast<wxOwnerDrawn::wxODStatus>(drawItem->itemState)))
 						{
-							result = TRUE;
-							return true;
+							return {CallbackCommand::Continue, TRUE};
 						}
 					}
 				}
@@ -280,15 +276,15 @@ namespace kxf::Widgets
 				break;
 			}
 		};
-		return false;
+		return {CallbackCommand::Discard, FALSE};
 	}
 	bool MenuWidget::DoShow(Point screenPos, FlagSet<Alignment> alignment, std::shared_ptr<IWidget> invokingWidget)
 	{
 		if (!m_NativeWindow)
 		{
-			m_NativeWindow.Create([&](intptr_t& result, uint32_t msg, intptr_t wParam, intptr_t lParam)
+			m_NativeWindow.Create([&](uint32_t msg, intptr_t wParam, intptr_t lParam)
 			{
-				return HandleMessage(result, msg, wParam, lParam);
+				return HandleMessage(msg, wParam, lParam);
 			});
 			if (!m_NativeWindow)
 			{

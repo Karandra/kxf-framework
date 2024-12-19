@@ -100,7 +100,7 @@ namespace kxf::Widgets
 				}
 				return GetInvokingWidget();
 			}
-			bool HandleMessage(intptr_t& result, uint32_t msg, intptr_t wParam, intptr_t lParam);
+			CallbackResult<intptr_t> HandleMessage(uint32_t msg, intptr_t wParam, intptr_t lParam);
 			bool DoShow(Point screenPos, FlagSet<Alignment> alignment, std::shared_ptr<IWidget> invokingWidget);
 
 			virtual std::shared_ptr<MenuWidgetItem> DoCreateItem();

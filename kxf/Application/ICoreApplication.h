@@ -14,6 +14,10 @@ namespace kxf
 	class IAsyncTaskExecutor;
 	class CommandLineParser;
 }
+namespace kxf::wxWidgets
+{
+	class Application;
+}
 
 namespace kxf
 {
@@ -144,5 +148,7 @@ namespace kxf
 
 			virtual IAsyncTaskExecutor& GetTaskExecutor() = 0;
 			virtual const ILocalizationPackage& GetLocalizationPackage() const = 0;
+
+			virtual std::shared_ptr<wxWidgets::Application> CreateWXApp() = 0;
 	};
 }

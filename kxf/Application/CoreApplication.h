@@ -305,5 +305,6 @@ namespace kxf
 			{
 				return m_TaskExecutor;
 			}
+			std::shared_ptr<wxWidgets::Application> CreateWXApp() override;
 	};
 }

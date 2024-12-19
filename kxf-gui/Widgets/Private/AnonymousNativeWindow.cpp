@@ -18,4 +18,6 @@ namespace kxf::Private
 		}
 		return m_WxWindow.get();
 	}
+
+	AnonymousNativeWindow::~AnonymousNativeWindow() = default;
 }

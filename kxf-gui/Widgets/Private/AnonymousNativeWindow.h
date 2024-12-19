@@ -16,7 +16,7 @@ namespace kxf::Private
 
 		public:
 			AnonymousNativeWindow() noexcept;
-			using AnonymousSystemWindow::AnonymousSystemWindow;
+			~AnonymousNativeWindow();
 
 		public:
 			wxWindow* GetWxWindow();

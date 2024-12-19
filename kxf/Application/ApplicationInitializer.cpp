@@ -1,22 +1,26 @@
 #include "kxf-pch.h"
 #include "ApplicationInitializer.h"
-#include "kxf/wxWidgets/Application.h"
 #include "kxf/Utility/ScopeGuard.h"
 #include "kxf/Log/ScopedLogger.h"
-#include "Private/NativeApp.h"
+#include "kxf/wxWidgets/ApplicationWrapper.h"
+
 #include <wx/init.h>
 #include <wx/except.h>
+#include "kxf/Win32/UndefMacros.h"
 
 namespace kxf
 {
 	bool ApplicationInitializer::OnInitCommon()
 	{
 		wxDISABLE_DEBUG_SUPPORT();
+
 		if (wxAppConsole::CheckBuildOptions(WX_BUILD_OPTIONS_SIGNATURE, m_Application.GetDisplayName().nc_str()))
 		{
 			// This will tell 'wxInitialize' to use already existing application instance instead of attempting to create a new one
-			m_NativeApp = std::make_unique<Application::Private::NativeApp>(m_Application);
-			wxAppConsole::SetInstance(m_NativeApp.get());
+			if (m_wxApp = m_Application.CreateWXApp())
+			{
+				wxAppConsole::SetInstance(m_wxApp->Get());
+			}
 
 			// We're not using the dynamic 'wxApp' initialization
 			wxAppConsole::SetInitializerFunction(nullptr);
@@ -51,7 +55,6 @@ namespace kxf
 		// Initialization is done successfully, we can assign 'ICoreApplication' instance now.
 		ICoreApplication::SetInstance(&m_Application);
 	}
-
 	void ApplicationInitializer::OnTerminate()
 	{
 		KXF_SCOPEDLOG_FUNC;
@@ -65,10 +68,10 @@ namespace kxf
 		if (m_IsInitializedCommon)
 		{
 			// Reset application object (and its pointer) prior to calling 'wxUninitialize' as it'll
-			// try to call C++ 'operator delete' on the instance if it's still there assuming it was created
-			// using 'operator new'.
+			// try to call C++ 'operator delete' on the instance if it's still there with the assumption
+			// it was created using 'operator new'.
 			wxAppConsole::SetInstance(nullptr);
-			m_NativeApp = nullptr;
+			m_wxApp = nullptr;
 
 			if (m_IsInitialized)
 			{

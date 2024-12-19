@@ -38,18 +38,20 @@
   </PropertyGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)'=='Debug'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)'=='Release'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release Static'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup>
@@ -460,6 +462,7 @@
     <ClInclude Include="kxf-gui\Widgets\Windows\TopLevelWindow.h" />
     <ClInclude Include="kxf-gui\Widgets\WindowUpdateLocker.h" />
     <ClInclude Include="kxf-gui\Widgets\WindowWithStyles.h" />
+    <ClInclude Include="kxf-gui\wxWidgets\ApplicationWrapperGUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kxf-gui\+PCH\kxf-pch.cpp">
@@ -667,6 +670,7 @@
     <ClCompile Include="kxf-gui\Widgets\Windows\SplitterWindow.cpp" />
     <ClCompile Include="kxf-gui\Widgets\Windows\ToolTipEx.cpp" />
     <ClCompile Include="kxf-gui\Widgets\Windows\TopLevelWindow.cpp" />
+    <ClCompile Include="kxf-gui\wxWidgets\ApplicationWrapperGUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="kxf-gui\Sciter\Stylesheets\MasterStylesheet.css" />
