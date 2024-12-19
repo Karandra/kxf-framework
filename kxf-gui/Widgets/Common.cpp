@@ -1,6 +1,7 @@
 #include "kxf-pch.h"
 #include "Common.h"
 #include "IWidget.h"
+#include "Private/Common.h"
 
 #include <wx/event.h>
 #include <wx/object.h>
@@ -35,6 +36,15 @@ namespace kxf::Widgets
 	Point GetMouseCoordinates(const IWidget& widget) noexcept
 	{
 		return widget.ScreenToClient(GetMouseCoordinates());
+	}
+
+	std::shared_ptr<IWidget> GetFocusedWidget() noexcept
+	{
+		if (auto window = wxWindow::FindFocus())
+		{
+			return Private::FindByWXObject(*window);
+		}
+		return nullptr;
 	}
 }
 

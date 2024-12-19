@@ -136,7 +136,7 @@ namespace kxf::DataView
 
 		if (m_SetFocusOnIdle && !m_IsFinished)
 		{
-			if (IWidget::FindFocus().get() != &GetWidget())
+			if (Widgets::GetFocusedWidget().get() != &GetWidget())
 			{
 				GetWidget().SetFocus();
 			}

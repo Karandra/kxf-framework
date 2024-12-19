@@ -102,11 +102,13 @@ namespace kxf
 
 namespace kxf::Widgets
 {
-	String RemoveMnemonics(const String& text);
-	String EscapeMnemonics(const String& text);
+	KXF_API String RemoveMnemonics(const String& text);
+	KXF_API String EscapeMnemonics(const String& text);
 
-	Point GetMouseCoordinates() noexcept;
-	Point GetMouseCoordinates(const IWidget& widget) noexcept;
+	KXF_API Point GetMouseCoordinates() noexcept;
+	KXF_API Point GetMouseCoordinates(const IWidget& widget) noexcept;
+
+	KXF_API std::shared_ptr<IWidget> GetFocusedWidget() noexcept;
 }
 
 namespace kxf::UI

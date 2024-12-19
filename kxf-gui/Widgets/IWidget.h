@@ -13,9 +13,6 @@ namespace kxf
 		template<std::derived_from<IWidget> TWidget>
 		friend std::shared_ptr<TWidget> NewWidget();
 
-		public:
-			static std::shared_ptr<IWidget> FindFocus() noexcept;
-
 		protected:
 			virtual void InheritVisualAttributes(const IWidget& parent) = 0;
 
