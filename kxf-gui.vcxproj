@@ -5,12 +5,12 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release MT|Win32">
-      <Configuration>Release MT</Configuration>
+    <ProjectConfiguration Include="Release Static|Win32">
+      <Configuration>Release Static</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release MT|x64">
-      <Configuration>Release MT</Configuration>
+    <ProjectConfiguration Include="Release Static|x64">
+      <Configuration>Release Static</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
@@ -49,7 +49,7 @@
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)'=='Release'">
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='Release MT'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)'=='Release Static'" Label="Configuration">
     <UseDebugLibraries>false</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup>
@@ -62,7 +62,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Static|Win32'">
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -71,7 +71,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Static|x64'">
     <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
@@ -136,7 +136,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release MT'">
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release Static'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -146,12 +146,12 @@
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ResourceCompile>
-      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release Static|Win32'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Static|Win32'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
     </ResourceCompile>
     <ResourceCompile>
-      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
+      <ResourceOutputFileName Condition="'$(Configuration)|$(Platform)'=='Release Static|x64'">$(IntDir)$(TargetName).resources\%(Filename).res</ResourceOutputFileName>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release Static|x64'">$(ProjectDir)kxf\+Resources\</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
@@ -464,10 +464,10 @@
   <ItemGroup>
     <ClCompile Include="kxf-gui\+PCH\kxf-pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release MT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release Static|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release MT|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release Static|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="kxf-gui\Application\GUIApplication.cpp" />
