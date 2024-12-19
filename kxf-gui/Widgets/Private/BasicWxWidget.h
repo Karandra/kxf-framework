@@ -251,6 +251,12 @@ namespace kxf::Private
 				m_Window.Initialize(std::make_unique<TWindow>(Self(), std::forward<Args>(arg)...));
 			}
 
+			// IWidget
+			void InheritVisualAttributes(const IWidget& parent) override
+			{
+				IWidget::InheritVisualAttributes(parent);
+			}
+
 		protected:
 			// IEvtHandler
 			LocallyUniqueID DoBind(const EventID& eventID, std::unique_ptr<IEventExecutor> executor, FlagSet<BindEventFlag> flags = {}) override

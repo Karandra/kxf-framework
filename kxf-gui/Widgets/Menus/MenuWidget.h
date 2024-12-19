@@ -107,6 +107,12 @@ namespace kxf::Widgets
 			bool DoDestroyWidget(bool releaseWX = false);
 			void OnWXMenuDestroyed();
 
+			// IWidget
+			void InheritVisualAttributes(const IWidget& parent) override
+			{
+				IWidget::InheritVisualAttributes(parent);
+			}
+
 		public:
 			MenuWidget();
 			MenuWidget(const MenuWidget&) = delete;

@@ -17,7 +17,7 @@ namespace kxf
 			static std::shared_ptr<IWidget> FindFocus() noexcept;
 
 		protected:
-			virtual void InheritVisualAttributes(const IWidget& parent);
+			virtual void InheritVisualAttributes(const IWidget& parent) = 0;
 
 		public:
 			virtual ~IWidget() = default;
