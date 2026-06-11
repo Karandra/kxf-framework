@@ -169,6 +169,9 @@
     <Filter Include="kxf\Crypto">
       <UniqueIdentifier>{a22e20b9-4de3-47e4-ace6-bcc7101c470c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="kxf\VirtualFS">
+      <UniqueIdentifier>{f8d6b14e-0e3e-49bc-8505-86288c95ee36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kxf\Threading\Common.h">
@@ -1253,6 +1256,9 @@
     </ClInclude>
     <ClInclude Include="kxf\Serialization\StringTokenizer.h">
       <Filter>kxf\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\VirtualFS\Common.h">
+      <Filter>kxf\VirtualFS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

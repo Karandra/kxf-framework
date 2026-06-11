@@ -424,6 +424,7 @@
     <ClInclude Include="kxf\Utility\Functional.h" />
     <ClInclude Include="kxf\Utility\Literals.h" />
     <ClInclude Include="kxf\Utility\SoftwareLicenseDB.h" />
+    <ClInclude Include="kxf\VirtualFS\Common.h" />
     <ClInclude Include="kxf\Win32\Include-DirectX.h" />
     <ClInclude Include="kxf\Win32\Include-Network.h" />
     <ClInclude Include="kxf\Win32\Include-Shell.h" />

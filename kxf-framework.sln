@@ -27,6 +27,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf-compression", "kxf-comp
 		{157DA1E6-2B05-4203-8284-9A9EDD0F1235} = {157DA1E6-2B05-4203-8284-9A9EDD0F1235}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kxf-virtualfs", "kxf-virtualfs.vcxproj", "{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{157DA1E6-2B05-4203-8284-9A9EDD0F1235} = {157DA1E6-2B05-4203-8284-9A9EDD0F1235}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -93,6 +98,18 @@ Global
 		{2222ECA1-5662-489A-9DB1-83671E30A775}.Release|x64.Build.0 = Release|x64
 		{2222ECA1-5662-489A-9DB1-83671E30A775}.Release|x86.ActiveCfg = Release|Win32
 		{2222ECA1-5662-489A-9DB1-83671E30A775}.Release|x86.Build.0 = Release|Win32
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Debug|x64.ActiveCfg = Debug|x64
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Debug|x64.Build.0 = Debug|x64
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Debug|x86.ActiveCfg = Debug|Win32
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Debug|x86.Build.0 = Debug|Win32
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Release Static|x64.ActiveCfg = Release Static|x64
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Release Static|x64.Build.0 = Release Static|x64
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Release Static|x86.ActiveCfg = Release Static|Win32
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Release Static|x86.Build.0 = Release Static|Win32
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Release|x64.ActiveCfg = Release|x64
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Release|x64.Build.0 = Release|x64
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Release|x86.ActiveCfg = Release|Win32
+		{6AF2ADA0-5F31-4EE5-8D0D-1412F3D4D1E8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

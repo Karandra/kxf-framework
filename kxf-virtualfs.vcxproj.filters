@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="kxf-virtualfs">
+      <UniqueIdentifier>{b754c7f1-7cfc-4648-b498-fd9750d8b242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-virtualfs/+PCH">
+      <UniqueIdentifier>{41eede33-8691-4162-8bf6-d3e5c13b4a89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf-virtualfs/+Resources">
+      <UniqueIdentifier>{0ca53471-4645-42d9-a8a6-7201d33f4451}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf">
+      <UniqueIdentifier>{195735c6-056c-4db8-ba50-ea27daffe07f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kxf\VirtualFS">
+      <UniqueIdentifier>{458f37b5-a611-4fa2-89dd-6c4ca4fd6376}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kxf-virtualfs\pch.hpp">
+      <Filter>kxf-virtualfs</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-virtualfs\+PCH\kxf-pch.h">
+      <Filter>kxf-virtualfs/+PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-virtualfs\Common.hpp">
+      <Filter>kxf-virtualfs</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf\VirtualFS\Common.h">
+      <Filter>kxf\VirtualFS</Filter>
+    </ClInclude>
+    <ClInclude Include="kxf-virtualfs\+Resources\kxf-resources.h">
+      <Filter>kxf-virtualfs/+Resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="kxf-virtualfs\+PCH\kxf-pch.cpp">
+      <Filter>kxf-virtualfs/+PCH</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="kxf-virtualfs\+Resources\kxf-resources.rc">
+      <Filter>kxf-virtualfs/+Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
