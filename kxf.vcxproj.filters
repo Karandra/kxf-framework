@@ -1811,7 +1811,9 @@
     <ClCompile Include="kxf\Serialization\StringTokenizer.cpp">
       <Filter>kxf\Serialization</Filter>
     </ClCompile>
-    <ClCompile Include="kxf\Serialization\XDocument.cpp" />
+    <ClCompile Include="kxf\Serialization\XDocument.cpp">
+      <Filter>kxf\Serialization</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="kxf\System\Private\ErrorCodeNtStatus.i">
