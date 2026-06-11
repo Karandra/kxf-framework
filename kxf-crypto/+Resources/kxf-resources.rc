@@ -45,7 +45,7 @@ BEGIN
             VALUE "FileDescription", "kxf-framework: crypto"
             VALUE "FileVersion", "2.0.0.0"
             VALUE "InternalName", "kxf-crypto.dll"
-            VALUE "LegalCopyright", "CopyrightÂ© 2016-2025 Karandra"
+            VALUE "LegalCopyright", "Copyright© 2016-2026 Karandra"
             VALUE "OriginalFilename", "kxf-crypto.dll"
             VALUE "ProductName", "kxf-framework"
             VALUE "ProductVersion", "2.0.0.0"
